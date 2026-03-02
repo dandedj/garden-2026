@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Garden Supplies — 2026</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: #f5f0e8; color: #333; padding: 24px; }
+  h1 { font-size: 28px; color: #2d5016; margin-bottom: 4px; }
+  .subtitle { color: #666; font-size: 14px; margin-bottom: 24px; }
+  h2 { font-size: 20px; color: #2d5016; margin: 32px 0 16px; padding-bottom: 8px; border-bottom: 2px solid #c5ddb0; }
+  h2:first-of-type { margin-top: 16px; }
+
+  .section { max-width: 1000px; margin: 0 auto; }
+
+  /* Summary bar */
+  .summary-bar { background: linear-gradient(135deg, #2d5016, #4a7c2e); color: white; border-radius: 12px; padding: 20px 28px; margin-bottom: 28px; display: flex; gap: 32px; flex-wrap: wrap; align-items: center; }
+  .summary-stat { text-align: center; }
+  .summary-stat .num { font-size: 28px; font-weight: 700; }
+  .summary-stat .label { font-size: 12px; opacity: 0.85; text-transform: uppercase; letter-spacing: 1px; }
+
+  /* Category cards */
+  .category { background: white; border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin-bottom: 20px; }
+  .category-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+  .category-title { font-size: 18px; font-weight: 600; color: #2d5016; }
+  .category-badge { background: #e8f5e1; color: #2d5016; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600; }
+
+  /* Item rows */
+  .item { display: grid; grid-template-columns: 1fr auto auto auto; gap: 12px; align-items: center; padding: 14px 0; border-bottom: 1px solid #f0ece4; }
+  .item:last-child { border-bottom: none; }
+  .item-name { font-weight: 600; font-size: 14px; }
+  .item-desc { font-size: 12px; color: #666; margin-top: 2px; }
+  .item-when { font-size: 12px; color: #888; white-space: nowrap; }
+  .item-price { font-size: 14px; font-weight: 600; color: #2d5016; white-space: nowrap; min-width: 60px; text-align: right; }
+  .item-link a { display: inline-block; padding: 6px 14px; background: #2d5016; color: white; text-decoration: none; border-radius: 6px; font-size: 12px; font-weight: 500; white-space: nowrap; transition: background 0.2s; }
+  .item-link a:hover { background: #4a7c2e; }
+  .item-link a.hd { background: #f96302; }
+  .item-link a.hd:hover { background: #d45500; }
+
+  /* Checklist */
+  .check-label { display: flex; gap: 8px; align-items: flex-start; cursor: pointer; }
+  .check-label input[type="checkbox"] { margin-top: 3px; accent-color: #2d5016; width: 16px; height: 16px; }
+  .check-label.checked .item-name { text-decoration: line-through; color: #999; }
+  .purchased-banner { background: #d5f5e3; color: #1e8449; border-radius: 8px; padding: 10px 16px; margin-bottom: 16px; font-size: 13px; font-weight: 600; }
+  .purchased-banner::before { content: "✅ "; }
+
+  /* Timeline badges */
+  .when-badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+  .when-now { background: #fdebd0; color: #b7791f; }
+  .when-mar { background: #d5f5e3; color: #1e8449; }
+  .when-apr { background: #d6eaf8; color: #2471a3; }
+  .when-may { background: #fadbd8; color: #c0392b; }
+  .when-jun { background: #f9e79f; color: #7d6608; }
+  .when-jul { background: #d2b4de; color: #6c3483; }
+  .when-oct { background: #d5dbdb; color: #566573; }
+
+  /* Notes */
+  .note-box { background: #fef9e7; border: 1px solid #f9e79f; border-radius: 8px; padding: 14px 18px; font-size: 13px; color: #7d6608; margin-top: 12px; line-height: 1.6; }
+  .note-box strong { color: #5b4a06; }
+
+  /* Mobile */
+  @media (max-width: 700px) {
+    .item { grid-template-columns: 1fr; gap: 6px; }
+    .item-price, .item-when, .item-link { text-align: left; }
+    .summary-bar { flex-direction: column; gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<nav style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:28px;padding-bottom:16px;border-bottom:1px solid #d0ccc4;">
+  <a href="garden-preferences.html" style="padding:6px 14px;border-radius:16px;background:#fff;border:1px solid #ccc;text-decoration:none;color:#555;font-size:13px;font-weight:500;">Preferences</a>
+  <a href="garden-inventory.html" style="padding:6px 14px;border-radius:16px;background:#fff;border:1px solid #ccc;text-decoration:none;color:#555;font-size:13px;font-weight:500;">Inventory</a>
+  <a href="garden-timeline-view.html" style="padding:6px 14px;border-radius:16px;background:#fff;border:1px solid #ccc;text-decoration:none;color:#555;font-size:13px;font-weight:500;">Timeline</a>
+  <a href="garden-calendar.html" style="padding:6px 14px;border-radius:16px;background:#fff;border:1px solid #ccc;text-decoration:none;color:#555;font-size:13px;font-weight:500;">Calendar</a>
+  <a href="garden-layout.html" style="padding:6px 14px;border-radius:16px;background:#fff;border:1px solid #ccc;text-decoration:none;color:#555;font-size:13px;font-weight:500;">Layout</a>
+  <a href="garden-supplies.html" style="padding:6px 14px;border-radius:16px;background:#2d5a27;color:#fff;border:1px solid #2d5a27;text-decoration:none;font-size:13px;font-weight:500;">Supplies</a>
+</nav>
+
+<div class="section">
+
+<h1>Garden Supplies &amp; Accessories — 2026</h1>
+<p class="subtitle">Everything you need beyond seeds &amp; plants &middot; Issaquah, WA (Zone 8b) &middot; Two raised beds, 4 ft &times; 19.5 ft<br>⚠️ <strong>No metal elements</strong> — garden is near a power line</p>
+
+<div class="summary-bar">
+  <div class="summary-stat"><div class="num">~$210&ndash;$290</div><div class="label">Estimated Total</div></div>
+  <div class="summary-stat"><div class="num">7</div><div class="label">Categories</div></div>
+  <div class="summary-stat"><div class="num">20+</div><div class="label">Items</div></div>
+  <div style="flex:1;text-align:right;font-size:13px;opacity:0.85;">Prices are approximate &middot; Check links for current pricing<br>Preferred vendors: Home Depot &amp; Amazon</div>
+</div>
+
+<!-- ============================================ -->
+<!-- SEED STARTING -->
+<!-- ============================================ -->
+<div class="category">
+  <div class="category-header">
+    <div class="category-title">🌱 Seed Starting Supplies</div>
+    <div class="category-badge"><span class="when-badge when-now">Buy Now (Feb/Mar)</span></div>
+  </div>
+  <div class="purchased-banner">All seed starting supplies purchased</div>
+
+  <div class="item">
+    <label class="check-label"><input type="checkbox" onchange="this.parentElement.classList.toggle('checked')">
+      <div><div class="item-name">Seed Starting Trays with Humidity Domes (6-pack, 72-cell)</div>
+      <div class="item-desc">Reusable trays with clear vented domes. VIVOSUN 72-cell is a great all-around kit. Need for cucumbers, parsley, zinnias, nasturtiums, dill starts.</div></div>
+    </label>
+    <div class="item-when"><span class="when-badge when-now">Now</span></div>
+    <div class="item-price">~$15&ndash;20</div>
+    <div class="item-link"><a href="https://www.homedepot.com/p/VIVOSUN-Indoor-Outdoor-Reusable-72-Cell-Seed-Starter-Kit-Trays-with-Humidity-Dome-Drain-Hole-6-Pack-wal-SST-0001/328414536" class="hd">Home Depot</a></div>
+  </div>
+
+  <div class="item">
+    <label class="check-label"><input type="checkbox" onchange="this.parentElement.classList.toggle('checked')">
+      <div><div class="item-name">Seed Starting Mix (8&ndash;16 qt)</div>
+      <div class="item-desc">Espoma Organic Seed Starter with mycorrhizae. Light, fine texture for seedling roots. OMRI-listed for organic gardening.</div></div>
+    </label>
+    <div class="item-when"><span class="when-badge when-now">Now</span></div>
+    <div class="item-price">~$8&ndash;12</div>
+    <div class="item-link"><a href="https://www.amazon.com/Espoma-SS8-8-Quart-Organic-Starter/dp/B002Y0CFRA">Amazon</a></div>
+  </div>
+
+  <div class="item">
+    <label class="check-label"><input type="checkbox" onchange="this.parentElement.classList.toggle('checked')">
+      <div><div class="item-name">Seedling Heat Mat + Thermostat Combo (10&Prime;&times;20&Prime;)</div>
+      <div class="item-desc">Essential for cucumber starts (need 70&ndash;85&deg;F). VIVOSUN combo with digital thermostat is the top seller. Also great for parsley and zinnias.</div></div>
+    </label>
+    <div class="item-when"><span class="when-badge when-now">Now</span></div>
+    <div class="item-price">~$25&ndash;35</div>
+    <div class="item-link"><a href="https://www.amazon.com/VIVOSUN-Seedling-Digital-Thermostat-Standard/dp/B016MKY7C8">Amazon</a></div>
+  </div>
+
+  <div class="note-box">
+    <strong>When to use:</strong> Start parsley indoors now (Feb/Mar). Start cucumbers, nasturtiums, zinnias &amp; dill indoors in early April (3&ndash;4 weeks before transplant). Heat mat is critical for cucumbers and zinnias.
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- TRELLISES & PLANT SUPPORT -->
+<!-- ============================================ -->
+<div class="category">
+  <div class="category-header">
+    <div class="category-title">🪴 Trellises &amp; Plant Support</div>
+    <div class="category-badge"><span class="when-badge when-mar">Buy by mid-March</span></div>
+  </div>
+  <div class="purchased-banner">Trellis netting purchased</div>
+
+  <div class="item">
+    <label class="check-label checked"><input type="checkbox" checked onchange="this.parentElement.classList.toggle('checked')">
+      <div><div class="item-name">Trellis Netting &mdash; Plot B Peas (4 ft wide &times; 5&ndash;6 ft tall)</div>
+      <div class="item-desc">Nylon or polyester netting with 4&ndash;6&Prime; mesh. Peas climb with tendrils &mdash; thin netting works great. Attach to stakes or a simple frame.</div></div>
+    </label>
+    <div class="item-when"><span class="when-badge when-mar">Mar</span></div>
+    <div class="item-price">~$8&ndash;12</div>
+    <div class="item-link"><a href="https://www.amazon.com/Pole-Bean-Trellis/s?k=Pole+Bean+Trellis">Amazon</a></div>
+  </div>
+
+  <div class="item">
+    <label class="check-label checked"><input type="checkbox" checked onchange="this.parentElement.classList.toggle('checked')">
+      <div><div class="item-name">Trellis Netting &mdash; Plot A Beans &amp; Cucumbers (~19 ft run)</div>
+      <div class="item-desc">Full-length north-edge trellis: 8 ft for pole beans (west) + 10 ft for cucumbers (east). Nylon netting on non-metal stakes.</div></div>
+    </label>
+    <div class="item-when"><span class="when-badge when-apr">Apr</span></div>
+    <div class="item-price">~$12&ndash;20</div>
+    <div class="item-link"><a href="https://www.amazon.com/s?k=trellis+netting+garden">Amazon</a></div>
+  </div>
+
+  <div class="item">
+    <label class="check-label"><input type="checkbox" onchange="this.parentElement.classList.toggle('checked')">
+      <div><div class="item-name">Fiberglass Garden Stakes (6&ndash;7 ft tall, 4&ndash;5 needed)</div>
+      <div class="item-desc">⚠️ <strong>No metal near power line.</strong> Use fiberglass or bamboo stakes instead of metal T-posts. Fiberglass is strong, lightweight, and non-conductive. Space every 4&ndash;5 ft for trellis support.</div></div>
+    </label>
+    <div class="item-when"><span class="when-badge when-mar">Mar</span></div>
+    <div class="item-price">~$6&ndash;10 each</div>
+    <div class="item-link"><a href="https://www.amazon.com/s?k=fiberglass+garden+stakes+6+ft">Amazon</a></div>
+  </div>
+
+  <div class="item">
+    <label class="check-label"><input type="checkbox" onchange="this.parentElement.classList.toggle('checked')">
+      <div><div class="item-name">Tomato Cages &mdash; Non-Metal, 5 ft tall (6 needed)</div>
+      <div class="item-desc">⚠️ <strong>No metal near power line.</strong> Use fiberglass or heavy-duty plastic tomato cages. Options: fiberglass stake cages, sturdy plastic spiral supports, or bamboo teepees with twine. Avoid any steel/wire cages.</div></div>
+    </label>
+    <div class="item-when"><span class="when-badge when-apr">Apr</span></div>
+    <div class="item-price">~$30&ndash;50</div>
+    <div class="item-link"><a href="https://www.amazon.com/s?k=fiberglass+tomato+cage+support">Amazon</a></div>
+  </div>
+
+  <div class="item">
+    <label class="check-label"><input type="checkbox" onchange="this.parentElement.classList.toggle('checked')">
+      <div><div class="item-name">Garden Twine / Jute String</div>
+      <div class="item-desc">For tying vines to trellis, staking plants, bundling garlic. Natural jute is biodegradable and easy to work with.</div></div>
+    </label>
+    <div class="item-when"><span class="when-badge when-mar">Mar</span></div>
+    <div class="item-price">~$5&ndash;8</div>
+    <div class="item-link"><a href="https://www.amazon.com/s?k=garden+jute+twine">Amazon</a></div>
+  </div>
+
+  <div class="note-box">
+    <strong>⚠️ No metal!</strong> Garden is near a power line &mdash; all stakes, cages, and supports must be non-metal. Use fiberglass, bamboo, or heavy-duty plastic. Install Plot B pea trellis by early March (before peas reach 4&ndash;6&Prime;). Plot A bean/cuke trellis should be in place by mid-April.
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- FERTILIZERS -->
+<!-- ============================================ -->
+<div class="category">
+  <div class="category-header">
+    <div class="category-title">🧪 Fertilizers &amp; Soil Amendments</div>
+    <div class="category-badge"><span class="when-badge when-mar">Buy by late March</span></div>
+  </div>
+  <div class="purchased-banner">All fertilizers purchased</div>
+
+  <div class="item">
+    <label class="check-label"><input type="checkbox" onchange="this.parentElement.classList.toggle('checked')">
+      <div><div class="item-name">Fish Emulsion &mdash; Neptune&rsquo;s Harvest Fish &amp; Seaweed (2-3-1), 36 oz</div>
+      <div class="item-desc">All-purpose liquid organic fertilizer. Use on leafy greens (lettuce, spinach, kale) every 3&ndash;4 weeks. Dilute 1 tbsp per gallon. Also great for cucumbers and early tomato growth.</div></div>
+    </label>
+    <div class="item-when"><span class="when-badge when-mar">Mar</span></div>
+    <div class="item-price">~$15&ndash;20</div>
+    <div class="item-link"><a href="https://www.amazon.com/Neptunes-Harvest-Organic-Hydrolized-Fertilizer/dp/B000OWBUSA">Amazon</a></div>
+  </div>
+
+  <div class="item">
+    <label class="check-label"><input type="checkbox" onchange="this.parentElement.classList.toggle('checked')">
+      <div><div class="item-name">Espoma Tomato-tone (3-4-6), 4 lb bag</div>
+      <div class="item-desc">Organic granular fertilizer with 8% calcium (helps prevent blossom end rot). Side-dress tomatoes every 3&ndash;4 weeks from first fruit through mid-August. Also works for peppers.</div></div>
+    </label>
+    <div class="item-when"><span class="when-badge when-may">May</span></div>
+    <div class="item-price">~$10&ndash;14</div>
+    <div class="item-link"><a href="https://www.amazon.com/Tomato-tone-Organic-Fertilizer-YOUR-TOMATOES/dp/B0011UEKKE">Amazon</a></div>
+  </div>
+
+  <div class="item">
+    <label class="check-label"><input type="checkbox" onchange="this.parentElement.classList.toggle('checked')">
+      <div><div class="item-name">Bone Meal (3-15-0), 4 lb bag</div>
+      <div class="item-desc">High-phosphorus organic fertilizer. Add to tomato planting holes, feed peas/beans at flowering, and side-dress broccoli. Slow-release &mdash; lasts all season. Also provides calcium.</div></div>
+    </label>
+    <div class="item-when"><span class="when-badge when-mar">Mar</span></div>
+    <div class="item-price">~$8&ndash;12</div>
+    <div class="item-link"><a href="https://www.amazon.com/s?k=espoma+bone+meal+organic">Amazon</a></div>
+  </div>
+
+  <div class="item">
+    <label class="check-label"><input type="checkbox" onchange="this.parentElement.classList.toggle('checked')">
+      <div><div class="item-name">Espoma Plant-tone (5-3-3), 4 lb bag</div>
+      <div class="item-desc">Balanced all-purpose organic granular fertilizer. Use for side-dressing cool-season crops (kale, lettuce, spinach, broccoli) and general feeding. Good complement to fish emulsion.</div></div>
+    </label>
+    <div class="item-when"><span class="when-badge when-mar">Mar</span></div>
+    <div class="item-price">~$8&ndash;12</div>
+    <div class="item-link"><a href="https://www.amazon.com/Espoma-PT4-4-Pound-Plant-Tone-Organic/dp/B001R4OJRS">Amazon</a></div>
+  </div>
+
+  <div class="item">
+    <label class="check-label"><input type="checkbox" onchange="this.parentElement.classList.toggle('checked')">
+      <div><div class="item-name">Garden Lime (if pH test shows acidic soil)</div>
+      <div class="item-desc">PNW soils tend to be acidic. Target pH 6.0&ndash;7.0. Espoma Garden Lime or pelletized dolomite lime. Test soil first &mdash; only add if needed.</div></div>
+    </label>
+    <div class="item-when"><span class="when-badge when-now">Now</span></div>
+    <div class="item-price">~$6&ndash;10</div>
+    <div class="item-link"><a href="https://www.homedepot.com/s/garden%20lime" class="hd">Home Depot</a></div>
+  </div>
+
+  <div class="note-box">
+    <strong>Fertilizer schedule summary:</strong> Fish emulsion for leafy greens every 3&ndash;4 wks (Mar&ndash;Oct). Bone meal in tomato holes at planting &amp; for peas/beans at flowering. Tomato-tone every 3&ndash;4 wks once fruits form (Jun&ndash;Aug). Plant-tone for general feeding of cool-season crops. See the <a href="garden-timeline-view.html">Timeline</a> for exact dates.
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- PROTECTION -->
+<!-- ============================================ -->
+<div class="category">
+  <div class="category-header">
+    <div class="category-title">🛡️ Season Extension &amp; Protection</div>
+    <div class="category-badge"><span class="when-badge when-mar">Buy by March</span></div>
+  </div>
+
+  <div class="item">
+    <label class="check-label"><input type="checkbox" onchange="this.parentElement.classList.toggle('checked')">
+      <div><div class="item-name">Floating Row Cover (0.9 oz, 10 ft &times; 30 ft)</div>
+      <div class="item-desc">Frost protection for early cool-season crops and fall extension. Provides ~4&ndash;6&deg;F of frost protection. Also keeps cabbage moths off broccoli/kale. Agfabric or Valibe are top brands.</div></div>
+    </label>
+    <div class="item-when"><span class="when-badge when-mar">Mar</span></div>
+    <div class="item-price">~$12&ndash;18</div>
+    <div class="item-link"><a href="https://www.amazon.com/Valibe-Covers-Freeze-Protection-Floating/dp/B07WBX6F76">Amazon</a></div>
+  </div>
+
+  <div class="item">
+    <label class="check-label"><input type="checkbox" onchange="this.parentElement.classList.toggle('checked')">
+      <div><div class="item-name">Shade Cloth (40&ndash;50%, 6 ft &times; 12 ft, black or white)</div>
+      <div class="item-desc">Prevents lettuce bolting in summer heat. Drape over lettuce section (Plot B center) from June through August. 40&ndash;50% shade is ideal for leafy greens.</div></div>
+    </label>
+    <div class="item-when"><span class="when-badge when-jun">Jun</span></div>
+    <div class="item-price">~$10&ndash;15</div>
+    <div class="item-link"><a href="https://www.amazon.com/Garden-Greenhouse-Sunblock-Outdoor-Chicken/dp/B0BTDCC6L8">Amazon</a></div>
+  </div>
+
+  <div class="item">
+    <label class="check-label"><input type="checkbox" onchange="this.parentElement.classList.toggle('checked')">
+      <div><div class="item-name">Row Cover Hoops &mdash; Fiberglass (6&ndash;8 needed)</div>
+      <div class="item-desc">⚠️ <strong>No metal near power line.</strong> Use fiberglass hoops or PVC pipe bent into arches to hold row cover and shade cloth above plants. Fit 4 ft bed width. Reusable season after season.</div></div>
+    </label>
+    <div class="item-when"><span class="when-badge when-mar">Mar</span></div>
+    <div class="item-price">~$12&ndash;18</div>
+    <div class="item-link"><a href="https://www.amazon.com/s?k=garden+row+cover+hoops+raised+bed">Amazon</a></div>
+  </div>
+
+  <div class="note-box">
+    <strong>Row cover double duty:</strong> Use row cover in early spring to warm soil for carrots &amp; protect early sowings from cold snaps. Reuse in fall to extend the season for late lettuce, spinach, and broccoli past first frost. In summer, swap to shade cloth over lettuce to delay bolting.
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- MULCH & SOIL -->
+<!-- ============================================ -->
+<div class="category">
+  <div class="category-header">
+    <div class="category-title">🌾 Mulch &amp; Soil</div>
+    <div class="category-badge"><span class="when-badge when-mar">Buy by March</span></div>
+  </div>
+
+  <div class="item">
+    <label class="check-label"><input type="checkbox" onchange="this.parentElement.classList.toggle('checked')">
+      <div><div class="item-name">Straw Mulch (1&ndash;2 bales or bagged equivalent)</div>
+      <div class="item-desc">For garlic mulching (2&ndash;3&Prime;), potato hilling, and fall bed cover (3&ndash;4&Prime;). Weed-free straw preferred. HealthiStraw GardenStraw or local feed store bales. Also needed for garlic planting in October.</div></div>
+    </label>
+    <div class="item-when"><span class="when-badge when-mar">Mar + Oct</span></div>
+    <div class="item-price">~$8&ndash;15</div>
+    <div class="item-link"><a href="https://www.homedepot.com/b/Outdoors-Garden-Center-Landscaping-Supplies-Mulch/Straw/N-5yc1vZbx4aZ1z0zxds" class="hd">Home Depot</a></div>
+  </div>
+
+  <div class="item">
+    <label class="check-label"><input type="checkbox" onchange="this.parentElement.classList.toggle('checked')">
+      <div><div class="item-name">Compost (2&ndash;3 bags or bulk delivery)</div>
+      <div class="item-desc">Spread 2&ndash;3&Prime; over both beds pre-season (done!) and again in October. Also needed mid-season for side-dressing and post-garlic zone amending. Local bulk delivery is cheapest for raised beds.</div></div>
+    </label>
+    <div class="item-when"><span class="when-badge when-jul">Jul + Oct</span></div>
+    <div class="item-price">~$10&ndash;25</div>
+    <div class="item-link"><a href="https://www.homedepot.com/s/organic%20compost" class="hd">Home Depot</a></div>
+  </div>
+
+  <div class="item">
+    <label class="check-label"><input type="checkbox" onchange="this.parentElement.classList.toggle('checked')">
+      <div><div class="item-name">Soil pH Test Kit</div>
+      <div class="item-desc">Test soil pH before adding lime. PNW soils often run acidic (below 6.0). Simple probe or strip kit works. Target 6.0&ndash;7.0 for most vegetables.</div></div>
+    </label>
+    <div class="item-when"><span class="when-badge when-now">Now</span></div>
+    <div class="item-price">~$8&ndash;15</div>
+    <div class="item-link"><a href="https://www.amazon.com/s?k=soil+pH+test+kit+garden">Amazon</a></div>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- TOOLS & MISC -->
+<!-- ============================================ -->
+<div class="category">
+  <div class="category-header">
+    <div class="category-title">🔧 Tools &amp; Miscellaneous</div>
+    <div class="category-badge"><span class="when-badge when-now">Buy as needed</span></div>
+  </div>
+
+  <div class="item">
+    <label class="check-label"><input type="checkbox" onchange="this.parentElement.classList.toggle('checked')">
+      <div><div class="item-name">Plant Labels / Garden Markers</div>
+      <div class="item-desc">Label varieties and sowing dates for succession planting. Waterproof plastic T-tags or wooden stakes. Essential when you have 10+ lettuce sowings!</div></div>
+    </label>
+    <div class="item-when"><span class="when-badge when-now">Now</span></div>
+    <div class="item-price">~$6&ndash;10</div>
+    <div class="item-link"><a href="https://www.amazon.com/s?k=waterproof+plant+labels+garden">Amazon</a></div>
+  </div>
+
+  <div class="item">
+    <label class="check-label"><input type="checkbox" onchange="this.parentElement.classList.toggle('checked')">
+      <div><div class="item-name">Garden Scissors / Snips</div>
+      <div class="item-desc">For harvesting herbs, snipping garlic scapes, pruning tomato suckers, and cutting flowers. Fiskars micro-tip snips are a gardener favorite.</div></div>
+    </label>
+    <div class="item-when"><span class="when-badge when-now">Now</span></div>
+    <div class="item-price">~$10&ndash;15</div>
+    <div class="item-link"><a href="https://www.amazon.com/s?k=fiskars+garden+snips+pruning">Amazon</a></div>
+  </div>
+
+  <div class="item">
+    <label class="check-label"><input type="checkbox" onchange="this.parentElement.classList.toggle('checked')">
+      <div><div class="item-name">Watering Wand with Gentle Shower Head</div>
+      <div class="item-desc">Gentle spray for seedlings and delicate crops. A 24&ndash;36&Prime; wand with a rose/shower head prevents soil disruption. Dramm or Orbit brands recommended.</div></div>
+    </label>
+    <div class="item-when"><span class="when-badge when-now">Now</span></div>
+    <div class="item-price">~$15&ndash;25</div>
+    <div class="item-link"><a href="https://www.homedepot.com/s/watering%20wand%20garden" class="hd">Home Depot</a></div>
+  </div>
+
+  <div class="item">
+    <label class="check-label"><input type="checkbox" onchange="this.parentElement.classList.toggle('checked')">
+      <div><div class="item-name">Canning Jars &amp; Pickling Supplies (if canning)</div>
+      <div class="item-desc">For pickling cucumbers with your Gershwin cukes + Bouquet dill + garlic. Ball wide-mouth quart jars. Also need vinegar, pickling salt, and dill seed heads.</div></div>
+    </label>
+    <div class="item-when"><span class="when-badge when-jul">Jul</span></div>
+    <div class="item-price">~$15&ndash;20</div>
+    <div class="item-link"><a href="https://www.amazon.com/s?k=ball+wide+mouth+canning+jars+quart">Amazon</a></div>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- OPTIONAL -->
+<!-- ============================================ -->
+<div class="category">
+  <div class="category-header">
+    <div class="category-title">💡 Optional / Nice-to-Have</div>
+    <div class="category-badge">Optional</div>
+  </div>
+
+  <div class="item">
+    <label class="check-label"><input type="checkbox" onchange="this.parentElement.classList.toggle('checked')">
+      <div><div class="item-name">Drip Irrigation Kit or Soaker Hose</div>
+      <div class="item-desc">Consistent watering is key, especially on Plot B&rsquo;s sloped south end. A soaker hose along each bed saves time and reduces disease from overhead watering. Very helpful for tomatoes.</div></div>
+    </label>
+    <div class="item-when"><span class="when-badge when-apr">Apr</span></div>
+    <div class="item-price">~$20&ndash;40</div>
+    <div class="item-link"><a href="https://www.homedepot.com/s/soaker%20hose%20garden" class="hd">Home Depot</a></div>
+  </div>
+
+  <div class="item">
+    <label class="check-label"><input type="checkbox" onchange="this.parentElement.classList.toggle('checked')">
+      <div><div class="item-name">Cover Crop Seed &mdash; Crimson Clover (optional, October)</div>
+      <div class="item-desc">Sow in empty bed space after fall cleanup. Fixes nitrogen over winter, prevents erosion, and improves soil structure. Turn under in early spring.</div></div>
+    </label>
+    <div class="item-when"><span class="when-badge when-oct">Oct</span></div>
+    <div class="item-price">~$8&ndash;12</div>
+    <div class="item-link"><a href="https://www.amazon.com/s?k=crimson+clover+cover+crop+seed">Amazon</a></div>
+  </div>
+
+  <div class="item">
+    <label class="check-label"><input type="checkbox" onchange="this.parentElement.classList.toggle('checked')">
+      <div><div class="item-name">Neem Oil Spray (organic pest control)</div>
+      <div class="item-desc">For aphids, cucumber beetles, and cabbage moths if companion planting isn&rsquo;t enough. Mix with water + dish soap. Spray in evening to avoid burning leaves.</div></div>
+    </label>
+    <div class="item-when"><span class="when-badge when-may">May</span></div>
+    <div class="item-price">~$10&ndash;15</div>
+    <div class="item-link"><a href="https://www.amazon.com/s?k=neem+oil+garden+spray+organic">Amazon</a></div>
+  </div>
+
+  <div class="item">
+    <label class="check-label"><input type="checkbox" onchange="this.parentElement.classList.toggle('checked')">
+      <div><div class="item-name">Soil Thermometer</div>
+      <div class="item-desc">Takes the guesswork out of planting timing. Stick in soil to confirm temps before sowing beans (60&deg;F+), cucumbers (60&deg;F+), or transplanting tomatoes (60&deg;F+).</div></div>
+    </label>
+    <div class="item-when"><span class="when-badge when-now">Now</span></div>
+    <div class="item-price">~$8&ndash;12</div>
+    <div class="item-link"><a href="https://www.amazon.com/s?k=soil+thermometer+garden">Amazon</a></div>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- BUY TIMELINE SUMMARY -->
+<!-- ============================================ -->
+<h2>Purchase Timeline</h2>
+<div class="category">
+  <table style="width:100%;border-collapse:collapse;font-size:13px;">
+    <tr style="border-bottom:2px solid #2d5016;">
+      <th style="text-align:left;padding:8px;color:#2d5016;">When</th>
+      <th style="text-align:left;padding:8px;color:#2d5016;">What to Buy</th>
+      <th style="text-align:right;padding:8px;color:#2d5016;">Est. Cost</th>
+    </tr>
+    <tr style="border-bottom:1px solid #eee;">
+      <td style="padding:8px;"><span class="when-badge when-now">Now (Feb/Mar)</span></td>
+      <td style="padding:8px;"><s style="color:#999;">Seed starting supplies, fertilizers, trellis netting</s> ✅ Purchased<br>Still needed: soil pH test kit, plant labels, garden snips, watering wand, garden lime (if needed), straw mulch, row cover + fiberglass hoops</td>
+      <td style="padding:8px;text-align:right;font-weight:600;">~$55&ndash;85</td>
+    </tr>
+    <tr style="border-bottom:1px solid #eee;">
+      <td style="padding:8px;"><span class="when-badge when-mar">March</span></td>
+      <td style="padding:8px;">Fiberglass stakes (4&ndash;5 for trellis), garden twine</td>
+      <td style="padding:8px;text-align:right;font-weight:600;">~$35&ndash;55</td>
+    </tr>
+    <tr style="border-bottom:1px solid #eee;">
+      <td style="padding:8px;"><span class="when-badge when-apr">April</span></td>
+      <td style="padding:8px;">Non-metal tomato cages (6), drip irrigation (optional)</td>
+      <td style="padding:8px;text-align:right;font-weight:600;">~$50&ndash;90</td>
+    </tr>
+    <tr style="border-bottom:1px solid #eee;">
+      <td style="padding:8px;"><span class="when-badge when-may">May</span></td>
+      <td style="padding:8px;">Tomato-tone, neem oil spray (optional)</td>
+      <td style="padding:8px;text-align:right;font-weight:600;">~$15&ndash;25</td>
+    </tr>
+    <tr style="border-bottom:1px solid #eee;">
+      <td style="padding:8px;"><span class="when-badge when-jun">June</span></td>
+      <td style="padding:8px;">Shade cloth for lettuce</td>
+      <td style="padding:8px;text-align:right;font-weight:600;">~$10&ndash;15</td>
+    </tr>
+    <tr style="border-bottom:1px solid #eee;">
+      <td style="padding:8px;"><span class="when-badge when-jul">July</span></td>
+      <td style="padding:8px;">Canning supplies (if pickling), compost for post-garlic zone</td>
+      <td style="padding:8px;text-align:right;font-weight:600;">~$25&ndash;40</td>
+    </tr>
+    <tr>
+      <td style="padding:8px;"><span class="when-badge when-oct">October</span></td>
+      <td style="padding:8px;">Fall compost, additional straw mulch, cover crop seed (optional)</td>
+      <td style="padding:8px;text-align:right;font-weight:600;">~$20&ndash;35</td>
+    </tr>
+  </table>
+</div>
+
+</div>
+
+<script>
+// Persist checkbox state in localStorage
+document.querySelectorAll('input[type="checkbox"]').forEach((cb, i) => {
+  const key = 'supply-' + i;
+  if (localStorage.getItem(key) === 'true') {
+    cb.checked = true;
+    cb.parentElement.classList.add('checked');
+  }
+  cb.addEventListener('change', () => {
+    localStorage.setItem(key, cb.checked);
+    cb.parentElement.classList.toggle('checked', cb.checked);
+  });
+});
+</script>
+
+</body>
+</html>

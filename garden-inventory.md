@@ -104,13 +104,16 @@
 
 ### Perpetual Spinach (Leaf Beet)
 
-*Source: Fedco Seeds, Southern Exposure, or Nichols Garden Nursery (not available at Johnny's)*
+*Source: Fedco Seeds — ORDERED*
 
 | Detail | Perpetual Spinach |
 |---|---|
 | Botanical name | Beta vulgaris var. cicla |
+| Product ID | 3034A |
 | Type | Leaf beet — tastes like spinach but extremely heat/bolt resistant |
-| Price | ~$3–5 (varies by vendor) |
+| Quantity | 1/16 oz (~200–300 seeds) |
+| Price | $3.15 |
+| Status | Ordered — ships in 5–7 business days |
 | Direct sow | 2–3 weeks before last frost through mid-summer; or when true spinach bolts (~June) |
 | Seed depth | ½ inch |
 | Spacing | Thin to 8–12 inches apart, rows 18 in |

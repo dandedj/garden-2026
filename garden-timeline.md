@@ -12,7 +12,20 @@ Last frost: ~April 15 · First fall frost: ~October 15 · Growing season: ~180 d
 - [ ] **Test & amend soil** — Test pH (target 6.0–7.0). Add lime if acidic (common in PNW).
 - [ ] **Lay compost** — Spread 2–3 inches of finished compost over both beds and work into the top 6–8 inches. Do this 2–4 weeks before first plantings so nutrients activate. On Plot B, add extra compost to the south/high end to improve water retention on the slope.
 - [ ] **Mulch Plot B south end** — The south end of Plot B is higher and dries out faster. Plan to add 2–3" of straw mulch around garlic and kale once planted to help retain moisture on the uphill side.
-- [ ] **Order/gather supplies** — Seed starting trays, potting mix, row cover fabric, stakes, tomato cages.
+- [x] **Purchased — Seed starting supplies** — Trays, mix, heat mat + thermostat ✅
+- [x] **Purchased — Fertilizers** — Fish emulsion, bone meal, Plant-tone ✅
+- [x] **Purchased — Trellis netting** — For Plot B peas and Plot A beans/cucumbers ✅
+- [ ] **Order/gather remaining supplies** — See full [Supplies List](garden-supplies.html) for details and links:
+  - ⚠️ **No metal!** Garden is near a power line — use fiberglass, bamboo, or plastic for all stakes/cages/hoops
+  - Soil pH test kit (test before adding lime)
+  - Garden lime (only if soil pH is below 6.0)
+  - Straw mulch (1–2 bales, for garlic/potato mulching)
+  - Floating row cover (Agfabric/Valibe, 0.9 oz, 10×30 ft)
+  - Row cover hoops — **fiberglass or PVC** (6–8 for 4 ft beds)
+  - Plant labels / garden markers
+  - Garden snips (Fiskars micro-tip)
+  - Watering wand with shower head
+  - Garden twine / jute string
 - [ ] **Start parsley indoors** — Sow Giant of Italy parsley indoors under lights. Slow germinator (14–28 days). Soil temp 65–75°F.
 
 **Soil temp (late Feb):** ~40–45°F
@@ -33,7 +46,7 @@ Last frost: ~April 15 · First fall frost: ~October 15 · Growing season: ~180 d
 - [ ] **Potatoes — Canada Gold & Carla Rose** — Cut seed potatoes 2 days before planting to callus. Plant 4" deep, 12" apart when soil hits 45°F+. Expanded planting: use ~6–8 sq ft on Plot B east side (about 8–10 plants per variety). Space freed from kale reduction helps.
 
 ### Infrastructure
-- [ ] **Install Plot B pea trellis** — Set up before peas reach 4–6 inches tall. Peas climb with tendrils; provide netting or string.
+- [ ] **Install Plot B pea trellis** — Set up before peas reach 4–6 inches tall. Peas climb with tendrils; provide netting or string. Use nylon trellis netting (4×5–6 ft) on **fiberglass or bamboo stakes** (no metal near power line).
 
 **Soil temp (early March):** ~42–48°F
 
@@ -73,8 +86,8 @@ Last frost: ~April 15 · First fall frost: ~October 15 · Growing season: ~180 d
 - [ ] **Start zinnias indoors** — Sow ¼" deep 4–6 weeks before last frost. Soil temp needed: 70–80°F.
 
 ### Infrastructure
-- [ ] **Install Plot A trellis** — Set up the full-length north-edge trellis for pole beans and cucumbers. Get it in place before transplanting.
-- [ ] **Prepare tomato cages** — Have 6 sturdy cages (at least 5 ft tall) ready for mid-May planting.
+- [ ] **Install Plot A trellis** — Set up the full-length north-edge trellis for pole beans and cucumbers. Nylon netting on **fiberglass stakes** (6–7 ft, every 4–5 ft). ⚠️ No metal near power line. Get it in place before transplanting.
+- [ ] **Prepare tomato cages** — Have 6 sturdy **non-metal** cages (at least 5 ft tall) ready for mid-May planting. Use fiberglass, heavy-duty plastic, or bamboo teepee supports. ⚠️ No metal near power line.
 
 ### Fertilizing
 - [ ] **Feed peas** — Peas fix their own nitrogen but benefit from a light phosphorus feed (bone meal) at flowering.
@@ -184,7 +197,7 @@ Last frost: ~April 15 · First fall frost: ~October 15 · Growing season: ~180 d
 
 ### Infrastructure
 - [ ] **Remove pea trellis & prep for broccoli** — Sugar snap peas wind down by late June. Remove spent vines and trellis. Work 1–2" of compost into the former pea zone. The nitrogen peas fixed in the soil is perfect for heavy-feeding broccoli.
-- [ ] **Add shade cloth** — Protect lettuce from bolting in the summer heat. Drape 30–50% shade cloth over lettuce section.
+- [ ] **Add shade cloth** — Protect lettuce from bolting in the summer heat. Drape 40–50% shade cloth (6×12 ft) over lettuce section using row cover hoops.
 
 ---
 
@@ -308,8 +321,8 @@ Last frost: ~April 15 · First fall frost: ~October 15 · Growing season: ~180 d
 - [ ] **Onions (storage) — enjoy** — Patterson storage onions should keep through winter in a cool, dark place.
 
 ### Garden Closeout
-- [ ] **Remove all annual crops** — Clear beds of spent tomato cages, trellises, and annual plant debris.
-- [ ] **Remove trellises** — Take down Plot A and Plot B trellises. Clean and store for 2027.
+- [ ] **Remove all annual crops** — Clear beds of spent non-metal tomato cages, trellises, and annual plant debris.
+- [ ] **Remove trellises** — Take down Plot A and Plot B fiberglass/bamboo trellises. Clean and store for 2027.
 - [ ] **Plant garlic for 2027** — Mid-October is ideal in Zone 8b. Plant cloves from Mountain Valley Garlic order 2" deep, 6" apart, pointy end up. Mulch with 3–4" of straw. Plot B south end. Garlic needs 4–8 weeks of growth before ground freezes to establish roots.
 - [ ] **Lay fall compost** — Spread 2–3 inches of compost over all beds.
 - [ ] **Plant cover crop** (optional) — Sow crimson clover or winter rye in empty bed space to fix nitrogen and prevent erosion over winter.
