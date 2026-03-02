@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Garden Calendar 2026 — Issaquah, WA</title>
+<style>
+  :root {
+    --clr-sow: #4a9e4a;
+    --clr-sow-light: #e8f5e8;
+    --clr-transplant: #6a7fd2;
+    --clr-transplant-light: #e8ecf8;
+    --clr-harvest: #d4883a;
+    --clr-harvest-light: #fdf0e0;
+    --clr-maint: #9370a8;
+    --clr-maint-light: #f0e8f5;
+    --clr-done: #888;
+    --clr-done-light: #eee;
+    --clr-now: #c0392b;
+    --radius: 6px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: #f5f2ec;
+    color: #2c2c2c;
+    line-height: 1.5;
+    padding: 24px;
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #2d5a27;
+    margin-bottom: 4px;
+  }
+  header p {
+    color: #666;
+    font-size: 14px;
+  }
+
+  .legend {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+    font-size: 13px;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .legend-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+  }
+
+  .nav-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+  .nav-tab {
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    background: #fff;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s;
+    color: #555;
+  }
+  .nav-tab:hover { background: #e8f5e8; border-color: #4a9e4a; }
+  .nav-tab.active {
+    background: #2d5a27;
+    color: #fff;
+    border-color: #2d5a27;
+  }
+  .nav-tab.current { box-shadow: 0 0 0 2px var(--clr-now); }
+
+  .month-panel { display: none; }
+  .month-panel.active { display: block; }
+
+  .month-header {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 6px;
+  }
+  .month-header h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #2d5a27;
+  }
+  .month-header .soil-temp {
+    font-size: 13px;
+    color: #888;
+    background: #fff;
+    padding: 3px 10px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+  }
+
+  .month-summary {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 18px;
+    padding-left: 2px;
+  }
+
+  .activity-group {
+    margin-bottom: 20px;
+  }
+  .group-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-bottom: 8px;
+    padding-left: 4px;
+  }
+  .group-label.sow { color: var(--clr-sow); }
+  .group-label.transplant { color: var(--clr-transplant); }
+  .group-label.harvest { color: var(--clr-harvest); }
+  .group-label.maint { color: var(--clr-maint); }
+  .group-label.done { color: var(--clr-done); }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 10px;
+  }
+
+  .card {
+    background: #fff;
+    border-radius: var(--radius);
+    padding: 12px 14px;
+    border-left: 4px solid #ccc;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    transition: transform 0.15s;
+  }
+  .card:hover { transform: translateY(-1px); box-shadow: 0 3px 8px rgba(0,0,0,0.1); }
+  .card.sow { border-left-color: var(--clr-sow); background: var(--clr-sow-light); }
+  .card.transplant { border-left-color: var(--clr-transplant); background: var(--clr-transplant-light); }
+  .card.harvest { border-left-color: var(--clr-harvest); background: var(--clr-harvest-light); }
+  .card.maint { border-left-color: var(--clr-maint); background: var(--clr-maint-light); }
+  .card.done { border-left-color: var(--clr-done); background: var(--clr-done-light); opacity: 0.7; }
+
+  .card-title {
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 3px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .card-title .emoji { font-size: 16px; }
+  .card-detail {
+    font-size: 12px;
+    color: #555;
+    line-height: 1.45;
+  }
+  .card .plot-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 1px 6px;
+    border-radius: 3px;
+    background: rgba(0,0,0,0.08);
+    color: #555;
+    margin-top: 4px;
+  }
+  .card.done .card-title { text-decoration: line-through; color: #888; }
+  .card.done .check { color: var(--clr-sow); font-weight: bold; }
+
+  .divider {
+    border: none;
+    border-top: 1px dashed #d0ccc4;
+    margin: 12px 0;
+  }
+
+  /* Gantt-style overview */
+  .gantt-section {
+    margin-top: 40px;
+    overflow-x: auto;
+  }
+  .gantt-section h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #2d5a27;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  .gantt-table {
+    width: 100%;
+    min-width: 900px;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+  .gantt-table th {
+    background: #2d5a27;
+    color: #fff;
+    padding: 8px 4px;
+    font-weight: 600;
+    text-align: center;
+    border: 1px solid #245020;
+    position: sticky;
+    top: 0;
+  }
+  .gantt-table th:first-child {
+    text-align: left;
+    padding-left: 10px;
+    min-width: 150px;
+  }
+  .gantt-table td {
+    padding: 6px 2px;
+    border: 1px solid #e0ddd6;
+    text-align: center;
+    height: 28px;
+  }
+  .gantt-table td:first-child {
+    text-align: left;
+    padding-left: 10px;
+    font-weight: 500;
+    background: #faf8f4;
+    white-space: nowrap;
+  }
+  .gantt-table tr:hover td { background: #faf8f4; }
+  .gantt-table tr:hover td:first-child { background: #f0ede6; }
+
+  .gantt-bar {
+    display: inline-block;
+    height: 16px;
+    border-radius: 3px;
+    width: 85%;
+  }
+  .gantt-bar.sow { background: var(--clr-sow); }
+  .gantt-bar.harvest { background: var(--clr-harvest); }
+  .gantt-bar.both {
+    background: linear-gradient(90deg, var(--clr-sow) 50%, var(--clr-harvest) 50%);
+  }
+
+  .gantt-legend {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
+    font-size: 12px;
+    color: #666;
+  }
+
+  .now-marker {
+    font-size: 10px;
+    color: var(--clr-now);
+    font-weight: 700;
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #999;
+    font-size: 12px;
+  }
+
+  @media (max-width: 600px) {
+    body { padding: 12px; }
+    .cards { grid-template-columns: 1fr; }
+    .nav-tab { padding: 6px 10px; font-size: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<nav style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:28px;padding-bottom:16px;border-bottom:1px solid #d0ccc4;max-width:900px;margin:0 auto 28px;">
+  <a href="garden-preferences.html" style="padding:6px 14px;border-radius:16px;background:#fff;border:1px solid #ccc;text-decoration:none;color:#555;font-size:13px;font-weight:500;">Preferences</a>
+  <a href="garden-inventory.html" style="padding:6px 14px;border-radius:16px;background:#fff;border:1px solid #ccc;text-decoration:none;color:#555;font-size:13px;font-weight:500;">Inventory</a>
+  <a href="garden-timeline-view.html" style="padding:6px 14px;border-radius:16px;background:#fff;border:1px solid #ccc;text-decoration:none;color:#555;font-size:13px;font-weight:500;">Timeline</a>
+  <a href="garden-calendar.html" style="padding:6px 14px;border-radius:16px;background:#2d5a27;color:#fff;border:1px solid #2d5a27;text-decoration:none;font-size:13px;font-weight:500;">Calendar</a>
+  <a href="garden-layout.html" style="padding:6px 14px;border-radius:16px;background:#fff;border:1px solid #ccc;text-decoration:none;color:#555;font-size:13px;font-weight:500;">Layout</a>
+</nav>
+
+<header>
+  <h1>Garden Calendar 2026</h1>
+  <p>Issaquah, WA &middot; Zone 8b &middot; Two raised beds (4 &times; 19.5 ft each) &middot; Last frost ~Apr 15 &middot; First frost ~Oct 15</p>
+</header>
+
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:var(--clr-sow)"></div> Direct Sow / Start Indoors</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--clr-transplant)"></div> Transplant</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--clr-harvest)"></div> Harvest</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--clr-maint)"></div> Maintenance / Infrastructure</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--clr-done)"></div> Completed</div>
+</div>
+
+<nav class="nav-tabs" id="navTabs"></nav>
+
+<main id="panels"></main>
+
+<!-- Gantt Overview -->
+<section class="gantt-section">
+  <h2>Season at a Glance</h2>
+  <table class="gantt-table" id="ganttTable"></table>
+  <div class="gantt-legend">
+    <div class="legend-item"><div class="legend-dot" style="background:var(--clr-sow);width:28px;height:12px;border-radius:3px;"></div> Planting Window</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--clr-harvest);width:28px;height:12px;border-radius:3px;"></div> Harvest Window</div>
+  </div>
+</section>
+
+<footer>
+  Garden Calendar 2026 &middot; Updated March 2, 2026
+</footer>
+
+<script>
+const MONTHS = [
+  { id:'feb', label:'Feb/Mar', fullLabel:'Late February \u2013 Early March', soil:'40\u201345\u00b0F',
+    summary:'Garden cleanup and soil prep. Get cool-season seeds started indoors.',
+    groups:[
+      { type:'done', label:'Completed',items:[
+        { title:'Clean out garden beds', detail:'Removed debris and old plant material from both plots.', plot:'' },
+        { title:'Amend soil with compost', detail:'Spread 2\u20133\u2033 of finished compost over both beds, worked into top 6\u20138\u2033. Extra compost on Plot B south end for water retention.', plot:'Plot A & B' },
+      ]},
+      { type:'maint', label:'Maintenance',items:[
+        { title:'Test soil pH', detail:'Target 6.0\u20137.0. Add lime if acidic (common in PNW).', plot:'' },
+        { title:'Mulch Plot B south end', detail:'Add 2\u20133\u2033 straw mulch around garlic and kale once planted. Helps retain moisture on uphill side.', plot:'Plot B' },
+        { title:'Order/gather supplies', detail:'Seed starting trays, potting mix, row cover fabric, stakes, tomato cages.', plot:'' },
+      ]},
+      { type:'sow', label:'Start Indoors',items:[
+        { title:'Parsley \u2014 Giant of Italy', detail:'Slow germinator (14\u201328 days). Soil temp 65\u201375\u00b0F. Start under lights now.', plot:'Indoors' },
+      ]},
+    ]
+  },
+  { id:'mar-early', label:'Early Mar', fullLabel:'Early\u2013Mid March (Mar 1\u201315)', soil:'42\u201348\u00b0F',
+    summary:'First outdoor sowings! Cool-season crops go in as soon as soil is workable.',
+    groups:[
+      { type:'sow', label:'Direct Sow',items:[
+        { title:'Peas \u2014 Sugar Snap', detail:'1\u2033 deep, 2\u20133\u2033 apart along trellis. Soil 45\u00b0F+.', plot:'Plot B north' },
+        { title:'Spinach \u2014 Space', detail:'\u00bd\u2033 deep, 2\u20134\u2033 apart. Soil 45\u00b0F+.', plot:'Plot B north' },
+        { title:'Radishes \u2014 Pepito', detail:'\u00bd\u2033 deep, 1\u20132\u2033 apart. Soil 40\u00b0F+.', plot:'Plot A west' },
+        { title:'Lettuce \u2014 3 varieties', detail:'\u215b\u2033 deep, barely cover. Soil 40\u00b0F+. Won\u2019t germinate above 75\u00b0F.', plot:'Plot B center' },
+        { title:'Lettuce \u2014 between garlic rows', detail:'Interplant between garlic rows. Garlic repels aphids. Harvest by May\u2013June.', plot:'Plot B south' },
+      ]},
+      { type:'transplant', label:'Transplants & Sets',items:[
+        { title:'Onion plants arrive (~3/16)', detail:'Patterson & Walla Walla. Plant 1\u2033 deep, 4\u20135\u2033 apart as soon as they arrive.', plot:'Plot A south' },
+        { title:'Potatoes \u2014 Canada Gold & Carla Rose', detail:'Cut seed potatoes 2 days before planting. Plant 4\u2033 deep, 12\u2033 apart. Soil 45\u00b0F+.', plot:'Plot B east' },
+      ]},
+      { type:'maint', label:'Infrastructure',items:[
+        { title:'Install pea trellis', detail:'Set up before peas reach 4\u20136\u2033. Netting or string for tendrils.', plot:'Plot B' },
+      ]},
+    ]
+  },
+  { id:'mar-late', label:'Late Mar', fullLabel:'Late March (Mar 16\u201331)', soil:'48\u201352\u00b0F',
+    summary:'Continue cool-season sowings as soil warms. Begin succession planting.',
+    groups:[
+      { type:'sow', label:'Direct Sow',items:[
+        { title:'Carrots \u2014 Yaya', detail:'\u00bc\u2033 deep, thin to 1\u20132\u2033 apart. Soil 55\u00b0F+ (use row cover if needed).', plot:'Plot A center' },
+        { title:'Kale \u2014 Red Russian', detail:'\u00bc\u2013\u00bd\u2033 deep, thin to 12\u201318\u2033. Soil 55\u00b0F+.', plot:'Plot B south-center' },
+        { title:'Cilantro \u2014 Calypso (1st)', detail:'\u00bc\u2013\u00bd\u2033 deep, 6\u20138\u2033 apart. Soil 55\u00b0F+.', plot:'Plot A west-center' },
+      ]},
+      { type:'sow', label:'Succession Sowings',items:[
+        { title:'Spinach \u2014 2nd sowing', detail:'If 1st sowing is 2\u20133 weeks old.', plot:'Plot B' },
+        { title:'Lettuce \u2014 2nd sowing', detail:'Stagger varieties for continuous harvest.', plot:'Plot B' },
+        { title:'Radishes \u2014 2nd sowing', detail:'Every 10\u201314 days through the season.', plot:'Plot A' },
+      ]},
+      { type:'maint', label:'Fertilizing',items:[
+        { title:'Feed cool-season crops', detail:'Side-dress spinach, lettuce, kale, peas with balanced organic fertilizer (5-5-5 or fish emulsion) once 2\u20133 true leaves.', plot:'' },
+      ]},
+    ]
+  },
+  { id:'apr-early', label:'Early Apr', fullLabel:'Early April (Apr 1\u201315)', soil:'50\u201355\u00b0F',
+    summary:'Transition period. Continue successions outdoors, start warm-season crops indoors.',
+    groups:[
+      { type:'sow', label:'Succession Sowings',items:[
+        { title:'Carrots \u2014 2nd sowing', detail:'Every 3 weeks for continuous harvest.', plot:'Plot A' },
+        { title:'Cilantro \u2014 2nd sowing', detail:'Every 2\u20133 weeks to stay ahead of bolting.', plot:'Plot A' },
+        { title:'Radishes \u2014 3rd sowing', detail:'', plot:'Plot A' },
+        { title:'Lettuce \u2014 3rd sowing', detail:'', plot:'Plot B' },
+      ]},
+      { type:'sow', label:'Start Indoors',items:[
+        { title:'Cucumbers \u2014 Gershwin & Gateway', detail:'3\u20134 weeks before transplant (~May 1). Soil 70\u201385\u00b0F. Use heat mat.', plot:'Indoors' },
+        { title:'Dill (optional indoor start)', detail:'Or wait to direct sow after last frost. Soil 60\u201370\u00b0F.', plot:'Indoors' },
+        { title:'Nasturtiums \u2014 Alaska Mix', detail:'\u00bd\u20131\u2033 deep, 2\u20133 weeks before last frost. Darkness required.', plot:'Indoors' },
+        { title:'Zinnias \u2014 Benary\u2019s Giant', detail:'\u00bc\u2033 deep, 4\u20136 weeks before last frost. Soil 70\u201380\u00b0F.', plot:'Indoors' },
+      ]},
+      { type:'maint', label:'Infrastructure & Fertilizing',items:[
+        { title:'Install Plot A trellis', detail:'Full-length north-edge trellis for pole beans and cucumbers.', plot:'Plot A' },
+        { title:'Prepare tomato cages', detail:'6 sturdy cages (at least 5 ft tall) for mid-May planting.', plot:'' },
+        { title:'Feed peas \u2014 bone meal', detail:'Light phosphorus feed at flowering.', plot:'Plot B' },
+        { title:'Hill potatoes (1st hilling)', detail:'When stems are 6\u20138\u2033 tall, mound soil leaving 3\u20134\u2033 exposed.', plot:'Plot B' },
+      ]},
+    ]
+  },
+  { id:'apr-late', label:'Late Apr', fullLabel:'Mid\u2013Late April (Apr 15\u201330) \u2014 LAST FROST ~Apr 15', soil:'55\u201360\u00b0F',
+    summary:'Last frost passes! Warm-season direct sowing begins.',
+    groups:[
+      { type:'sow', label:'After Last Frost \u2014 Direct Sow',items:[
+        { title:'Dill \u2014 Bouquet (1st)', detail:'\u00bc\u2033 deep, 6\u201312\u2033 apart. Soil 60\u00b0F+. In front of cucumber trellis.', plot:'Plot A center-north' },
+        { title:'Pole Beans \u2014 Fortex & Seychelles (1st)', detail:'1\u2033 deep, 4\u20136\u2033 apart along trellis. Soil 60\u00b0F+.', plot:'Plot A west' },
+        { title:'Nasturtiums \u2014 Alaska Mix', detail:'\u00bd\u20131\u2033 deep, or transplant starts. Soil 55\u201365\u00b0F.', plot:'Plot A & Plot B' },
+      ]},
+      { type:'sow', label:'Succession Sowings',items:[
+        { title:'Spinach \u2014 3rd sowing', detail:'', plot:'Plot B' },
+        { title:'Lettuce \u2014 4th sowing', detail:'', plot:'Plot B' },
+        { title:'Radishes \u2014 4th sowing', detail:'', plot:'Plot A' },
+        { title:'Cilantro \u2014 3rd sowing', detail:'', plot:'Plot A' },
+      ]},
+      { type:'maint', label:'Fertilizing',items:[
+        { title:'Side-dress leafy greens', detail:'Fish emulsion or liquid kelp to lettuce, spinach, kale every 3\u20134 weeks.', plot:'' },
+      ]},
+    ]
+  },
+  { id:'may-early', label:'Early May', fullLabel:'Early May (May 1\u201315)', soil:'58\u201363\u00b0F',
+    summary:'Warm-season transplants go outdoors. Trellises get busy.',
+    groups:[
+      { type:'transplant', label:'Transplant Outdoors',items:[
+        { title:'Cucumbers \u2014 Gershwin & Gateway', detail:'Harden off 5\u20137 days. Soil 60\u00b0F+, nights above 50\u00b0F. Space 12\u2033 on trellis.', plot:'Plot A trellis' },
+        { title:'Parsley \u2014 Giant of Italy', detail:'Move indoor starts outdoors. Space 8\u201310\u2033 apart.', plot:'Plot A west-center' },
+      ]},
+      { type:'sow', label:'Direct Sow & Succession',items:[
+        { title:'Zinnias \u2014 Benary\u2019s Giant', detail:'\u00bc\u2033 deep, 12\u201318\u2033 apart. Soil 70\u00b0F+. May wait until mid-May.', plot:'East ends, both beds' },
+        { title:'Dill \u2014 2nd sowing', detail:'Succession every 2\u20133 weeks.', plot:'Plot A' },
+        { title:'Pole Beans \u2014 2nd sowing', detail:'2\u20133 weeks after first for extended harvest.', plot:'Plot A' },
+        { title:'Carrots \u2014 3rd sowing', detail:'', plot:'Plot A' },
+        { title:'Lettuce \u2014 5th sowing', detail:'Consider shade cloth as temps rise.', plot:'Plot B' },
+        { title:'Cilantro \u2014 4th sowing', detail:'', plot:'Plot A' },
+      ]},
+      { type:'maint', label:'Maintenance',items:[
+        { title:'Train beans & cucumbers', detail:'Gently guide vines onto trellis supports.', plot:'Plot A' },
+        { title:'Hill potatoes (2nd hilling)', detail:'Add more soil when stems grow another 6\u20138\u2033.', plot:'Plot B' },
+      ]},
+    ]
+  },
+  { id:'may-late', label:'Late May', fullLabel:'Mid\u2013Late May (May 15\u201331)', soil:'60\u201368\u00b0F',
+    summary:'Nursery transplants go in \u2014 tomatoes, peppers, basil, herbs, flowers.',
+    groups:[
+      { type:'transplant', label:'Nursery Transplants',items:[
+        { title:'Tomatoes', detail:'Buy starts locally. Plant deep (bury \u2154 of stem), 24\u2033 apart. Install cages immediately.', plot:'Plot A east' },
+        { title:'Hot Peppers', detail:'Buy starts. Same warm requirements as tomatoes.', plot:'Plot A south-east' },
+        { title:'Basil', detail:'Very frost-tender. Wait until nights reliably above 50\u00b0F. Plant next to tomatoes.', plot:'Plot A east' },
+        { title:'Sage', detail:'Buy start from nursery.', plot:'Plot A west-center' },
+        { title:'Marigolds', detail:'French type, 10\u201312\u2033 apart along south edge of tomato/pepper zone.', plot:'Plot A east' },
+      ]},
+      { type:'sow', label:'Succession Sowings',items:[
+        { title:'Dill \u2014 3rd sowing', detail:'', plot:'Plot A' },
+        { title:'Radishes \u2014 5th sowing (last spring)', detail:'Resume in late August.', plot:'Plot A' },
+        { title:'Lettuce \u2014 6th sowing', detail:'Use shade cloth.', plot:'Plot B' },
+      ]},
+      { type:'maint', label:'Fertilizing',items:[
+        { title:'Feed tomatoes at planting', detail:'Bone meal + compost in each hole. Don\u2019t over-fertilize with nitrogen.', plot:'Plot A' },
+        { title:'Feed cucumbers', detail:'Side-dress with compost when vines begin to run.', plot:'Plot A' },
+        { title:'Side-dress beans', detail:'Light bone meal once flowering starts.', plot:'Plot A' },
+      ]},
+    ]
+  },
+  { id:'jun', label:'June', fullLabel:'June', soil:'62\u201370\u00b0F',
+    summary:'First harvests arrive! Succession planting continues. Prep for fall broccoli.',
+    groups:[
+      { type:'harvest', label:'Harvest Begins!',items:[
+        { title:'Radishes', detail:'First spring sowings ready (~21\u201330 days). Harvest when marble-sized.', plot:'' },
+        { title:'Lettuce', detail:'First heads ~55 days from sowing. Succession harvests continue.', plot:'' },
+        { title:'Spinach', detail:'~40\u201345 days from sowing. Pick outer leaves for continued harvest.', plot:'' },
+        { title:'Peas \u2014 Sugar Snap', detail:'~58\u201370 days from sowing. Harvest through June.', plot:'Plot B' },
+        { title:'Kale \u2014 Red Russian', detail:'Baby leaves at 50 days, full at 60. Harvest all season.', plot:'Plot B' },
+        { title:'Garlic scapes', detail:'Snip curly scapes mid-June. Use in cooking!', plot:'Plot B' },
+      ]},
+      { type:'sow', label:'Succession & Fall Prep',items:[
+        { title:'Dill \u2014 4th sowing', detail:'', plot:'Plot A' },
+        { title:'Cilantro \u2014 5th sowing', detail:'Bolts quickly in warm weather.', plot:'Plot A' },
+        { title:'Carrots \u2014 4th sowing', detail:'', plot:'Plot A' },
+        { title:'Beans \u2014 3rd sowing (final)', detail:'', plot:'Plot A' },
+        { title:'Start broccoli seeds indoors', detail:'Mid-June. Or buy 3\u20134 transplants in early July.', plot:'Indoors' },
+      ]},
+      { type:'maint', label:'Maintenance & Fertilizing',items:[
+        { title:'Feed tomatoes (1st)', detail:'When fruits are golf-ball sized. Calcium-rich fertilizer. Repeat every 3\u20134 weeks.', plot:'Plot A' },
+        { title:'Feed cucumbers', detail:'Side-dress every 3\u20134 weeks once fruiting.', plot:'Plot A' },
+        { title:'Hill potatoes (final)', detail:'Stop hilling once plants flower.', plot:'Plot B' },
+        { title:'Remove pea trellis & prep for broccoli', detail:'Peas wind down late June. Work 1\u20132\u2033 compost into former pea zone.', plot:'Plot B north' },
+        { title:'Add shade cloth over lettuce', detail:'30\u201350% shade cloth to prevent bolting.', plot:'Plot B' },
+        { title:'Pause spinach plantings', detail:'Too warm. Resume late August.', plot:'' },
+      ]},
+    ]
+  },
+  { id:'jul', label:'July', fullLabel:'July \u2014 Peak Season', soil:'65\u201375\u00b0F',
+    summary:'Peak harvest and canning season! Broccoli transplant. Post-garlic replanting.',
+    groups:[
+      { type:'harvest', label:'Peak Harvest',items:[
+        { title:'Cucumbers \u2014 Gershwin (pickling)', detail:'Pick at 2\u20134\u2033 for pickles. Harvest every 1\u20132 days.', plot:'Plot A' },
+        { title:'Cucumbers \u2014 Gateway (slicing)', detail:'Pick at 8\u201310\u2033 for best flavor.', plot:'Plot A' },
+        { title:'Pole Beans \u2014 Fortex & Seychelles', detail:'Pick pods at 7\u201310\u2033. Harvest every 2\u20133 days.', plot:'Plot A' },
+        { title:'Dill', detail:'Harvest leaves anytime; flower heads for pickling.', plot:'Plot A' },
+        { title:'Carrots \u2014 Yaya', detail:'Succession harvests July\u2013Oct.', plot:'Plot A' },
+        { title:'Onions \u2014 Walla Walla', detail:'Harvest when tops flop. Cure in shade 1\u20132 weeks.', plot:'Plot A' },
+        { title:'Garlic \u2014 full harvest', detail:'Dig when lower 3\u20134 leaves brown. Cure 2\u20134 weeks.', plot:'Plot B south' },
+        { title:'Potatoes \u2014 early check', detail:'Dig \u201cnew potatoes\u201d after flowering. Full harvest when foliage yellows.', plot:'Plot B' },
+        { title:'Tomatoes (first ripe)', detail:'First ripe tomatoes mid-July to early August.', plot:'Plot A' },
+      ]},
+      { type:'transplant', label:'Transplant',items:[
+        { title:'Broccoli \u2014 mid-July', detail:'3\u20134 transplants, 18\u201324\u2033 apart in former pea zone. Nitrogen-rich soil is ideal.', plot:'Plot B north' },
+      ]},
+      { type:'sow', label:'Post-Garlic Replanting & Succession',items:[
+        { title:'Fall lettuce \u2014 1st sowing', detail:'In former garlic zone. ~55 days to harvest.', plot:'Plot B south' },
+        { title:'Fall radishes', detail:'Quick sowing alongside lettuce. Ready in ~3 weeks.', plot:'Plot B south' },
+        { title:'Dill \u2014 5th sowing (last)', detail:'For pickling season.', plot:'Plot A' },
+        { title:'Carrots \u2014 5th sowing', detail:'For fall harvest.', plot:'Plot A' },
+      ]},
+      { type:'maint', label:'Canning & Maintenance',items:[
+        { title:'Make pickles!', detail:'Gershwin cucumbers + Bouquet dill + garlic. Peak window: July.', plot:'' },
+        { title:'Freeze/can beans', detail:'Blanch and freeze excess pole beans.', plot:'' },
+        { title:'Prune tomato suckers', detail:'Remove below first fruit cluster for better airflow.', plot:'Plot A' },
+        { title:'Amend former garlic zone', detail:'Work 1\u2033 compost into soil. Allium residue deters pests.', plot:'Plot B south' },
+        { title:'Feed broccoli at transplant', detail:'Compost + balanced fertilizer. Heavy feeder.', plot:'Plot B' },
+        { title:'Feed tomatoes & cucumbers', detail:'Continue every 3\u20134 weeks.', plot:'Plot A' },
+      ]},
+    ]
+  },
+  { id:'aug', label:'August', fullLabel:'August', soil:'65\u201372\u00b0F',
+    summary:'Full-swing harvests. Start fall plantings for the second season.',
+    groups:[
+      { type:'harvest', label:'Harvest \u2014 Full Swing',items:[
+        { title:'Tomatoes \u2014 peak harvest', detail:'All 6 plants producing heavily. Save surplus for sauce.', plot:'Plot A' },
+        { title:'Hot Peppers', detail:'Most ready 70\u201390 days from transplant.', plot:'Plot A' },
+        { title:'Onions \u2014 Patterson', detail:'Storage onion. Cure 2\u20134 weeks in dry, shaded spot.', plot:'Plot A' },
+        { title:'Potatoes \u2014 full harvest', detail:'Dig all remaining once foliage dies back.', plot:'Plot B' },
+        { title:'Rhubarb \u2014 final harvest', detail:'Stop picking by late August to let plants store energy.', plot:'Plot A west' },
+      ]},
+      { type:'sow', label:'Fall Planting \u2014 Start Now!',items:[
+        { title:'Fall lettuce \u2014 2nd sowing', detail:'Late August, in former garlic zone.', plot:'Plot B south' },
+        { title:'Fall spinach', detail:'Late August, in former garlic zone. Allium residue deters pests.', plot:'Plot B south' },
+        { title:'Spinach \u2014 resume in main area', detail:'Late August.', plot:'Plot B' },
+        { title:'Lettuce \u2014 resume succession', detail:'Late August into September.', plot:'Plot B' },
+        { title:'Radishes \u2014 resume sowing', detail:'Every 10\u201314 days starting late August.', plot:'' },
+        { title:'Kale \u2014 late sowing (optional)', detail:'Kale sweetens after frost.', plot:'Plot B' },
+        { title:'Carrots \u2014 final sowing', detail:'Early August for fall/winter harvest.', plot:'Plot A' },
+      ]},
+      { type:'maint', label:'Fertilizing',items:[
+        { title:'Last tomato feed', detail:'Final side-dress early August. Stop by mid-August to encourage ripening.', plot:'Plot A' },
+        { title:'Feed fall crops', detail:'Compost or balanced fertilizer on new fall plantings.', plot:'' },
+      ]},
+    ]
+  },
+  { id:'sep', label:'September', fullLabel:'September', soil:'58\u201365\u00b0F',
+    summary:'Late-season harvests wind down. Fall crops maturing. Seed saving.',
+    groups:[
+      { type:'harvest', label:'Late Season Harvest',items:[
+        { title:'Tomatoes \u2014 continue', detail:'Pick remaining before frost threat. Green tomatoes ripen indoors.', plot:'Plot A' },
+        { title:'Cucumbers \u2014 winding down', detail:'Production slows as nights cool.', plot:'Plot A' },
+        { title:'Beans \u2014 final harvest', detail:'Collect remaining pods. Remove spent vines.', plot:'Plot A' },
+        { title:'Carrots', detail:'Fall succession ready. Can leave in ground with mulch.', plot:'Plot A' },
+        { title:'Kale', detail:'Harvest increases as weather cools. Sweeter after light frost.', plot:'Plot B' },
+        { title:'Fall lettuce', detail:'August sowings ready by late September.', plot:'Plot B south' },
+        { title:'Fall radishes', detail:'Quick 3\u20134 week crop.', plot:'Plot B south' },
+        { title:'Broccoli', detail:'Late Sep: main heads forming. ~60\u201380 days from transplant.', plot:'Plot B north' },
+      ]},
+      { type:'maint', label:'Maintenance & Seed Saving',items:[
+        { title:'Collect nasturtium seeds', detail:'Save before first frost for next year.', plot:'' },
+        { title:'Collect zinnia seeds', detail:'Let some flower heads dry on plant.', plot:'' },
+        { title:'Remove spent warm-season crops', detail:'Pull cucumber, bean, pepper plants as they finish.', plot:'' },
+        { title:'Compost spent plants', detail:'Healthy material only (not diseased).', plot:'' },
+      ]},
+    ]
+  },
+  { id:'oct', label:'October', fullLabel:'October \u2014 Season\u2019s End', soil:'48\u201355\u00b0F',
+    summary:'Final harvests before frost (~Oct 15). Garden closeout and garlic planting for 2027.',
+    groups:[
+      { type:'harvest', label:'Final Harvests',items:[
+        { title:'Green tomatoes \u2014 before frost', detail:'Pick all by ~Oct 15. Ripen indoors with a banana.', plot:'Plot A' },
+        { title:'Hot peppers \u2014 final pick', detail:'Harvest all before frost.', plot:'Plot A' },
+        { title:'Carrots \u2014 continue or mulch', detail:'Can overwinter under 4\u20136\u2033 straw mulch in Zone 8b.', plot:'Plot A' },
+        { title:'Kale \u2014 overwinters!', detail:'Red Russian tolerates frost well. Continue through winter.', plot:'Plot B' },
+        { title:'Broccoli \u2014 side shoots', detail:'Main head harvested; side shoots continue for weeks. Frost tolerant.', plot:'Plot B north' },
+      ]},
+      { type:'maint', label:'Garden Closeout',items:[
+        { title:'Remove all annual crops', detail:'Clear beds of spent cages, trellises, and debris.', plot:'' },
+        { title:'Remove & store trellises', detail:'Clean and store for 2027.', plot:'Plot A & B' },
+        { title:'Plant garlic for 2027', detail:'Mid-October is ideal. Cloves 2\u2033 deep, 6\u2033 apart. Mulch with straw.', plot:'Plot B south' },
+        { title:'Lay fall compost', detail:'Spread 2\u20133\u2033 of compost over all beds.', plot:'Plot A & B' },
+        { title:'Plant cover crop (optional)', detail:'Crimson clover or winter rye in empty space for nitrogen fixing.', plot:'' },
+        { title:'Mulch beds', detail:'3\u20134\u2033 straw or leaf mulch to protect soil over winter.', plot:'Plot A & B' },
+      ]},
+    ]
+  },
+];
+
+// Gantt data: [crop, sowStart, sowEnd, harvestStart, harvestEnd] (month indices: 0=Mar, 1=Apr ... 7=Oct)
+const GANTT = [
+  ['Peas (Sugar Snap)',     0, 0, 2, 3],
+  ['Radishes (Pepito)',     0, 2, 1, 7],
+  ['Lettuce (3 varieties)', 0, 5, 1, 7],
+  ['Spinach (Space)',       0, 2, 1, 7],
+  ['Carrots (Yaya)',        0, 5, 2, 7],
+  ['Kale (Red Russian)',    0, 5, 2, 7],
+  ['Cilantro (Calypso)',    0, 4, 2, 6],
+  ['Dill (Bouquet)',        1, 4, 3, 6],
+  ['Pole Beans',            1, 3, 3, 6],
+  ['Onions',                0, 0, 3, 5],
+  ['Potatoes',              0, 0, 2, 5],
+  ['Garlic',                -1,-1, 4, 4],
+  ['Cucumbers',             2, 2, 3, 6],
+  ['Tomatoes',              2, 2, 4, 7],
+  ['Hot Peppers',           2, 2, 4, 7],
+  ['Broccoli (fall)',       4, 4, 6, 7],
+  ['Zinnias',               2, 2, 4, 7],
+  ['Nasturtiums',           1, 1, 3, 7],
+  ['Marigolds',             2, 2, 3, 7],
+];
+
+const ganttMonths = ['Mar','Apr','May','Jun','Jul','Aug','Sep','Oct'];
+const currentMonthId = 'mar-early'; // March 2026
+
+// Build navigation tabs
+const navEl = document.getElementById('navTabs');
+MONTHS.forEach(m => {
+  const btn = document.createElement('button');
+  btn.className = 'nav-tab' + (m.id === currentMonthId ? ' active current' : '');
+  btn.textContent = m.label;
+  btn.dataset.id = m.id;
+  btn.addEventListener('click', () => switchMonth(m.id));
+  navEl.appendChild(btn);
+});
+
+// Build panels
+const panelsEl = document.getElementById('panels');
+MONTHS.forEach(m => {
+  const panel = document.createElement('div');
+  panel.className = 'month-panel' + (m.id === currentMonthId ? ' active' : '');
+  panel.id = 'panel-' + m.id;
+
+  let html = `<div class="month-header">
+    <h2>${m.fullLabel}</h2>
+    ${m.soil ? `<span class="soil-temp">Soil: ${m.soil}</span>` : ''}
+    ${m.id === currentMonthId ? '<span class="now-marker">NOW</span>' : ''}
+  </div>
+  <p class="month-summary">${m.summary}</p>`;
+
+  m.groups.forEach(g => {
+    html += `<div class="activity-group">
+      <div class="group-label ${g.type}">${g.label}</div>
+      <div class="cards">`;
+    g.items.forEach(item => {
+      html += `<div class="card ${g.type}">
+        <div class="card-title">
+          ${g.type === 'done' ? '<span class="check">\u2713</span>' : ''}
+          ${item.title}
+        </div>
+        ${item.detail ? `<div class="card-detail">${item.detail}</div>` : ''}
+        ${item.plot ? `<span class="plot-tag">${item.plot}</span>` : ''}
+      </div>`;
+    });
+    html += `</div></div>`;
+  });
+
+  panel.innerHTML = html;
+  panelsEl.appendChild(panel);
+});
+
+// Build Gantt chart
+const ganttEl = document.getElementById('ganttTable');
+let ganttHtml = '<thead><tr><th>Crop</th>';
+ganttMonths.forEach((m,i) => {
+  ganttHtml += `<th>${m}</th>`;
+});
+ganttHtml += '</tr></thead><tbody>';
+GANTT.forEach(row => {
+  const [crop, ss, se, hs, he] = row;
+  ganttHtml += `<tr><td>${crop}</td>`;
+  for (let i = 0; i < ganttMonths.length; i++) {
+    const isSow = (i >= ss && i <= se && ss >= 0);
+    const isHarv = (i >= hs && i <= he);
+    if (isSow && isHarv) {
+      ganttHtml += `<td><span class="gantt-bar both"></span></td>`;
+    } else if (isSow) {
+      ganttHtml += `<td><span class="gantt-bar sow"></span></td>`;
+    } else if (isHarv) {
+      ganttHtml += `<td><span class="gantt-bar harvest"></span></td>`;
+    } else {
+      ganttHtml += `<td></td>`;
+    }
+  }
+  ganttHtml += '</tr>';
+});
+ganttHtml += '</tbody>';
+ganttEl.innerHTML = ganttHtml;
+
+function switchMonth(id) {
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.toggle('active', t.dataset.id === id));
+  document.querySelectorAll('.month-panel').forEach(p => p.classList.toggle('active', p.id === 'panel-' + id));
+}
+</script>
+</body>
+</html>

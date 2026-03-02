@@ -43,5 +43,5 @@
 **Brassicas & leafy greens:**
 - Lettuce (lots)
 - Spinach
-- Kale
+- Kale (1–2 plants)
 - Broccoli (fall crop, post-pea succession in Plot B)

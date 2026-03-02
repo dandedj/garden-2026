@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Garden Timeline 2026 — Issaquah, WA</title>
+<style>
+  :root { --green: #2d5a27; --green-light: #e8f5e8; --tan: #f5f2ec; --border: #d0ccc4; --sow:#4a9e4a; --harvest:#d4883a; --maint:#9370a8; --transplant:#6a7fd2; --done:#999; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: var(--tan); color: #2c2c2c; line-height: 1.55; padding: 24px; max-width: 960px; margin: 0 auto; }
+  nav.site-nav { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 28px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+  nav.site-nav a { padding: 6px 14px; border-radius: 16px; background: #fff; border: 1px solid #ccc; text-decoration: none; color: #555; font-size: 13px; font-weight: 500; transition: all 0.2s; }
+  nav.site-nav a:hover { background: var(--green-light); border-color: var(--green); }
+  nav.site-nav a.active { background: var(--green); color: #fff; border-color: var(--green); }
+  h1 { font-size: 26px; color: var(--green); margin-bottom: 4px; }
+  .subtitle { color: #888; font-size: 14px; margin-bottom: 28px; }
+  .month-section { margin-bottom: 36px; }
+  .month-title { font-size: 20px; font-weight: 700; color: var(--green); margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  .month-title .soil { font-size: 12px; font-weight: 400; color: #888; background: #fff; padding: 2px 8px; border-radius: 10px; border: 1px solid #ddd; }
+  .month-title .now-tag { font-size: 11px; font-weight: 700; color: #c0392b; background: #fde8e8; padding: 2px 8px; border-radius: 10px; }
+  .task-list { list-style: none; margin-top: 10px; }
+  .task-list li { padding: 8px 12px; margin-bottom: 4px; border-radius: 6px; font-size: 13.5px; display: flex; align-items: flex-start; gap: 8px; background: #fff; border-left: 3px solid #ccc; }
+  .task-list li.sow { border-left-color: var(--sow); }
+  .task-list li.transplant { border-left-color: var(--transplant); }
+  .task-list li.harvest { border-left-color: var(--harvest); }
+  .task-list li.maint { border-left-color: var(--maint); }
+  .task-list li.done { border-left-color: var(--done); opacity: 0.65; }
+  .task-list li.done .task-text { text-decoration: line-through; }
+  .check-box { width: 16px; height: 16px; border: 2px solid #bbb; border-radius: 3px; flex-shrink: 0; margin-top: 2px; display: flex; align-items: center; justify-content: center; font-size: 11px; cursor: pointer; }
+  .check-box.checked { background: var(--sow); border-color: var(--sow); color: #fff; }
+  .task-text { flex: 1; }
+  .task-text strong { font-weight: 600; }
+  .task-detail { color: #777; font-size: 12px; }
+  .section-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #888; margin: 14px 0 6px 4px; }
+
+  /* Tables */
+  .ref-table { width: 100%; border-collapse: collapse; margin: 14px 0 24px; font-size: 12.5px; }
+  .ref-table th { background: var(--green); color: #fff; padding: 8px 10px; text-align: left; font-weight: 600; }
+  .ref-table td { padding: 6px 10px; border-bottom: 1px solid #e0ddd6; background: #fff; }
+  .ref-table tr:hover td { background: #faf8f4; }
+
+  h2 { font-size: 18px; color: var(--green); margin: 36px 0 12px; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
+  footer { text-align: center; margin-top: 40px; color: #999; font-size: 12px; }
+</style>
+</head>
+<body>
+<nav class="site-nav">
+  <a href="garden-preferences.html">Preferences</a>
+  <a href="garden-inventory.html">Inventory</a>
+  <a href="garden-timeline-view.html" class="active">Timeline</a>
+  <a href="garden-calendar.html">Calendar</a>
+  <a href="garden-layout.html">Layout</a>
+</nav>
+
+<h1>Garden Timeline 2026</h1>
+<p class="subtitle">Issaquah, WA &middot; Zone 8b &middot; Two raised beds (4 &times; 19.5 ft) &middot; Last frost ~Apr 15 &middot; First frost ~Oct 15</p>
+
+<!-- Late Feb / Early March -->
+<div class="month-section">
+  <div class="month-title">Late February &ndash; Early March <span class="soil">Soil: 40&ndash;45&deg;F</span> <span class="now-tag">NOW</span></div>
+  <div class="section-label">Garden Prep</div>
+  <ul class="task-list">
+    <li class="done"><span class="check-box checked">&check;</span><span class="task-text"><strong>Clean out garden beds</strong> <span class="task-detail">&mdash; Removed debris and old plant material from both plots.</span></span></li>
+    <li class="done"><span class="check-box checked">&check;</span><span class="task-text"><strong>Amend soil with compost</strong> <span class="task-detail">&mdash; Spread 2&ndash;3&Prime; compost over both beds, worked into top 6&ndash;8&Prime;. Extra on Plot B south end.</span></span></li>
+    <li class="maint"><span class="check-box"></span><span class="task-text"><strong>Test soil pH</strong> <span class="task-detail">&mdash; Target 6.0&ndash;7.0. Add lime if acidic.</span></span></li>
+    <li class="maint"><span class="check-box"></span><span class="task-text"><strong>Mulch Plot B south end</strong> <span class="task-detail">&mdash; 2&ndash;3&Prime; straw mulch around garlic once planted.</span></span></li>
+    <li class="maint"><span class="check-box"></span><span class="task-text"><strong>Order/gather supplies</strong> <span class="task-detail">&mdash; Seed trays, potting mix, row cover, stakes, tomato cages.</span></span></li>
+  </ul>
+  <div class="section-label">Start Indoors</div>
+  <ul class="task-list">
+    <li class="sow"><span class="check-box"></span><span class="task-text"><strong>Parsley &mdash; Giant of Italy</strong> <span class="task-detail">&mdash; Slow germinator (14&ndash;28 days). Soil 65&ndash;75&deg;F.</span></span></li>
+  </ul>
+</div>
+
+<!-- Early-Mid March -->
+<div class="month-section">
+  <div class="month-title">Early&ndash;Mid March (Mar 1&ndash;15) <span class="soil">Soil: 42&ndash;48&deg;F</span></div>
+  <div class="section-label">Cool-Season Direct Sow</div>
+  <ul class="task-list">
+    <li class="sow"><span class="check-box"></span><span class="task-text"><strong>Peas &mdash; Sugar Snap</strong> <span class="task-detail">&mdash; 1&Prime; deep, 2&ndash;3&Prime; apart along Plot B trellis (north end). Soil 45&deg;F+.</span></span></li>
+    <li class="sow"><span class="check-box"></span><span class="task-text"><strong>Spinach &mdash; Space</strong> <span class="task-detail">&mdash; &frac12;&Prime; deep, 2&ndash;4&Prime; apart, Plot B north.</span></span></li>
+    <li class="sow"><span class="check-box"></span><span class="task-text"><strong>Radishes &mdash; Pepito</strong> <span class="task-detail">&mdash; &frac12;&Prime; deep, 1&ndash;2&Prime; apart, Plot A west.</span></span></li>
+    <li class="sow"><span class="check-box"></span><span class="task-text"><strong>Lettuce &mdash; 3 varieties</strong> <span class="task-detail">&mdash; &frac18;&Prime; deep, barely cover. Plot B center. Won&rsquo;t germinate above 75&deg;F.</span></span></li>
+    <li class="sow"><span class="check-box"></span><span class="task-text"><strong>Lettuce &mdash; between garlic rows</strong> <span class="task-detail">&mdash; Plot B south end. Garlic repels aphids. Harvest by May&ndash;June.</span></span></li>
+  </ul>
+  <div class="section-label">Transplants &amp; Sets</div>
+  <ul class="task-list">
+    <li class="transplant"><span class="check-box"></span><span class="task-text"><strong>Onion plants arrive (~3/16)</strong> <span class="task-detail">&mdash; Patterson &amp; Walla Walla. 1&Prime; deep, 4&ndash;5&Prime; apart. Plot A south.</span></span></li>
+    <li class="transplant"><span class="check-box"></span><span class="task-text"><strong>Potatoes &mdash; Canada Gold &amp; Carla Rose</strong> <span class="task-detail">&mdash; Cut 2 days early to callus. 4&Prime; deep, 12&Prime; apart. Soil 45&deg;F+. Plot B east.</span></span></li>
+  </ul>
+  <div class="section-label">Infrastructure</div>
+  <ul class="task-list">
+    <li class="maint"><span class="check-box"></span><span class="task-text"><strong>Install pea trellis (Plot B)</strong> <span class="task-detail">&mdash; Before peas reach 4&ndash;6&Prime;. Netting or string.</span></span></li>
+  </ul>
+</div>
+
+<!-- Late March -->
+<div class="month-section">
+  <div class="month-title">Late March (Mar 16&ndash;31) <span class="soil">Soil: 48&ndash;52&deg;F</span></div>
+  <div class="section-label">Direct Sow</div>
+  <ul class="task-list">
+    <li class="sow"><span class="check-box"></span><span class="task-text"><strong>Carrots &mdash; Yaya</strong> <span class="task-detail">&mdash; &frac14;&Prime; deep, thin to 1&ndash;2&Prime;. Soil 55&deg;F+. Plot A center.</span></span></li>
+    <li class="sow"><span class="check-box"></span><span class="task-text"><strong>Kale &mdash; Red Russian (1&ndash;2 plants only)</strong> <span class="task-detail">&mdash; Sow 3&ndash;4 seeds, thin to best 1&ndash;2 plants, 18&ndash;24&Prime; apart. Plot B south-center.</span></span></li>
+    <li class="sow"><span class="check-box"></span><span class="task-text"><strong>Cilantro &mdash; Calypso (1st)</strong> <span class="task-detail">&mdash; &frac14;&ndash;&frac12;&Prime; deep, 6&ndash;8&Prime; apart. Plot A west-center.</span></span></li>
+  </ul>
+  <div class="section-label">Succession Sowings</div>
+  <ul class="task-list">
+    <li class="sow"><span class="check-box"></span><span class="task-text"><strong>Spinach &mdash; 2nd sowing</strong></span></li>
+    <li class="sow"><span class="check-box"></span><span class="task-text"><strong>Lettuce &mdash; 2nd sowing</strong> <span class="task-detail">&mdash; Stagger varieties.</span></span></li>
+    <li class="sow"><span class="check-box"></span><span class="task-text"><strong>Radishes &mdash; 2nd sowing</strong> <span class="task-detail">&mdash; Every 10&ndash;14 days.</span></span></li>
+  </ul>
+  <div class="section-label">Fertilizing</div>
+  <ul class="task-list">
+    <li class="maint"><span class="check-box"></span><span class="task-text"><strong>Feed cool-season crops</strong> <span class="task-detail">&mdash; 5-5-5 or fish emulsion once 2&ndash;3 true leaves.</span></span></li>
+  </ul>
+</div>
+
+<!-- Early April -->
+<div class="month-section">
+  <div class="month-title">Early April (Apr 1&ndash;15) <span class="soil">Soil: 50&ndash;55&deg;F</span></div>
+  <div class="section-label">Succession Sowings</div>
+  <ul class="task-list">
+    <li class="sow"><span class="check-box"></span><span class="task-text"><strong>Carrots &mdash; 2nd sowing</strong></span></li>
+    <li class="sow"><span class="check-box"></span><span class="task-text"><strong>Cilantro &mdash; 2nd sowing</strong></span></li>
+    <li class="sow"><span class="check-box"></span><span class="task-text"><strong>Radishes &mdash; 3rd sowing</strong></span></li>
+    <li class="sow"><span class="check-box"></span><span class="task-text"><strong>Lettuce &mdash; 3rd sowing</strong></span></li>
+  </ul>
+  <div class="section-label">Start Indoors</div>
+  <ul class="task-list">
+    <li class="sow"><span class="check-box"></span><span class="task-text"><strong>Cucumbers &mdash; Gershwin &amp; Gateway</strong> <span class="task-detail">&mdash; 3&ndash;4 wks before transplant. Heat mat. 70&ndash;85&deg;F.</span></span></li>
+    <li class="sow"><span class="check-box"></span><span class="task-text"><strong>Nasturtiums &mdash; Alaska Mix</strong> <span class="task-detail">&mdash; Darkness required for germination.</span></span></li>
+    <li class="sow"><span class="check-box"></span><span class="task-text"><strong>Zinnias &mdash; Benary&rsquo;s Giant</strong> <span class="task-detail">&mdash; 4&ndash;6 wks before last frost. 70&ndash;80&deg;F.</span></span></li>
+  </ul>
+  <div class="section-label">Infrastructure &amp; Fertilizing</div>
+  <ul class="task-list">
+    <li class="maint"><span class="check-box"></span><span class="task-text"><strong>Install Plot A trellis</strong> <span class="task-detail">&mdash; For pole beans and cucumbers.</span></span></li>
+    <li class="maint"><span class="check-box"></span><span class="task-text"><strong>Prepare tomato cages (6)</strong></span></li>
+    <li class="maint"><span class="check-box"></span><span class="task-text"><strong>Feed peas &mdash; bone meal at flowering</strong></span></li>
+    <li class="maint"><span class="check-box"></span><span class="task-text"><strong>Hill potatoes (1st hilling)</strong> <span class="task-detail">&mdash; When stems 6&ndash;8&Prime;.</span></span></li>
+  </ul>
+</div>
+
+<!-- Late April -->
+<div class="month-section">
+  <div class="month-title">Mid&ndash;Late April (Apr 15&ndash;30) <span class="soil">Soil: 55&ndash;60&deg;F</span></div>
+  <div class="section-label" style="color:var(--sow);">LAST FROST ~APR 15 &mdash; Warm-Season Direct Sow</div>
+  <ul class="task-list">
+    <li class="sow"><span class="check-box"></span><span class="task-text"><strong>Dill &mdash; Bouquet (1st)</strong> <span class="task-detail">&mdash; &frac14;&Prime; deep, 6&ndash;12&Prime; apart. In front of cucumber trellis.</span></span></li>
+    <li class="sow"><span class="check-box"></span><span class="task-text"><strong>Pole Beans &mdash; Fortex &amp; Seychelles (1st)</strong> <span class="task-detail">&mdash; 1&Prime; deep, 4&ndash;6&Prime; apart along Plot A trellis. Soil 60&deg;F+.</span></span></li>
+    <li class="sow"><span class="check-box"></span><span class="task-text"><strong>Nasturtiums &mdash; direct sow or transplant</strong></span></li>
+  </ul>
+  <div class="section-label">Succession Sowings</div>
+  <ul class="task-list">
+    <li class="sow"><span class="check-box"></span><span class="task-text"><strong>Spinach &mdash; 3rd sowing</strong></span></li>
+    <li class="sow"><span class="check-box"></span><span class="task-text"><strong>Lettuce &mdash; 4th sowing</strong></span></li>
+    <li class="sow"><span class="check-box"></span><span class="task-text"><strong>Radishes &mdash; 4th sowing</strong></span></li>
+    <li class="sow"><span class="check-box"></span><span class="task-text"><strong>Cilantro &mdash; 3rd sowing</strong></span></li>
+  </ul>
+</div>
+
+<!-- Early May -->
+<div class="month-section">
+  <div class="month-title">Early May (May 1&ndash;15) <span class="soil">Soil: 58&ndash;63&deg;F</span></div>
+  <div class="section-label">Transplant Outdoors</div>
+  <ul class="task-list">
+    <li class="transplant"><span class="check-box"></span><span class="task-text"><strong>Cucumbers &mdash; Gershwin &amp; Gateway</strong> <span class="task-detail">&mdash; Harden off 5&ndash;7 days. 12&Prime; apart on trellis.</span></span></li>
+    <li class="transplant"><span class="check-box"></span><span class="task-text"><strong>Parsley &mdash; Giant of Italy</strong> <span class="task-detail">&mdash; 8&ndash;10&Prime; apart, Plot A west-center.</span></span></li>
+  </ul>
+  <div class="section-label">Direct Sow &amp; Succession</div>
+  <ul class="task-list">
+    <li class="sow"><span class="check-box"></span><span class="task-text"><strong>Zinnias, Dill 2nd, Beans 2nd, Carrots 3rd, Lettuce 5th, Cilantro 4th</strong></span></li>
+  </ul>
+  <div class="section-label">Maintenance</div>
+  <ul class="task-list">
+    <li class="maint"><span class="check-box"></span><span class="task-text"><strong>Train beans &amp; cucumbers on trellis</strong></span></li>
+    <li class="maint"><span class="check-box"></span><span class="task-text"><strong>Hill potatoes (2nd hilling)</strong></span></li>
+  </ul>
+</div>
+
+<!-- Late May -->
+<div class="month-section">
+  <div class="month-title">Mid&ndash;Late May (May 15&ndash;31) <span class="soil">Soil: 60&ndash;68&deg;F</span></div>
+  <div class="section-label">Nursery Transplants</div>
+  <ul class="task-list">
+    <li class="transplant"><span class="check-box"></span><span class="task-text"><strong>Tomatoes</strong> <span class="task-detail">&mdash; Plant deep (&frac23; stem), 24&Prime; apart, Plot A east. Install cages.</span></span></li>
+    <li class="transplant"><span class="check-box"></span><span class="task-text"><strong>Hot Peppers</strong> <span class="task-detail">&mdash; Plot A south-east.</span></span></li>
+    <li class="transplant"><span class="check-box"></span><span class="task-text"><strong>Basil</strong> <span class="task-detail">&mdash; Next to tomatoes. Wait for nights above 50&deg;F.</span></span></li>
+    <li class="transplant"><span class="check-box"></span><span class="task-text"><strong>Sage</strong> <span class="task-detail">&mdash; Plot A west-center.</span></span></li>
+    <li class="transplant"><span class="check-box"></span><span class="task-text"><strong>Marigolds</strong> <span class="task-detail">&mdash; South edge of tomato zone, 10&ndash;12&Prime; apart.</span></span></li>
+  </ul>
+  <div class="section-label">Fertilizing</div>
+  <ul class="task-list">
+    <li class="maint"><span class="check-box"></span><span class="task-text"><strong>Feed tomatoes at planting</strong> <span class="task-detail">&mdash; Bone meal + compost in hole.</span></span></li>
+    <li class="maint"><span class="check-box"></span><span class="task-text"><strong>Feed cucumbers &amp; beans at flowering</strong></span></li>
+  </ul>
+</div>
+
+<!-- June -->
+<div class="month-section">
+  <div class="month-title">June <span class="soil">Soil: 62&ndash;70&deg;F</span></div>
+  <div class="section-label">Harvest Begins!</div>
+  <ul class="task-list">
+    <li class="harvest"><span class="check-box"></span><span class="task-text"><strong>Radishes, Lettuce, Spinach, Peas, Kale, Garlic scapes</strong></span></li>
+  </ul>
+  <div class="section-label">Succession &amp; Fall Prep</div>
+  <ul class="task-list">
+    <li class="sow"><span class="check-box"></span><span class="task-text"><strong>Dill 4th, Cilantro 5th, Carrots 4th, Beans 3rd (final)</strong></span></li>
+    <li class="sow"><span class="check-box"></span><span class="task-text"><strong>Start broccoli seeds indoors (mid-June)</strong></span></li>
+  </ul>
+  <div class="section-label">Maintenance</div>
+  <ul class="task-list">
+    <li class="maint"><span class="check-box"></span><span class="task-text"><strong>Feed tomatoes, cucumbers, kale. Hill potatoes (final). Add shade cloth. Remove pea trellis.</strong></span></li>
+  </ul>
+</div>
+
+<!-- July -->
+<div class="month-section">
+  <div class="month-title">July &mdash; Peak Season <span class="soil">Soil: 65&ndash;75&deg;F</span></div>
+  <div class="section-label">Peak Harvest</div>
+  <ul class="task-list">
+    <li class="harvest"><span class="check-box"></span><span class="task-text"><strong>Cucumbers, Beans, Dill, Carrots, Walla Walla Onions, Garlic, Potatoes (early), Tomatoes (first)</strong></span></li>
+  </ul>
+  <div class="section-label">Transplant &amp; Replanting</div>
+  <ul class="task-list">
+    <li class="transplant"><span class="check-box"></span><span class="task-text"><strong>Broccoli &mdash; mid-July</strong> <span class="task-detail">&mdash; 3&ndash;4 transplants in former pea zone, Plot B north.</span></span></li>
+    <li class="sow"><span class="check-box"></span><span class="task-text"><strong>Fall lettuce &amp; radishes in former garlic zone</strong> <span class="task-detail">&mdash; Plot B south.</span></span></li>
+  </ul>
+  <div class="section-label">Canning Season</div>
+  <ul class="task-list">
+    <li class="harvest"><span class="check-box"></span><span class="task-text"><strong>Make pickles!</strong> <span class="task-detail">&mdash; Gershwin cucumbers + Bouquet dill + garlic.</span></span></li>
+    <li class="harvest"><span class="check-box"></span><span class="task-text"><strong>Freeze/can beans</strong></span></li>
+  </ul>
+</div>
+
+<!-- August -->
+<div class="month-section">
+  <div class="month-title">August <span class="soil">Soil: 65&ndash;72&deg;F</span></div>
+  <div class="section-label">Full-Swing Harvest</div>
+  <ul class="task-list">
+    <li class="harvest"><span class="check-box"></span><span class="task-text"><strong>Tomatoes (peak), Hot Peppers, Patterson Onions, Potatoes (full), Rhubarb (final)</strong></span></li>
+  </ul>
+  <div class="section-label">Fall Planting</div>
+  <ul class="task-list">
+    <li class="sow"><span class="check-box"></span><span class="task-text"><strong>Fall lettuce 2nd, Fall spinach, Spinach resume, Lettuce resume, Radishes resume, Carrots (final)</strong></span></li>
+  </ul>
+</div>
+
+<!-- September -->
+<div class="month-section">
+  <div class="month-title">September <span class="soil">Soil: 58&ndash;65&deg;F</span></div>
+  <div class="section-label">Late-Season Harvest</div>
+  <ul class="task-list">
+    <li class="harvest"><span class="check-box"></span><span class="task-text"><strong>Tomatoes, Cucumbers (winding down), Beans (final), Carrots, Kale, Fall lettuce, Broccoli (main heads)</strong></span></li>
+  </ul>
+  <div class="section-label">Seed Saving &amp; Cleanup</div>
+  <ul class="task-list">
+    <li class="maint"><span class="check-box"></span><span class="task-text"><strong>Collect nasturtium &amp; zinnia seeds. Remove spent warm-season crops. Compost healthy debris.</strong></span></li>
+  </ul>
+</div>
+
+<!-- October -->
+<div class="month-section">
+  <div class="month-title">October &mdash; Season&rsquo;s End <span class="soil">Soil: 48&ndash;55&deg;F</span></div>
+  <div class="section-label">Final Harvests (before frost ~Oct 15)</div>
+  <ul class="task-list">
+    <li class="harvest"><span class="check-box"></span><span class="task-text"><strong>Green tomatoes, Hot peppers, Carrots (mulch to overwinter), Kale (overwinters!), Broccoli side shoots</strong></span></li>
+  </ul>
+  <div class="section-label">Garden Closeout</div>
+  <ul class="task-list">
+    <li class="maint"><span class="check-box"></span><span class="task-text"><strong>Remove annuals, trellises. Plant garlic for 2027. Lay fall compost. Cover crop (optional). Mulch beds.</strong></span></li>
+  </ul>
+</div>
+
+<!-- Reference Tables -->
+<h2>Succession Planting Schedule</h2>
+<table class="ref-table">
+  <thead><tr><th>Crop</th><th>Frequency</th><th>Start</th><th>End</th><th>Total Sowings</th></tr></thead>
+  <tbody>
+    <tr><td>Lettuce</td><td>Every 2&ndash;3 weeks</td><td>Mar 1</td><td>Sep 1</td><td>~10&ndash;12</td></tr>
+    <tr><td>Spinach</td><td>Every 2&ndash;3 weeks</td><td>Mar 1</td><td>May 15, then Aug 15&ndash;Sep 15</td><td>~6&ndash;8</td></tr>
+    <tr><td>Radishes</td><td>Every 10&ndash;14 days</td><td>Mar 1</td><td>May 15, then Aug 15&ndash;Oct 1</td><td>~10&ndash;12</td></tr>
+    <tr><td>Cilantro</td><td>Every 2&ndash;3 weeks</td><td>Mar 25</td><td>Jul 15</td><td>~6&ndash;8</td></tr>
+    <tr><td>Dill</td><td>Every 2&ndash;3 weeks</td><td>Apr 15</td><td>Jul 15</td><td>~4&ndash;5</td></tr>
+    <tr><td>Pole Beans</td><td>2&ndash;3 sowings</td><td>Apr 20</td><td>Jun 15</td><td>2&ndash;3</td></tr>
+    <tr><td>Carrots</td><td>Every 3 weeks</td><td>Mar 25</td><td>Aug 1</td><td>~5&ndash;6</td></tr>
+  </tbody>
+</table>
+
+<h2>Estimated Harvest Windows</h2>
+<table class="ref-table">
+  <thead><tr><th>Crop</th><th>First Harvest</th><th>Peak</th><th>Last Harvest</th></tr></thead>
+  <tbody>
+    <tr><td>Radishes</td><td>Late April</td><td>May&ndash;Jun, Sep&ndash;Oct</td><td>October</td></tr>
+    <tr><td>Lettuce</td><td>Late April</td><td>May&ndash;Jun, Sep&ndash;Oct</td><td>October</td></tr>
+    <tr><td>Spinach</td><td>Mid-April</td><td>May&ndash;Jun, Sep&ndash;Oct</td><td>November</td></tr>
+    <tr><td>Peas</td><td>Late May</td><td>June</td><td>Late June</td></tr>
+    <tr><td>Kale</td><td>Mid-May</td><td>Jun&ndash;Nov</td><td>Year-round w/ protection</td></tr>
+    <tr><td>Carrots</td><td>Late May</td><td>Jul&ndash;Oct</td><td>November+ (mulched)</td></tr>
+    <tr><td>Onions (Walla Walla)</td><td>Late June</td><td>July</td><td>July</td></tr>
+    <tr><td>Onions (Patterson)</td><td>Mid-July</td><td>August</td><td>Stores through winter</td></tr>
+    <tr><td>Garlic</td><td colspan="3">Mid-July</td></tr>
+    <tr><td>Potatoes</td><td>Late May (new)</td><td>Jul&ndash;Aug</td><td>August</td></tr>
+    <tr><td>Cucumbers</td><td>Late June</td><td>Jul&ndash;Aug</td><td>September</td></tr>
+    <tr><td>Pole Beans</td><td>Late June</td><td>Jul&ndash;Aug</td><td>September</td></tr>
+    <tr><td>Tomatoes</td><td>Mid-July</td><td>Aug&ndash;Sep</td><td>October</td></tr>
+    <tr><td>Hot Peppers</td><td>July</td><td>Aug&ndash;Sep</td><td>October</td></tr>
+    <tr><td>Broccoli (fall)</td><td>Late Sep</td><td>Oct</td><td>Nov (side shoots)</td></tr>
+  </tbody>
+</table>
+
+<footer>Garden Timeline 2026 &middot; Updated March 2, 2026</footer>
+
+<script>
+// Interactive checkboxes
+document.querySelectorAll('.check-box:not(.checked)').forEach(box => {
+  box.addEventListener('click', function() {
+    this.classList.toggle('checked');
+    this.textContent = this.classList.contains('checked') ? '\u2713' : '';
+    this.closest('li').classList.toggle('done');
+    this.closest('li').querySelector('.task-text').classList.toggle('task-text-done');
+  });
+});
+</script>
+</body>
+</html>

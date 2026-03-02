@@ -43,7 +43,7 @@ Last frost: ~April 15 · First fall frost: ~October 15 · Growing season: ~180 d
 
 ### Planting — Cool Season Continued
 - [ ] **Carrots — Yaya** — Direct sow. Soil temp needed: 55°F+ (may need to wait for soil to warm a bit more, or use row cover). Sow ¼" deep, thin to 1–2" apart. Plot A center.
-- [ ] **Kale — Red Russian** — Direct sow or start indoors. Soil temp needed: 55°F+. Sow ¼–½" deep, thin to 12–18" apart. Plot B south-center.
+- [ ] **Kale — Red Russian (1–2 plants only)** — Direct sow 3–4 seeds, thin to best 1–2 plants, 18–24" apart. Soil temp needed: 55°F+. Plot B south-center.
 - [ ] **Cilantro — Calypso (1st sowing)** — Direct sow. Soil temp needed: 55°F+. Sow ¼–½" deep, 6–8" apart. Plot A west-center.
 
 ### Succession Planting
