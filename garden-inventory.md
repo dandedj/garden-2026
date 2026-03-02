@@ -34,6 +34,7 @@
 | Germination temp | 55–75°F |
 | Days to germination | 5–10 days |
 | Days to maturity | ~50 days (baby), ~60 days (full) |
+| Planting note | Only 2 plants needed. Sow 4–6 seeds, thin to best 2 plants spaced 18–24" apart (~3 sq ft total). |
 
 ### Lettuce
 
@@ -101,6 +102,23 @@
 | Days to germination | 5–14 days |
 | Days to maturity | ~40–45 days |
 
+### Perpetual Spinach (Leaf Beet)
+
+*Source: Fedco Seeds, Southern Exposure, or Nichols Garden Nursery (not available at Johnny's)*
+
+| Detail | Perpetual Spinach |
+|---|---|
+| Botanical name | Beta vulgaris var. cicla |
+| Type | Leaf beet — tastes like spinach but extremely heat/bolt resistant |
+| Price | ~$3–5 (varies by vendor) |
+| Direct sow | 2–3 weeks before last frost through mid-summer; or when true spinach bolts (~June) |
+| Seed depth | ½ inch |
+| Spacing | Thin to 8–12 inches apart, rows 18 in |
+| Germination temp | 50–85°F (min 40°F) |
+| Days to germination | 7–14 days |
+| Days to maturity | ~50–60 days (baby leaves at ~30 days) |
+| Notes | Summer spinach substitute. Cut-and-come-again — harvest outer leaves, leave center to regrow. Thin stems, smooth leaves, mild spinach flavor unlike regular chard. Produces June through first hard frost. Very bolt resistant. |
+
 ### Peas
 
 | Detail | Sugar Snap (Organic) |
@@ -144,6 +162,7 @@
 | Depth | 4 inches deep, hill as they grow | 4 inches deep, hill as they grow |
 | Spacing | 12 inches apart, rows 30–36 in | 12 inches apart, rows 30–36 in |
 | Days to maturity | ~70–90 days | ~70–90 days |
+| Planting note | Expanded allocation: ~6–8 sq ft on Plot B east side (8–10 plants per variety). Space freed from kale reduction. |
 
 ### Herbs (Seeds)
 
@@ -200,9 +219,36 @@
 | Harvest | Late Sep–Nov; tolerates light frost (sweetens heads) |
 | Notes | Benefits from nitrogen left by peas. Main head harvested first, then side shoots continue for weeks. Good PNW varieties: Belstar, Green Magic, Waltham 29. |
 
+## Garlic (In Ground)
+
+*Source: [Mountain Valley Garlic — 1 Pound Sampler](https://www.mountainvalleygarlic.com/product-page/1-pound-sampler)*
+
+| Detail | 1 Pound Sampler |
+|---|---|
+| Source | Mountain Valley Garlic |
+| Price | $50.00 |
+| Contents | ~4–5 bulbs, 30–45 cloves; 3 varieties (~⅓ lb each) |
+| Variety 1 | Standard Purple Stripe (Chesnok Red or Persian Star) |
+| Variety 2 | Porcelain (Music, Romanian Red, or Susan Delafield) |
+| Variety 3 | Specialty variety chosen by grower based on your location |
+| Planted | Fall 2025 (currently in ground, Plot B south end, ~5 ft of rows) |
+| Scapes | Snip mid-June to redirect energy to bulbs |
+| Harvest | Mid-July — dig when lower 3–4 leaves are brown; cure 2–4 weeks |
+| Notes | All hardneck varieties. Premium seed garlic 2"+ diameter. Includes growing guide. |
+
+### Fall 2026 — Reorder for 2027
+
+| Detail | 1 Pound Sampler (reorder) |
+|---|---|
+| Order by | Late summer 2026 (ships October) |
+| Plant | Mid-October 2026 — after garlic harvest and fall cleanup |
+| Location | Plot B south end (same zone — rotate if possible) |
+| Depth / Spacing | 2" deep, 6" apart; mulch with straw |
+| Notes | Order early — popular items sell out. Consider adding ½ lb shallot sets ($10 add-on). |
+
 ## Already In Ground / Established
 
-- Garlic
+- Garlic — Mountain Valley Garlic 1 lb Sampler (3 hardneck varieties, planted fall 2025)
 - Green onions
 - Chives
 - Oregano

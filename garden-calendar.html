@@ -353,7 +353,7 @@ const MONTHS = [
       ]},
       { type:'transplant', label:'Transplants & Sets',items:[
         { title:'Onion plants arrive (~3/16)', detail:'Patterson & Walla Walla. Plant 1\u2033 deep, 4\u20135\u2033 apart as soon as they arrive.', plot:'Plot A south' },
-        { title:'Potatoes \u2014 Canada Gold & Carla Rose', detail:'Cut seed potatoes 2 days before planting. Plant 4\u2033 deep, 12\u2033 apart. Soil 45\u00b0F+.', plot:'Plot B east' },
+        { title:'Potatoes \u2014 Canada Gold & Carla Rose (expanded)', detail:'Cut seed potatoes 2 days before. 4\u2033 deep, 12\u2033 apart. Soil 45\u00b0F+. Expanded to ~6\u20138 sq ft (8\u201310 plants per variety).', plot:'Plot B east' },
       ]},
       { type:'maint', label:'Infrastructure',items:[
         { title:'Install pea trellis', detail:'Set up before peas reach 4\u20136\u2033. Netting or string for tendrils.', plot:'Plot B' },
@@ -365,7 +365,7 @@ const MONTHS = [
     groups:[
       { type:'sow', label:'Direct Sow',items:[
         { title:'Carrots \u2014 Yaya', detail:'\u00bc\u2033 deep, thin to 1\u20132\u2033 apart. Soil 55\u00b0F+ (use row cover if needed).', plot:'Plot A center' },
-        { title:'Kale \u2014 Red Russian', detail:'\u00bc\u2013\u00bd\u2033 deep, thin to 12\u201318\u2033. Soil 55\u00b0F+.', plot:'Plot B south-center' },
+        { title:'Kale \u2014 Red Russian (2 plants)', detail:'Sow 4\u20136 seeds, thin to best 2 plants, 18\u201324\u2033 apart. Only ~3 sq ft. Soil 55\u00b0F+.', plot:'Plot B south-center' },
         { title:'Cilantro \u2014 Calypso (1st)', detail:'\u00bc\u2013\u00bd\u2033 deep, 6\u20138\u2033 apart. Soil 55\u00b0F+.', plot:'Plot A west-center' },
       ]},
       { type:'sow', label:'Succession Sowings',items:[
@@ -488,6 +488,7 @@ const MONTHS = [
         { title:'Remove pea trellis & prep for broccoli', detail:'Peas wind down late June. Work 1\u20132\u2033 compost into former pea zone.', plot:'Plot B north' },
         { title:'Add shade cloth over lettuce', detail:'30\u201350% shade cloth to prevent bolting.', plot:'Plot B' },
         { title:'Pause spinach plantings', detail:'Too warm. Resume late August.', plot:'' },
+        { title:'Perpetual spinach (leaf beet) \u2014 1st sowing', detail:'Summer spinach substitute! Sow \u00bd\u2033 deep, thin to 8\u201312\u2033. Extremely bolt-resistant. Cut-and-come-again harvest all summer.', plot:'Plot B north-center' },
       ]},
     ]
   },
@@ -499,6 +500,7 @@ const MONTHS = [
         { title:'Cucumbers \u2014 Gateway (slicing)', detail:'Pick at 8\u201310\u2033 for best flavor.', plot:'Plot A' },
         { title:'Pole Beans \u2014 Fortex & Seychelles', detail:'Pick pods at 7\u201310\u2033. Harvest every 2\u20133 days.', plot:'Plot A' },
         { title:'Dill', detail:'Harvest leaves anytime; flower heads for pickling.', plot:'Plot A' },
+        { title:'Perpetual spinach', detail:'Baby leaves at ~30 days, full at ~50\u201360. Cut outer leaves; center regrows all summer.', plot:'Plot B' },
         { title:'Carrots \u2014 Yaya', detail:'Succession harvests July\u2013Oct.', plot:'Plot A' },
         { title:'Onions \u2014 Walla Walla', detail:'Harvest when tops flop. Cure in shade 1\u20132 weeks.', plot:'Plot A' },
         { title:'Garlic \u2014 full harvest', detail:'Dig when lower 3\u20134 leaves brown. Cure 2\u20134 weeks.', plot:'Plot B south' },
@@ -543,9 +545,10 @@ const MONTHS = [
         { title:'Kale \u2014 late sowing (optional)', detail:'Kale sweetens after frost.', plot:'Plot B' },
         { title:'Carrots \u2014 final sowing', detail:'Early August for fall/winter harvest.', plot:'Plot A' },
       ]},
-      { type:'maint', label:'Fertilizing',items:[
+      { type:'maint', label:'Fertilizing & Orders',items:[
         { title:'Last tomato feed', detail:'Final side-dress early August. Stop by mid-August to encourage ripening.', plot:'Plot A' },
         { title:'Feed fall crops', detail:'Compost or balanced fertilizer on new fall plantings.', plot:'' },
+        { title:'Order garlic for fall 2027 planting', detail:'Order from Mountain Valley Garlic (1 lb Sampler or similar) by late August. Ships October. Popular items sell out early.', plot:'' },
       ]},
     ]
   },
@@ -583,7 +586,7 @@ const MONTHS = [
       { type:'maint', label:'Garden Closeout',items:[
         { title:'Remove all annual crops', detail:'Clear beds of spent cages, trellises, and debris.', plot:'' },
         { title:'Remove & store trellises', detail:'Clean and store for 2027.', plot:'Plot A & B' },
-        { title:'Plant garlic for 2027', detail:'Mid-October is ideal. Cloves 2\u2033 deep, 6\u2033 apart. Mulch with straw.', plot:'Plot B south' },
+        { title:'Plant garlic for 2027 (Mountain Valley order)', detail:'Mid-October is ideal in Zone 8b. Plant cloves 2\u2033 deep, 6\u2033 apart, pointy end up. Mulch 3\u20134\u2033 straw. Needs 4\u20138 weeks growth before ground freezes.', plot:'Plot B south' },
         { title:'Lay fall compost', detail:'Spread 2\u20133\u2033 of compost over all beds.', plot:'Plot A & B' },
         { title:'Plant cover crop (optional)', detail:'Crimson clover or winter rye in empty space for nitrogen fixing.', plot:'' },
         { title:'Mulch beds', detail:'3\u20134\u2033 straw or leaf mulch to protect soil over winter.', plot:'Plot A & B' },
@@ -605,6 +608,7 @@ const GANTT = [
   ['Pole Beans',            1, 3, 3, 6],
   ['Onions',                0, 0, 3, 5],
   ['Potatoes',              0, 0, 2, 5],
+  ['Perpetual Spinach',     3, 3, 4, 7],
   ['Garlic',                -1,-1, 4, 4],
   ['Cucumbers',             2, 2, 3, 6],
   ['Tomatoes',              2, 2, 4, 7],

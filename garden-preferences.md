@@ -43,5 +43,6 @@
 **Brassicas & leafy greens:**
 - Lettuce (lots)
 - Spinach
-- Kale (1–2 plants)
+- Kale (2 plants only)
+- Perpetual spinach / leaf beet (summer spinach substitute)
 - Broccoli (fall crop, post-pea succession in Plot B)

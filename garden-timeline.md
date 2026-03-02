@@ -30,7 +30,7 @@ Last frost: ~April 15 · First fall frost: ~October 15 · Growing season: ~180 d
 
 ### Planting — Transplants & Sets
 - [ ] **Onion plants arrive** — Patterson & Walla Walla ship week of 3/16. Plant 1" deep, 4–5" apart as soon as they arrive. Plot A south row.
-- [ ] **Potatoes — Canada Gold & Carla Rose** — Cut seed potatoes 2 days before planting to callus. Plant 4" deep, 12" apart when soil hits 45°F+. Plot B east side.
+- [ ] **Potatoes — Canada Gold & Carla Rose** — Cut seed potatoes 2 days before planting to callus. Plant 4" deep, 12" apart when soil hits 45°F+. Expanded planting: use ~6–8 sq ft on Plot B east side (about 8–10 plants per variety). Space freed from kale reduction helps.
 
 ### Infrastructure
 - [ ] **Install Plot B pea trellis** — Set up before peas reach 4–6 inches tall. Peas climb with tendrils; provide netting or string.
@@ -43,7 +43,7 @@ Last frost: ~April 15 · First fall frost: ~October 15 · Growing season: ~180 d
 
 ### Planting — Cool Season Continued
 - [ ] **Carrots — Yaya** — Direct sow. Soil temp needed: 55°F+ (may need to wait for soil to warm a bit more, or use row cover). Sow ¼" deep, thin to 1–2" apart. Plot A center.
-- [ ] **Kale — Red Russian (1–2 plants only)** — Direct sow 3–4 seeds, thin to best 1–2 plants, 18–24" apart. Soil temp needed: 55°F+. Plot B south-center.
+- [ ] **Kale — Red Russian (2 plants)** — Direct sow 4–6 seeds, thin to best 2 plants, 18–24" apart. Soil temp needed: 55°F+. Plot B south-center. Only needs ~3 sq ft total.
 - [ ] **Cilantro — Calypso (1st sowing)** — Direct sow. Soil temp needed: 55°F+. Sow ¼–½" deep, 6–8" apart. Plot A west-center.
 
 ### Succession Planting
@@ -159,6 +159,7 @@ Last frost: ~April 15 · First fall frost: ~October 15 · Growing season: ~180 d
 - [ ] **Carrots — 4th sowing** (early June)
 - [ ] **Lettuce — pause or use bolt-resistant varieties** under shade cloth
 - [ ] **Spinach — pause plantings** (too warm; resume late August)
+- [ ] **Perpetual spinach (leaf beet) — 1st sowing** — Direct sow in former spinach spot. Takes over as summer spinach substitute. Sow ½" deep, thin to 8–12" apart. Extremely bolt-resistant, produces all summer through fall. Pick outer leaves for continuous harvest. Plot B north-center.
 - [ ] **Beans — 3rd sowing** (early June for final succession)
 - [ ] **Start broccoli seeds indoors (mid-June)** — Or plan to buy 3–4 transplants from the nursery in early July. Good PNW varieties: Belstar, Green Magic, Waltham 29.
 
@@ -202,6 +203,7 @@ Last frost: ~April 15 · First fall frost: ~October 15 · Growing season: ~180 d
 - [ ] **Dill** — ~45–55 days from sowing. Harvest leaves anytime; flower heads for pickling.
   - *Ready for pickling season right alongside cucumbers*
 - [ ] **Cilantro** — Harvest leaves at ~50 days. Let some bolt for coriander seeds.
+- [ ] **Perpetual spinach** — Baby leaves at ~30 days, full leaves at ~50–60 days. Cut outer leaves; center regrows all summer.
 - [ ] **Carrots — Yaya** — ~55–60 days from sowing.
   - *Estimated: late March sowing → first harvest late May/June; succession harvests July–Oct*
 - [ ] **Potatoes — early check** — ~70–90 days from planting.
@@ -255,6 +257,9 @@ Last frost: ~April 15 · First fall frost: ~October 15 · Growing season: ~180 d
 - [ ] **Potatoes — full harvest** — Dig all remaining potatoes once foliage dies back completely.
 - [ ] **Rhubarb** — Final harvest. Stop picking by late August to let plants store energy.
 
+### Order Ahead
+- [ ] **Order garlic for fall 2027 planting** — Order from Mountain Valley Garlic (1 lb Sampler or similar) by late August. Ships October. Popular items sell out early.
+
 ### Fall Planting — Start Now!
 - [ ] **Fall lettuce — 2nd sowing in former garlic zone** (late August; continues the succession from the July sowing)
 - [ ] **Fall spinach — sow in former garlic zone** (late August; soil cools enough for germination; allium residue deters pests)
@@ -305,7 +310,7 @@ Last frost: ~April 15 · First fall frost: ~October 15 · Growing season: ~180 d
 ### Garden Closeout
 - [ ] **Remove all annual crops** — Clear beds of spent tomato cages, trellises, and annual plant debris.
 - [ ] **Remove trellises** — Take down Plot A and Plot B trellises. Clean and store for 2027.
-- [ ] **Plant garlic for 2027** — Mid-October is ideal garlic planting time in Zone 8b. Plant cloves 2" deep, 6" apart. Mulch with straw.
+- [ ] **Plant garlic for 2027** — Mid-October is ideal in Zone 8b. Plant cloves from Mountain Valley Garlic order 2" deep, 6" apart, pointy end up. Mulch with 3–4" of straw. Plot B south end. Garlic needs 4–8 weeks of growth before ground freezes to establish roots.
 - [ ] **Lay fall compost** — Spread 2–3 inches of compost over all beds.
 - [ ] **Plant cover crop** (optional) — Sow crimson clover or winter rye in empty bed space to fix nitrogen and prevent erosion over winter.
 - [ ] **Mulch beds** — Cover with 3–4" of straw or leaf mulch to protect soil over winter.
@@ -334,6 +339,7 @@ Last frost: ~April 15 · First fall frost: ~October 15 · Growing season: ~180 d
 |---|---|---|---|---|
 | Lettuce | Every 2–3 weeks | Mar 1 | Sep 1 | ~10–12 |
 | Spinach | Every 2–3 weeks | Mar 1 | May 15, then Aug 15–Sep 15 | ~6–8 |
+| Perpetual Spinach | 1–2 sowings | Jun 1 | Jun 15 | 1–2 (produces all summer) |
 | Radishes | Every 10–14 days | Mar 1 | May 15, then Aug 15–Oct 1 | ~10–12 |
 | Cilantro | Every 2–3 weeks | Mar 25 | Jul 15 | ~6–8 |
 | Dill | Every 2–3 weeks | Apr 15 | Jul 15 | ~4–5 |
@@ -363,6 +369,7 @@ Last frost: ~April 15 · First fall frost: ~October 15 · Growing season: ~180 d
 | Radishes | Late April | May–Jun, Sep–Oct | October |
 | Lettuce | Late April | May–Jun, Sep–Oct | October |
 | Spinach | Mid-April | May–Jun, Sep–Oct | November |
+| Perpetual Spinach (leaf beet) | July (baby leaves June) | July–Sep | November (frost tolerant) |
 | Peas — Sugar Snap | Late May | June | Late June |
 | Kale — Red Russian | Mid-May (baby) | June–Nov | Year-round with protection |
 | Dill | Early June | July (pickling) | September |
