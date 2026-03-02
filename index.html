@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Garden Layout — 2026</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: #f5f0e8; color: #333; padding: 24px; }
+  h1 { font-size: 28px; color: #2d5016; margin-bottom: 4px; }
+  .subtitle { color: #666; font-size: 14px; margin-bottom: 24px; }
+  .beds-container { display: flex; flex-direction: column; gap: 36px; max-width: 1200px; margin: 0 auto; }
+  .bed-wrapper { background: white; border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+  .bed-title { font-size: 20px; color: #2d5016; margin-bottom: 4px; }
+  .bed-subtitle { font-size: 13px; color: #888; margin-bottom: 16px; }
+
+  /* Plot A: 20 cols × 4 rows — long side on north */
+  .bed-a { display: grid; grid-template-columns: repeat(20, 1fr); grid-template-rows: repeat(4, 1fr); gap: 2px; border: 3px solid #8B6914; border-radius: 8px; background: #8B6914; overflow: hidden; aspect-ratio: 5/1; }
+
+  /* Plot B: displayed as 20 cols × 4 rows, rotated — north on LEFT, south on RIGHT */
+  .bed-b { display: grid; grid-template-columns: repeat(20, 1fr); grid-template-rows: repeat(4, 1fr); gap: 2px; border: 3px solid #8B6914; border-radius: 8px; background: #8B6914; overflow: hidden; aspect-ratio: 5/1; }
+
+  .cell { display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 600; color: white; text-align: center; line-height: 1.2; padding: 2px; text-shadow: 0 1px 2px rgba(0,0,0,0.3); min-height: 48px; }
+  .tomato-wide { grid-column: span 2; font-size: 10px; }
+
+  /* Colors */
+  .tomato { background: #c0392b; }
+  .cucumber { background: #27ae60; }
+  .bean { background: #16a085; }
+  .pepper { background: #e74c3c; }
+  .basil { background: #8e44ad; }
+  .lettuce { background: #2ecc71; }
+  .spinach { background: #1abc9c; }
+  .kale { background: #0e6655; }
+  .onion { background: #d4a017; }
+  .carrot { background: #e67e22; }
+  .radish { background: #ec7063; }
+  .potato { background: #795548; }
+  .pea { background: #5dade2; }
+  .dill { background: #76b947; }
+  .cilantro { background: #45b39d; }
+  .parsley { background: #28b463; }
+  .sage { background: #7d8a6e; }
+  .garlic { background: #bdb76b; color: #333; text-shadow: none; }
+  .rhubarb { background: #a93226; }
+  .marigold { background: #f39c12; }
+  .nasturtium { background: #d35400; }
+  .zinnia { background: #c2185b; }
+  /* Interplanted: garlic with lettuce between rows */
+  .garlic-lettuce { background: linear-gradient(135deg, #bdb76b 50%, #2ecc71 50%); color: #333; text-shadow: none; font-size: 8px; }
+  .broccoli { background: #2e7d32; }
+  /* Succession: peas → broccoli */
+  .pea-broccoli { background: linear-gradient(135deg, #5dade2 50%, #2e7d32 50%); font-size: 8px; }
+
+  .companion-note { font-size: 12px; color: #666; margin-top: 8px; font-style: italic; }
+  .north-arrow { text-align: center; font-size: 13px; color: #666; margin-bottom: 6px; }
+  .trellis-label { text-align: center; font-size: 11px; color: #8B6914; font-weight: 600; margin-bottom: 4px; letter-spacing: 4px; }
+  .dir-labels { display: flex; justify-content: space-between; font-size: 10px; color: #999; padding: 0 4px; margin-top: 2px; }
+  .zone-label { font-size: 10px; color: #777; display: flex; justify-content: space-between; padding: 0 4px; margin-top: 4px; }
+  .zone-label span { text-transform: uppercase; letter-spacing: 1px; }
+
+  /* Planting Key */
+  .planting-key { max-width: 1200px; margin: 36px auto 0; background: white; border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+  .planting-key h2 { font-size: 18px; color: #2d5016; margin-bottom: 4px; }
+  .planting-key .key-intro { font-size: 13px; color: #666; margin-bottom: 20px; }
+  .key-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+  .key-card { border: 1px solid #e0e0e0; border-radius: 8px; padding: 12px; background: #fafafa; }
+  .key-card-header { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .key-swatch { width: 16px; height: 16px; border-radius: 3px; flex-shrink: 0; }
+  .key-card-header strong { font-size: 13px; color: #333; }
+  .key-diagram { width: 100%; aspect-ratio: 1; border: 2px solid #c8b97a; border-radius: 4px; background: #f5f0e0; margin-bottom: 8px; position: relative; }
+  .key-details { font-size: 11px; color: #555; line-height: 1.5; }
+  .key-details strong { color: #2d5016; }
+
+  .notes-section { max-width: 1200px; margin: 36px auto 0; background: white; border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+  .notes-section h2 { font-size: 18px; color: #2d5016; margin-bottom: 12px; }
+  .notes-section h3 { font-size: 14px; color: #555; margin-top: 14px; margin-bottom: 6px; }
+  .notes-section ul { margin-left: 20px; font-size: 13px; line-height: 1.8; color: #444; }
+  .plant-count { max-width: 1200px; margin: 24px auto 0; background: white; border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+  .plant-count h2 { font-size: 18px; color: #2d5016; margin-bottom: 12px; }
+  .plant-count table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .plant-count th { text-align: left; padding: 6px 10px; border-bottom: 2px solid #2d5016; color: #2d5016; }
+  .plant-count td { padding: 5px 10px; border-bottom: 1px solid #eee; }
+  .plant-count tr:last-child td { border-bottom: none; }
+
+  .orientation-note { background: #fef9e7; border: 1px solid #f9e79f; border-radius: 6px; padding: 8px 12px; font-size: 12px; color: #7d6608; margin-bottom: 12px; }
+  .orientation-note strong { color: #5b4a06; }
+</style>
+</head>
+<body>
+
+<div style="max-width: 1200px; margin: 0 auto;">
+<h1>Dandeneau Family Garden Layout — 2026</h1>
+<p class="subtitle">Two raised beds, 4 ft × 19.5 ft each · Issaquah, WA (Zone 8b) · Family of 4 (summer) · Each grid cell ≈ 1 sq ft</p>
+</div>
+
+<div class="beds-container">
+
+<!-- PLOT A -->
+<div class="bed-wrapper">
+  <div class="bed-title">Plot A — Warm Crops & Trellis Bed</div>
+  <div class="bed-subtitle">Long side (19.5 ft) faces north · Trellis along north edge · Rhubarb established at west end</div>
+  <div class="orientation-note"><strong>Orientation:</strong> 19.5 ft east–west × 4 ft north–south. Long north edge = excellent trellis run for beans & cucumbers.</div>
+  <div class="north-arrow">⬆ North (back) — 19.5 ft long side</div>
+  <div class="trellis-label">┃ ─ ─ ─ ─ ─ ─ ─ ─ TRELLIS (19.5 ft) ─ ─ ─ ─ ─ ─ ─ ─ ┃</div>
+  <div class="bed-a">
+    <!-- Row 1 (north/trellis, 20 cells): nasturtiums bookending beans + cukes -->
+    <div class="cell nasturtium">Nastur-<br>tium</div>
+    <div class="cell bean">Pole<br>Bean</div>
+    <div class="cell bean">Pole<br>Bean</div>
+    <div class="cell bean">Pole<br>Bean</div>
+    <div class="cell bean">Pole<br>Bean</div>
+    <div class="cell bean">Pole<br>Bean</div>
+    <div class="cell bean">Pole<br>Bean</div>
+    <div class="cell bean">Pole<br>Bean</div>
+    <div class="cell bean">Pole<br>Bean</div>
+    <div class="cell cucumber">Cuke<br>Pickle</div>
+    <div class="cell cucumber">Cuke<br>Pickle</div>
+    <div class="cell cucumber">Cuke<br>Pickle</div>
+    <div class="cell cucumber">Cuke<br>Pickle</div>
+    <div class="cell cucumber">Cuke<br>Pickle</div>
+    <div class="cell cucumber">Cuke<br>Slice</div>
+    <div class="cell cucumber">Cuke<br>Slice</div>
+    <div class="cell cucumber">Cuke<br>Slice</div>
+    <div class="cell cucumber">Cuke<br>Slice</div>
+    <div class="cell cucumber">Cuke<br>Slice</div>
+    <div class="cell nasturtium">Nastur-<br>tium</div>
+
+    <!-- Row 2: radishes, herbs west; dill below cukes center; basil + tomatoes east -->
+    <div class="cell nasturtium">Nastur-<br>tium</div>
+    <div class="cell radish">Rad-<br>ish</div>
+    <div class="cell radish">Rad-<br>ish</div>
+    <div class="cell radish">Rad-<br>ish</div>
+    <div class="cell cilantro">Cilan-<br>tro</div>
+    <div class="cell cilantro">Cilan-<br>tro</div>
+    <div class="cell parsley">Pars-<br>ley</div>
+    <div class="cell dill">Dill</div>
+    <div class="cell dill">Dill</div>
+    <div class="cell dill">Dill</div>
+    <div class="cell dill">Dill</div>
+    <div class="cell dill">Dill</div>
+    <div class="cell basil">Basil</div>
+    <div class="cell basil">Basil</div>
+    <div class="cell tomato tomato-wide">🍅 Tom 1</div>
+    <div class="cell tomato tomato-wide">🍅 Tom 2</div>
+    <div class="cell tomato tomato-wide">🍅 Tom 3</div>
+
+    <!-- Row 3: rhubarb west, herbs, carrots center, basil + tomatoes east -->
+    <div class="cell rhubarb">Rhu-<br>barb</div>
+    <div class="cell rhubarb">Rhu-<br>barb</div>
+    <div class="cell sage">Sage</div>
+    <div class="cell cilantro">Cilan-<br>tro</div>
+    <div class="cell parsley">Pars-<br>ley</div>
+    <div class="cell carrot">Carrot</div>
+    <div class="cell carrot">Carrot</div>
+    <div class="cell carrot">Carrot</div>
+    <div class="cell carrot">Carrot</div>
+    <div class="cell carrot">Carrot</div>
+    <div class="cell carrot">Carrot</div>
+    <div class="cell carrot">Carrot</div>
+    <div class="cell marigold">Mari-<br>gold</div>
+    <div class="cell basil">Basil</div>
+    <div class="cell tomato tomato-wide">🍅 Tom 4</div>
+    <div class="cell tomato tomato-wide">🍅 Tom 5</div>
+    <div class="cell tomato tomato-wide">🍅 Tom 6</div>
+
+    <!-- Row 4 (south/front): rhubarb, radishes, onions, marigolds + peppers near tomatoes, zinnia -->
+    <div class="cell rhubarb">Rhu-<br>barb</div>
+    <div class="cell rhubarb">Rhu-<br>barb</div>
+    <div class="cell radish">Rad-<br>ish</div>
+    <div class="cell radish">Rad-<br>ish</div>
+    <div class="cell onion">Onion</div>
+    <div class="cell onion">Onion</div>
+    <div class="cell onion">Onion</div>
+    <div class="cell onion">Onion</div>
+    <div class="cell onion">Onion</div>
+    <div class="cell onion">Onion</div>
+    <div class="cell onion">Onion</div>
+    <div class="cell onion">Onion</div>
+    <div class="cell marigold">Mari-<br>gold</div>
+    <div class="cell pepper">Hot<br>Pep</div>
+    <div class="cell pepper">Hot<br>Pep</div>
+    <div class="cell marigold">Mari-<br>gold</div>
+    <div class="cell marigold">Mari-<br>gold</div>
+    <div class="cell zinnia">Zinnia</div>
+    <div class="cell zinnia">Zinnia</div>
+    <div class="cell zinnia">Zinnia</div>
+  </div>
+  <div class="dir-labels"><span>⬅ West (rhubarb end)</span><span>19.5 ft</span><span>East ➡</span></div>
+  <div class="zone-label">
+    <span>Rhubarb · Herbs · Radishes</span>
+    <span>Dill + Cukes · Carrots + Onions</span>
+    <span>Tomatoes + Basil + Peppers + Marigolds</span>
+  </div>
+  <div class="companion-note">
+    🌱 Companion clusters: Tomatoes + basil + marigolds (east) · Cucumbers + dill (center-north) · Beans + nasturtiums (west-north) · Carrots + onions (center-south) · Peppers near tomatoes · Zinnias attract pollinators
+  </div>
+</div>
+
+<!-- PLOT B -->
+<div class="bed-wrapper">
+  <div class="bed-title">Plot B — Cool Crops, Greens & Root Vegetables</div>
+  <div class="bed-subtitle">Short side (4 ft) faces north · Runs north–south · Pea trellis at north end · Garlic already in ground at south end (~5 ft) · ⛰️ Slopes uphill toward south</div>
+  <div class="orientation-note"><strong>Orientation:</strong> 4 ft east–west × 19.5 ft north–south. Displayed rotated 90° for readability — north is on the LEFT, south is on the RIGHT.<br><strong>Slope:</strong> South end is higher than north end. Water drains downhill toward the north (low) end. Moisture-loving crops (peas, spinach, lettuce) are placed at the low/moist north end. Drought-tolerant crops (garlic, kale) are at the drier south/high end.</div>
+  <div style="display: flex; justify-content: space-between; font-size: 13px; color: #666; margin-bottom: 6px; padding: 0 4px;">
+    <span>⬅ North (short side, 4 ft)</span>
+    <span>South ➡</span>
+  </div>
+  <div style="display: flex; align-items: center; gap: 4px; margin-bottom: 4px;">
+    <div style="font-size: 11px; color: #8B6914; font-weight: 600; letter-spacing: 2px;">┃TRELLIS┃</div>
+    <div style="flex: 1;"></div>
+    <div style="font-size: 11px; color: #bdb76b; font-weight: 600; letter-spacing: 2px;">← GARLIC (in ground) →</div>
+  </div>
+  <div class="bed-b">
+    <!-- Row 1 (west side): peas→broccoli, spinach, lettuce, potatoes, nasturtium, kale, garlic -->
+    <div class="cell pea-broccoli">Pea→<br>Brocc</div>
+    <div class="cell pea-broccoli">Pea→<br>Brocc</div>
+    <div class="cell spinach">Spin-<br>ach</div>
+    <div class="cell spinach">Spin-<br>ach</div>
+    <div class="cell lettuce">Lett-<br>uce</div>
+    <div class="cell lettuce">Lett-<br>uce</div>
+    <div class="cell lettuce">Lett-<br>uce</div>
+    <div class="cell lettuce">Lett-<br>uce</div>
+    <div class="cell lettuce">Lett-<br>uce</div>
+    <div class="cell potato">Potato<br>Gold</div>
+    <div class="cell potato">Potato<br>Gold</div>
+    <div class="cell potato">Potato<br>Gold</div>
+    <div class="cell nasturtium">Nastur-<br>tium</div>
+    <div class="cell kale">Kale</div>
+    <div class="cell kale">Kale</div>
+    <div class="cell garlic">Garlic</div>
+    <div class="cell garlic">Garlic</div>
+    <div class="cell garlic">Garlic</div>
+    <div class="cell garlic">Garlic</div>
+    <div class="cell garlic">Garlic</div>
+
+    <!-- Row 2 -->
+    <div class="cell pea-broccoli">Pea→<br>Brocc</div>
+    <div class="cell pea-broccoli">Pea→<br>Brocc</div>
+    <div class="cell spinach">Spin-<br>ach</div>
+    <div class="cell spinach">Spin-<br>ach</div>
+    <div class="cell lettuce">Lett-<br>uce</div>
+    <div class="cell lettuce">Lett-<br>uce</div>
+    <div class="cell lettuce">Lett-<br>uce</div>
+    <div class="cell lettuce">Lett-<br>uce</div>
+    <div class="cell lettuce">Lett-<br>uce</div>
+    <div class="cell potato">Potato<br>Gold</div>
+    <div class="cell potato">Potato<br>Gold</div>
+    <div class="cell potato">Potato<br>Gold</div>
+    <div class="cell kale">Kale</div>
+    <div class="cell kale">Kale</div>
+    <div class="cell kale">Kale</div>
+    <div class="cell garlic-lettuce">Garlic<br>+Lett</div>
+    <div class="cell garlic-lettuce">Garlic<br>+Lett</div>
+    <div class="cell garlic-lettuce">Garlic<br>+Lett</div>
+    <div class="cell garlic-lettuce">Garlic<br>+Lett</div>
+    <div class="cell garlic-lettuce">Garlic<br>+Lett</div>
+
+    <!-- Row 3 -->
+    <div class="cell pea-broccoli">Pea→<br>Brocc</div>
+    <div class="cell pea-broccoli">Pea→<br>Brocc</div>
+    <div class="cell spinach">Spin-<br>ach</div>
+    <div class="cell spinach">Spin-<br>ach</div>
+    <div class="cell lettuce">Lett-<br>uce</div>
+    <div class="cell lettuce">Lett-<br>uce</div>
+    <div class="cell lettuce">Lett-<br>uce</div>
+    <div class="cell lettuce">Lett-<br>uce</div>
+    <div class="cell lettuce">Lett-<br>uce</div>
+    <div class="cell potato">Potato<br>Rose</div>
+    <div class="cell potato">Potato<br>Rose</div>
+    <div class="cell potato">Potato<br>Rose</div>
+    <div class="cell kale">Kale</div>
+    <div class="cell kale">Kale</div>
+    <div class="cell kale">Kale</div>
+    <div class="cell garlic-lettuce">Garlic<br>+Lett</div>
+    <div class="cell garlic-lettuce">Garlic<br>+Lett</div>
+    <div class="cell garlic-lettuce">Garlic<br>+Lett</div>
+    <div class="cell garlic-lettuce">Garlic<br>+Lett</div>
+    <div class="cell garlic-lettuce">Garlic<br>+Lett</div>
+
+    <!-- Row 4 (east side) -->
+    <div class="cell pea-broccoli">Pea→<br>Brocc</div>
+    <div class="cell pea-broccoli">Pea→<br>Brocc</div>
+    <div class="cell spinach">Spin-<br>ach</div>
+    <div class="cell spinach">Spin-<br>ach</div>
+    <div class="cell lettuce">Lett-<br>uce</div>
+    <div class="cell lettuce">Lett-<br>uce</div>
+    <div class="cell lettuce">Lett-<br>uce</div>
+    <div class="cell lettuce">Lett-<br>uce</div>
+    <div class="cell lettuce">Lett-<br>uce</div>
+    <div class="cell potato">Potato<br>Rose</div>
+    <div class="cell potato">Potato<br>Rose</div>
+    <div class="cell zinnia">Zinnia</div>
+    <div class="cell nasturtium">Nastur-<br>tium</div>
+    <div class="cell kale">Kale</div>
+    <div class="cell kale">Kale</div>
+    <div class="cell garlic">Garlic</div>
+    <div class="cell garlic">Garlic</div>
+    <div class="cell garlic">Garlic</div>
+    <div class="cell garlic">Garlic</div>
+    <div class="cell garlic">Garlic</div>
+  </div>
+  <div class="dir-labels"><span>⬅ North (trellis)</span><span>19.5 ft (displayed rotated 90°)</span><span>South (garlic) ➡</span></div>
+  <div style="display: flex; justify-content: space-between; font-size: 10px; color: #999; padding: 0 4px;">
+    <span>⬆ West side</span>
+    <span>⬇ East side</span>
+  </div>
+  <div class="zone-label">
+    <span>Peas→Broccoli + Spinach</span>
+    <span>Lettuce succession zone</span>
+    <span>Potatoes · Kale + Garlic (pest deterrent)</span>
+  </div>
+  <div class="companion-note">
+    🌱 Companion pairings: Peas fix nitrogen → broccoli replaces peas (Jul) · Spinach + peas (shade benefit) · Kale + garlic (pest deterrent, adjacent) · Lettuce succession in center · Lettuce interplanted between garlic rows (Mar–Jun) · 🔄 After garlic harvest (Jul): fall lettuce, spinach, radishes · 🌸 Nasturtiums flank kale · Zinnia attracts pollinators
+  </div>
+</div>
+</div>
+
+<!-- PLANTING KEY: How to layout each square foot -->
+<div class="planting-key">
+  <h2>Planting Key — How to Plant Each Square Foot</h2>
+  <p class="key-intro">Each grid cell above is approximately 1 sq ft. Below shows how to arrange seeds or plants within each square. Dots represent individual seeds/plants. Spacing is based on your seed packet recommendations.</p>
+
+  <div class="key-grid">
+
+    <!-- Tomato (2 sq ft) -->
+    <div class="key-card">
+      <div class="key-card-header"><div class="key-swatch" style="background:#c0392b;"></div><strong>Tomato (2 sq ft)</strong></div>
+      <svg class="key-diagram" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+        <rect width="200" height="100" fill="#f5f0e0" stroke="#c8b97a" stroke-width="2"/>
+        <line x1="100" y1="0" x2="100" y2="100" stroke="#c8b97a" stroke-width="1" stroke-dasharray="4"/>
+        <circle cx="100" cy="50" r="12" fill="#c0392b" opacity="0.8"/>
+        <text x="100" y="54" text-anchor="middle" font-size="10" fill="white" font-weight="bold">T</text>
+        <circle cx="100" cy="50" r="30" fill="none" stroke="#c0392b" stroke-width="1" stroke-dasharray="3" opacity="0.5"/>
+        <text x="100" y="88" text-anchor="middle" font-size="8" fill="#888">cage footprint</text>
+      </svg>
+      <div class="key-details">
+        <strong>1 plant per 2 sq ft</strong><br>
+        Center in the 2 ft space. Install cage or stake at planting. Prune suckers for indeterminate types. Mulch around base.
+      </div>
+    </div>
+
+    <!-- Cucumber -->
+    <div class="key-card">
+      <div class="key-card-header"><div class="key-swatch" style="background:#27ae60;"></div><strong>Cucumber (trellised)</strong></div>
+      <svg class="key-diagram" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <rect width="100" height="100" fill="#f5f0e0" stroke="#c8b97a" stroke-width="2"/>
+        <rect x="5" y="2" width="90" height="8" fill="#8B6914" opacity="0.3" rx="2"/>
+        <text x="50" y="8" text-anchor="middle" font-size="6" fill="#8B6914">trellis</text>
+        <circle cx="50" cy="35" r="8" fill="#27ae60" opacity="0.8"/>
+        <text x="50" y="38" text-anchor="middle" font-size="7" fill="white" font-weight="bold">C</text>
+        <text x="50" y="55" text-anchor="middle" font-size="7" fill="#888">12" apart</text>
+        <path d="M50 43 L50 12" stroke="#27ae60" stroke-width="1" stroke-dasharray="2" opacity="0.5"/>
+        <text x="50" y="70" text-anchor="middle" font-size="7" fill="#888">along trellis</text>
+      </svg>
+      <div class="key-details">
+        <strong>1 plant per sq ft</strong><br>
+        Plant 12" apart along trellis base. Train vines up trellis as they grow. Pinch laterals below 2 ft.
+      </div>
+    </div>
+
+    <!-- Pole Bean -->
+    <div class="key-card">
+      <div class="key-card-header"><div class="key-swatch" style="background:#16a085;"></div><strong>Pole Bean (trellised)</strong></div>
+      <svg class="key-diagram" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <rect width="100" height="100" fill="#f5f0e0" stroke="#c8b97a" stroke-width="2"/>
+        <rect x="5" y="2" width="90" height="8" fill="#8B6914" opacity="0.3" rx="2"/>
+        <text x="50" y="8" text-anchor="middle" font-size="6" fill="#8B6914">trellis</text>
+        <circle cx="25" cy="35" r="6" fill="#16a085" opacity="0.8"/>
+        <circle cx="50" cy="35" r="6" fill="#16a085" opacity="0.8"/>
+        <circle cx="75" cy="35" r="6" fill="#16a085" opacity="0.8"/>
+        <text x="50" y="55" text-anchor="middle" font-size="7" fill="#888">4–6" apart</text>
+        <path d="M25 41 L25 12" stroke="#16a085" stroke-width="1" stroke-dasharray="2" opacity="0.4"/>
+        <path d="M50 41 L50 12" stroke="#16a085" stroke-width="1" stroke-dasharray="2" opacity="0.4"/>
+        <path d="M75 41 L75 12" stroke="#16a085" stroke-width="1" stroke-dasharray="2" opacity="0.4"/>
+      </svg>
+      <div class="key-details">
+        <strong>2–3 plants per sq ft</strong><br>
+        Sow seeds 4–6" apart in a row along the trellis base, 1" deep. Thin to strongest. Train up trellis or poles.
+      </div>
+    </div>
+
+    <!-- Sugar Snap Pea -->
+    <div class="key-card">
+      <div class="key-card-header"><div class="key-swatch" style="background:#5dade2;"></div><strong>Sugar Snap Pea (trellised)</strong></div>
+      <svg class="key-diagram" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <rect width="100" height="100" fill="#f5f0e0" stroke="#c8b97a" stroke-width="2"/>
+        <rect x="5" y="2" width="90" height="8" fill="#8B6914" opacity="0.3" rx="2"/>
+        <text x="50" y="8" text-anchor="middle" font-size="6" fill="#8B6914">trellis</text>
+        <circle cx="17" cy="30" r="5" fill="#5dade2" opacity="0.8"/>
+        <circle cx="37" cy="30" r="5" fill="#5dade2" opacity="0.8"/>
+        <circle cx="57" cy="30" r="5" fill="#5dade2" opacity="0.8"/>
+        <circle cx="77" cy="30" r="5" fill="#5dade2" opacity="0.8"/>
+        <circle cx="17" cy="55" r="5" fill="#5dade2" opacity="0.8"/>
+        <circle cx="37" cy="55" r="5" fill="#5dade2" opacity="0.8"/>
+        <circle cx="57" cy="55" r="5" fill="#5dade2" opacity="0.8"/>
+        <circle cx="77" cy="55" r="5" fill="#5dade2" opacity="0.8"/>
+        <text x="50" y="78" text-anchor="middle" font-size="7" fill="#888">2–3" apart,</text>
+        <text x="50" y="88" text-anchor="middle" font-size="7" fill="#888">double row</text>
+      </svg>
+      <div class="key-details">
+        <strong>8 plants per sq ft</strong><br>
+        Sow in 2 rows, 2–3" apart, 1" deep. Double row along trellis maximizes yield in the 4 ft width.
+      </div>
+    </div>
+
+    <!-- Hot Pepper -->
+    <div class="key-card">
+      <div class="key-card-header"><div class="key-swatch" style="background:#e74c3c;"></div><strong>Hot Pepper</strong></div>
+      <svg class="key-diagram" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <rect width="100" height="100" fill="#f5f0e0" stroke="#c8b97a" stroke-width="2"/>
+        <circle cx="50" cy="50" r="10" fill="#e74c3c" opacity="0.8"/>
+        <text x="50" y="54" text-anchor="middle" font-size="9" fill="white" font-weight="bold">P</text>
+        <text x="50" y="85" text-anchor="middle" font-size="7" fill="#888">12–18" apart</text>
+      </svg>
+      <div class="key-details">
+        <strong>1 plant per sq ft</strong><br>
+        Center one transplant per square. Stake if needed once fruiting. Peppers like warm soil — south edge is ideal.
+      </div>
+    </div>
+
+    <!-- Onion -->
+    <div class="key-card">
+      <div class="key-card-header"><div class="key-swatch" style="background:#d4a017;"></div><strong>Onion</strong></div>
+      <svg class="key-diagram" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <rect width="100" height="100" fill="#f5f0e0" stroke="#c8b97a" stroke-width="2"/>
+        <circle cx="25" cy="25" r="5" fill="#d4a017" opacity="0.8"/>
+        <circle cx="50" cy="25" r="5" fill="#d4a017" opacity="0.8"/>
+        <circle cx="75" cy="25" r="5" fill="#d4a017" opacity="0.8"/>
+        <circle cx="25" cy="50" r="5" fill="#d4a017" opacity="0.8"/>
+        <circle cx="50" cy="50" r="5" fill="#d4a017" opacity="0.8"/>
+        <circle cx="75" cy="50" r="5" fill="#d4a017" opacity="0.8"/>
+        <circle cx="25" cy="75" r="5" fill="#d4a017" opacity="0.8"/>
+        <circle cx="50" cy="75" r="5" fill="#d4a017" opacity="0.8"/>
+        <circle cx="75" cy="75" r="5" fill="#d4a017" opacity="0.8"/>
+        <text x="50" y="95" text-anchor="middle" font-size="7" fill="#888">3×3 grid, 4" apart</text>
+      </svg>
+      <div class="key-details">
+        <strong>9 plants per sq ft</strong><br>
+        Plant transplants in a 3×3 grid, ~4" apart. Push sets 1" deep. Patterson and Walla Walla can share rows.
+      </div>
+    </div>
+
+    <!-- Carrot -->
+    <div class="key-card">
+      <div class="key-card-header"><div class="key-swatch" style="background:#e67e22;"></div><strong>Carrot</strong></div>
+      <svg class="key-diagram" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <rect width="100" height="100" fill="#f5f0e0" stroke="#c8b97a" stroke-width="2"/>
+        <!-- 4x4 grid = 16 dots -->
+        <circle cx="20" cy="20" r="4" fill="#e67e22" opacity="0.7"/>
+        <circle cx="40" cy="20" r="4" fill="#e67e22" opacity="0.7"/>
+        <circle cx="60" cy="20" r="4" fill="#e67e22" opacity="0.7"/>
+        <circle cx="80" cy="20" r="4" fill="#e67e22" opacity="0.7"/>
+        <circle cx="20" cy="40" r="4" fill="#e67e22" opacity="0.7"/>
+        <circle cx="40" cy="40" r="4" fill="#e67e22" opacity="0.7"/>
+        <circle cx="60" cy="40" r="4" fill="#e67e22" opacity="0.7"/>
+        <circle cx="80" cy="40" r="4" fill="#e67e22" opacity="0.7"/>
+        <circle cx="20" cy="60" r="4" fill="#e67e22" opacity="0.7"/>
+        <circle cx="40" cy="60" r="4" fill="#e67e22" opacity="0.7"/>
+        <circle cx="60" cy="60" r="4" fill="#e67e22" opacity="0.7"/>
+        <circle cx="80" cy="60" r="4" fill="#e67e22" opacity="0.7"/>
+        <circle cx="20" cy="80" r="4" fill="#e67e22" opacity="0.7"/>
+        <circle cx="40" cy="80" r="4" fill="#e67e22" opacity="0.7"/>
+        <circle cx="60" cy="80" r="4" fill="#e67e22" opacity="0.7"/>
+        <circle cx="80" cy="80" r="4" fill="#e67e22" opacity="0.7"/>
+        <text x="50" y="96" text-anchor="middle" font-size="7" fill="#888">4×4 grid, 3" apart</text>
+      </svg>
+      <div class="key-details">
+        <strong>16 seeds per sq ft</strong><br>
+        Sow in a 4×4 grid, ¼" deep. Thin to 2–3" apart once tops are 2" tall. Keep soil loose and stone-free for straight roots.
+      </div>
+    </div>
+
+    <!-- Radish -->
+    <div class="key-card">
+      <div class="key-card-header"><div class="key-swatch" style="background:#ec7063;"></div><strong>Radish</strong></div>
+      <svg class="key-diagram" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <rect width="100" height="100" fill="#f5f0e0" stroke="#c8b97a" stroke-width="2"/>
+        <!-- 4x4 grid = 16 -->
+        <circle cx="20" cy="20" r="4" fill="#ec7063" opacity="0.7"/>
+        <circle cx="40" cy="20" r="4" fill="#ec7063" opacity="0.7"/>
+        <circle cx="60" cy="20" r="4" fill="#ec7063" opacity="0.7"/>
+        <circle cx="80" cy="20" r="4" fill="#ec7063" opacity="0.7"/>
+        <circle cx="20" cy="40" r="4" fill="#ec7063" opacity="0.7"/>
+        <circle cx="40" cy="40" r="4" fill="#ec7063" opacity="0.7"/>
+        <circle cx="60" cy="40" r="4" fill="#ec7063" opacity="0.7"/>
+        <circle cx="80" cy="40" r="4" fill="#ec7063" opacity="0.7"/>
+        <circle cx="20" cy="60" r="4" fill="#ec7063" opacity="0.7"/>
+        <circle cx="40" cy="60" r="4" fill="#ec7063" opacity="0.7"/>
+        <circle cx="60" cy="60" r="4" fill="#ec7063" opacity="0.7"/>
+        <circle cx="80" cy="60" r="4" fill="#ec7063" opacity="0.7"/>
+        <circle cx="20" cy="80" r="4" fill="#ec7063" opacity="0.7"/>
+        <circle cx="40" cy="80" r="4" fill="#ec7063" opacity="0.7"/>
+        <circle cx="60" cy="80" r="4" fill="#ec7063" opacity="0.7"/>
+        <circle cx="80" cy="80" r="4" fill="#ec7063" opacity="0.7"/>
+        <text x="50" y="96" text-anchor="middle" font-size="7" fill="#888">4×4 grid, 3" apart</text>
+      </svg>
+      <div class="key-details">
+        <strong>16 seeds per sq ft</strong><br>
+        Sow ½" deep in a 4×4 grid. No thinning needed for Pepito. Harvest in 3–4 weeks, then resow immediately for succession.
+      </div>
+    </div>
+
+    <!-- Lettuce -->
+    <div class="key-card">
+      <div class="key-card-header"><div class="key-swatch" style="background:#2ecc71;"></div><strong>Lettuce</strong></div>
+      <svg class="key-diagram" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <rect width="100" height="100" fill="#f5f0e0" stroke="#c8b97a" stroke-width="2"/>
+        <circle cx="30" cy="30" r="9" fill="#2ecc71" opacity="0.7"/>
+        <circle cx="70" cy="30" r="9" fill="#2ecc71" opacity="0.7"/>
+        <circle cx="30" cy="70" r="9" fill="#2ecc71" opacity="0.7"/>
+        <circle cx="70" cy="70" r="9" fill="#2ecc71" opacity="0.7"/>
+        <text x="30" y="33" text-anchor="middle" font-size="7" fill="white" font-weight="bold">L</text>
+        <text x="70" y="33" text-anchor="middle" font-size="7" fill="white" font-weight="bold">L</text>
+        <text x="30" y="73" text-anchor="middle" font-size="7" fill="white" font-weight="bold">L</text>
+        <text x="70" y="73" text-anchor="middle" font-size="7" fill="white" font-weight="bold">L</text>
+        <text x="50" y="95" text-anchor="middle" font-size="7" fill="#888">2×2 grid, 6" apart</text>
+      </svg>
+      <div class="key-details">
+        <strong>4 heads per sq ft</strong><br>
+        Space 6" apart in a 2×2 pattern. Surface sow (needs light), press gently. Mix varieties across adjacent squares.
+      </div>
+    </div>
+
+    <!-- Spinach -->
+    <div class="key-card">
+      <div class="key-card-header"><div class="key-swatch" style="background:#1abc9c;"></div><strong>Spinach</strong></div>
+      <svg class="key-diagram" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <rect width="100" height="100" fill="#f5f0e0" stroke="#c8b97a" stroke-width="2"/>
+        <!-- 3×3 = 9 -->
+        <circle cx="25" cy="25" r="5" fill="#1abc9c" opacity="0.7"/>
+        <circle cx="50" cy="25" r="5" fill="#1abc9c" opacity="0.7"/>
+        <circle cx="75" cy="25" r="5" fill="#1abc9c" opacity="0.7"/>
+        <circle cx="25" cy="50" r="5" fill="#1abc9c" opacity="0.7"/>
+        <circle cx="50" cy="50" r="5" fill="#1abc9c" opacity="0.7"/>
+        <circle cx="75" cy="50" r="5" fill="#1abc9c" opacity="0.7"/>
+        <circle cx="25" cy="75" r="5" fill="#1abc9c" opacity="0.7"/>
+        <circle cx="50" cy="75" r="5" fill="#1abc9c" opacity="0.7"/>
+        <circle cx="75" cy="75" r="5" fill="#1abc9c" opacity="0.7"/>
+        <text x="50" y="95" text-anchor="middle" font-size="7" fill="#888">3×3 grid, 4" apart</text>
+      </svg>
+      <div class="key-details">
+        <strong>9 plants per sq ft</strong><br>
+        Sow ½" deep in 3×3 grid. For baby spinach, pack tighter (16/sq ft). Succession sow every 2–3 weeks.
+      </div>
+    </div>
+
+    <!-- Kale -->
+    <div class="key-card">
+      <div class="key-card-header"><div class="key-swatch" style="background:#0e6655;"></div><strong>Kale</strong></div>
+      <svg class="key-diagram" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <rect width="100" height="100" fill="#f5f0e0" stroke="#c8b97a" stroke-width="2"/>
+        <circle cx="50" cy="50" r="14" fill="#0e6655" opacity="0.7"/>
+        <text x="50" y="54" text-anchor="middle" font-size="9" fill="white" font-weight="bold">K</text>
+        <circle cx="50" cy="50" r="28" fill="none" stroke="#0e6655" stroke-width="1" stroke-dasharray="3" opacity="0.4"/>
+        <text x="50" y="92" text-anchor="middle" font-size="7" fill="#888">1 plant, 12–18" spread</text>
+      </svg>
+      <div class="key-details">
+        <strong>1 plant per sq ft</strong><br>
+        Center one plant. Red Russian gets big — harvest outer leaves regularly to keep compact. Very productive per plant.
+      </div>
+    </div>
+
+    <!-- Potato -->
+    <div class="key-card">
+      <div class="key-card-header"><div class="key-swatch" style="background:#795548;"></div><strong>Potato</strong></div>
+      <svg class="key-diagram" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <rect width="100" height="100" fill="#f5f0e0" stroke="#c8b97a" stroke-width="2"/>
+        <ellipse cx="50" cy="50" rx="12" ry="8" fill="#795548" opacity="0.8"/>
+        <text x="50" y="53" text-anchor="middle" font-size="7" fill="white" font-weight="bold">seed</text>
+        <text x="50" y="25" text-anchor="middle" font-size="7" fill="#888">4" deep</text>
+        <path d="M50 32 L50 42" stroke="#795548" stroke-width="1.5" marker-end="url(#arrow)"/>
+        <text x="50" y="78" text-anchor="middle" font-size="7" fill="#888">hill soil as</text>
+        <text x="50" y="88" text-anchor="middle" font-size="7" fill="#888">stems grow</text>
+      </svg>
+      <div class="key-details">
+        <strong>1 seed potato per sq ft</strong><br>
+        Plant 4" deep, eyes up. Hill 4–6" of soil/straw as stems emerge (2–3 times). Each plant needs 12" space.
+      </div>
+    </div>
+
+    <!-- Garlic (already planted) -->
+    <div class="key-card">
+      <div class="key-card-header"><div class="key-swatch" style="background:#bdb76b;"></div><strong>Garlic (in ground)</strong></div>
+      <svg class="key-diagram" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <rect width="100" height="100" fill="#f5f0e0" stroke="#c8b97a" stroke-width="2"/>
+        <!-- 2 rows of 3 -->
+        <circle cx="25" cy="35" r="5" fill="#bdb76b" opacity="0.8" stroke="#888" stroke-width="0.5"/>
+        <circle cx="50" cy="35" r="5" fill="#bdb76b" opacity="0.8" stroke="#888" stroke-width="0.5"/>
+        <circle cx="75" cy="35" r="5" fill="#bdb76b" opacity="0.8" stroke="#888" stroke-width="0.5"/>
+        <circle cx="25" cy="65" r="5" fill="#bdb76b" opacity="0.8" stroke="#888" stroke-width="0.5"/>
+        <circle cx="50" cy="65" r="5" fill="#bdb76b" opacity="0.8" stroke="#888" stroke-width="0.5"/>
+        <circle cx="75" cy="65" r="5" fill="#bdb76b" opacity="0.8" stroke="#888" stroke-width="0.5"/>
+        <text x="50" y="92" text-anchor="middle" font-size="7" fill="#888">~6 cloves, 4–6" apart</text>
+      </svg>
+      <div class="key-details">
+        <strong>4–6 cloves per sq ft</strong><br>
+        Already planted. Rows are spaced ~6" apart — wide enough to interplant lettuce between rows in spring.
+      </div>
+    </div>
+
+    <!-- Garlic + Lettuce interplant -->
+    <div class="key-card">
+      <div class="key-card-header"><div class="key-swatch" style="background:linear-gradient(135deg, #bdb76b 50%, #2ecc71 50%);"></div><strong>Garlic + Lettuce</strong></div>
+      <svg class="key-diagram" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <rect width="100" height="100" fill="#f5f0e0" stroke="#c8b97a" stroke-width="2"/>
+        <!-- garlic row -->
+        <circle cx="25" cy="25" r="5" fill="#bdb76b" opacity="0.8" stroke="#888" stroke-width="0.5"/>
+        <circle cx="50" cy="25" r="5" fill="#bdb76b" opacity="0.8" stroke="#888" stroke-width="0.5"/>
+        <circle cx="75" cy="25" r="5" fill="#bdb76b" opacity="0.8" stroke="#888" stroke-width="0.5"/>
+        <!-- lettuce between -->
+        <circle cx="25" cy="50" r="7" fill="#2ecc71" opacity="0.6"/>
+        <circle cx="50" cy="50" r="7" fill="#2ecc71" opacity="0.6"/>
+        <circle cx="75" cy="50" r="7" fill="#2ecc71" opacity="0.6"/>
+        <!-- garlic row -->
+        <circle cx="25" cy="75" r="5" fill="#bdb76b" opacity="0.8" stroke="#888" stroke-width="0.5"/>
+        <circle cx="50" cy="75" r="5" fill="#bdb76b" opacity="0.8" stroke="#888" stroke-width="0.5"/>
+        <circle cx="75" cy="75" r="5" fill="#bdb76b" opacity="0.8" stroke="#888" stroke-width="0.5"/>
+        <text x="92" y="25" text-anchor="end" font-size="6" fill="#888">garlic</text>
+        <text x="92" y="50" text-anchor="end" font-size="6" fill="#2ecc71">lettuce</text>
+        <text x="92" y="75" text-anchor="end" font-size="6" fill="#888">garlic</text>
+      </svg>
+      <div class="key-details">
+        <strong>3 lettuce between garlic rows</strong><br>
+        Sow lettuce seeds between existing garlic rows in March. Harvest lettuce May–June before garlic matures. Garlic repels aphids.
+      </div>
+    </div>
+
+    <!-- Broccoli -->
+    <div class="key-card">
+      <div class="key-card-header"><div class="key-swatch" style="background:#2e7d32;"></div><strong>Broccoli (fall crop)</strong></div>
+      <svg class="key-diagram" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <rect width="100" height="100" fill="#f5f0e0" stroke="#c8b97a" stroke-width="2"/>
+        <circle cx="50" cy="45" r="16" fill="#2e7d32" opacity="0.7"/>
+        <text x="50" y="49" text-anchor="middle" font-size="9" fill="white" font-weight="bold">B</text>
+        <circle cx="50" cy="45" r="32" fill="none" stroke="#2e7d32" stroke-width="1" stroke-dasharray="3" opacity="0.3"/>
+        <text x="50" y="90" text-anchor="middle" font-size="7" fill="#888">1 plant, 18–24" spread</text>
+      </svg>
+      <div class="key-details">
+        <strong>1 plant per 1.5–2 sq ft</strong><br>
+        Transplant mid-July into post-pea zone. Give 18–24" between plants. Harvest main head, then side shoots for weeks.
+      </div>
+    </div>
+
+    <!-- Dill -->
+    <div class="key-card">
+      <div class="key-card-header"><div class="key-swatch" style="background:#76b947;"></div><strong>Dill</strong></div>
+      <svg class="key-diagram" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <rect width="100" height="100" fill="#f5f0e0" stroke="#c8b97a" stroke-width="2"/>
+        <circle cx="30" cy="40" r="5" fill="#76b947" opacity="0.7"/>
+        <circle cx="70" cy="40" r="5" fill="#76b947" opacity="0.7"/>
+        <circle cx="50" cy="70" r="5" fill="#76b947" opacity="0.7"/>
+        <line x1="30" y1="40" x2="30" y2="20" stroke="#76b947" stroke-width="1" opacity="0.4"/>
+        <line x1="70" y1="40" x2="70" y2="20" stroke="#76b947" stroke-width="1" opacity="0.4"/>
+        <line x1="50" y1="70" x2="50" y2="50" stroke="#76b947" stroke-width="1" opacity="0.4"/>
+        <text x="50" y="92" text-anchor="middle" font-size="7" fill="#888">2–3 plants, 6–12" apart</text>
+      </svg>
+      <div class="key-details">
+        <strong>2–3 plants per sq ft</strong><br>
+        Sow ¼" deep. Direct sow below cucumbers — ready for pickling at the same time. Succession sow every 2–3 weeks.
+      </div>
+    </div>
+
+    <!-- Cilantro -->
+    <div class="key-card">
+      <div class="key-card-header"><div class="key-swatch" style="background:#45b39d;"></div><strong>Cilantro</strong></div>
+      <svg class="key-diagram" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <rect width="100" height="100" fill="#f5f0e0" stroke="#c8b97a" stroke-width="2"/>
+        <circle cx="25" cy="35" r="5" fill="#45b39d" opacity="0.7"/>
+        <circle cx="50" cy="35" r="5" fill="#45b39d" opacity="0.7"/>
+        <circle cx="75" cy="35" r="5" fill="#45b39d" opacity="0.7"/>
+        <circle cx="25" cy="65" r="5" fill="#45b39d" opacity="0.7"/>
+        <circle cx="50" cy="65" r="5" fill="#45b39d" opacity="0.7"/>
+        <circle cx="75" cy="65" r="5" fill="#45b39d" opacity="0.7"/>
+        <text x="50" y="92" text-anchor="middle" font-size="7" fill="#888">6 plants, 6" apart</text>
+      </svg>
+      <div class="key-details">
+        <strong>~6 plants per sq ft</strong><br>
+        Sow ¼–½" deep. Calypso is slow-bolt but still succession sow every 2–3 weeks. Let some go to seed for coriander.
+      </div>
+    </div>
+
+    <!-- Basil -->
+    <div class="key-card">
+      <div class="key-card-header"><div class="key-swatch" style="background:#8e44ad;"></div><strong>Basil</strong></div>
+      <svg class="key-diagram" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <rect width="100" height="100" fill="#f5f0e0" stroke="#c8b97a" stroke-width="2"/>
+        <circle cx="50" cy="50" r="12" fill="#8e44ad" opacity="0.7"/>
+        <text x="50" y="54" text-anchor="middle" font-size="9" fill="white" font-weight="bold">B</text>
+        <text x="50" y="85" text-anchor="middle" font-size="7" fill="#888">1 plant, 12" spread</text>
+      </svg>
+      <div class="key-details">
+        <strong>1 plant per sq ft</strong><br>
+        Center one nursery transplant. Pinch flowers to encourage bushy growth. Place directly next to tomatoes.
+      </div>
+    </div>
+
+    <!-- Marigold -->
+    <div class="key-card">
+      <div class="key-card-header"><div class="key-swatch" style="background:#f39c12;"></div><strong>Marigold</strong></div>
+      <svg class="key-diagram" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <rect width="100" height="100" fill="#f5f0e0" stroke="#c8b97a" stroke-width="2"/>
+        <circle cx="50" cy="45" r="10" fill="#f39c12" opacity="0.7"/>
+        <text x="50" y="49" text-anchor="middle" font-size="12" fill="white">✿</text>
+        <text x="50" y="85" text-anchor="middle" font-size="7" fill="#888">1 plant, 10–12" apart</text>
+      </svg>
+      <div class="key-details">
+        <strong>1 plant per sq ft</strong><br>
+        Buy starts locally. Place along south edge near tomatoes and peppers. Deadhead for continuous blooming.
+      </div>
+    </div>
+
+    <!-- Nasturtium -->
+    <div class="key-card">
+      <div class="key-card-header"><div class="key-swatch" style="background:#d35400;"></div><strong>Nasturtium</strong></div>
+      <svg class="key-diagram" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <rect width="100" height="100" fill="#f5f0e0" stroke="#c8b97a" stroke-width="2"/>
+        <circle cx="50" cy="45" r="10" fill="#d35400" opacity="0.7"/>
+        <text x="50" y="49" text-anchor="middle" font-size="12" fill="white">✿</text>
+        <circle cx="50" cy="45" r="25" fill="none" stroke="#d35400" stroke-width="1" stroke-dasharray="3" opacity="0.3"/>
+        <text x="50" y="85" text-anchor="middle" font-size="7" fill="#888">1 plant, mounding habit</text>
+      </svg>
+      <div class="key-details">
+        <strong>1 plant per sq ft</strong><br>
+        Sow ½–1" deep. Cover seeds — needs darkness to germinate. Mounding type fills the square. Edible flowers!
+      </div>
+    </div>
+
+    <!-- Zinnia -->
+    <div class="key-card">
+      <div class="key-card-header"><div class="key-swatch" style="background:#c2185b;"></div><strong>Zinnia</strong></div>
+      <svg class="key-diagram" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <rect width="100" height="100" fill="#f5f0e0" stroke="#c8b97a" stroke-width="2"/>
+        <circle cx="50" cy="40" r="10" fill="#c2185b" opacity="0.7"/>
+        <text x="50" y="44" text-anchor="middle" font-size="12" fill="white">✿</text>
+        <line x1="50" y1="50" x2="50" y2="75" stroke="#2d5016" stroke-width="2"/>
+        <text x="50" y="90" text-anchor="middle" font-size="7" fill="#888">1 plant, 24–36" tall</text>
+      </svg>
+      <div class="key-details">
+        <strong>1 plant per sq ft</strong><br>
+        Sow ¼" deep after last frost. Benary's Giant gets tall (2–3 ft) — place at bed ends so they don't shade crops. Cut flowers to encourage more blooms.
+      </div>
+    </div>
+
+    <!-- Rhubarb (2×2 = 4 sq ft) -->
+    <div class="key-card">
+      <div class="key-card-header"><div class="key-swatch" style="background:#a93226;"></div><strong>Rhubarb (4 sq ft)</strong></div>
+      <svg class="key-diagram" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+        <rect width="200" height="100" fill="#f5f0e0" stroke="#c8b97a" stroke-width="2"/>
+        <line x1="100" y1="0" x2="100" y2="100" stroke="#c8b97a" stroke-width="1" stroke-dasharray="4"/>
+        <line x1="0" y1="50" x2="200" y2="50" stroke="#c8b97a" stroke-width="1" stroke-dasharray="4"/>
+        <circle cx="100" cy="50" r="14" fill="#a93226" opacity="0.7"/>
+        <text x="100" y="54" text-anchor="middle" font-size="9" fill="white" font-weight="bold">R</text>
+        <circle cx="100" cy="50" r="38" fill="none" stroke="#a93226" stroke-width="1" stroke-dasharray="3" opacity="0.3"/>
+        <text x="100" y="92" text-anchor="middle" font-size="7" fill="#888">1 crown centered in 2×2 ft block</text>
+        <text x="50" y="12" text-anchor="middle" font-size="7" fill="#bbb">1 ft</text>
+        <text x="150" y="12" text-anchor="middle" font-size="7" fill="#bbb">1 ft</text>
+      </svg>
+      <div class="key-details">
+        <strong>1 crown per 4 sq ft (2×2 block)</strong><br>
+        Already established at southwest corner of Plot A. Spreads 3–4 ft wide. Pull (don't cut) stalks. Remove flower stalks promptly.
+      </div>
+    </div>
+
+    <!-- Parsley -->
+    <div class="key-card">
+      <div class="key-card-header"><div class="key-swatch" style="background:#28b463;"></div><strong>Parsley</strong></div>
+      <svg class="key-diagram" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <rect width="100" height="100" fill="#f5f0e0" stroke="#c8b97a" stroke-width="2"/>
+        <circle cx="35" cy="50" r="8" fill="#28b463" opacity="0.7"/>
+        <circle cx="65" cy="50" r="8" fill="#28b463" opacity="0.7"/>
+        <text x="50" y="85" text-anchor="middle" font-size="7" fill="#888">1–2 plants, 8–10" apart</text>
+      </svg>
+      <div class="key-details">
+        <strong>1–2 plants per sq ft</strong><br>
+        Start indoors early (slow germination — 2–4 weeks). Or direct sow ¼" deep. Giant of Italy is very productive.
+      </div>
+    </div>
+
+    <!-- Sage -->
+    <div class="key-card">
+      <div class="key-card-header"><div class="key-swatch" style="background:#7d8a6e;"></div><strong>Sage</strong></div>
+      <svg class="key-diagram" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <rect width="100" height="100" fill="#f5f0e0" stroke="#c8b97a" stroke-width="2"/>
+        <circle cx="50" cy="50" r="14" fill="#7d8a6e" opacity="0.6"/>
+        <text x="50" y="54" text-anchor="middle" font-size="8" fill="white" font-weight="bold">S</text>
+        <text x="50" y="85" text-anchor="middle" font-size="7" fill="#888">1 plant (perennial)</text>
+      </svg>
+      <div class="key-details">
+        <strong>1 plant per sq ft</strong><br>
+        Buy nursery transplant. Perennial — will come back each year. Harvest leaves as needed. Prefers well-drained soil.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- PLANT COUNTS -->
+<div class="plant-count">
+  <h2>Recommended Plant Counts</h2>
+  <table>
+    <tr><th>Crop</th><th>Plot</th><th>Plants / Spacing</th><th>Est. Yield for Family of 4</th></tr>
+    <tr><td>Tomatoes (indeterminate)</td><td>A</td><td>6 plants (caged, 24" apart — each gets 2 ft width)</td><td>60–90 lbs; fresh eating + sauce</td></tr>
+    <tr><td>Cucumbers — Gershwin (pickling)</td><td>A</td><td>5 plants (trellised, 12" apart)</td><td>50–75 fruits; canning pickles</td></tr>
+    <tr><td>Cucumbers — Gateway (slicing)</td><td>A</td><td>5 plants (trellised, 12" apart)</td><td>40–60 fruits; fresh eating</td></tr>
+    <tr><td>Pole Beans (Fortex + Seychelles)</td><td>A</td><td>~16 plants (trellised, 5" apart, 8 ft of trellis)</td><td>12–20 lbs over the season</td></tr>
+    <tr><td>Hot Peppers</td><td>A</td><td>2 plants (south edge, near tomatoes)</td><td>20–40 peppers</td></tr>
+    <tr><td>Carrots (Yaya)</td><td>A</td><td>~50 carrots (center row, 1–2" apart)</td><td>8–12 lbs</td></tr>
+    <tr><td>Radishes (Pepito)</td><td>A</td><td>~30 per sowing (west side, succession sow)</td><td>Continuous spring/fall harvest</td></tr>
+    <tr><td>Onions (Patterson + Walla Walla)</td><td>A</td><td>~40–50 total (south row, 4–5" apart, 8 ft of row)</td><td>~40–50 onions</td></tr>
+    <tr><td>Dill (Bouquet)</td><td>A</td><td>10–12 plants (below cukes), succession sow</td><td>Plenty for pickling + fresh use</td></tr>
+    <tr><td>Basil</td><td>A</td><td>3 plants (right beside tomatoes)</td><td>Continuous harvest all summer</td></tr>
+    <tr><td>Cilantro (Calypso)</td><td>A</td><td>6–8 plants, succession sow</td><td>Continuous through cool months</td></tr>
+    <tr><td>Parsley (Giant of Italy)</td><td>A</td><td>2–3 plants</td><td>Year-round harvest</td></tr>
+    <tr><td>Sage</td><td>A</td><td>1 plant</td><td>Perennial; one plant is plenty</td></tr>
+    <tr><td>Rhubarb</td><td>A</td><td>Established (west end, ~4 sq ft)</td><td>Spring harvest</td></tr>
+    <tr><td>Lettuce (3 varieties)</td><td>B</td><td>~20 heads per sowing, succession sow every 2–3 wks</td><td>Continuous salads all season</td></tr>
+    <tr><td>Spinach (Space)</td><td>B</td><td>~24 plants per sowing, succession sow</td><td>Continuous spring + fall harvest</td></tr>
+    <tr><td>Kale (Red Russian)</td><td>B</td><td>8–10 plants (12–18" apart)</td><td>Ongoing harvest; very productive</td></tr>
+    <tr><td>Sugar Snap Peas</td><td>B</td><td>~16 plants (trellised, 2–3" apart along 4 ft north edge)</td><td>3–5 lbs; spring crop, then replant with broccoli</td></tr>
+    <tr><td>Broccoli (fall crop)</td><td>B</td><td>3–4 transplants (18–24" apart, replaces peas mid-July)</td><td>3–4 main heads + weeks of side shoots (Sep–Nov)</td></tr>
+    <tr><td>Potatoes — Canada Gold</td><td>B</td><td>~6 plants (12" apart)</td><td>6–12 lbs</td></tr>
+    <tr><td>Potatoes — Carla Rose</td><td>B</td><td>~5 plants (12" apart)</td><td>5–10 lbs</td></tr>
+    <tr><td>Garlic</td><td>B</td><td>Already in ground (~5 ft of rows, south end)</td><td>Harvest mid-July</td></tr>
+    <tr><td>Lettuce (interplanted w/ garlic)</td><td>B</td><td>Direct sow between garlic rows, March–April</td><td>Harvest May–June (before garlic matures)</td></tr>
+    <tr><td colspan="4" style="font-weight:600; color:#2d5016; padding-top:10px;">Post-Garlic Fall Crops (mid-July → October)</td></tr>
+    <tr><td>Fall Lettuce</td><td>B</td><td>Succession sow every 2–3 wks, Jul–Aug, in former garlic zone</td><td>Harvest Sep–Oct</td></tr>
+    <tr><td>Fall Spinach</td><td>B</td><td>Sow late Aug in former garlic zone</td><td>Harvest Oct–Nov</td></tr>
+    <tr><td>Fall Radishes</td><td>B</td><td>Sow late Aug, quick 3-wk crop</td><td>Harvest Sep</td></tr>
+    <tr><td colspan="4" style="font-weight:600; color:#2d5016; padding-top:10px;">Companion Flowers</td></tr>
+    <tr><td>Marigolds (French)</td><td>A</td><td>4 plants along south edge near tomatoes/peppers</td><td>Repels aphids, whiteflies, nematodes</td></tr>
+    <tr><td>Nasturtiums (Alaska Mix)</td><td>A &amp; B</td><td>5–6 plants near beans (A) and flanking kale (B)</td><td>Trap crop for aphids &amp; cucumber beetles</td></tr>
+    <tr><td>Zinnias (Benary's Giant Mix)</td><td>A &amp; B</td><td>4 plants at east ends of plots</td><td>Pollinator magnet; cut flowers</td></tr>
+  </table>
+</div>
+
+<!-- LAYOUT NOTES -->
+<div class="notes-section">
+  <h2>Layout Rationale & Companion Planting Notes</h2>
+
+  <h3>Plot A — Warm Crops (4 ft × 19.5 ft, long side north)</h3>
+  <ul>
+    <li><strong>19.5 ft trellis along north edge:</strong> Excellent trellis run — 8 ft of pole beans on the west end, 10 ft of cucumbers (5 pickling + 5 slicing) on the east. Nasturtiums bookend the trellis as trap crops.</li>
+    <li><strong>EAST ZONE — Tomatoes + Basil + Peppers + Marigolds:</strong> The star companion cluster occupies the east ~6 ft. Basil planted directly adjacent to tomatoes. Hot peppers share the warm south edge. Marigolds border the tomato/pepper area to repel aphids and nematodes.</li>
+    <li><strong>CENTER ZONE — Dill below cucumbers / Carrots + Onions:</strong> Dill is planted directly south of the cucumber trellis — ready for pickling at the same time. Carrots and onions share the center-south area for mutual pest protection (onion fly / carrot fly).</li>
+    <li><strong>WEST ZONE — Rhubarb + Herbs + Radishes:</strong> Rhubarb occupies its established 2×2 ft corner at the southwest. Sage, cilantro, and parsley cluster nearby. Radishes fill in for fast succession harvesting.</li>
+    <li><strong>Narrower bed (4 ft):</strong> With only 4 rows of depth, every crop is within arm's reach from either side — no stepping into the bed needed.</li>
+  </ul>
+
+  <h3>Plot B — Cool Crops (4 ft × 19.5 ft, short side north, runs N–S, slopes uphill to south)</h3>
+  <ul>
+    <li><strong>⛰️ Slope &amp; moisture strategy:</strong> The south end is higher than the north, so water drains downhill toward the north (low) end. Moisture-loving crops (peas, spinach, lettuce) are intentionally placed at the low/moist north end. Drought-tolerant crops (garlic, kale) sit at the drier high/south end. Potatoes bridge the middle — they want even moisture early but benefit from drying out as they mature. <em>Tip: water the south/high end more frequently or add extra mulch there to retain moisture.</em></li>
+    <li><strong>Pea trellis on 4 ft north edge (low end) → fall broccoli:</strong> ~16 pea plants along the short north face through spring. Peas love consistent moisture — the low end is ideal. When peas finish (~late June), pull vines, remove trellis, work in compost, and transplant 3–4 broccoli starts in mid-July. Peas fix nitrogen in the soil, and broccoli is a heavy nitrogen feeder — ideal succession pair. The low/moist end also suits broccoli's need for consistent moisture. Harvest broccoli main heads Sep–Oct, then side shoots through November.</li>
+    <li><strong>Spinach adjacent to peas (north/low):</strong> Benefits from pea shade as weather warms, and from the extra moisture at the low end. Both cool-season crops planted early together.</li>
+    <li><strong>Lettuce in the center (~5 ft zone):</strong> Large succession-planting zone running through the middle of the bed. Gets moderate moisture from the slope. Rotate through all 3 varieties every 2–3 weeks.</li>
+    <li><strong>Potatoes in the center-south:</strong> Canada Gold and Carla Rose separated from tomatoes in Plot A (same family — shared disease risk). Moderate drainage here helps prevent rot. Stop watering when foliage yellows.</li>
+    <li><strong>Kale + garlic (south/high, drier):</strong> Garlic (already in ground, ~5 ft at south end) sits directly adjacent to the kale section. Garlic actually prefers to dry out as it matures — the higher/drier end is ideal for it. Garlic deters cabbage moths and aphids that target kale. Kale is one of the most drought-tolerant brassicas.</li>
+    <li><strong>🥬 Phase 1 — Interplant lettuce between garlic rows (March–June):</strong> Direct sow lettuce between the garlic rows now. Garlic rows are spaced wide enough for lettuce to grow between them. Lettuce stays shallow-rooted and won't compete. Garlic repels aphids that bother lettuce. Harvest lettuce by May–June, before garlic matures. Shown as split-color cells (garlic/green) in the layout.</li>
+    <li><strong>🔄 Phase 2 — After garlic harvest (mid-July → fall):</strong> Once garlic is pulled (~mid-July), the allium residue left in the soil naturally deters aphids and cabbage pests. Replant with: (1) Fall lettuce succession — sow every 2–3 weeks from mid-July through August for continuous harvest into October; (2) Fall spinach — sow late August; (3) Quick radishes — sow late August for ~3 week harvest. This gives you an extra 5 ft of productive greens space for the second half of the season.</li>
+    <li><strong>Nasturtiums flanking kale:</strong> Placed on west and east edges of the kale zone to draw aphids and cabbage moths away from brassicas. Nasturtiums tolerate dry conditions well.</li>
+    <li><strong>N–S orientation advantage:</strong> Morning and afternoon sun hits both long sides. Taller plants (peas) at the north end won't shade the rest of the bed.</li>
+  </ul>
+
+  <h3>Succession Planting Reminders</h3>
+  <ul>
+    <li><strong>Lettuce:</strong> New sowing every 2–3 weeks, March through September (shade in summer).</li>
+    <li><strong>Spinach:</strong> Every 2–3 weeks in spring; pause midsummer; resume late August.</li>
+    <li><strong>Radishes:</strong> Every 10–14 days, spring and fall.</li>
+    <li><strong>Cilantro:</strong> Every 2–3 weeks to stay ahead of bolting.</li>
+    <li><strong>Dill:</strong> Every 2–3 weeks starting after last frost, for continuous supply through pickling season.</li>
+    <li><strong>Pole beans:</strong> Second sowing 2–3 weeks after first for extended harvest.</li>
+    <li><strong>Carrots:</strong> Every 3 weeks for continuous harvest.</li>
+  </ul>
+</div>
+
+</body>
+</html>
