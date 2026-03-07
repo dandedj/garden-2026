@@ -25,6 +25,14 @@
   .spec-val { color: #333; }
   .note { font-size: 12px; color: #888; font-style: italic; margin-top: 6px; padding-top: 6px; border-top: 1px dashed #e0ddd6; }
   .section-note { background: #fff; border-radius: 8px; padding: 12px 16px; font-size: 13px; color: #666; margin-bottom: 14px; border-left: 3px solid #d4883a; }
+  .order-badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; background: #d5f5e3; color: #1e8449; margin-left: 6px; }
+  .order-summary { background: #fff; border-radius: 8px; padding: 16px 20px; margin-bottom: 14px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+  .order-summary h3 { font-size: 14px; color: var(--green); margin-bottom: 10px; }
+  .order-row { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px solid #f0ece4; font-size: 13px; }
+  .order-row:last-child { border-bottom: none; }
+  .order-vendor { font-weight: 600; color: #333; }
+  .order-detail { color: #666; }
+  .order-total { font-weight: 600; color: var(--green); }
   footer { text-align: center; margin-top: 40px; color: #999; font-size: 12px; }
 </style>
 </head>
@@ -39,14 +47,65 @@
 </nav>
 
 <h1>Garden Inventory 2026</h1>
-<p class="subtitle">Source: Johnny's Selected Seeds (unless noted)</p>
+<p class="subtitle">Source: Johnny's Selected Seeds (unless noted) &middot; Issaquah, WA (Zone 8b)<br>🗓️ Travel: SLC Mar 7&ndash;8, Hawaii Mar 9&ndash;15. <strong>First planting day: Mar 16</strong></p>
+
+<h2>Order History</h2>
+<div class="order-summary">
+  <h3>Confirmed Orders</h3>
+  <div class="order-row">
+    <span class="order-vendor">Johnny's Selected Seeds</span>
+    <span class="order-detail">Order #12096956 &middot; Mar 1, 2026 &middot; 18 items shipped Mar 2 (USPS), arriving ~Mar 5&ndash;7 &middot; Onion plants ship ~Mar 16</span>
+    <span class="order-total">$201.71</span>
+  </div>
+  <div class="order-row">
+    <span class="order-vendor">Mountain Valley Garlic</span>
+    <span class="order-detail">Order #18385 &middot; Jan 1, 2026 &middot; Nicola potatoes (5 lb) &middot; <strong style="color:#2471a3;">Arriving Mar 11</strong></span>
+    <span class="order-total">$48.57</span>
+  </div>
+  <div class="order-row">
+    <span class="order-vendor">Mountain Valley Garlic</span>
+    <span class="order-detail">Order #18508 &middot; Jan 26, 2026 &middot; Canada Gold + Carla Rose potatoes &middot; <strong style="color:#2471a3;">Arriving Mar 11</strong></span>
+    <span class="order-total">$27.57</span>
+  </div>
+  <div class="order-row">
+    <span class="order-vendor">Gurney's Seed &amp; Nursery</span>
+    <span class="order-detail">Order #52457889200 &middot; Sep 2, 2025 &middot; 7 items &middot; <strong style="color:#1e8449;">All delivered</strong></span>
+    <span class="order-total">$61.79</span>
+  </div>
+  <div class="order-row">
+    <span class="order-vendor">Fedco Seeds</span>
+    <span class="order-detail">Order #126297 &middot; Mar 1, 2026 &middot; Perpetual Spinach Chard (1/16 oz) &middot; Ships ~Mar 6&ndash;10, arriving ~Mar 10&ndash;14</span>
+    <span class="order-total">$3.15</span>
+  </div>
+  <div class="order-row">
+    <span class="order-vendor">Home Depot</span>
+    <span class="order-detail">Order #WN50398156 &middot; Mar 2, 2026 &middot; VIVOSUN Seed Starter Kit (6-pack) &middot; <strong style="color:#1e8449;">Out for delivery Mar 6</strong></span>
+    <span class="order-total">$15.46</span>
+  </div>
+  <div class="order-row">
+    <span class="order-vendor">Amazon</span>
+    <span class="order-detail">Order #111-3041223-6269840 &middot; Jul 12, 2024 &middot; Tomato-Tone 18 lb &middot; <strong style="color:#1e8449;">On hand</strong></span>
+    <span class="order-total">$58.32</span>
+  </div>
+  <div class="order-row">
+    <span class="order-vendor">Gardener's Supply</span>
+    <span class="order-detail">Order #2498714743 &middot; Dec 2, 2024 &middot; 3 Arm Grow Lamp &middot; <strong style="color:#1e8449;">On hand</strong></span>
+    <span class="order-total">$461.15</span>
+  </div>
+  <div class="order-row" style="border-top: 2px solid var(--green); margin-top: 6px; padding-top: 8px;">
+    <span class="order-vendor" style="color: var(--green);">Grand Total (all orders)</span>
+    <span></span>
+    <span class="order-total" style="font-size: 15px;">$877.72</span>
+  </div>
+</div>
 
 <h2>Cucumbers</h2>
 <div class="crop-grid">
   <div class="crop-card">
-    <h3>Gershwin (F1) — Pickling</h3>
+    <h3>Gershwin (F1) — Pickling <span class="order-badge" style="background:#d6eaf8;color:#2471a3;">SHIPPED</span></h3>
     <div class="spec"><span class="spec-label">Product ID</span><span class="spec-val">5133.11</span></div>
     <div class="spec"><span class="spec-label">Price</span><span class="spec-val">$6.95</span></div>
+    <div class="spec"><span class="spec-label">Order</span><span class="spec-val">Johnny's #12096956 (Mar 1, 2026)</span></div>
     <div class="spec"><span class="spec-label">Start indoors</span><span class="spec-val">3–4 weeks before last frost</span></div>
     <div class="spec"><span class="spec-label">Direct sow</span><span class="spec-val">After last frost, soil 60°F+</span></div>
     <div class="spec"><span class="spec-label">Depth / Spacing</span><span class="spec-val">½″ deep, 12″ apart</span></div>
@@ -54,9 +113,10 @@
     <div class="spec"><span class="spec-label">Days to maturity</span><span class="spec-val">~52 days</span></div>
   </div>
   <div class="crop-card">
-    <h3>Gateway (F1) — Slicing</h3>
+    <h3>Gateway (F1) — Slicing <span class="order-badge" style="background:#d6eaf8;color:#2471a3;">SHIPPED</span></h3>
     <div class="spec"><span class="spec-label">Product ID</span><span class="spec-val">4777.11</span></div>
     <div class="spec"><span class="spec-label">Price</span><span class="spec-val">$6.35</span></div>
+    <div class="spec"><span class="spec-label">Order</span><span class="spec-val">Johnny's #12096956 (Mar 1, 2026)</span></div>
     <div class="spec"><span class="spec-label">Start indoors</span><span class="spec-val">3–4 weeks before last frost</span></div>
     <div class="spec"><span class="spec-label">Direct sow</span><span class="spec-val">After last frost, soil 60°F+</span></div>
     <div class="spec"><span class="spec-label">Depth / Spacing</span><span class="spec-val">½″ deep, 12″ apart</span></div>
@@ -68,9 +128,10 @@
 <h2>Leafy Greens</h2>
 <div class="crop-grid">
   <div class="crop-card">
-    <h3>Red Russian Kale</h3>
+    <h3>Red Russian Kale <span class="order-badge" style="background:#d6eaf8;color:#2471a3;">SHIPPED</span></h3>
     <div class="spec"><span class="spec-label">Product ID</span><span class="spec-val">363.11</span></div>
     <div class="spec"><span class="spec-label">Price</span><span class="spec-val">$6.40</span></div>
+    <div class="spec"><span class="spec-label">Order</span><span class="spec-val">Johnny's #12096956 (Mar 1, 2026)</span></div>
     <div class="spec"><span class="spec-label">Start indoors</span><span class="spec-val">4–6 weeks before last frost</span></div>
     <div class="spec"><span class="spec-label">Direct sow</span><span class="spec-val">Early spring or late summer</span></div>
     <div class="spec"><span class="spec-label">Depth / Spacing</span><span class="spec-val">¼–½″ deep, 18–24″ apart</span></div>
@@ -79,7 +140,7 @@
     <div class="note">Only 2 plants needed. Sow 4–6 seeds, thin to best 2 plants spaced 18–24″ (~3 sq ft total).</div>
   </div>
   <div class="crop-card">
-    <h3>Perpetual Spinach (Leaf Beet)</h3>
+    <h3>Perpetual Spinach (Leaf Beet) <span class="order-badge" style="background:#d6eaf8;color:#2471a3;">SHIPPING ~Mar 6&ndash;10</span></h3>
     <div class="spec"><span class="spec-label">Source</span><span class="spec-val">Fedco Seeds &mdash; <strong>ORDERED</strong></span></div>
     <div class="spec"><span class="spec-label">Product ID</span><span class="spec-val">3034A</span></div>
     <div class="spec"><span class="spec-label">Price</span><span class="spec-val">$3.15 (1/16 oz, ~200&ndash;300 seeds)</span></div>
@@ -91,9 +152,10 @@
     <div class="note">Summer spinach substitute. Cut-and-come-again &mdash; harvest outer leaves, center regrows. Thin stems, smooth leaves, mild spinach flavor. Extremely bolt-resistant. Produces June through first hard frost.</div>
   </div>
   <div class="crop-card">
-    <h3>Spinach &mdash; Space (Organic F1)</h3>
+    <h3>Spinach &mdash; Space (Organic F1) <span class="order-badge" style="background:#d6eaf8;color:#2471a3;">SHIPPED</span></h3>
     <div class="spec"><span class="spec-label">Product ID</span><span class="spec-val">4543G.11</span></div>
     <div class="spec"><span class="spec-label">Price</span><span class="spec-val">$6.80</span></div>
+    <div class="spec"><span class="spec-label">Order</span><span class="spec-val">Johnny's #12096956 (Mar 1, 2026)</span></div>
     <div class="spec"><span class="spec-label">Direct sow</span><span class="spec-val">Early spring, 4–6 wks before last frost</span></div>
     <div class="spec"><span class="spec-label">Depth / Spacing</span><span class="spec-val">½″ deep, 2–4″ apart</span></div>
     <div class="spec"><span class="spec-label">Germination</span><span class="spec-val">5–14 days at 45–68°F</span></div>
@@ -104,25 +166,28 @@
 <h2>Lettuce</h2>
 <div class="crop-grid">
   <div class="crop-card">
-    <h3>Allstar Gourmet Mix</h3>
+    <h3>Allstar Gourmet Mix <span class="order-badge" style="background:#d6eaf8;color:#2471a3;">SHIPPED</span></h3>
     <div class="spec"><span class="spec-label">Product ID</span><span class="spec-val">2301.11</span></div>
     <div class="spec"><span class="spec-label">Price</span><span class="spec-val">$6.40</span></div>
+    <div class="spec"><span class="spec-label">Order</span><span class="spec-val">Johnny's #12096956 (Mar 1, 2026)</span></div>
     <div class="spec"><span class="spec-label">Depth / Spacing</span><span class="spec-val">⅛″ deep (needs light), thin to 6–12″</span></div>
     <div class="spec"><span class="spec-label">Germination</span><span class="spec-val">2–10 days at 40–70°F</span></div>
     <div class="spec"><span class="spec-label">Days to maturity</span><span class="spec-val">~55 days</span></div>
   </div>
   <div class="crop-card">
-    <h3>Muir (Organic Pelleted)</h3>
+    <h3>Muir (Organic Pelleted) <span class="order-badge" style="background:#d6eaf8;color:#2471a3;">SHIPPED</span></h3>
     <div class="spec"><span class="spec-label">Product ID</span><span class="spec-val">3881GP.11</span></div>
     <div class="spec"><span class="spec-label">Price</span><span class="spec-val">$8.90</span></div>
+    <div class="spec"><span class="spec-label">Order</span><span class="spec-val">Johnny's #12096956 (Mar 1, 2026)</span></div>
     <div class="spec"><span class="spec-label">Depth / Spacing</span><span class="spec-val">⅛″ deep, 6–12″ apart</span></div>
     <div class="spec"><span class="spec-label">Germination</span><span class="spec-val">2–10 days at 40–70°F</span></div>
     <div class="spec"><span class="spec-label">Days to maturity</span><span class="spec-val">~55 days</span></div>
   </div>
   <div class="crop-card">
-    <h3>Salanova Green Butter (Pelleted)</h3>
+    <h3>Salanova Green Butter (Pelleted) <span class="order-badge" style="background:#d6eaf8;color:#2471a3;">SHIPPED</span></h3>
     <div class="spec"><span class="spec-label">Product ID</span><span class="spec-val">3056JP.11</span></div>
     <div class="spec"><span class="spec-label">Price</span><span class="spec-val">$7.70</span></div>
+    <div class="spec"><span class="spec-label">Order</span><span class="spec-val">Johnny's #12096956 (Mar 1, 2026)</span></div>
     <div class="spec"><span class="spec-label">Depth / Spacing</span><span class="spec-val">⅛″ deep, 6–12″ apart</span></div>
     <div class="spec"><span class="spec-label">Germination</span><span class="spec-val">2–10 days at 40–70°F</span></div>
     <div class="spec"><span class="spec-label">Days to maturity</span><span class="spec-val">~55 days</span></div>
@@ -132,17 +197,19 @@
 <h2>Onions</h2>
 <div class="crop-grid">
   <div class="crop-card">
-    <h3>Patterson (F1) — Storage Onion</h3>
+    <h3>Patterson (F1) — Storage Onion <span class="order-badge" style="background:#fdebd0;color:#b7791f;">SHIPS ~MAR 16</span></h3>
     <div class="spec"><span class="spec-label">Product ID</span><span class="spec-val">3049.01</span></div>
     <div class="spec"><span class="spec-label">Price</span><span class="spec-val">$24.20 (plants)</span></div>
+    <div class="spec"><span class="spec-label">Order</span><span class="spec-val">Johnny's #12096956 (Mar 1, 2026)</span></div>
     <div class="spec"><span class="spec-label">Ships</span><span class="spec-val">Week of 3/16/2026</span></div>
     <div class="spec"><span class="spec-label">Depth / Spacing</span><span class="spec-val">1″ deep, 4–6″ apart</span></div>
     <div class="spec"><span class="spec-label">Days to maturity</span><span class="spec-val">~104 days</span></div>
   </div>
   <div class="crop-card">
-    <h3>Walla Walla — Sweet Onion</h3>
+    <h3>Walla Walla — Sweet Onion <span class="order-badge" style="background:#fdebd0;color:#b7791f;">SHIPS ~MAR 16</span></h3>
     <div class="spec"><span class="spec-label">Product ID</span><span class="spec-val">500.01</span></div>
     <div class="spec"><span class="spec-label">Price</span><span class="spec-val">$24.20 (plants)</span></div>
+    <div class="spec"><span class="spec-label">Order</span><span class="spec-val">Johnny's #12096956 (Mar 1, 2026)</span></div>
     <div class="spec"><span class="spec-label">Ships</span><span class="spec-val">Week of 3/16/2026</span></div>
     <div class="spec"><span class="spec-label">Depth / Spacing</span><span class="spec-val">1″ deep, 4–6″ apart</span></div>
     <div class="spec"><span class="spec-label">Days to maturity</span><span class="spec-val">~90–100 days</span></div>
@@ -152,18 +219,20 @@
 <h2>Root Vegetables</h2>
 <div class="crop-grid">
   <div class="crop-card">
-    <h3>Carrots — Yaya (Organic F1)</h3>
+    <h3>Carrots — Yaya (Organic F1) <span class="order-badge" style="background:#d6eaf8;color:#2471a3;">SHIPPED</span></h3>
     <div class="spec"><span class="spec-label">Product ID</span><span class="spec-val">2681G.11</span></div>
     <div class="spec"><span class="spec-label">Price</span><span class="spec-val">$6.40</span></div>
+    <div class="spec"><span class="spec-label">Order</span><span class="spec-val">Johnny's #12096956 (Mar 1, 2026)</span></div>
     <div class="spec"><span class="spec-label">Direct sow</span><span class="spec-val">Early spring; succession every 3 weeks</span></div>
     <div class="spec"><span class="spec-label">Depth / Spacing</span><span class="spec-val">¼″ deep, thin to 1–2″ apart</span></div>
     <div class="spec"><span class="spec-label">Germination</span><span class="spec-val">7–21 days at 55–75°F</span></div>
     <div class="spec"><span class="spec-label">Days to maturity</span><span class="spec-val">~55–60 days</span></div>
   </div>
   <div class="crop-card">
-    <h3>Radishes — Pepito (F1)</h3>
+    <h3>Radishes — Pepito (F1) <span class="order-badge" style="background:#d6eaf8;color:#2471a3;">SHIPPED</span></h3>
     <div class="spec"><span class="spec-label">Product ID</span><span class="spec-val">5181.11</span></div>
     <div class="spec"><span class="spec-label">Price</span><span class="spec-val">$6.45</span></div>
+    <div class="spec"><span class="spec-label">Order</span><span class="spec-val">Johnny's #12096956 (Mar 1, 2026)</span></div>
     <div class="spec"><span class="spec-label">Direct sow</span><span class="spec-val">Early spring; succession every 10–14 days</span></div>
     <div class="spec"><span class="spec-label">Depth / Spacing</span><span class="spec-val">½″ deep, 1–2″ apart</span></div>
     <div class="spec"><span class="spec-label">Germination</span><span class="spec-val">3–7 days at 55–70°F</span></div>
@@ -174,31 +243,45 @@
 <h2>Potatoes</h2>
 <div class="crop-grid">
   <div class="crop-card">
-    <h3>Canada Gold</h3>
+    <h3>Canada Gold <span class="order-badge" style="background:#d6eaf8;color:#2471a3;">ARRIVING MAR 11</span></h3>
     <div class="spec"><span class="spec-label">Source</span><span class="spec-val">Mountain Valley Garlic</span></div>
     <div class="spec"><span class="spec-label">Price</span><span class="spec-val">$8.00 (1 lb)</span></div>
+    <div class="spec"><span class="spec-label">Order</span><span class="spec-val">MVG #18508 (Jan 26, 2026)</span></div>
     <div class="spec"><span class="spec-label">Plant</span><span class="spec-val">Early spring, soil 45°F+</span></div>
     <div class="spec"><span class="spec-label">Depth / Spacing</span><span class="spec-val">4″ deep, 12″ apart; hill as they grow</span></div>
     <div class="spec"><span class="spec-label">Days to maturity</span><span class="spec-val">~70&ndash;90 days</span></div>
     <div class="note">Expanded: ~6&ndash;8 sq ft on Plot B east (8&ndash;10 plants). Space freed from kale reduction.</div>
   </div>
   <div class="crop-card">
-    <h3>Carla Rose</h3>
+    <h3>Carla Rose <span class="order-badge" style="background:#d6eaf8;color:#2471a3;">ARRIVING MAR 11</span></h3>
     <div class="spec"><span class="spec-label">Source</span><span class="spec-val">Mountain Valley Garlic</span></div>
     <div class="spec"><span class="spec-label">Price</span><span class="spec-val">$8.00 (1 lb)</span></div>
+    <div class="spec"><span class="spec-label">Order</span><span class="spec-val">MVG #18508 (Jan 26, 2026)</span></div>
     <div class="spec"><span class="spec-label">Plant</span><span class="spec-val">Early spring, soil 45&deg;F+</span></div>
     <div class="spec"><span class="spec-label">Depth / Spacing</span><span class="spec-val">4&Prime; deep, 12&Prime; apart; hill as they grow</span></div>
     <div class="spec"><span class="spec-label">Days to maturity</span><span class="spec-val">~70&ndash;90 days</span></div>
     <div class="note">Expanded: ~6&ndash;8 sq ft on Plot B east (8&ndash;10 plants). Space freed from kale reduction.</div>
+  </div>
+  <div class="crop-card">
+    <h3>Nicola <span class="order-badge" style="background:#d6eaf8;color:#2471a3;">ARRIVING MAR 11</span></h3>
+    <div class="spec"><span class="spec-label">Source</span><span class="spec-val">Mountain Valley Garlic</span></div>
+    <div class="spec"><span class="spec-label">SKU</span><span class="spec-val">NCL-2026-05</span></div>
+    <div class="spec"><span class="spec-label">Price</span><span class="spec-val">$35.00 (5 lb)</span></div>
+    <div class="spec"><span class="spec-label">Order</span><span class="spec-val">MVG #18385 (Jan 1, 2026)</span></div>
+    <div class="spec"><span class="spec-label">Plant</span><span class="spec-val">Early spring, soil 45&deg;F+</span></div>
+    <div class="spec"><span class="spec-label">Depth / Spacing</span><span class="spec-val">4&Prime; deep, 12&Prime; apart; hill as they grow</span></div>
+    <div class="spec"><span class="spec-label">Days to maturity</span><span class="spec-val">~70&ndash;90 days</span></div>
+    <div class="note">German fingerling-style waxy potato. Excellent for roasting and salads. 5 lb = ~25&ndash;35 seed pieces. Ships April&ndash;June.</div>
   </div>
 </div>
 
 <h2>Peas</h2>
 <div class="crop-grid">
   <div class="crop-card">
-    <h3>Sugar Snap (Organic)</h3>
+    <h3>Sugar Snap (Organic) <span class="order-badge" style="background:#d6eaf8;color:#2471a3;">SHIPPED</span></h3>
     <div class="spec"><span class="spec-label">Product ID</span><span class="spec-val">558G.11</span></div>
     <div class="spec"><span class="spec-label">Price</span><span class="spec-val">$6.80</span></div>
+    <div class="spec"><span class="spec-label">Order</span><span class="spec-val">Johnny's #12096956 (Mar 1, 2026)</span></div>
     <div class="spec"><span class="spec-label">Direct sow</span><span class="spec-val">Early spring, soil 45°F+; provide trellis</span></div>
     <div class="spec"><span class="spec-label">Depth / Spacing</span><span class="spec-val">1″ deep, 2–3″ apart</span></div>
     <div class="spec"><span class="spec-label">Germination</span><span class="spec-val">7–14 days at 50–70°F</span></div>
@@ -209,8 +292,11 @@
 <h2>Pole Beans</h2>
 <div class="crop-grid">
   <div class="crop-card">
-    <h3>Fortex — Pole, Stringless</h3>
-    <div class="spec"><span class="spec-label">Direct sow</span><span class="spec-val">After last frost, soil 60°F+</span></div>
+    <h3>Fortex — Pole, Stringless <span class="order-badge" style="background:#d6eaf8;color:#2471a3;">SHIPPED</span></h3>
+        <div class="spec"><span class="spec-label">Product ID</span><span class="spec-val">34.11</span></div>
+    <div class="spec"><span class="spec-label">Price</span><span class="spec-val">$6.60</span></div>
+    <div class="spec"><span class="spec-label">Order</span><span class="spec-val">Johnny's #12096956 (Mar 1, 2026)</span></div>
+<div class="spec"><span class="spec-label">Direct sow</span><span class="spec-val">After last frost, soil 60°F+</span></div>
     <div class="spec"><span class="spec-label">Succession</span><span class="spec-val">Every 2–3 weeks through mid-July</span></div>
     <div class="spec"><span class="spec-label">Depth / Spacing</span><span class="spec-val">1″ deep, 4–6″ apart; provide trellis</span></div>
     <div class="spec"><span class="spec-label">Germination</span><span class="spec-val">7–14 days at 65–85°F</span></div>
@@ -218,8 +304,11 @@
     <div class="note">Stays tender even at 11″. Very productive.</div>
   </div>
   <div class="crop-card">
-    <h3>Seychelles (F1) — Pole, Stringless</h3>
-    <div class="spec"><span class="spec-label">Direct sow</span><span class="spec-val">After last frost, soil 60°F+</span></div>
+    <h3>Seychelles (F1) — Pole, Stringless <span class="order-badge" style="background:#d6eaf8;color:#2471a3;">SHIPPED</span></h3>
+        <div class="spec"><span class="spec-label">Product ID</span><span class="spec-val">4545.11</span></div>
+    <div class="spec"><span class="spec-label">Price</span><span class="spec-val">$6.40</span></div>
+    <div class="spec"><span class="spec-label">Order</span><span class="spec-val">Johnny's #12096956 (Mar 1, 2026)</span></div>
+<div class="spec"><span class="spec-label">Direct sow</span><span class="spec-val">After last frost, soil 60°F+</span></div>
     <div class="spec"><span class="spec-label">Succession</span><span class="spec-val">Every 2–3 weeks through mid-July</span></div>
     <div class="spec"><span class="spec-label">Depth / Spacing</span><span class="spec-val">1″ deep, 4–6″ apart; provide trellis</span></div>
     <div class="spec"><span class="spec-label">Germination</span><span class="spec-val">7–14 days at 65–85°F</span></div>
@@ -231,9 +320,10 @@
 <h2>Herbs</h2>
 <div class="crop-grid">
   <div class="crop-card">
-    <h3>Bouquet Dill</h3>
+    <h3>Bouquet Dill <span class="order-badge" style="background:#d6eaf8;color:#2471a3;">SHIPPED</span></h3>
     <div class="spec"><span class="spec-label">Product ID</span><span class="spec-val">920.11</span></div>
-    <div class="spec"><span class="spec-label">Price</span><span class="spec-val">~$5.35</span></div>
+    <div class="spec"><span class="spec-label">Price</span><span class="spec-val">$5.35</span></div>
+    <div class="spec"><span class="spec-label">Order</span><span class="spec-val">Johnny's #12096956 (Mar 1, 2026)</span></div>
     <div class="spec"><span class="spec-label">Direct sow</span><span class="spec-val">After last frost; succession every 2–3 weeks</span></div>
     <div class="spec"><span class="spec-label">Depth / Spacing</span><span class="spec-val">¼″ deep, 6–12″ apart</span></div>
     <div class="spec"><span class="spec-label">Germination</span><span class="spec-val">7–14 days at 60–70°F</span></div>
@@ -241,9 +331,10 @@
     <div class="note">Preferred dill for pickling. Plant near cucumbers.</div>
   </div>
   <div class="crop-card">
-    <h3>Calypso Cilantro</h3>
-    <div class="spec"><span class="spec-label">Product ID</span><span class="spec-val">3803.11</span></div>
-    <div class="spec"><span class="spec-label">Price</span><span class="spec-val">~$5.95</span></div>
+    <h3>Calypso Cilantro <span class="order-badge" style="background:#d6eaf8;color:#2471a3;">SHIPPED</span></h3>
+    <div class="spec"><span class="spec-label">Product ID</span><span class="spec-val">3803.26 (1 oz)</span></div>
+    <div class="spec"><span class="spec-label">Price</span><span class="spec-val">$8.05</span></div>
+    <div class="spec"><span class="spec-label">Order</span><span class="spec-val">Johnny's #12096956 (Mar 1, 2026)</span></div>
     <div class="spec"><span class="spec-label">Direct sow</span><span class="spec-val">Early spring; succession every 2–3 weeks</span></div>
     <div class="spec"><span class="spec-label">Depth / Spacing</span><span class="spec-val">¼–½″ deep, 6–8″ apart</span></div>
     <div class="spec"><span class="spec-label">Germination</span><span class="spec-val">7–14 days at 55–68°F</span></div>
@@ -251,9 +342,10 @@
     <div class="note">Slowest-bolting variety — 3 weeks slower than Santo.</div>
   </div>
   <div class="crop-card">
-    <h3>Giant of Italy Parsley</h3>
+    <h3>Giant of Italy Parsley <span class="order-badge" style="background:#d6eaf8;color:#2471a3;">SHIPPED</span></h3>
     <div class="spec"><span class="spec-label">Product ID</span><span class="spec-val">2390.11</span></div>
-    <div class="spec"><span class="spec-label">Price</span><span class="spec-val">~$5.30</span></div>
+    <div class="spec"><span class="spec-label">Price</span><span class="spec-val">$5.30</span></div>
+    <div class="spec"><span class="spec-label">Order</span><span class="spec-val">Johnny's #12096956 (Mar 1, 2026)</span></div>
     <div class="spec"><span class="spec-label">Start indoors</span><span class="spec-val">8–10 weeks before last frost</span></div>
     <div class="spec"><span class="spec-label">Depth / Spacing</span><span class="spec-val">¼″ deep, 8–10″ apart</span></div>
     <div class="spec"><span class="spec-label">Germination</span><span class="spec-val">14–28 days at 65–75°F (slow!)</span></div>
@@ -264,9 +356,10 @@
 <h2>Companion Flowers</h2>
 <div class="crop-grid">
   <div class="crop-card">
-    <h3>Alaska Mix Nasturtium</h3>
+    <h3>Alaska Mix Nasturtium <span class="order-badge" style="background:#d6eaf8;color:#2471a3;">SHIPPED</span></h3>
     <div class="spec"><span class="spec-label">Product ID</span><span class="spec-val">1202.11</span></div>
     <div class="spec"><span class="spec-label">Price</span><span class="spec-val">$5.55</span></div>
+    <div class="spec"><span class="spec-label">Order</span><span class="spec-val">Johnny's #12096956 (Mar 1, 2026)</span></div>
     <div class="spec"><span class="spec-label">Purpose</span><span class="spec-val">Trap crop for aphids &amp; cucumber beetles; edible</span></div>
     <div class="spec"><span class="spec-label">Best near</span><span class="spec-val">Cucumbers, beans, kale</span></div>
     <div class="spec"><span class="spec-label">Depth / Spacing</span><span class="spec-val">½–1″ deep, 10–12″ apart</span></div>
@@ -274,22 +367,83 @@
     <div class="note">Darkness required for germination — cover seeds.</div>
   </div>
   <div class="crop-card">
-    <h3>Benary's Giant Mix Zinnia</h3>
+    <h3>Benary's Giant Mix Zinnia <span class="order-badge" style="background:#d6eaf8;color:#2471a3;">SHIPPED</span></h3>
     <div class="spec"><span class="spec-label">Product ID</span><span class="spec-val">1346.11</span></div>
     <div class="spec"><span class="spec-label">Price</span><span class="spec-val">$5.80</span></div>
+    <div class="spec"><span class="spec-label">Order</span><span class="spec-val">Johnny's #12096956 (Mar 1, 2026)</span></div>
     <div class="spec"><span class="spec-label">Purpose</span><span class="spec-val">Pollinator magnet for bees &amp; butterflies</span></div>
     <div class="spec"><span class="spec-label">Best near</span><span class="spec-val">Tomatoes, peppers, beans</span></div>
     <div class="spec"><span class="spec-label">Depth / Spacing</span><span class="spec-val">¼″ deep, 12–18″ apart</span></div>
     <div class="spec"><span class="spec-label">Days to bloom</span><span class="spec-val">~60–70 days</span></div>
     <div class="note">6″ blooms. Cut-and-come-again. Place at ends of beds.</div>
   </div>
-  <div class="crop-card local">
-    <h3>Marigolds — Buy Locally</h3>
+  <div class="crop-card">
+    <h3>Bonanza Deep Orange Marigold <span class="order-badge" style="background:#d6eaf8;color:#2471a3;">SHIPPED</span></h3>
+    <div class="spec"><span class="spec-label">Product ID</span><span class="spec-val">5210.11</span></div>
+    <div class="spec"><span class="spec-label">Price</span><span class="spec-val">$4.95</span></div>
+    <div class="spec"><span class="spec-label">Order</span><span class="spec-val">Johnny's #12096956 (Mar 1, 2026)</span></div>
     <div class="spec"><span class="spec-label">Purpose</span><span class="spec-val">Repels aphids, whiteflies, nematodes</span></div>
     <div class="spec"><span class="spec-label">Best near</span><span class="spec-val">Tomatoes, peppers, cucumbers</span></div>
-    <div class="spec"><span class="spec-label">Spacing</span><span class="spec-val">10–12″ apart</span></div>
-    <div class="spec"><span class="spec-label">Days to bloom</span><span class="spec-val">~50–60 days</span></div>
-    <div class="note">Out of stock at Johnny's. Buy French type starts locally (Tangerine Gem or similar).</div>
+    <div class="spec"><span class="spec-label">Spacing</span><span class="spec-val">10&ndash;12&Prime; apart</span></div>
+    <div class="spec"><span class="spec-label">Days to bloom</span><span class="spec-val">~50&ndash;60 days</span></div>
+    <div class="note">French double marigold. Compact plants (10&ndash;12&Prime; tall) with large blooms. Start indoors 4&ndash;6 weeks before last frost or direct sow after frost.</div>
+  </div>
+</div>
+
+<h2>Gurney's Seeds (Order #52457889200 &mdash; Sep 2, 2025)</h2>
+<div class="section-note">Source: <a href="https://www.gurneys.com" style="color:#b56c1a;">Gurney's Seed &amp; Nursery Co.</a> &middot; $61.79 total &middot; Shipped Sep&ndash;Oct 2025</div>
+<div class="crop-grid">
+  <div class="crop-card">
+    <h3>Onion Bunching Evergreen White <span class="order-badge" style="background:#1e8449;color:white;">DELIVERED</span></h3>
+    <div class="spec"><span class="spec-label">Item #</span><span class="spec-val">77034</span></div>
+    <div class="spec"><span class="spec-label">Type</span><span class="spec-val">Bunching / green onion</span></div>
+    <div class="spec"><span class="spec-label">Direct sow</span><span class="spec-val">Early spring; succession every 2&ndash;3 weeks</span></div>
+    <div class="spec"><span class="spec-label">Days to maturity</span><span class="spec-val">~60&ndash;70 days</span></div>
+  </div>
+  <div class="crop-card">
+    <h3>Onion Blush Hybrid <span class="order-badge" style="background:#1e8449;color:white;">DELIVERED</span></h3>
+    <div class="spec"><span class="spec-label">Item #</span><span class="spec-val">82056</span></div>
+    <div class="spec"><span class="spec-label">Type</span><span class="spec-val">Red/pink storage onion</span></div>
+    <div class="spec"><span class="spec-label">Days to maturity</span><span class="spec-val">~100&ndash;110 days</span></div>
+  </div>
+  <div class="crop-card">
+    <h3>Snap Pea Sugar Ann <span class="order-badge" style="background:#1e8449;color:white;">DELIVERED</span></h3>
+    <div class="spec"><span class="spec-label">Item #</span><span class="spec-val">14842</span></div>
+    <div class="spec"><span class="spec-label">Type</span><span class="spec-val">Dwarf snap pea (bush type, 24&Prime;)</span></div>
+    <div class="spec"><span class="spec-label">Direct sow</span><span class="spec-val">Early spring, soil 45&deg;F+</span></div>
+    <div class="spec"><span class="spec-label">Days to maturity</span><span class="spec-val">~56 days</span></div>
+    <div class="note">Compact bush type &mdash; no trellis needed. Complements the climbing Sugar Snap from Johnny's.</div>
+  </div>
+  <div class="crop-card">
+    <h3>Spinach Gurney's Goliath (Seed Tape) <span class="order-badge" style="background:#1e8449;color:white;">DELIVERED</span></h3>
+    <div class="spec"><span class="spec-label">Item #</span><span class="spec-val">69573</span></div>
+    <div class="spec"><span class="spec-label">Type</span><span class="spec-val">Pre-spaced seed tape</span></div>
+    <div class="spec"><span class="spec-label">Direct sow</span><span class="spec-val">Early spring, 4&ndash;6 weeks before last frost</span></div>
+    <div class="spec"><span class="spec-label">Days to maturity</span><span class="spec-val">~40&ndash;50 days</span></div>
+    <div class="note">Large, savoy-type leaves. Seed tape makes sowing easy &mdash; no thinning needed.</div>
+  </div>
+  <div class="crop-card">
+    <h3>Kale Winter Wonderland Mix <span class="order-badge" style="background:#1e8449;color:white;">DELIVERED</span></h3>
+    <div class="spec"><span class="spec-label">Item #</span><span class="spec-val">04497</span></div>
+    <div class="spec"><span class="spec-label">Type</span><span class="spec-val">Mixed kale varieties</span></div>
+    <div class="spec"><span class="spec-label">Days to maturity</span><span class="spec-val">~55&ndash;65 days</span></div>
+    <div class="note">Supplement to Red Russian Kale from Johnny's. Use for fall crop or baby greens.</div>
+  </div>
+  <div class="crop-card">
+    <h3>Beet Ruby Queen <span class="order-badge" style="background:#1e8449;color:white;">DELIVERED</span></h3>
+    <div class="spec"><span class="spec-label">Item #</span><span class="spec-val">14256 (1 oz)</span></div>
+    <div class="spec"><span class="spec-label">Type</span><span class="spec-val">Round, smooth red beet</span></div>
+    <div class="spec"><span class="spec-label">Direct sow</span><span class="spec-val">Early spring; succession every 2&ndash;3 weeks</span></div>
+    <div class="spec"><span class="spec-label">Depth / Spacing</span><span class="spec-val">&frac12;&Prime; deep, thin to 3&ndash;4&Prime; apart</span></div>
+    <div class="spec"><span class="spec-label">Days to maturity</span><span class="spec-val">~52&ndash;60 days</span></div>
+    <div class="note">AAS Award winner. Sweet, tender flesh. Greens also edible. 1 oz is enough for multiple succession sowings.</div>
+  </div>
+  <div class="crop-card">
+    <h3>Onion Walla Walla <span class="order-badge" style="background:#1e8449;color:white;">DELIVERED</span></h3>
+    <div class="spec"><span class="spec-label">Item #</span><span class="spec-val">14774</span></div>
+    <div class="spec"><span class="spec-label">Type</span><span class="spec-val">Sweet onion (seed packet)</span></div>
+    <div class="spec"><span class="spec-label">Days to maturity</span><span class="spec-val">~90&ndash;100 days</span></div>
+    <div class="note">Supplement to Walla Walla plants from Johnny's. Can start from seed indoors or direct sow for a later harvest.</div>
   </div>
 </div>
 
@@ -332,7 +486,7 @@
 <div class="section-note">Source: <a href="https://www.mountainvalleygarlic.com/product-page/1-pound-sampler" style="color:#b56c1a;">Mountain Valley Garlic &mdash; 1 Pound Sampler</a> &middot; Planted fall 2025</div>
 <div class="crop-grid">
   <div class="crop-card">
-    <h3>1 Pound Sampler &mdash; 3 Hardneck Varieties</h3>
+    <h3>1 Pound Sampler &mdash; 3 Hardneck Varieties <span class="order-badge">IN GROUND</span></h3>
     <div class="spec"><span class="spec-label">Price</span><span class="spec-val">$50.00</span></div>
     <div class="spec"><span class="spec-label">Contents</span><span class="spec-val">~4&ndash;5 bulbs, 30&ndash;45 cloves; 3 varieties (~&frac13; lb each)</span></div>
     <div class="spec"><span class="spec-label">Variety 1</span><span class="spec-val">Standard Purple Stripe (Chesnok Red or Persian Star)</span></div>
@@ -350,6 +504,31 @@
     <div class="spec"><span class="spec-label">Location</span><span class="spec-val">Plot B south end</span></div>
     <div class="spec"><span class="spec-label">Depth / Spacing</span><span class="spec-val">2&Prime; deep, 6&Prime; apart; mulch with straw</span></div>
     <div class="note">Order early &mdash; popular items sell out. Consider adding &frac12; lb shallot sets ($10 add-on).</div>
+  </div>
+</div>
+
+<h2>Equipment &amp; Supplies (On Hand)</h2>
+<div class="crop-grid">
+  <div class="crop-card" style="border-top-color:#6a7fd2">
+    <h3>3 Arm Grow Lamp</h3>
+    <div class="spec"><span class="spec-label">Source</span><span class="spec-val">Gardener's Supply Co.</span></div>
+    <div class="spec"><span class="spec-label">Order</span><span class="spec-val">#2498714743 (Dec 2, 2024)</span></div>
+    <div class="spec"><span class="spec-label">Price</span><span class="spec-val">$461.15</span></div>
+    <div class="note">Full-spectrum LED grow light for starting seedlings indoors.</div>
+  </div>
+  <div class="crop-card" style="border-top-color:#6a7fd2">
+    <h3>VIVOSUN 72-Cell Seed Starter Kit (6-pack)</h3>
+    <div class="spec"><span class="spec-label">Source</span><span class="spec-val">Home Depot</span></div>
+    <div class="spec"><span class="spec-label">Order</span><span class="spec-val">#WN50398156 (Mar 2, 2026)</span></div>
+    <div class="spec"><span class="spec-label">Price</span><span class="spec-val">$15.46 ($13.99 + $1.47 tax)</span></div>
+    <div class="note">Reusable trays with humidity domes and drain holes. 432 total cells.</div>
+  </div>
+  <div class="crop-card" style="border-top-color:#6a7fd2">
+    <h3>Espoma Tomato-Tone (18 lb)</h3>
+    <div class="spec"><span class="spec-label">Source</span><span class="spec-val">Amazon</span></div>
+    <div class="spec"><span class="spec-label">Order</span><span class="spec-val">#111-3041223-6269840 (Jul 12, 2024)</span></div>
+    <div class="spec"><span class="spec-label">Price</span><span class="spec-val">$58.32 (includes 1 additional item)</span></div>
+    <div class="note">Organic 3-4-6 granular fertilizer with calcium. Side-dress tomatoes and peppers every 3&ndash;4 weeks from first fruit.</div>
   </div>
 </div>
 

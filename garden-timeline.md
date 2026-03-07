@@ -34,33 +34,61 @@ Last frost: ~April 15 · First fall frost: ~October 15 · Growing season: ~180 d
 
 ## Early–Mid March (Mar 1–15)
 
-### Planting — Cool-Season Direct Sow
-- [ ] **Peas — Sugar Snap** — Direct sow as soon as soil is workable. Soil temp needed: 45°F+. Projected soil temp: ~45°F by early March. Sow 1" deep, 2–3" apart along Plot B trellis (north end).
-- [ ] **Spinach — Space** — Direct sow. Soil temp needed: 45°F+. Sow ½" deep, 2–4" apart, Plot B north end.
-- [ ] **Radishes — Pepito** — Direct sow. Soil temp needed: 40°F+. Sow ½" deep, 1–2" apart, Plot A west side.
-- [ ] **Lettuce — all 3 varieties** — Direct sow or start indoors. Soil temp needed: 40°F+ (won't germinate above 75°F). Sow ⅛" deep, barely cover. Plot B center.
-- [ ] **Lettuce — interplant between garlic rows (Plot B south end)** — Direct sow lettuce between the garlic rows now. Garlic is spaced wide enough for lettuce to grow between. Garlic repels aphids — a natural companion. Harvest this lettuce by May–June before garlic matures.
+> ⚠️ **TRAVEL ALERT:** In SLC skiing Mar 7–8, then Hawaii Mar 9–15. **No planting this period.** All "early March" tasks shift to **Mar 16+** (first day back). Seeds are arriving while you're away — they'll keep fine until you return.
+
+### Shipping Status (items arriving while traveling)
+- [x] **Home Depot** — VIVOSUN seed starter trays: Out for delivery Mar 6 ✅
+- [x] **Johnny's Seeds** — 18 seed packets shipped Mar 2 via USPS (tracking 9434636208074276075120). Due to arrive ~Mar 5–7. ✅
+- [ ] **Johnny's Seeds** — Patterson & Walla Walla onion plants ship separately ~Mar 16 (aligns with your return!)
+- [ ] **Fedco Seeds** — Perpetual Spinach Chard ships ~Mar 6–10, arrives ~Mar 10–14
+- [x] **Gurney's Seeds** — All 7 items delivered (Sep–Oct 2025) ✅
+- [ ] **Mountain Valley Garlic** — Potato pre-orders (Nicola, Canada Gold, Carla Rose) ship Apr–Jun. Not shipped yet.
+
+### What You Can Do BEFORE Leaving (Mar 6–7)
+- [ ] **Start parsley indoors** — Sow Giant of Italy parsley indoors under lights now. Slow germinator (14–28 days). Soil temp 65–75°F. It'll be sprouting by the time you're back from Hawaii.
+- [ ] **Test & amend soil** — If you have time before leaving, test pH. Otherwise defer to Mar 16.
+
+### Planting — Cool-Season Direct Sow (DEFERRED TO MAR 16+)
+- [ ] **Peas — Sugar Snap + Sugar Ann** — Direct sow when back from travel (~Mar 16). Soil temp needed: 45°F+. Still well within the window. Sow 1" deep, 2–3" apart along Plot B trellis (north end). You have both Johnny's Sugar Snap (climbing) and Gurney's Sugar Ann (bush, no trellis needed).
+- [ ] **Spinach — Space + Gurney's Goliath seed tape** — Direct sow Mar 16+. Soil temp needed: 45°F+. Sow ½" deep, 2–4" apart, Plot B north end. Seed tape makes the Goliath super easy.
+- [ ] **Radishes — Pepito** — Direct sow Mar 16+. Soil temp needed: 40°F+. Sow ½" deep, 1–2" apart, Plot A west side.
+- [ ] **Lettuce — Salanova, Muir, Allstar** — Direct sow Mar 16+. Soil temp needed: 40°F+. Sow ⅛" deep, barely cover. Plot B center.
+- [ ] **Lettuce — interplant between garlic rows (Plot B south end)** — Direct sow lettuce between the garlic rows. Garlic is spaced wide enough for lettuce to grow between. Garlic repels aphids — a natural companion. Harvest this lettuce by May–June before garlic matures.
+- [ ] **Beets — Ruby Queen** — Direct sow Mar 16+. Soil temp 50°F+. Sow ½" deep, thin to 3–4" apart. You have Gurney's 1 oz packet — enough for several succession sowings.
 
 ### Planting — Transplants & Sets
-- [ ] **Onion plants arrive** — Patterson & Walla Walla ship week of 3/16. Plant 1" deep, 4–5" apart as soon as they arrive. Plot A south row.
-- [ ] **Potatoes — Canada Gold & Carla Rose** — Cut seed potatoes 2 days before planting to callus. Plant 4" deep, 12" apart when soil hits 45°F+. Expanded planting: use ~6–8 sq ft on Plot B east side (about 8–10 plants per variety). Space freed from kale reduction helps.
+- [ ] **Onion plants arrive ~Mar 16** — Patterson & Walla Walla plants from Johnny's ship week of 3/16 — perfect timing with your return! Plant 1" deep, 4–5" apart as soon as they arrive. Plot A south row.
+- [ ] **Potatoes — Canada Gold, Carla Rose & Nicola** — Arriving Mar 11 from Mountain Valley Garlic (while in Hawaii). Store in a cool, dark, dry place until you return. Cut seed potatoes 2 days before planting (~Mar 16) to callus. Plant 4" deep, 12" apart when soil hits 45°F+. Expanded planting: ~6–8 sq ft on Plot B east side (~8–10 plants per variety).
 
 ### Infrastructure
-- [ ] **Install Plot B pea trellis** — Set up before peas reach 4–6 inches tall. Peas climb with tendrils; provide netting or string. Use nylon trellis netting (4×5–6 ft) on **fiberglass or bamboo stakes** (no metal near power line).
+- [ ] **Install Plot B pea trellis** — Set up on Mar 16 before sowing peas. Use nylon trellis netting (4×5–6 ft) on **fiberglass or bamboo stakes** (no metal near power line). Note: Sugar Ann peas are bush type and don't need a trellis.
 
 **Soil temp (early March):** ~42–48°F
 
 ---
 
-## Late March (Mar 16–31)
+## Late March (Mar 16–31) — BACK FROM TRAVEL! 🏠
 
-### Planting — Cool Season Continued
+> **Mar 16 is your big planting day.** All the early March sowings that were deferred are still well within the window. You'll also have the onion plants arriving and potatoes to cut for planting.
+
+### First Week Back (Mar 16–22) — Priority Planting Blitz
+- [ ] **Cut potatoes for callusing** — Cut Canada Gold, Carla Rose & Nicola seed potatoes on Mar 16. Let cuts dry 2 days before planting ~Mar 18.
+- [ ] **Plant onion starts** — Patterson & Walla Walla arrive ~Mar 16. Plant immediately, 1" deep, 4–5" apart. Plot A south row.
+- [ ] **Install Plot B pea trellis** — Get this up before sowing peas.
+- [ ] **Direct sow peas** — Sugar Snap (climbing, on trellis) + Sugar Ann (bush, no trellis).
+- [ ] **Direct sow spinach** — Space + Goliath seed tape.
+- [ ] **Direct sow lettuce** — Salanova, Muir, Allstar. Also interplant between garlic rows.
+- [ ] **Direct sow radishes** — Pepito.
+- [ ] **Direct sow beets** — Ruby Queen.
+- [ ] **Plant potatoes** (~Mar 18) — After callusing, plant 4" deep, 12" apart, Plot B east.
+
+### Late March (Mar 22–31) — Additional Cool-Season Sowing
 - [ ] **Carrots — Yaya** — Direct sow. Soil temp needed: 55°F+ (may need to wait for soil to warm a bit more, or use row cover). Sow ¼" deep, thin to 1–2" apart. Plot A center.
-- [ ] **Kale — Red Russian (2 plants)** — Direct sow 4–6 seeds, thin to best 2 plants, 18–24" apart. Soil temp needed: 55°F+. Plot B south-center. Only needs ~3 sq ft total.
+- [ ] **Kale — Red Russian (2 plants) + Winter Wonderland** — Direct sow 4–6 seeds, thin to best 2 plants, 18–24" apart. Soil temp needed: 55°F+. Plot B south-center.
 - [ ] **Cilantro — Calypso (1st sowing)** — Direct sow. Soil temp needed: 55°F+. Sow ¼–½" deep, 6–8" apart. Plot A west-center.
 
-### Succession Planting
-- [ ] **Spinach — 2nd sowing** (if 1st sowing is 2–3 weeks old)
+### Succession Planting (late March)
+- [ ] **Spinach — 2nd sowing** (~Mar 30, 2 weeks after first)
 - [ ] **Lettuce — 2nd sowing** (stagger varieties)
 - [ ] **Radishes — 2nd sowing** (every 10–14 days)
 
@@ -350,10 +378,11 @@ Last frost: ~April 15 · First fall frost: ~October 15 · Growing season: ~180 d
 
 | Crop | Frequency | Start | End | Total Sowings |
 |---|---|---|---|---|
-| Lettuce | Every 2–3 weeks | Mar 1 | Sep 1 | ~10–12 |
-| Spinach | Every 2–3 weeks | Mar 1 | May 15, then Aug 15–Sep 15 | ~6–8 |
+| Lettuce | Every 2–3 weeks | **Mar 16** | Sep 1 | ~9–11 |
+| Spinach | Every 2–3 weeks | **Mar 16** | May 15, then Aug 15–Sep 15 | ~5–7 |
+| Beets | Every 2–3 weeks | **Mar 16** | Jul 1 | ~4–5 |
 | Perpetual Spinach | 1–2 sowings | Jun 1 | Jun 15 | 1–2 (produces all summer) |
-| Radishes | Every 10–14 days | Mar 1 | May 15, then Aug 15–Oct 1 | ~10–12 |
+| Radishes | Every 10–14 days | **Mar 16** | May 15, then Aug 15–Oct 1 | ~9–11 |
 | Cilantro | Every 2–3 weeks | Mar 25 | Jul 15 | ~6–8 |
 | Dill | Every 2–3 weeks | Apr 15 | Jul 15 | ~4–5 |
 | Pole Beans | 2–3 sowings, 2–3 weeks apart | Apr 20 | Jun 15 | 2–3 |
@@ -411,4 +440,4 @@ Last frost: ~April 15 · First fall frost: ~October 15 · Growing season: ~180 d
 
 ---
 
-*Last updated: March 2, 2026*
+*Last updated: March 7, 2026 — Adjusted for travel (SLC Mar 7–8, Hawaii Mar 9–15). First planting day: Mar 16.*
