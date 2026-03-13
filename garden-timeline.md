@@ -45,11 +45,13 @@ Last frost: ~April 15 · First fall frost: ~October 15 · Growing season: ~180 d
 - [ ] **Mountain Valley Garlic** — Potato pre-orders (Nicola, Canada Gold, Carla Rose) ship Apr–Jun. Not shipped yet.
 
 ### What You Can Do BEFORE Leaving (Mar 6–7)
-- [ ] **Start parsley indoors** — Sow Giant of Italy parsley indoors under lights now. Slow germinator (14–28 days). Soil temp 65–75°F. It'll be sprouting by the time you're back from Hawaii.
+- [x] **Start parsley indoors (Mar 12)** — Sowed Giant of Italy parsley in seed starting tray with humidity dome + bottom water. Slow germinator (14–28 days). Will be fine unattended for 9 days during Hawaii trip. 1 square in Plot A (start 4–5 seeds, plant best 1–2).
+- [x] **Start marigolds indoors (Mar 12)** — Sowed Bonanza Deep Orange marigold seeds in seed trays. ~5 weeks to last frost — will be ready for transplant late April.
 - [ ] **Test & amend soil** — If you have time before leaving, test pH. Otherwise defer to Mar 16.
 
-### Planting — Cool-Season Direct Sow (DEFERRED TO MAR 16+)
-- [ ] **Peas — Sugar Snap + Sugar Ann** — Direct sow when back from travel (~Mar 16). Soil temp needed: 45°F+. Still well within the window. Sow 1" deep, 2–3" apart along Plot B trellis (north end). You have both Johnny's Sugar Snap (climbing) and Gurney's Sugar Ann (bush, no trellis needed).
+### Planting — Cool-Season Direct Sow
+- [x] **Peas — Sugar Snap (Mar 12)** — PLANTED TODAY. Direct sowed 1" deep, 2–3" apart along Plot B trellis (north end). Climbing variety on trellis.
+- [ ] **Peas — Sugar Ann (bush)** — Direct sow Mar 16+ when back. Bush type, no trellis needed. Plant adjacent to climbing peas at Plot B north end.
 - [ ] **Spinach — Space + Gurney's Goliath seed tape** — Direct sow Mar 16+. Soil temp needed: 45°F+. Sow ½" deep, 2–4" apart, Plot B north end. Seed tape makes the Goliath super easy.
 - [ ] **Radishes — Pepito** — Direct sow Mar 16+. Soil temp needed: 40°F+. Sow ½" deep, 1–2" apart, Plot A west side.
 - [ ] **Lettuce — Salanova, Muir, Allstar** — Direct sow Mar 16+. Soil temp needed: 40°F+. Sow ⅛" deep, barely cover. Plot B center.

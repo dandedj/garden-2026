@@ -14,14 +14,20 @@
   .bed-title { font-size: 20px; color: #2d5016; margin-bottom: 4px; }
   .bed-subtitle { font-size: 13px; color: #888; margin-bottom: 16px; }
 
-  /* Plot A: 20 cols × 4 rows — long side on north */
-  .bed-a { display: grid; grid-template-columns: repeat(20, 1fr); grid-template-rows: repeat(4, 1fr); gap: 2px; border: 3px solid #8B6914; border-radius: 8px; background: #8B6914; overflow: hidden; aspect-ratio: 5/1; }
-
-  /* Plot B: displayed as 20 cols × 4 rows, rotated — north on LEFT, south on RIGHT */
-  .bed-b { display: grid; grid-template-columns: repeat(20, 1fr); grid-template-rows: repeat(4, 1fr); gap: 2px; border: 3px solid #8B6914; border-radius: 8px; background: #8B6914; overflow: hidden; aspect-ratio: 5/1; }
-
-  .cell { display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 600; color: white; text-align: center; line-height: 1.2; padding: 2px; text-shadow: 0 1px 2px rgba(0,0,0,0.3); min-height: 48px; }
-  .tomato-wide { grid-column: span 2; font-size: 10px; }
+  /* Vertical grid layout — mobile-friendly */
+  .bed-vert {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    border: 3px solid #8B6914;
+    border-radius: 8px;
+    background: #8B6914;
+    overflow: hidden;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+  .cell { display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 600; color: white; text-align: center; line-height: 1.2; padding: 2px; text-shadow: 0 1px 2px rgba(0,0,0,0.3); min-height: 44px; }
+  .tomato-tall { grid-row: span 2; font-size: 10px; }
 
   /* Colors */
   .tomato { background: #c0392b; }
@@ -36,6 +42,7 @@
   .carrot { background: #e67e22; }
   .radish { background: #ec7063; }
   .potato { background: #795548; }
+  /* .beet and .bunching-onion removed — space reallocated to potatoes */
   .pea { background: #5dade2; }
   .dill { background: #76b947; }
   .cilantro { background: #45b39d; }
@@ -100,7 +107,7 @@
 
 <div style="max-width: 1200px; margin: 0 auto;">
 <h1>Dandeneau Family Garden Layout — 2026</h1>
-<p class="subtitle">Two raised beds, 4 ft × 19.5 ft each · Issaquah, WA (Zone 8b) · Family of 4 (summer) · Each grid cell ≈ 1 sq ft</p>
+<p class="subtitle">Two raised beds, 4 ft × 19.5 ft each · Issaquah, WA (Zone 8b) · Family of 5 · Each grid cell ≈ 1 sq ft · Sugar snaps planted Mar 12</p>
 </div>
 
 <div class="beds-container">
@@ -109,100 +116,95 @@
 <div class="bed-wrapper">
   <div class="bed-title">Plot A — Warm Crops & Trellis Bed</div>
   <div class="bed-subtitle">Long side (19.5 ft) faces north · Trellis along north edge · Rhubarb established at west end</div>
-  <div class="orientation-note"><strong>Orientation:</strong> 19.5 ft east–west × 4 ft north–south. Long north edge = excellent trellis run for beans & cucumbers.</div>
-  <div class="north-arrow">⬆ North (back) — 19.5 ft long side</div>
-  <div class="trellis-label">┃ ─ ─ ─ ─ ─ ─ ─ ─ TRELLIS (19.5 ft) ─ ─ ─ ─ ─ ─ ─ ─ ┃</div>
-  <div class="bed-a">
-    <!-- Row 1 (north/trellis, 20 cells): nasturtiums bookending beans + cukes -->
+  <div class="orientation-note"><strong>Orientation:</strong> 19.5 ft east–west × 4 ft north–south. Displayed vertically — west (rhubarb) at TOP, east (tomatoes) at BOTTOM. Left column = north/trellis side.</div>
+  <div style="display: flex; justify-content: space-between; max-width: 360px; margin: 0 auto 4px; font-size: 11px; color: #666; padding: 0 4px;">
+    <span>⬅ North (trellis)</span>
+    <span>South ➡</span>
+  </div>
+  <div style="text-align: center; font-size: 10px; color: #8B6914; font-weight: 600; margin-bottom: 4px;">⬆ West (rhubarb end)</div>
+  <div class="bed-vert">
     <div class="cell nasturtium">Nastur-<br>tium</div>
-    <div class="cell bean">Pole<br>Bean</div>
-    <div class="cell bean">Pole<br>Bean</div>
-    <div class="cell bean">Pole<br>Bean</div>
-    <div class="cell bean">Pole<br>Bean</div>
-    <div class="cell bean">Pole<br>Bean</div>
-    <div class="cell bean">Pole<br>Bean</div>
-    <div class="cell bean">Pole<br>Bean</div>
-    <div class="cell bean">Pole<br>Bean</div>
-    <div class="cell cucumber">Cuke<br>Pickle</div>
-    <div class="cell cucumber">Cuke<br>Pickle</div>
-    <div class="cell cucumber">Cuke<br>Pickle</div>
-    <div class="cell cucumber">Cuke<br>Pickle</div>
-    <div class="cell cucumber">Cuke<br>Pickle</div>
-    <div class="cell cucumber">Cuke<br>Slice</div>
-    <div class="cell cucumber">Cuke<br>Slice</div>
-    <div class="cell cucumber">Cuke<br>Slice</div>
-    <div class="cell cucumber">Cuke<br>Slice</div>
-    <div class="cell cucumber">Cuke<br>Slice</div>
     <div class="cell nasturtium">Nastur-<br>tium</div>
-
-    <!-- Row 2: radishes, herbs west; dill below cukes center; basil + tomatoes east -->
-    <div class="cell nasturtium">Nastur-<br>tium</div>
-    <div class="cell radish">Rad-<br>ish</div>
-    <div class="cell radish">Rad-<br>ish</div>
-    <div class="cell radish">Rad-<br>ish</div>
-    <div class="cell cilantro">Cilan-<br>tro</div>
-    <div class="cell cilantro">Cilan-<br>tro</div>
-    <div class="cell parsley">Pars-<br>ley</div>
-    <div class="cell dill">Dill</div>
-    <div class="cell dill">Dill</div>
-    <div class="cell dill">Dill</div>
-    <div class="cell dill">Dill</div>
-    <div class="cell dill">Dill</div>
-    <div class="cell basil">Basil</div>
-    <div class="cell basil">Basil</div>
-    <div class="cell tomato tomato-wide">🍅 Tom 1</div>
-    <div class="cell tomato tomato-wide">🍅 Tom 2</div>
-    <div class="cell tomato tomato-wide">🍅 Tom 3</div>
-
-    <!-- Row 3: rhubarb west, herbs, carrots center, basil + tomatoes east -->
     <div class="cell rhubarb">Rhu-<br>barb</div>
     <div class="cell rhubarb">Rhu-<br>barb</div>
+    <div class="cell bean">Pole<br>Bean</div>
+    <div class="cell radish">Rad-<br>ish</div>
+    <div class="cell rhubarb">Rhu-<br>barb</div>
+    <div class="cell rhubarb">Rhu-<br>barb</div>
+    <div class="cell bean">Pole<br>Bean</div>
+    <div class="cell radish">Rad-<br>ish</div>
     <div class="cell sage">Sage</div>
+    <div class="cell radish">Rad-<br>ish</div>
+    <div class="cell bean">Pole<br>Bean</div>
+    <div class="cell radish">Rad-<br>ish</div>
     <div class="cell cilantro">Cilan-<br>tro</div>
+    <div class="cell radish">Rad-<br>ish</div>
+    <div class="cell bean">Pole<br>Bean</div>
+    <div class="cell cilantro">Cilan-<br>tro</div>
+    <div class="cell carrot">Carrot</div>
+    <div class="cell onion">Onion</div>
+    <div class="cell bean">Pole<br>Bean</div>
+    <div class="cell cilantro">Cilan-<br>tro</div>
+    <div class="cell carrot">Carrot</div>
+    <div class="cell onion">Onion</div>
+    <div class="cell bean">Pole<br>Bean</div>
     <div class="cell parsley">Pars-<br>ley</div>
     <div class="cell carrot">Carrot</div>
+    <div class="cell onion">Onion</div>
+    <div class="cell bean">Pole<br>Bean</div>
+    <div class="cell dill">Dill</div>
     <div class="cell carrot">Carrot</div>
+    <div class="cell onion">Onion</div>
+    <div class="cell bean">Pole<br>Bean</div>
+    <div class="cell dill">Dill</div>
     <div class="cell carrot">Carrot</div>
+    <div class="cell onion">Onion</div>
+    <div class="cell cucumber">Cuke<br>Pickle</div>
+    <div class="cell dill">Dill</div>
     <div class="cell carrot">Carrot</div>
+    <div class="cell onion">Onion</div>
+    <div class="cell cucumber">Cuke<br>Pickle</div>
+    <div class="cell radish">Rad-<br>ish</div>
     <div class="cell carrot">Carrot</div>
+    <div class="cell onion">Onion</div>
+    <div class="cell cucumber">Cuke<br>Pickle</div>
+    <div class="cell radish">Rad-<br>ish</div>
     <div class="cell carrot">Carrot</div>
-    <div class="cell carrot">Carrot</div>
-    <div class="cell marigold">Mari-<br>gold</div>
+    <div class="cell onion">Onion</div>
+    <div class="cell cucumber">Cuke<br>Pickle</div>
     <div class="cell basil">Basil</div>
-    <div class="cell tomato tomato-wide">🍅 Tom 4</div>
-    <div class="cell tomato tomato-wide">🍅 Tom 5</div>
-    <div class="cell tomato tomato-wide">🍅 Tom 6</div>
-
-    <!-- Row 4 (south/front): rhubarb, radishes, onions, marigolds + peppers near tomatoes, zinnia -->
-    <div class="cell rhubarb">Rhu-<br>barb</div>
-    <div class="cell rhubarb">Rhu-<br>barb</div>
-    <div class="cell radish">Rad-<br>ish</div>
-    <div class="cell radish">Rad-<br>ish</div>
-    <div class="cell onion">Onion</div>
-    <div class="cell onion">Onion</div>
-    <div class="cell onion">Onion</div>
-    <div class="cell onion">Onion</div>
-    <div class="cell onion">Onion</div>
-    <div class="cell onion">Onion</div>
-    <div class="cell onion">Onion</div>
-    <div class="cell onion">Onion</div>
     <div class="cell marigold">Mari-<br>gold</div>
+    <div class="cell marigold">Mari-<br>gold</div>
+    <div class="cell cucumber">Cuke<br>Pickle</div>
+    <div class="cell basil">Basil</div>
+    <div class="cell basil">Basil</div>
     <div class="cell pepper">Hot<br>Pep</div>
+    <div class="cell cucumber">Cuke<br>Slice</div>
+    <div class="cell tomato tomato-tall">🍅 Tom 1</div>
+    <div class="cell tomato tomato-tall">🍅 Tom 4</div>
     <div class="cell pepper">Hot<br>Pep</div>
+    <div class="cell cucumber">Cuke<br>Slice</div>
     <div class="cell marigold">Mari-<br>gold</div>
+    <div class="cell cucumber">Cuke<br>Slice</div>
+    <div class="cell tomato tomato-tall">🍅 Tom 2</div>
+    <div class="cell tomato tomato-tall">🍅 Tom 5</div>
     <div class="cell marigold">Mari-<br>gold</div>
+    <div class="cell cucumber">Cuke<br>Slice</div>
     <div class="cell zinnia">Zinnia</div>
+    <div class="cell cucumber">Cuke<br>Slice</div>
+    <div class="cell tomato tomato-tall">🍅 Tom 3</div>
+    <div class="cell tomato tomato-tall">🍅 Tom 6</div>
     <div class="cell zinnia">Zinnia</div>
+    <div class="cell nasturtium">Nastur-<br>tium</div>
     <div class="cell zinnia">Zinnia</div>
   </div>
-  <div class="dir-labels"><span>⬅ West (rhubarb end)</span><span>19.5 ft</span><span>East ➡</span></div>
-  <div class="zone-label">
-    <span>Rhubarb · Herbs · Radishes</span>
-    <span>Dill + Cukes · Carrots + Onions</span>
-    <span>Tomatoes + Basil + Peppers + Marigolds</span>
+  <div style="text-align: center; font-size: 10px; color: #8B6914; font-weight: 600; margin-top: 4px;">⬇ East (tomatoes + zinnias)</div>
+  <div style="max-width: 360px; margin: 4px auto 0; display: flex; justify-content: space-between; font-size: 10px; color: #999; padding: 0 4px;">
+    <span>Beans · Herbs · Rhubarb</span>
+    <span>Cukes · Carrots · Tomatoes</span>
   </div>
-  <div class="companion-note">
-    🌱 Companion clusters: Tomatoes + basil + marigolds (east) · Cucumbers + dill (center-north) · Beans + nasturtiums (west-north) · Carrots + onions (center-south) · Peppers near tomatoes · Zinnias attract pollinators
+  <div class="companion-note" style="max-width: 360px; margin: 8px auto 0;">
+    🌱 Companion clusters: Tomatoes + basil + marigolds (bottom/east) · Cucumbers + dill (center) · Beans + nasturtiums (top/west) · Carrots + onions (center) · Peppers near tomatoes · Zinnias attract pollinators
   </div>
 </div>
 
@@ -210,20 +212,27 @@
 <div class="bed-wrapper">
   <div class="bed-title">Plot B — Cool Crops, Greens & Root Vegetables</div>
   <div class="bed-subtitle">Short side (4 ft) faces north · Runs north–south · Pea trellis at north end · Garlic already in ground at south end (~5 ft) · ⛰️ Slopes uphill toward south</div>
-  <div class="orientation-note"><strong>Orientation:</strong> 4 ft east–west × 19.5 ft north–south. Displayed rotated 90° for readability — north is on the LEFT, south is on the RIGHT.<br><strong>Slope:</strong> South end is higher than north end. Water drains downhill toward the north (low) end. Moisture-loving crops (peas, spinach, lettuce) are placed at the low/moist north end. Drought-tolerant crops (garlic, kale) are at the drier south/high end.</div>
-  <div style="display: flex; justify-content: space-between; font-size: 13px; color: #666; margin-bottom: 6px; padding: 0 4px;">
-    <span>⬅ North (short side, 4 ft)</span>
-    <span>South ➡</span>
+  <div class="orientation-note"><strong>Orientation:</strong> 4 ft east–west × 19.5 ft north–south. North (peas) at TOP, south (garlic) at BOTTOM — natural N–S orientation.<br><strong>Slope:</strong> South/bottom end is higher. Water drains toward north/top. Moisture-loving crops at top, drought-tolerant at bottom.</div>
+  <div style="display: flex; justify-content: space-between; max-width: 360px; margin: 0 auto 4px; font-size: 11px; color: #666; padding: 0 4px;">
+    <span>⬅ West</span>
+    <span>East ➡</span>
   </div>
-  <div style="display: flex; align-items: center; gap: 4px; margin-bottom: 4px;">
-    <div style="font-size: 11px; color: #8B6914; font-weight: 600; letter-spacing: 2px;">┃TRELLIS┃</div>
-    <div style="flex: 1;"></div>
-    <div style="font-size: 11px; color: #bdb76b; font-weight: 600; letter-spacing: 2px;">← GARLIC (in ground) →</div>
-  </div>
-  <div class="bed-b">
-    <!-- Row 1 (west side): peas→broccoli, spinach, lettuce, potatoes, nasturtium, kale, garlic -->
+  <div style="text-align: center; font-size: 10px; color: #8B6914; font-weight: 600; margin-bottom: 4px;">⬆ North (pea trellis, 4 ft)</div>
+  <div class="bed-vert">
     <div class="cell pea-broccoli">Pea→<br>Brocc</div>
     <div class="cell pea-broccoli">Pea→<br>Brocc</div>
+    <div class="cell pea-broccoli">Pea→<br>Brocc</div>
+    <div class="cell pea-broccoli">Pea→<br>Brocc</div>
+    <div class="cell pea-broccoli">Pea→<br>Brocc</div>
+    <div class="cell pea-broccoli">Pea→<br>Brocc</div>
+    <div class="cell pea-broccoli">Pea→<br>Brocc</div>
+    <div class="cell pea-broccoli">Pea→<br>Brocc</div>
+    <div class="cell spinach">Spin-<br>ach</div>
+    <div class="cell spinach">Spin-<br>ach</div>
+    <div class="cell spinach">Spin-<br>ach</div>
+    <div class="cell spinach">Spin-<br>ach</div>
+    <div class="cell spinach">Spin-<br>ach</div>
+    <div class="cell spinach">Spin-<br>ach</div>
     <div class="cell spinach">Spin-<br>ach</div>
     <div class="cell spinach">Spin-<br>ach</div>
     <div class="cell lettuce">Lett-<br>uce</div>
@@ -231,23 +240,16 @@
     <div class="cell lettuce">Lett-<br>uce</div>
     <div class="cell lettuce">Lett-<br>uce</div>
     <div class="cell lettuce">Lett-<br>uce</div>
-    <div class="cell potato">Potato<br>Gold</div>
-    <div class="cell potato">Potato<br>Gold</div>
-    <div class="cell potato">Potato<br>Gold</div>
-    <div class="cell nasturtium">Nastur-<br>tium</div>
-    <div class="cell kale">Kale</div>
-    <div class="cell kale">Kale</div>
-    <div class="cell garlic">Garlic</div>
-    <div class="cell garlic">Garlic</div>
-    <div class="cell garlic">Garlic</div>
-    <div class="cell garlic">Garlic</div>
-    <div class="cell garlic">Garlic</div>
-
-    <!-- Row 2 -->
-    <div class="cell pea-broccoli">Pea→<br>Brocc</div>
-    <div class="cell pea-broccoli">Pea→<br>Brocc</div>
-    <div class="cell spinach">Spin-<br>ach</div>
-    <div class="cell spinach">Spin-<br>ach</div>
+    <div class="cell lettuce">Lett-<br>uce</div>
+    <div class="cell lettuce">Lett-<br>uce</div>
+    <div class="cell lettuce">Lett-<br>uce</div>
+    <div class="cell lettuce">Lett-<br>uce</div>
+    <div class="cell lettuce">Lett-<br>uce</div>
+    <div class="cell lettuce">Lett-<br>uce</div>
+    <div class="cell lettuce">Lett-<br>uce</div>
+    <div class="cell lettuce">Lett-<br>uce</div>
+    <div class="cell lettuce">Lett-<br>uce</div>
+    <div class="cell lettuce">Lett-<br>uce</div>
     <div class="cell lettuce">Lett-<br>uce</div>
     <div class="cell lettuce">Lett-<br>uce</div>
     <div class="cell lettuce">Lett-<br>uce</div>
@@ -255,72 +257,56 @@
     <div class="cell lettuce">Lett-<br>uce</div>
     <div class="cell potato">Potato<br>Gold</div>
     <div class="cell potato">Potato<br>Gold</div>
-    <div class="cell potato">Potato<br>Gold</div>
-    <div class="cell kale">Kale</div>
-    <div class="cell kale">Kale</div>
-    <div class="cell kale">Kale</div>
-    <div class="cell garlic-lettuce">Garlic<br>+Lett</div>
-    <div class="cell garlic-lettuce">Garlic<br>+Lett</div>
-    <div class="cell garlic-lettuce">Garlic<br>+Lett</div>
-    <div class="cell garlic-lettuce">Garlic<br>+Lett</div>
-    <div class="cell garlic-lettuce">Garlic<br>+Lett</div>
-
-    <!-- Row 3 -->
-    <div class="cell pea-broccoli">Pea→<br>Brocc</div>
-    <div class="cell pea-broccoli">Pea→<br>Brocc</div>
-    <div class="cell spinach">Spin-<br>ach</div>
-    <div class="cell spinach">Spin-<br>ach</div>
-    <div class="cell lettuce">Lett-<br>uce</div>
-    <div class="cell lettuce">Lett-<br>uce</div>
-    <div class="cell lettuce">Lett-<br>uce</div>
-    <div class="cell lettuce">Lett-<br>uce</div>
-    <div class="cell lettuce">Lett-<br>uce</div>
     <div class="cell potato">Potato<br>Rose</div>
     <div class="cell potato">Potato<br>Rose</div>
+    <div class="cell potato">Potato<br>Gold</div>
+    <div class="cell potato">Potato<br>Gold</div>
     <div class="cell potato">Potato<br>Rose</div>
-    <div class="cell kale">Kale</div>
-    <div class="cell kale">Kale</div>
-    <div class="cell kale">Kale</div>
-    <div class="cell garlic-lettuce">Garlic<br>+Lett</div>
-    <div class="cell garlic-lettuce">Garlic<br>+Lett</div>
-    <div class="cell garlic-lettuce">Garlic<br>+Lett</div>
-    <div class="cell garlic-lettuce">Garlic<br>+Lett</div>
-    <div class="cell garlic-lettuce">Garlic<br>+Lett</div>
-
-    <!-- Row 4 (east side) -->
-    <div class="cell pea-broccoli">Pea→<br>Brocc</div>
-    <div class="cell pea-broccoli">Pea→<br>Brocc</div>
-    <div class="cell spinach">Spin-<br>ach</div>
-    <div class="cell spinach">Spin-<br>ach</div>
-    <div class="cell lettuce">Lett-<br>uce</div>
-    <div class="cell lettuce">Lett-<br>uce</div>
-    <div class="cell lettuce">Lett-<br>uce</div>
-    <div class="cell lettuce">Lett-<br>uce</div>
-    <div class="cell lettuce">Lett-<br>uce</div>
     <div class="cell potato">Potato<br>Rose</div>
+    <div class="cell potato">Potato<br>Gold</div>
+    <div class="cell potato">Potato<br>Gold</div>
     <div class="cell potato">Potato<br>Rose</div>
     <div class="cell zinnia">Zinnia</div>
     <div class="cell nasturtium">Nastur-<br>tium</div>
+    <div class="cell potato">Potato<br>Nicola</div>
+    <div class="cell potato">Potato<br>Nicola</div>
+    <div class="cell nasturtium">Nastur-<br>tium</div>
     <div class="cell kale">Kale</div>
+    <div class="cell potato">Potato<br>Gold</div>
+    <div class="cell potato">Potato<br>Rose</div>
+    <div class="cell potato">Potato<br>Gold</div>
     <div class="cell kale">Kale</div>
+    <div class="cell potato">Potato<br>Gold</div>
+    <div class="cell potato">Potato<br>Rose</div>
+    <div class="cell potato">Potato<br>Rose</div>
+    <div class="cell garlic">Garlic</div>
+    <div class="cell garlic-lettuce">Garlic<br>+Lett</div>
+    <div class="cell garlic-lettuce">Garlic<br>+Lett</div>
     <div class="cell garlic">Garlic</div>
     <div class="cell garlic">Garlic</div>
+    <div class="cell garlic-lettuce">Garlic<br>+Lett</div>
+    <div class="cell garlic-lettuce">Garlic<br>+Lett</div>
     <div class="cell garlic">Garlic</div>
     <div class="cell garlic">Garlic</div>
+    <div class="cell garlic-lettuce">Garlic<br>+Lett</div>
+    <div class="cell garlic-lettuce">Garlic<br>+Lett</div>
+    <div class="cell garlic">Garlic</div>
+    <div class="cell garlic">Garlic</div>
+    <div class="cell garlic-lettuce">Garlic<br>+Lett</div>
+    <div class="cell garlic-lettuce">Garlic<br>+Lett</div>
+    <div class="cell garlic">Garlic</div>
+    <div class="cell garlic">Garlic</div>
+    <div class="cell garlic-lettuce">Garlic<br>+Lett</div>
+    <div class="cell garlic-lettuce">Garlic<br>+Lett</div>
     <div class="cell garlic">Garlic</div>
   </div>
-  <div class="dir-labels"><span>⬅ North (trellis)</span><span>19.5 ft (displayed rotated 90°)</span><span>South (garlic) ➡</span></div>
-  <div style="display: flex; justify-content: space-between; font-size: 10px; color: #999; padding: 0 4px;">
-    <span>⬆ West side</span>
-    <span>⬇ East side</span>
+  <div style="text-align: center; font-size: 10px; color: #8B6914; font-weight: 600; margin-top: 4px;">⬇ South (garlic, uphill)</div>
+  <div style="max-width: 360px; margin: 4px auto 0; display: flex; justify-content: space-between; font-size: 10px; color: #999; padding: 0 4px;">
+    <span>Peas→Broccoli · Spinach</span>
+    <span>Lettuce · Potatoes · Garlic</span>
   </div>
-  <div class="zone-label">
-    <span>Peas→Broccoli + Spinach</span>
-    <span>Lettuce succession zone</span>
-    <span>Potatoes · Kale + Garlic (pest deterrent)</span>
-  </div>
-  <div class="companion-note">
-    🌱 Companion pairings: Peas fix nitrogen → broccoli replaces peas (Jul) · Spinach + peas (shade benefit) · Kale + garlic (pest deterrent, adjacent) · Lettuce succession in center · Lettuce interplanted between garlic rows (Mar–Jun) · 🔄 After garlic harvest (Jul): fall lettuce, spinach, radishes · 🌸 Nasturtiums flank kale · Zinnia attracts pollinators
+  <div class="companion-note" style="max-width: 360px; margin: 8px auto 0;">
+    🌱 Companion pairings: Peas fix nitrogen → broccoli replaces peas (Jul) · Spinach + peas (shade benefit) · Kale + garlic (pest deterrent) · Potatoes expanded (Gold 9, Rose 8, Nicola 2) · Lettuce interplanted between garlic rows (Mar–Jun) · 🔄 After garlic harvest (Jul): fall lettuce, spinach, radishes · 🌸 Nasturtiums flank potatoes &amp; kale
   </div>
 </div>
 </div>
@@ -566,7 +552,7 @@
       </svg>
       <div class="key-details">
         <strong>1 plant per sq ft</strong><br>
-        Center one plant. Red Russian gets big — harvest outer leaves regularly to keep compact. Very productive per plant.
+        Center one plant. Winter Wonderland gets big — harvest outer leaves regularly to keep compact. Very productive per plant. Only 1 plant needed (2 sq ft).
       </div>
     </div>
 
@@ -815,21 +801,22 @@
     <tr><td>Pole Beans (Fortex + Seychelles)</td><td>A</td><td>~16 plants (trellised, 5" apart, 8 ft of trellis)</td><td>12–20 lbs over the season</td></tr>
     <tr><td>Hot Peppers</td><td>A</td><td>2 plants (south edge, near tomatoes)</td><td>20–40 peppers</td></tr>
     <tr><td>Carrots (Yaya)</td><td>A</td><td>~50 carrots (center row, 1–2" apart)</td><td>8–12 lbs</td></tr>
-    <tr><td>Radishes (Pepito)</td><td>A</td><td>~30 per sowing (west side, succession sow)</td><td>Continuous spring/fall harvest</td></tr>
+    <tr><td>Radishes (Pepito)</td><td>A</td><td>~40 per sowing (west side, 7 sq ft, succession sow)</td><td>Continuous spring/fall harvest</td></tr>
     <tr><td>Onions (Patterson + Walla Walla)</td><td>A</td><td>~40–50 total (south row, 4–5" apart, 8 ft of row)</td><td>~40–50 onions</td></tr>
-    <tr><td>Dill (Bouquet)</td><td>A</td><td>10–12 plants (below cukes), succession sow</td><td>Plenty for pickling + fresh use</td></tr>
+    <tr><td>Dill (Bouquet)</td><td>A</td><td>6–9 plants (3 sq ft, below cukes), succession sow</td><td>Plenty for pickling + fresh use</td></tr>
     <tr><td>Basil</td><td>A</td><td>3 plants (right beside tomatoes)</td><td>Continuous harvest all summer</td></tr>
     <tr><td>Cilantro (Calypso)</td><td>A</td><td>6–8 plants, succession sow</td><td>Continuous through cool months</td></tr>
-    <tr><td>Parsley (Giant of Italy)</td><td>A</td><td>2–3 plants</td><td>Year-round harvest</td></tr>
+    <tr><td>Parsley (Giant of Italy)</td><td>A</td><td>1–2 plants (1 sq ft)</td><td>Year-round harvest</td></tr>
     <tr><td>Sage</td><td>A</td><td>1 plant</td><td>Perennial; one plant is plenty</td></tr>
     <tr><td>Rhubarb</td><td>A</td><td>Established (west end, ~4 sq ft)</td><td>Spring harvest</td></tr>
     <tr><td>Lettuce (3 varieties)</td><td>B</td><td>~20 heads per sowing, succession sow every 2–3 wks</td><td>Continuous salads all season</td></tr>
     <tr><td>Spinach (Space)</td><td>B</td><td>~24 plants per sowing, succession sow</td><td>Continuous spring + fall harvest</td></tr>
-    <tr><td>Kale (Red Russian)</td><td>B</td><td>8–10 plants (12–18" apart)</td><td>Ongoing harvest; very productive</td></tr>
+    <tr><td>Kale (Winter Wonderland)</td><td>B</td><td>1 plant (2 sq ft, Row 1)</td><td>Ongoing harvest from single plant</td></tr>
     <tr><td>Sugar Snap Peas</td><td>B</td><td>~16 plants (trellised, 2–3" apart along 4 ft north edge)</td><td>3–5 lbs; spring crop, then replant with broccoli</td></tr>
     <tr><td>Broccoli (fall crop)</td><td>B</td><td>3–4 transplants (18–24" apart, replaces peas mid-July)</td><td>3–4 main heads + weeks of side shoots (Sep–Nov)</td></tr>
-    <tr><td>Potatoes — Canada Gold</td><td>B</td><td>~6 plants (12" apart)</td><td>6–12 lbs</td></tr>
-    <tr><td>Potatoes — Carla Rose</td><td>B</td><td>~5 plants (12" apart)</td><td>5–10 lbs</td></tr>
+    <tr><td>Potatoes — Canada Gold</td><td>B</td><td>~9 plants (12" apart)</td><td>9–18 lbs</td></tr>
+    <tr><td>Potatoes — Carla Rose</td><td>B</td><td>~8 plants (12" apart)</td><td>8–16 lbs</td></tr>
+    <tr><td>Potatoes — Nicola</td><td>B</td><td>~2 plants (12" apart)</td><td>2–4 lbs</td></tr>
     <tr><td>Garlic</td><td>B</td><td>Already in ground (~5 ft of rows, south end)</td><td>Harvest mid-July</td></tr>
     <tr><td>Lettuce (interplanted w/ garlic)</td><td>B</td><td>Direct sow between garlic rows, March–April</td><td>Harvest May–June (before garlic matures)</td></tr>
     <tr><td colspan="4" style="font-weight:600; color:#2d5016; padding-top:10px;">Post-Garlic Fall Crops (mid-July → October)</td></tr>
@@ -838,7 +825,7 @@
     <tr><td>Fall Radishes</td><td>B</td><td>Sow late Aug, quick 3-wk crop</td><td>Harvest Sep</td></tr>
     <tr><td colspan="4" style="font-weight:600; color:#2d5016; padding-top:10px;">Companion Flowers</td></tr>
     <tr><td>Marigolds (French)</td><td>A</td><td>4 plants along south edge near tomatoes/peppers</td><td>Repels aphids, whiteflies, nematodes</td></tr>
-    <tr><td>Nasturtiums (Alaska Mix)</td><td>A &amp; B</td><td>5–6 plants near beans (A) and flanking kale (B)</td><td>Trap crop for aphids &amp; cucumber beetles</td></tr>
+    <tr><td>Nasturtiums (Alaska Mix)</td><td>A &amp; B</td><td>5–6 plants near beans (A) and flanking potatoes/kale (B)</td><td>Trap crop for aphids, cucumber &amp; potato beetles</td></tr>
     <tr><td>Zinnias (Benary's Giant Mix)</td><td>A &amp; B</td><td>4 plants at east ends of plots</td><td>Pollinator magnet; cut flowers</td></tr>
   </table>
 </div>
@@ -851,7 +838,7 @@
   <ul>
     <li><strong>19.5 ft trellis along north edge:</strong> Excellent trellis run — 8 ft of pole beans on the west end, 10 ft of cucumbers (5 pickling + 5 slicing) on the east. Nasturtiums bookend the trellis as trap crops.</li>
     <li><strong>EAST ZONE — Tomatoes + Basil + Peppers + Marigolds:</strong> The star companion cluster occupies the east ~6 ft. Basil planted directly adjacent to tomatoes. Hot peppers share the warm south edge. Marigolds border the tomato/pepper area to repel aphids and nematodes.</li>
-    <li><strong>CENTER ZONE — Dill below cucumbers / Carrots + Onions:</strong> Dill is planted directly south of the cucumber trellis — ready for pickling at the same time. Carrots and onions share the center-south area for mutual pest protection (onion fly / carrot fly).</li>
+    <li><strong>CENTER ZONE — Dill below cucumbers / Carrots + Onions:</strong> Dill (3 sq ft) is planted directly south of the cucumber trellis — ready for pickling at the same time. Carrots and onions share the center-south area for mutual pest protection (onion fly / carrot fly).</li>
     <li><strong>WEST ZONE — Rhubarb + Herbs + Radishes:</strong> Rhubarb occupies its established 2×2 ft corner at the southwest. Sage, cilantro, and parsley cluster nearby. Radishes fill in for fast succession harvesting.</li>
     <li><strong>Narrower bed (4 ft):</strong> With only 4 rows of depth, every crop is within arm's reach from either side — no stepping into the bed needed.</li>
   </ul>
@@ -862,11 +849,11 @@
     <li><strong>Pea trellis on 4 ft north edge (low end) → fall broccoli:</strong> ~16 pea plants along the short north face through spring. Peas love consistent moisture — the low end is ideal. When peas finish (~late June), pull vines, remove trellis, work in compost, and transplant 3–4 broccoli starts in mid-July. Peas fix nitrogen in the soil, and broccoli is a heavy nitrogen feeder — ideal succession pair. The low/moist end also suits broccoli's need for consistent moisture. Harvest broccoli main heads Sep–Oct, then side shoots through November.</li>
     <li><strong>Spinach adjacent to peas (north/low):</strong> Benefits from pea shade as weather warms, and from the extra moisture at the low end. Both cool-season crops planted early together.</li>
     <li><strong>Lettuce in the center (~5 ft zone):</strong> Large succession-planting zone running through the middle of the bed. Gets moderate moisture from the slope. Rotate through all 3 varieties every 2–3 weeks.</li>
-    <li><strong>Potatoes in the center-south:</strong> Canada Gold and Carla Rose separated from tomatoes in Plot A (same family — shared disease risk). Moderate drainage here helps prevent rot. Stop watering when foliage yellows.</li>
-    <li><strong>Kale + garlic (south/high, drier):</strong> Garlic (already in ground, ~5 ft at south end) sits directly adjacent to the kale section. Garlic actually prefers to dry out as it matures — the higher/drier end is ideal for it. Garlic deters cabbage moths and aphids that target kale. Kale is one of the most drought-tolerant brassicas.</li>
+    <li><strong>Potatoes in the center-south (expanded):</strong> Canada Gold (9 cells), Carla Rose (8 cells), and Nicola (2 cells) — 19 potato plants total. Separated from tomatoes in Plot A (same family — shared disease risk). Moderate drainage here helps prevent rot. Stop watering when foliage yellows. Nicola is a waxy yellow variety great for salads and roasting.</li>
+    <li><strong>Kale + garlic (south/high, drier):</strong> Garlic (already in ground, ~5 ft at south end) sits directly adjacent to the single kale plant (Winter Wonderland, 2 sq ft in Row 1). Garlic actually prefers to dry out as it matures — the higher/drier end is ideal for it. Garlic deters cabbage moths and aphids that target kale. One kale plant with regular harvesting of outer leaves provides plenty for a family.</li>
     <li><strong>🥬 Phase 1 — Interplant lettuce between garlic rows (March–June):</strong> Direct sow lettuce between the garlic rows now. Garlic rows are spaced wide enough for lettuce to grow between them. Lettuce stays shallow-rooted and won't compete. Garlic repels aphids that bother lettuce. Harvest lettuce by May–June, before garlic matures. Shown as split-color cells (garlic/green) in the layout.</li>
     <li><strong>🔄 Phase 2 — After garlic harvest (mid-July → fall):</strong> Once garlic is pulled (~mid-July), the allium residue left in the soil naturally deters aphids and cabbage pests. Replant with: (1) Fall lettuce succession — sow every 2–3 weeks from mid-July through August for continuous harvest into October; (2) Fall spinach — sow late August; (3) Quick radishes — sow late August for ~3 week harvest. This gives you an extra 5 ft of productive greens space for the second half of the season.</li>
-    <li><strong>Nasturtiums flanking kale:</strong> Placed on west and east edges of the kale zone to draw aphids and cabbage moths away from brassicas. Nasturtiums tolerate dry conditions well.</li>
+    <li><strong>Nasturtiums flanking potatoes &amp; kale:</strong> Placed adjacent to the potato/kale zone to draw aphids and cabbage moths away from brassicas and deter potato beetles. Nasturtiums tolerate dry conditions well.</li>
     <li><strong>N–S orientation advantage:</strong> Morning and afternoon sun hits both long sides. Taller plants (peas) at the north end won't shade the rest of the bed.</li>
   </ul>
 
