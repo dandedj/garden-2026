@@ -27,7 +27,7 @@
     margin: 0 auto;
   }
   .cell { display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 600; color: white; text-align: center; line-height: 1.2; padding: 2px; text-shadow: 0 1px 2px rgba(0,0,0,0.3); min-height: 44px; }
-  .tomato-tall { grid-row: span 2; font-size: 10px; }
+  .tomato-block { grid-column: span 2; grid-row: span 2; font-size: 10px; }
 
   /* Colors */
   .tomato { background: #c0392b; }
@@ -116,92 +116,83 @@
 <div class="bed-wrapper">
   <div class="bed-title">Plot A — Warm Crops & Trellis Bed</div>
   <div class="bed-subtitle">Long side (19.5 ft) faces north · Trellis along north edge · Rhubarb established at west end</div>
-  <div class="orientation-note"><strong>Orientation:</strong> 19.5 ft east–west × 4 ft north–south. Displayed vertically — west (rhubarb) at TOP, east (tomatoes) at BOTTOM. Left column = north/trellis side.</div>
+  <div class="orientation-note"><strong>Orientation:</strong> 19.5 ft east–west × 4 ft north–south. Displayed vertically — west (rhubarb) at TOP, east (tomatoes) at BOTTOM. Left column = south side, right column = north/trellis side.</div>
   <div style="display: flex; justify-content: space-between; max-width: 360px; margin: 0 auto 4px; font-size: 11px; color: #666; padding: 0 4px;">
-    <span>⬅ North (trellis)</span>
-    <span>South ➡</span>
+    <span>⬅ South</span>
+    <span>North (trellis) ➡</span>
   </div>
   <div style="text-align: center; font-size: 10px; color: #8B6914; font-weight: 600; margin-bottom: 4px;">⬆ West (rhubarb end)</div>
   <div class="bed-vert">
+    <div class="cell rhubarb">Rhu-<br>barb</div>
+    <div class="cell rhubarb">Rhu-<br>barb</div>
     <div class="cell nasturtium">Nastur-<br>tium</div>
     <div class="cell nasturtium">Nastur-<br>tium</div>
     <div class="cell rhubarb">Rhu-<br>barb</div>
     <div class="cell rhubarb">Rhu-<br>barb</div>
-    <div class="cell bean">Pole<br>Bean</div>
     <div class="cell radish">Rad-<br>ish</div>
-    <div class="cell rhubarb">Rhu-<br>barb</div>
-    <div class="cell rhubarb">Rhu-<br>barb</div>
     <div class="cell bean">Pole<br>Bean</div>
-    <div class="cell radish">Rad-<br>ish</div>
+    <div class="cell onion">Onion</div>
     <div class="cell sage">Sage</div>
     <div class="cell radish">Rad-<br>ish</div>
     <div class="cell bean">Pole<br>Bean</div>
-    <div class="cell radish">Rad-<br>ish</div>
-    <div class="cell cilantro">Cilan-<br>tro</div>
-    <div class="cell radish">Rad-<br>ish</div>
-    <div class="cell bean">Pole<br>Bean</div>
-    <div class="cell cilantro">Cilan-<br>tro</div>
-    <div class="cell carrot">Carrot</div>
     <div class="cell onion">Onion</div>
-    <div class="cell bean">Pole<br>Bean</div>
-    <div class="cell cilantro">Cilan-<br>tro</div>
     <div class="cell carrot">Carrot</div>
-    <div class="cell onion">Onion</div>
+    <div class="cell carrot">Carrot</div>
     <div class="cell bean">Pole<br>Bean</div>
+    <div class="cell onion">Onion</div>
+    <div class="cell carrot">Carrot</div>
+    <div class="cell cilantro">Cilan-<br>tro</div>
+    <div class="cell bean">Pole<br>Bean</div>
+    <div class="cell onion">Onion</div>
+    <div class="cell carrot">Carrot</div>
+    <div class="cell cilantro">Cilan-<br>tro</div>
+    <div class="cell bean">Pole<br>Bean</div>
+    <div class="cell onion">Onion</div>
+    <div class="cell carrot">Carrot</div>
     <div class="cell parsley">Pars-<br>ley</div>
-    <div class="cell carrot">Carrot</div>
-    <div class="cell onion">Onion</div>
     <div class="cell bean">Pole<br>Bean</div>
-    <div class="cell dill">Dill</div>
-    <div class="cell carrot">Carrot</div>
     <div class="cell onion">Onion</div>
+    <div class="cell carrot">Carrot</div>
+    <div class="cell carrot">Carrot</div>
     <div class="cell bean">Pole<br>Bean</div>
-    <div class="cell dill">Dill</div>
-    <div class="cell carrot">Carrot</div>
     <div class="cell onion">Onion</div>
+    <div class="cell carrot">Carrot</div>
+    <div class="cell dill">Dill</div>
+    <div class="cell bean">Pole<br>Bean</div>
+    <div class="cell onion">Onion</div>
+    <div class="cell carrot">Carrot</div>
+    <div class="cell dill">Dill</div>
     <div class="cell cucumber">Cuke<br>Pickle</div>
-    <div class="cell dill">Dill</div>
-    <div class="cell carrot">Carrot</div>
-    <div class="cell onion">Onion</div>
+    <div class="cell tomato tomato-block">🍅 Tom 5</div>
+    <div class="cell radish">Rad-<br>ish</div>
     <div class="cell cucumber">Cuke<br>Pickle</div>
     <div class="cell radish">Rad-<br>ish</div>
-    <div class="cell carrot">Carrot</div>
-    <div class="cell onion">Onion</div>
     <div class="cell cucumber">Cuke<br>Pickle</div>
-    <div class="cell radish">Rad-<br>ish</div>
-    <div class="cell carrot">Carrot</div>
-    <div class="cell onion">Onion</div>
+    <div class="cell tomato tomato-block">🍅 Tom 1</div>
+    <div class="cell basil">Basil</div>
     <div class="cell cucumber">Cuke<br>Pickle</div>
-    <div class="cell basil">Basil</div>
-    <div class="cell marigold">Mari-<br>gold</div>
-    <div class="cell marigold">Mari-<br>gold</div>
-    <div class="cell cucumber">Cuke<br>Pickle</div>
-    <div class="cell basil">Basil</div>
-    <div class="cell basil">Basil</div>
     <div class="cell pepper">Hot<br>Pep</div>
-    <div class="cell cucumber">Cuke<br>Slice</div>
-    <div class="cell tomato tomato-tall">🍅 Tom 1</div>
-    <div class="cell tomato tomato-tall">🍅 Tom 4</div>
+    <div class="cell cucumber">Cuke<br>Pickle</div>
+    <div class="cell tomato tomato-block">🍅 Tom 2</div>
     <div class="cell pepper">Hot<br>Pep</div>
     <div class="cell cucumber">Cuke<br>Slice</div>
     <div class="cell marigold">Mari-<br>gold</div>
     <div class="cell cucumber">Cuke<br>Slice</div>
-    <div class="cell tomato tomato-tall">🍅 Tom 2</div>
-    <div class="cell tomato tomato-tall">🍅 Tom 5</div>
+    <div class="cell tomato tomato-block">🍅 Tom 3</div>
     <div class="cell marigold">Mari-<br>gold</div>
     <div class="cell cucumber">Cuke<br>Slice</div>
     <div class="cell zinnia">Zinnia</div>
     <div class="cell cucumber">Cuke<br>Slice</div>
-    <div class="cell tomato tomato-tall">🍅 Tom 3</div>
-    <div class="cell tomato tomato-tall">🍅 Tom 6</div>
+    <div class="cell tomato tomato-block">🍅 Tom 4</div>
+    <div class="cell zinnia">Zinnia</div>
+    <div class="cell cucumber">Cuke<br>Slice</div>
     <div class="cell zinnia">Zinnia</div>
     <div class="cell nasturtium">Nastur-<br>tium</div>
-    <div class="cell zinnia">Zinnia</div>
   </div>
   <div style="text-align: center; font-size: 10px; color: #8B6914; font-weight: 600; margin-top: 4px;">⬇ East (tomatoes + zinnias)</div>
   <div style="max-width: 360px; margin: 4px auto 0; display: flex; justify-content: space-between; font-size: 10px; color: #999; padding: 0 4px;">
-    <span>Beans · Herbs · Rhubarb</span>
-    <span>Cukes · Carrots · Tomatoes</span>
+    <span>Rhubarb · Onions · Peppers</span>
+    <span>Beans · Cukes · Tomatoes</span>
   </div>
   <div class="companion-note" style="max-width: 360px; margin: 8px auto 0;">
     🌱 Companion clusters: Tomatoes + basil + marigolds (bottom/east) · Cucumbers + dill (center) · Beans + nasturtiums (top/west) · Carrots + onions (center) · Peppers near tomatoes · Zinnias attract pollinators
@@ -318,20 +309,21 @@
 
   <div class="key-grid">
 
-    <!-- Tomato (2 sq ft) -->
+    <!-- Tomato (4 sq ft / 2×2 block) -->
     <div class="key-card">
-      <div class="key-card-header"><div class="key-swatch" style="background:#c0392b;"></div><strong>Tomato (2 sq ft)</strong></div>
-      <svg class="key-diagram" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
-        <rect width="200" height="100" fill="#f5f0e0" stroke="#c8b97a" stroke-width="2"/>
-        <line x1="100" y1="0" x2="100" y2="100" stroke="#c8b97a" stroke-width="1" stroke-dasharray="4"/>
-        <circle cx="100" cy="50" r="12" fill="#c0392b" opacity="0.8"/>
-        <text x="100" y="54" text-anchor="middle" font-size="10" fill="white" font-weight="bold">T</text>
-        <circle cx="100" cy="50" r="30" fill="none" stroke="#c0392b" stroke-width="1" stroke-dasharray="3" opacity="0.5"/>
-        <text x="100" y="88" text-anchor="middle" font-size="8" fill="#888">cage footprint</text>
+      <div class="key-card-header"><div class="key-swatch" style="background:#c0392b;"></div><strong>Tomato (4 sq ft / 2×2)</strong></div>
+      <svg class="key-diagram" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <rect width="100" height="100" fill="#f5f0e0" stroke="#c8b97a" stroke-width="2"/>
+        <line x1="50" y1="0" x2="50" y2="100" stroke="#c8b97a" stroke-width="1" stroke-dasharray="4"/>
+        <line x1="0" y1="50" x2="100" y2="50" stroke="#c8b97a" stroke-width="1" stroke-dasharray="4"/>
+        <circle cx="50" cy="50" r="12" fill="#c0392b" opacity="0.8"/>
+        <text x="50" y="54" text-anchor="middle" font-size="10" fill="white" font-weight="bold">T</text>
+        <circle cx="50" cy="50" r="32" fill="none" stroke="#c0392b" stroke-width="1" stroke-dasharray="3" opacity="0.5"/>
+        <text x="50" y="92" text-anchor="middle" font-size="8" fill="#888">cage footprint (2×2 ft)</text>
       </svg>
       <div class="key-details">
-        <strong>1 plant per 2 sq ft</strong><br>
-        Center in the 2 ft space. Install cage or stake at planting. Prune suckers for indeterminate types. Mulch around base.
+        <strong>1 plant per 4 sq ft (2×2 block)</strong><br>
+        Center in the 2×2 ft block. Install cage at planting — fits comfortably in the 2 ft space. Prune suckers for indeterminate types. Mulch around base.
       </div>
     </div>
 
@@ -795,17 +787,17 @@
   <h2>Recommended Plant Counts</h2>
   <table>
     <tr><th>Crop</th><th>Plot</th><th>Plants / Spacing</th><th>Est. Yield for Family of 4</th></tr>
-    <tr><td>Tomatoes (indeterminate)</td><td>A</td><td>6 plants (caged, 24" apart — each gets 2 ft width)</td><td>60–90 lbs; fresh eating + sauce</td></tr>
+    <tr><td>Tomatoes (indeterminate)</td><td>A</td><td>5 plants (caged, each gets 2×2 ft block)</td><td>50–75 lbs; fresh eating + sauce</td></tr>
     <tr><td>Cucumbers — Gershwin (pickling)</td><td>A</td><td>5 plants (trellised, 12" apart)</td><td>50–75 fruits; canning pickles</td></tr>
     <tr><td>Cucumbers — Gateway (slicing)</td><td>A</td><td>5 plants (trellised, 12" apart)</td><td>40–60 fruits; fresh eating</td></tr>
     <tr><td>Pole Beans (Fortex + Seychelles)</td><td>A</td><td>~16 plants (trellised, 5" apart, 8 ft of trellis)</td><td>12–20 lbs over the season</td></tr>
     <tr><td>Hot Peppers</td><td>A</td><td>2 plants (south edge, near tomatoes)</td><td>20–40 peppers</td></tr>
     <tr><td>Carrots (Yaya)</td><td>A</td><td>~50 carrots (center row, 1–2" apart)</td><td>8–12 lbs</td></tr>
-    <tr><td>Radishes (Pepito)</td><td>A</td><td>~40 per sowing (west side, 7 sq ft, succession sow)</td><td>Continuous spring/fall harvest</td></tr>
+    <tr><td>Radishes (Pepito)</td><td>A</td><td>~25 per sowing (west side, 4 sq ft, succession sow)</td><td>Continuous spring/fall harvest</td></tr>
     <tr><td>Onions (Patterson + Walla Walla)</td><td>A</td><td>~40–50 total (south row, 4–5" apart, 8 ft of row)</td><td>~40–50 onions</td></tr>
-    <tr><td>Dill (Bouquet)</td><td>A</td><td>6–9 plants (3 sq ft, below cukes), succession sow</td><td>Plenty for pickling + fresh use</td></tr>
-    <tr><td>Basil</td><td>A</td><td>3 plants (right beside tomatoes)</td><td>Continuous harvest all summer</td></tr>
-    <tr><td>Cilantro (Calypso)</td><td>A</td><td>6–8 plants, succession sow</td><td>Continuous through cool months</td></tr>
+    <tr><td>Dill (Bouquet)</td><td>A</td><td>4–6 plants (2 sq ft, below cukes), succession sow</td><td>Plenty for pickling + fresh use</td></tr>
+    <tr><td>Basil</td><td>A</td><td>1 plant (right beside tomatoes)</td><td>Continuous harvest all summer</td></tr>
+    <tr><td>Cilantro (Calypso)</td><td>A</td><td>4–6 plants (2 sq ft), succession sow</td><td>Continuous through cool months</td></tr>
     <tr><td>Parsley (Giant of Italy)</td><td>A</td><td>1–2 plants (1 sq ft)</td><td>Year-round harvest</td></tr>
     <tr><td>Sage</td><td>A</td><td>1 plant</td><td>Perennial; one plant is plenty</td></tr>
     <tr><td>Rhubarb</td><td>A</td><td>Established (west end, ~4 sq ft)</td><td>Spring harvest</td></tr>
@@ -824,7 +816,7 @@
     <tr><td>Fall Spinach</td><td>B</td><td>Sow late Aug in former garlic zone</td><td>Harvest Oct–Nov</td></tr>
     <tr><td>Fall Radishes</td><td>B</td><td>Sow late Aug, quick 3-wk crop</td><td>Harvest Sep</td></tr>
     <tr><td colspan="4" style="font-weight:600; color:#2d5016; padding-top:10px;">Companion Flowers</td></tr>
-    <tr><td>Marigolds (French)</td><td>A</td><td>4 plants along south edge near tomatoes/peppers</td><td>Repels aphids, whiteflies, nematodes</td></tr>
+    <tr><td>Marigolds (French)</td><td>A</td><td>2 plants near tomatoes/peppers</td><td>Repels aphids, whiteflies, nematodes</td></tr>
     <tr><td>Nasturtiums (Alaska Mix)</td><td>A &amp; B</td><td>5–6 plants near beans (A) and flanking potatoes/kale (B)</td><td>Trap crop for aphids, cucumber &amp; potato beetles</td></tr>
     <tr><td>Zinnias (Benary's Giant Mix)</td><td>A &amp; B</td><td>4 plants at east ends of plots</td><td>Pollinator magnet; cut flowers</td></tr>
   </table>
@@ -837,9 +829,9 @@
   <h3>Plot A — Warm Crops (4 ft × 19.5 ft, long side north)</h3>
   <ul>
     <li><strong>19.5 ft trellis along north edge:</strong> Excellent trellis run — 8 ft of pole beans on the west end, 10 ft of cucumbers (5 pickling + 5 slicing) on the east. Nasturtiums bookend the trellis as trap crops.</li>
-    <li><strong>EAST ZONE — Tomatoes + Basil + Peppers + Marigolds:</strong> The star companion cluster occupies the east ~6 ft. Basil planted directly adjacent to tomatoes. Hot peppers share the warm south edge. Marigolds border the tomato/pepper area to repel aphids and nematodes.</li>
-    <li><strong>CENTER ZONE — Dill below cucumbers / Carrots + Onions:</strong> Dill (3 sq ft) is planted directly south of the cucumber trellis — ready for pickling at the same time. Carrots and onions share the center-south area for mutual pest protection (onion fly / carrot fly).</li>
-    <li><strong>WEST ZONE — Rhubarb + Herbs + Radishes:</strong> Rhubarb occupies its established 2×2 ft corner at the southwest. Sage, cilantro, and parsley cluster nearby. Radishes fill in for fast succession harvesting.</li>
+    <li><strong>EAST ZONE — Tomatoes + Basil + Peppers + Marigolds:</strong> Five tomatoes in 2×2 ft blocks occupy the east ~10 ft (cols 1–2, rows 11–20). Basil planted directly adjacent. Hot peppers and marigolds fill col 3 near the tomatoes. Each tomato cage has a full 2×2 ft footprint.</li>
+    <li><strong>CENTER ZONE — Dill below cucumbers / Carrots + Onions:</strong> Dill (2 sq ft) is planted directly south of the cucumber trellis — ready for pickling at the same time. Carrots and onions share the center-south area for mutual pest protection (onion fly / carrot fly).</li>
+    <li><strong>WEST ZONE — Rhubarb + Herbs + Radishes:</strong> Rhubarb occupies its established 2×2 ft corner at the southwest. Sage, cilantro, and parsley cluster nearby. Radishes (4 sq ft) fill in for fast succession harvesting.</li>
     <li><strong>Narrower bed (4 ft):</strong> With only 4 rows of depth, every crop is within arm's reach from either side — no stepping into the bed needed.</li>
   </ul>
 
