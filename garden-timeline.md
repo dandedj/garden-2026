@@ -39,10 +39,10 @@ Last frost: ~April 15 · First fall frost: ~October 15 · Growing season: ~180 d
 ### Shipping Status (items arriving while traveling)
 - [x] **Home Depot** — VIVOSUN seed starter trays: Out for delivery Mar 6 ✅
 - [x] **Johnny's Seeds** — 18 seed packets shipped Mar 2 via USPS (tracking 9434636208074276075120). Due to arrive ~Mar 5–7. ✅
-- [ ] **Johnny's Seeds** — Patterson & Walla Walla onion plants ship separately ~Mar 16 (aligns with your return!)
+- [x] **Johnny's Seeds** — Patterson & Walla Walla onion plants received and planted Mar 28 ✅
 - [ ] **Fedco Seeds** — Perpetual Spinach Chard ships ~Mar 6–10, arrives ~Mar 10–14
 - [x] **Gurney's Seeds** — All 7 items delivered (Sep–Oct 2025) ✅
-- [ ] **Mountain Valley Garlic** — Potato pre-orders (Nicola, Canada Gold, Carla Rose) ship Apr–Jun. Not shipped yet.
+- [x] **Mountain Valley Garlic** — Potatoes (Nicola, Canada Gold, Carla Rose) received and planted Mar 28 ✅
 
 ### What You Can Do BEFORE Leaving (Mar 6–7)
 - [x] **Start parsley indoors (Mar 12)** — Sowed Giant of Italy parsley in seed starting tray with humidity dome + bottom water. Slow germinator (14–28 days). Will be fine unattended for 9 days during Hawaii trip. 1 square in Plot A (start 4–5 seeds, plant best 1–2).
@@ -59,8 +59,8 @@ Last frost: ~April 15 · First fall frost: ~October 15 · Growing season: ~180 d
 - [ ] **Beets — Ruby Queen** — Direct sow Mar 16+. Soil temp 50°F+. Sow ½" deep, thin to 3–4" apart. You have Gurney's 1 oz packet — enough for several succession sowings.
 
 ### Planting — Transplants & Sets
-- [ ] **Onion plants arrive ~Mar 16** — Patterson & Walla Walla plants from Johnny's ship week of 3/16 — perfect timing with your return! Plant 1" deep, 4–5" apart as soon as they arrive. Plot A south row.
-- [ ] **Potatoes — Canada Gold, Carla Rose & Nicola** — Arriving Mar 11 from Mountain Valley Garlic (while in Hawaii). Store in a cool, dark, dry place until you return. Cut seed potatoes 2 days before planting (~Mar 16) to callus. Plant 4" deep, 12" apart when soil hits 45°F+. Expanded planting: ~6–8 sq ft on Plot B east side (~8–10 plants per variety).
+- [x] **Onion plants — Patterson & Walla Walla (planted Mar 28)** — Planted 1" deep, 4–5" apart. Plot A south row.
+- [x] **Potatoes — Canada Gold, Carla Rose & Nicola (planted Mar 28)** — Planted 4" deep, 12" apart. Plot B east side (~8–10 plants per variety).
 
 ### Infrastructure
 - [ ] **Install Plot B pea trellis** — Set up on Mar 16 before sowing peas. Use nylon trellis netting (4×5–6 ft) on **fiberglass or bamboo stakes** (no metal near power line). Note: Sugar Ann peas are bush type and don't need a trellis.
@@ -74,15 +74,15 @@ Last frost: ~April 15 · First fall frost: ~October 15 · Growing season: ~180 d
 > **Mar 16 is your big planting day.** All the early March sowings that were deferred are still well within the window. You'll also have the onion plants arriving and potatoes to cut for planting.
 
 ### First Week Back (Mar 16–22) — Priority Planting Blitz
-- [ ] **Cut potatoes for callusing** — Cut Canada Gold, Carla Rose & Nicola seed potatoes on Mar 16. Let cuts dry 2 days before planting ~Mar 18.
-- [ ] **Plant onion starts** — Patterson & Walla Walla arrive ~Mar 16. Plant immediately, 1" deep, 4–5" apart. Plot A south row.
+- [x] **Cut potatoes for callusing** — Done prior to planting Mar 28.
+- [x] **Plant onion starts** — Patterson & Walla Walla planted Mar 28, 1" deep, 4–5" apart. Plot A south row.
 - [ ] **Install Plot B pea trellis** — Get this up before sowing peas.
 - [ ] **Direct sow peas** — Sugar Snap (climbing, on trellis) + Sugar Ann (bush, no trellis).
 - [ ] **Direct sow spinach** — Space + Goliath seed tape.
 - [ ] **Direct sow lettuce** — Salanova, Muir, Allstar. Also interplant between garlic rows.
 - [ ] **Direct sow radishes** — Pepito.
 - [ ] **Direct sow beets** — Ruby Queen.
-- [ ] **Plant potatoes** (~Mar 18) — After callusing, plant 4" deep, 12" apart, Plot B east.
+- [x] **Plant potatoes (Mar 28)** — Canada Gold, Carla Rose & Nicola planted 4" deep, 12" apart, Plot B east.
 
 ### Late March (Mar 22–31) — Additional Cool-Season Sowing
 - [ ] **Carrots — Yaya** — Direct sow. Soil temp needed: 55°F+ (may need to wait for soil to warm a bit more, or use row cover). Sow ¼" deep, thin to 1–2" apart. Plot A center.
@@ -442,4 +442,4 @@ Last frost: ~April 15 · First fall frost: ~October 15 · Growing season: ~180 d
 
 ---
 
-*Last updated: March 7, 2026 — Adjusted for travel (SLC Mar 7–8, Hawaii Mar 9–15). First planting day: Mar 16.*
+*Last updated: March 28, 2026 — Onions (Patterson & Walla Walla) and potatoes (Canada Gold, Carla Rose, Nicola) planted.*
