@@ -85,9 +85,9 @@ Last frost: ~April 15 · First fall frost: ~October 15 · Growing season: ~180 d
 - [x] **Plant potatoes (Mar 28)** — Canada Gold, Carla Rose & Nicola planted 4" deep, 12" apart, Plot B east.
 
 ### Late March (Mar 22–31) — Additional Cool-Season Sowing
-- [ ] **Carrots — Yaya** — Direct sow. Soil temp needed: 55°F+ (may need to wait for soil to warm a bit more, or use row cover). Sow ¼" deep, thin to 1–2" apart. Plot A center.
-- [ ] **Kale — Red Russian (2 plants) + Winter Wonderland** — Direct sow 4–6 seeds, thin to best 2 plants, 18–24" apart. Soil temp needed: 55°F+. Plot B south-center.
-- [ ] **Cilantro — Calypso (1st sowing)** — Direct sow. Soil temp needed: 55°F+. Sow ¼–½" deep, 6–8" apart. Plot A west-center.
+- [ ] **Carrots — Yaya** — Soil at 50°F as of Mar 28; needs 55°F+. Target early April (~Apr 5–10). Sow ¼" deep, thin to 1–2" apart. Plot A center.
+- [ ] **Kale — Red Russian (2 plants) + Winter Wonderland** — Soil at 50°F as of Mar 28; needs 55°F+. Target early April (~Apr 5–10). Direct sow 4–6 seeds, thin to best 2 plants, 18–24" apart. Plot B south-center.
+- [ ] **Cilantro — Calypso (1st sowing)** — Soil at 50°F as of Mar 28; needs 55°F+. Target early April (~Apr 5–10). Sow ¼–½" deep, 6–8" apart. Plot A west-center.
 
 ### Succession Planting (late March)
 - [ ] **Spinach — 2nd sowing** (~Mar 30, 2 weeks after first)
@@ -97,7 +97,7 @@ Last frost: ~April 15 · First fall frost: ~October 15 · Growing season: ~180 d
 ### Garden Prep
 - [ ] **Fertilize cool-season crops** — Side-dress spinach, lettuce, kale, and peas with balanced organic fertilizer (e.g., 5-5-5 or fish emulsion) once seedlings have 2–3 true leaves.
 
-**Soil temp (late March):** ~48–52°F
+**Soil temp (late March):** 50–51°F (measured Mar 28)
 
 ---
 
@@ -123,7 +123,7 @@ Last frost: ~April 15 · First fall frost: ~October 15 · Growing season: ~180 d
 - [ ] **Feed peas** — Peas fix their own nitrogen but benefit from a light phosphorus feed (bone meal) at flowering.
 - [ ] **Hill potatoes (first hilling)** — When potato stems are 6–8" tall, mound soil around them leaving 3–4" of foliage exposed.
 
-**Soil temp (early April):** ~50–55°F
+**Soil temp (early April):** ~53–57°F (trending from 50–51°F on Mar 28)
 
 ---
 
@@ -442,4 +442,4 @@ Last frost: ~April 15 · First fall frost: ~October 15 · Growing season: ~180 d
 
 ---
 
-*Last updated: March 28, 2026 — Onions (Patterson & Walla Walla) and potatoes (Canada Gold, Carla Rose, Nicola) planted.*
+*Last updated: March 28, 2026 — Onions and potatoes planted. Soil temp measured at 50–51°F; carrots/kale/cilantro shifted to early April.*
