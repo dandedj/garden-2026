@@ -39,10 +39,10 @@ Last frost: ~April 15 · First fall frost: ~October 15 · Growing season: ~180 d
 ### Shipping Status (items arriving while traveling)
 - [x] **Home Depot** — VIVOSUN seed starter trays: Out for delivery Mar 6 ✅
 - [x] **Johnny's Seeds** — 18 seed packets shipped Mar 2 via USPS (tracking 9434636208074276075120). Due to arrive ~Mar 5–7. ✅
-- [x] **Johnny's Seeds** — Patterson & Walla Walla onion plants received and planted Mar 28 ✅
+- [x] **Johnny's Seeds** — Patterson & Walla Walla onion plants received Mar 28, planted Mar 29 ✅
 - [ ] **Fedco Seeds** — Perpetual Spinach Chard ships ~Mar 6–10, arrives ~Mar 10–14
 - [x] **Gurney's Seeds** — All 7 items delivered (Sep–Oct 2025) ✅
-- [x] **Mountain Valley Garlic** — Potatoes (Nicola, Canada Gold, Carla Rose) received and planted Mar 28 ✅
+- [x] **Mountain Valley Garlic** — Potatoes (Nicola, Canada Gold, Carla Rose) received Mar 28, planted Mar 29 ✅
 
 ### What You Can Do BEFORE Leaving (Mar 6–7)
 - [x] **Start parsley indoors (Mar 12)** — Sowed Giant of Italy parsley in seed starting tray with humidity dome + bottom water. Slow germinator (14–28 days). Will be fine unattended for 9 days during Hawaii trip. 1 square in Plot A (start 4–5 seeds, plant best 1–2).
@@ -52,15 +52,15 @@ Last frost: ~April 15 · First fall frost: ~October 15 · Growing season: ~180 d
 ### Planting — Cool-Season Direct Sow
 - [x] **Peas — Sugar Snap (Mar 12)** — PLANTED TODAY. Direct sowed 1" deep, 2–3" apart along Plot B trellis (north end). Climbing variety on trellis.
 - [ ] **Peas — Sugar Ann (bush)** — Direct sow Mar 16+ when back. Bush type, no trellis needed. Plant adjacent to climbing peas at Plot B north end.
-- [ ] **Spinach — Space + Gurney's Goliath seed tape** — Direct sow Mar 16+. Soil temp needed: 45°F+. Sow ½" deep, 2–4" apart, Plot B north end. Seed tape makes the Goliath super easy.
-- [ ] **Radishes — Pepito** — Direct sow Mar 16+. Soil temp needed: 40°F+. Sow ½" deep, 1–2" apart, Plot A west side.
+- [x] **Spinach — Space + Gurney's Goliath seed tape (planted Mar 29)** — Direct sowed ½" deep, 2–4" apart, Plot B north end. Seed tape for Goliath.
+- [x] **Radishes — Pepito (planted Mar 29)** — Direct sowed ½" deep, 1–2" apart, Plot A west side.
 - [ ] **Lettuce — Salanova, Muir, Allstar** — Direct sow Mar 16+. Soil temp needed: 40°F+. Sow ⅛" deep, barely cover. Plot B center.
-- [ ] **Lettuce — interplant between garlic rows (Plot B south end)** — Direct sow lettuce between the garlic rows. Garlic is spaced wide enough for lettuce to grow between. Garlic repels aphids — a natural companion. Harvest this lettuce by May–June before garlic matures.
+- [x] **Lettuce — interplant between garlic rows (planted Mar 29)** — Direct sowed lettuce between the garlic rows, Plot B south end. Garlic repels aphids — a natural companion. Harvest by May–June before garlic matures.
 - [ ] **Beets — Ruby Queen** — Direct sow Mar 16+. Soil temp 50°F+. Sow ½" deep, thin to 3–4" apart. You have Gurney's 1 oz packet — enough for several succession sowings.
 
 ### Planting — Transplants & Sets
-- [x] **Onion plants — Patterson & Walla Walla (planted Mar 28)** — Planted 1" deep, 4–5" apart. Plot A south row.
-- [x] **Potatoes — Canada Gold, Carla Rose & Nicola (planted Mar 28)** — Planted 4" deep, 12" apart. Plot B east side (~8–10 plants per variety).
+- [x] **Onion plants — Patterson & Walla Walla (planted Mar 29)** — Planted 1" deep, 4–5" apart. Plot A south row.
+- [x] **Potatoes — Canada Gold, Carla Rose & Nicola (planted Mar 29)** — Planted 4" deep, 12" apart. Plot B east side (~8–10 plants per variety).
 
 ### Infrastructure
 - [ ] **Install Plot B pea trellis** — Set up on Mar 16 before sowing peas. Use nylon trellis netting (4×5–6 ft) on **fiberglass or bamboo stakes** (no metal near power line). Note: Sugar Ann peas are bush type and don't need a trellis.
@@ -74,25 +74,25 @@ Last frost: ~April 15 · First fall frost: ~October 15 · Growing season: ~180 d
 > **Mar 16 is your big planting day.** All the early March sowings that were deferred are still well within the window. You'll also have the onion plants arriving and potatoes to cut for planting.
 
 ### First Week Back (Mar 16–22) — Priority Planting Blitz
-- [x] **Cut potatoes for callusing** — Done prior to planting Mar 28.
-- [x] **Plant onion starts** — Patterson & Walla Walla planted Mar 28, 1" deep, 4–5" apart. Plot A south row.
+- [x] **Cut potatoes for callusing** — Done prior to planting Mar 29.
+- [x] **Plant onion starts** — Patterson & Walla Walla planted Mar 29, 1" deep, 4–5" apart. Plot A south row.
 - [ ] **Install Plot B pea trellis** — Get this up before sowing peas.
 - [ ] **Direct sow peas** — Sugar Snap (climbing, on trellis) + Sugar Ann (bush, no trellis).
-- [ ] **Direct sow spinach** — Space + Goliath seed tape.
-- [ ] **Direct sow lettuce** — Salanova, Muir, Allstar. Also interplant between garlic rows.
-- [ ] **Direct sow radishes** — Pepito.
+- [x] **Direct sow spinach (Mar 29)** — Space + Goliath seed tape, Plot B north end.
+- [ ] **Direct sow lettuce** — Salanova, Muir, Allstar in Plot B center. *(Garlic interplant lettuce planted Mar 29.)*
+- [x] **Direct sow radishes (Mar 29)** — Pepito, Plot A west side.
 - [ ] **Direct sow beets** — Ruby Queen.
-- [x] **Plant potatoes (Mar 28)** — Canada Gold, Carla Rose & Nicola planted 4" deep, 12" apart, Plot B east.
+- [x] **Plant potatoes (Mar 29)** — Canada Gold, Carla Rose & Nicola planted 4" deep, 12" apart, Plot B east.
 
 ### Late March (Mar 22–31) — Additional Cool-Season Sowing
 - [ ] **Carrots — Yaya** — Soil at 50°F as of Mar 28; needs 55°F+. Target early April (~Apr 5–10). Sow ¼" deep, thin to 1–2" apart. Plot A center.
 - [ ] **Kale — Red Russian (2 plants) + Winter Wonderland** — Soil at 50°F as of Mar 28; needs 55°F+. Target early April (~Apr 5–10). Direct sow 4–6 seeds, thin to best 2 plants, 18–24" apart. Plot B south-center.
 - [ ] **Cilantro — Calypso (1st sowing)** — Soil at 50°F as of Mar 28; needs 55°F+. Target early April (~Apr 5–10). Sow ¼–½" deep, 6–8" apart. Plot A west-center.
 
-### Succession Planting (late March)
-- [ ] **Spinach — 2nd sowing** (~Mar 30, 2 weeks after first)
-- [ ] **Lettuce — 2nd sowing** (stagger varieties)
-- [ ] **Radishes — 2nd sowing** (every 10–14 days)
+### Succession Planting
+- [ ] **Spinach — 2nd sowing** (~Apr 12, 2 weeks after Mar 29 planting)
+- [ ] **Lettuce — 1st main sowing** (Salanova, Muir, Allstar in Plot B center — still needed)
+- [ ] **Radishes — 2nd sowing** (~Apr 8–12, 10–14 days after Mar 29 planting)
 
 ### Garden Prep
 - [ ] **Fertilize cool-season crops** — Side-dress spinach, lettuce, kale, and peas with balanced organic fertilizer (e.g., 5-5-5 or fish emulsion) once seedlings have 2–3 true leaves.
@@ -106,8 +106,8 @@ Last frost: ~April 15 · First fall frost: ~October 15 · Growing season: ~180 d
 ### Planting — Transition Period
 - [ ] **Carrots — 2nd succession sowing** (every 3 weeks)
 - [ ] **Cilantro — 2nd sowing** (every 2–3 weeks to stay ahead of bolting)
-- [ ] **Radishes — 3rd sowing**
-- [ ] **Lettuce — 3rd sowing**
+- [ ] **Radishes — 3rd sowing** (~Apr 19–22)
+- [ ] **Lettuce — 2nd sowing** (succession from 1st main sowing)
 
 ### Indoor Starts (for later transplant)
 - [ ] **Start cucumbers indoors** — Sow Gershwin & Gateway 3–4 weeks before transplant date (~May 1). Soil temp needed: 70–85°F. Use heat mat.
@@ -135,9 +135,9 @@ Last frost: ~April 15 · First fall frost: ~October 15 · Growing season: ~180 d
 - [ ] **Nasturtiums — Alaska Mix** — Direct sow ½–1" deep, or transplant indoor starts. Soil temp needed: 55–65°F. Place near beans (Plot A) and flanking kale (Plot B).
 
 ### Succession Planting
-- [ ] **Spinach — 3rd sowing**
-- [ ] **Lettuce — 4th sowing**
-- [ ] **Radishes — 4th sowing**
+- [ ] **Spinach — 3rd sowing** (~Apr 26)
+- [ ] **Lettuce — 3rd sowing**
+- [ ] **Radishes — 4th sowing** (~May 3–6)
 - [ ] **Cilantro — 3rd sowing**
 
 ### Fertilizing
@@ -208,11 +208,11 @@ Last frost: ~April 15 · First fall frost: ~October 15 · Growing season: ~180 d
 
 ### Harvest Begins!
 - [ ] **Radishes** — First spring sowings ready (~21–30 days from sowing). Harvest when roots are marble-sized.
-  - *Estimated: late March / early April sowings → harvest by late April–May*
+  - *Estimated: Mar 29 sowing → harvest by late April–May*
 - [ ] **Lettuce** — First heads ready ~55 days from sowing.
   - *Estimated: March 1 sowing → harvest by late April; continue with succession harvests*
 - [ ] **Spinach** — Ready ~40–45 days from sowing.
-  - *Estimated: March 1 sowing → harvest by mid-April; continue picking outer leaves*
+  - *Estimated: Mar 29 sowing → harvest by early–mid May; continue picking outer leaves*
 - [ ] **Peas — Sugar Snap** — Ready ~58–70 days from sowing.
   - *Estimated: March 1 sowing → harvest late May through June*
 - [ ] **Kale — Red Russian** — Baby leaves at 50 days, full at 60.
@@ -250,10 +250,10 @@ Last frost: ~April 15 · First fall frost: ~October 15 · Growing season: ~180 d
 - [ ] **Carrots — Yaya** — ~55–60 days from sowing.
   - *Estimated: late March sowing → first harvest late May/June; succession harvests July–Oct*
 - [ ] **Potatoes — early check** — ~70–90 days from planting.
-  - *Estimated: mid-March planting → new potatoes (small) by late May/June; full harvest July–August*
+  - *Estimated: Mar 29 planting → new potatoes (small) by early–mid June; full harvest late June–August*
   - Dig "new potatoes" anytime after flowering. For full harvest, wait until foliage yellows and dies back.
 - [ ] **Onions — Walla Walla** — ~90–100 days from transplant.
-  - *Estimated: late March transplant → harvest late June/July*
+  - *Estimated: Mar 29 transplant → harvest late June/July*
   - Harvest when tops flop over. Cure in shade for 1–2 weeks.
 - [ ] **Garlic — harvest** — Dig when lower 3–4 leaves are brown but upper leaves still green (~mid-July). Cure 2–4 weeks in a dry, shaded spot.
   - *Pull the interplanted lettuce first if any remains.*
@@ -295,7 +295,7 @@ Last frost: ~April 15 · First fall frost: ~October 15 · Growing season: ~180 d
 - [ ] **Hot peppers** — Most varieties ready 70–90 days from transplant.
   - *Estimated: mid-May transplant → harvest July–September*
 - [ ] **Onions — Patterson** — ~104 days from transplant.
-  - *Estimated: late March transplant → harvest mid-July/August*
+  - *Estimated: Mar 29 transplant → harvest mid-July/August*
   - These are storage onions — cure 2–4 weeks in a dry, shaded spot.
 - [ ] **Potatoes — full harvest** — Dig all remaining potatoes once foliage dies back completely.
 - [ ] **Rhubarb** — Final harvest. Stop picking by late August to let plants store energy.
@@ -380,11 +380,11 @@ Last frost: ~April 15 · First fall frost: ~October 15 · Growing season: ~180 d
 
 | Crop | Frequency | Start | End | Total Sowings |
 |---|---|---|---|---|
-| Lettuce | Every 2–3 weeks | **Mar 16** | Sep 1 | ~9–11 |
-| Spinach | Every 2–3 weeks | **Mar 16** | May 15, then Aug 15–Sep 15 | ~5–7 |
+| Lettuce | Every 2–3 weeks | **Apr 1** (main); garlic interplant Mar 29 | Sep 1 | ~9–11 |
+| Spinach | Every 2–3 weeks | **Mar 29** | May 15, then Aug 15–Sep 15 | ~5–7 |
 | Beets | Every 2–3 weeks | **Mar 16** | Jul 1 | ~4–5 |
 | Perpetual Spinach | 1–2 sowings | Jun 1 | Jun 15 | 1–2 (produces all summer) |
-| Radishes | Every 10–14 days | **Mar 16** | May 15, then Aug 15–Oct 1 | ~9–11 |
+| Radishes | Every 10–14 days | **Mar 29** | May 15, then Aug 15–Oct 1 | ~9–11 |
 | Cilantro | Every 2–3 weeks | Mar 25 | Jul 15 | ~6–8 |
 | Dill | Every 2–3 weeks | Apr 15 | Jul 15 | ~4–5 |
 | Pole Beans | 2–3 sowings, 2–3 weeks apart | Apr 20 | Jun 15 | 2–3 |
@@ -412,7 +412,7 @@ Last frost: ~April 15 · First fall frost: ~October 15 · Growing season: ~180 d
 |---|---|---|---|
 | Radishes | Late April | May–Jun, Sep–Oct | October |
 | Lettuce | Late April | May–Jun, Sep–Oct | October |
-| Spinach | Mid-April | May–Jun, Sep–Oct | November |
+| Spinach | Early May | May–Jun, Sep–Oct | November |
 | Perpetual Spinach (leaf beet) | July (baby leaves June) | July–Sep | November (frost tolerant) |
 | Peas — Sugar Snap | Late May | June | Late June |
 | Kale — Red Russian | Mid-May (baby) | June–Nov | Year-round with protection |
@@ -423,12 +423,12 @@ Last frost: ~April 15 · First fall frost: ~October 15 · Growing season: ~180 d
 | Onions — Walla Walla | Late June | July | July |
 | Onions — Patterson | Mid-July | August | Stores through winter |
 | Garlic | Mid-July | Mid-July | Mid-July |
-| Lettuce (interplanted w/ garlic) | Late April | May–Jun | June (before garlic harvest) |
+| Lettuce (interplanted w/ garlic) | Late May | May–Jun | June (before garlic harvest) |
 | Fall Lettuce (post-garlic zone) | Mid-Sep | Oct | October |
 | Fall Spinach (post-garlic zone) | Oct | Oct–Nov | November |
 | Fall Radishes (post-garlic zone) | Mid-Aug | Sep | September |
-| Potatoes (new) | Late May | June | — |
-| Potatoes (full) | July | August | August |
+| Potatoes (new) | Early June | June | — |
+| Potatoes (full) | Late June | July–Aug | August |
 | Cucumbers — Gershwin | Late June | July | September |
 | Cucumbers — Gateway | Early July | July–Aug | September |
 | Pole Beans | Late June | July–Aug | September |
@@ -442,4 +442,4 @@ Last frost: ~April 15 · First fall frost: ~October 15 · Growing season: ~180 d
 
 ---
 
-*Last updated: March 28, 2026 — Onions and potatoes planted. Soil temp measured at 50–51°F; carrots/kale/cilantro shifted to early April.*
+*Last updated: March 30, 2026 — Potatoes, spinach, radishes, lettuce (garlic interplant), and onions planted Mar 29. Soil temp 50–51°F; carrots/kale/cilantro shifted to early April.*

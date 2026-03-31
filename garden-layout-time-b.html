@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plot B — Layout by Time</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: #f5f0e8; color: #333; padding: 24px; }
+  h1 { font-size: 24px; color: #2d5016; margin-bottom: 4px; }
+  .subtitle { color: #666; font-size: 13px; margin-bottom: 20px; }
+
+  nav { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 28px; padding-bottom: 16px; border-bottom: 1px solid #d0ccc4; }
+  nav a { padding: 6px 14px; border-radius: 16px; background: #fff; border: 1px solid #ccc; text-decoration: none; color: #555; font-size: 13px; font-weight: 500; }
+  nav a:hover { background: #e8f5e8; border-color: #2d5a27; }
+  nav a.active { background: #2d5a27; color: #fff; border-color: #2d5a27; }
+
+  .controls { max-width: 500px; margin: 0 auto 20px; text-align: center; }
+  .phase-label { font-size: 16px; font-weight: 600; color: #2d5016; margin-bottom: 8px; min-height: 24px; }
+  .phase-detail { font-size: 12px; color: #888; margin-bottom: 12px; min-height: 18px; }
+  .slider-row { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+  .slider-row input[type=range] { flex: 1; accent-color: #2d5016; }
+  .btn { padding: 8px 20px; border-radius: 8px; border: 1px solid #2d5016; background: #2d5016; color: #fff; font-size: 13px; font-weight: 600; cursor: pointer; }
+  .btn:hover { background: #3a6b1e; }
+  .btn.outline { background: #fff; color: #2d5016; }
+  .btn.outline:hover { background: #e8f5e8; }
+  .btn-group { display: flex; gap: 8px; justify-content: center; margin-bottom: 8px; }
+  .speed-label { font-size: 11px; color: #999; }
+
+  .grid-container { max-width: 500px; margin: 0 auto; }
+  .orientation { display: flex; justify-content: space-between; font-size: 11px; color: #666; margin-bottom: 4px; }
+  .dir-label { text-align: center; font-size: 10px; color: #8B6914; font-weight: 600; margin-bottom: 4px; }
+  .bed-grid {
+    display: grid;
+    grid-template-columns: 24px repeat(4, 1fr);
+    gap: 2px;
+    border: 3px solid #8B6914;
+    border-radius: 8px;
+    background: #8B6914;
+    overflow: hidden;
+  }
+  .cell {
+    display: flex; align-items: center; justify-content: center;
+    font-size: 8px; font-weight: 600; color: white; text-align: center;
+    line-height: 1.2; padding: 2px; text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    min-height: 36px; position: relative;
+    transition: background-color 0.4s, opacity 0.4s;
+  }
+  .cell.empty { background: #d4c9a8 !important; opacity: 1; }
+  .cell.empty span { display: none; }
+  .cell.new-plant { animation: plantPulse 0.6s ease-out; }
+  @keyframes plantPulse {
+    0% { transform: scale(0.85); opacity: 0.5; }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  .grid-label { display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 600; color: #555; background: #f5f0e8; min-height: 20px; }
+  .grid-label.row-label { min-height: 36px; font-size: 9px; }
+
+  .tomato { background: #c0392b; }
+  .cucumber { background: #27ae60; }
+  .bean { background: #16a085; }
+  .pepper { background: #e74c3c; }
+  .basil { background: #8e44ad; }
+  .lettuce { background: #2ecc71; }
+  .spinach { background: #1abc9c; }
+  .kale { background: #0e6655; }
+  .onion { background: #d4a017; }
+  .carrot { background: #e67e22; }
+  .radish { background: #ec7063; }
+  .potato { background: #795548; }
+  .pea { background: #5dade2; }
+  .dill { background: #76b947; }
+  .cilantro { background: #45b39d; }
+  .parsley { background: #28b463; }
+  .sage { background: #7d8a6e; }
+  .garlic { background: #bdb76b; color: #333; text-shadow: none; }
+  .garlic-lettuce { background: linear-gradient(135deg, #bdb76b 50%, #2ecc71 50%); color: #333; text-shadow: none; }
+  .rhubarb { background: #a93226; }
+  .marigold { background: #f39c12; }
+  .nasturtium { background: #d35400; }
+  .zinnia { background: #c2185b; }
+  .broccoli { background: #2e7d32; }
+
+  .legend { max-width: 500px; margin: 20px auto 0; background: #fff; border-radius: 10px; padding: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+  .legend h3 { font-size: 14px; color: #2d5016; margin-bottom: 10px; }
+  .legend-grid { display: flex; flex-wrap: wrap; gap: 6px; }
+  .legend-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: #555; }
+  .legend-swatch { width: 14px; height: 14px; border-radius: 3px; flex-shrink: 0; }
+
+  .new-plants { font-size: 12px; color: #2d5016; font-weight: 600; margin-bottom: 8px; min-height: 18px; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="garden-preferences.html">Preferences</a>
+  <a href="garden-inventory.html">Inventory</a>
+  <a href="garden-timeline-view.html">Timeline</a>
+  <a href="garden-calendar.html">Calendar</a>
+  <a href="garden-layout.html">Layout</a>
+  <a href="garden-layout-time-a.html">Plot A Time</a>
+  <a href="garden-layout-time-b.html" class="active">Plot B Time</a>
+  <a href="garden-supplies.html">Supplies</a>
+</nav>
+
+<div style="max-width: 500px; margin: 0 auto;">
+  <h1>Plot B — Layout by Time</h1>
+  <p class="subtitle">Cool Crops, Greens & Root Vegetables · 4 ft × 19.5 ft · Slopes uphill south</p>
+</div>
+
+<div class="controls">
+  <div class="phase-label" id="phaseLabel"></div>
+  <div class="phase-detail" id="phaseDetail"></div>
+  <div class="new-plants" id="newPlants"></div>
+  <div class="slider-row">
+    <button class="btn outline" id="prevBtn" title="Previous">◀</button>
+    <input type="range" id="phaseSlider" min="0" max="7" value="0" step="1">
+    <button class="btn outline" id="nextBtn" title="Next">▶</button>
+  </div>
+  <div class="btn-group">
+    <button class="btn" id="animateBtn">▶ Animate</button>
+    <button class="btn outline" id="resetBtn">Reset</button>
+  </div>
+  <div class="speed-label">Animation: 1.5s per phase</div>
+</div>
+
+<div class="grid-container">
+  <div class="orientation"><span>⬅ West</span><span>East ➡</span></div>
+  <div class="dir-label">⬆ North (pea trellis, low end)</div>
+  <div class="bed-grid" id="plotGrid"></div>
+  <div class="dir-label" style="margin-top:4px;">⬇ South (garlic, uphill)</div>
+</div>
+
+<div class="legend" id="legend"></div>
+
+<script>
+const PHASES = [
+  { id: 'pre',       label: 'Pre-season (Feb)',              detail: 'Garlic in ground from fall 2025' },
+  { id: 'mar12',     label: 'March 12 — Peas Sown',         detail: 'Sugar snap peas on north trellis' },
+  { id: 'mar29',     label: 'March 29 — Spring Planting',    detail: 'Spinach, potatoes, lettuce between garlic' },
+  { id: 'apr-early', label: 'Early April — Cool Crops',      detail: 'Main lettuce, kale sown (soil 55°F+)' },
+  { id: 'apr-late',  label: 'Late April — After Last Frost', detail: 'Nasturtiums planted as companions' },
+  { id: 'may-early', label: 'Early May',                     detail: 'No new Plot B plantings this period' },
+  { id: 'may-late',  label: 'Late May — Summer Crops',       detail: 'Zinnia added' },
+  { id: 'jul',       label: 'Mid July — Succession',         detail: 'Peas pulled → broccoli transplanted; garlic harvested' },
+];
+
+const COL_LETTERS = ['A','B','C','D'];
+const ROWS = 20;
+
+// Cells with transition support: some cells change crop at a later phase
+// For garlic-lettuce: garlic is pre-season base, upgrades to garlic+lettuce at mar29
+// For pea→broccoli: peas at mar12, replaced by broccoli at jul
+const CELLS = [
+  // Rows 1-2: Peas → Broccoli
+  { r:1, c:1, label:'Pea', cls:'pea', phase:'mar12', replace: { label:'Broccoli', cls:'broccoli', phase:'jul' } },
+  { r:1, c:2, label:'Pea', cls:'pea', phase:'mar12', replace: { label:'Broccoli', cls:'broccoli', phase:'jul' } },
+  { r:1, c:3, label:'Pea', cls:'pea', phase:'mar12', replace: { label:'Broccoli', cls:'broccoli', phase:'jul' } },
+  { r:1, c:4, label:'Pea', cls:'pea', phase:'mar12', replace: { label:'Broccoli', cls:'broccoli', phase:'jul' } },
+  { r:2, c:1, label:'Pea', cls:'pea', phase:'mar12', replace: { label:'Broccoli', cls:'broccoli', phase:'jul' } },
+  { r:2, c:2, label:'Pea', cls:'pea', phase:'mar12', replace: { label:'Broccoli', cls:'broccoli', phase:'jul' } },
+  { r:2, c:3, label:'Pea', cls:'pea', phase:'mar12', replace: { label:'Broccoli', cls:'broccoli', phase:'jul' } },
+  { r:2, c:4, label:'Pea', cls:'pea', phase:'mar12', replace: { label:'Broccoli', cls:'broccoli', phase:'jul' } },
+  // Rows 3-4: Spinach
+  { r:3, c:1, label:'Spinach', cls:'spinach', phase:'mar29' },
+  { r:3, c:2, label:'Spinach', cls:'spinach', phase:'mar29' },
+  { r:3, c:3, label:'Spinach', cls:'spinach', phase:'mar29' },
+  { r:3, c:4, label:'Spinach', cls:'spinach', phase:'mar29' },
+  { r:4, c:1, label:'Spinach', cls:'spinach', phase:'mar29' },
+  { r:4, c:2, label:'Spinach', cls:'spinach', phase:'mar29' },
+  { r:4, c:3, label:'Spinach', cls:'spinach', phase:'mar29' },
+  { r:4, c:4, label:'Spinach', cls:'spinach', phase:'mar29' },
+  // Rows 5-9: Main Lettuce (20 cells)
+  { r:5, c:1, label:'Lettuce', cls:'lettuce', phase:'apr-early' },
+  { r:5, c:2, label:'Lettuce', cls:'lettuce', phase:'apr-early' },
+  { r:5, c:3, label:'Lettuce', cls:'lettuce', phase:'apr-early' },
+  { r:5, c:4, label:'Lettuce', cls:'lettuce', phase:'apr-early' },
+  { r:6, c:1, label:'Lettuce', cls:'lettuce', phase:'apr-early' },
+  { r:6, c:2, label:'Lettuce', cls:'lettuce', phase:'apr-early' },
+  { r:6, c:3, label:'Lettuce', cls:'lettuce', phase:'apr-early' },
+  { r:6, c:4, label:'Lettuce', cls:'lettuce', phase:'apr-early' },
+  { r:7, c:1, label:'Lettuce', cls:'lettuce', phase:'apr-early' },
+  { r:7, c:2, label:'Lettuce', cls:'lettuce', phase:'apr-early' },
+  { r:7, c:3, label:'Lettuce', cls:'lettuce', phase:'apr-early' },
+  { r:7, c:4, label:'Lettuce', cls:'lettuce', phase:'apr-early' },
+  { r:8, c:1, label:'Lettuce', cls:'lettuce', phase:'apr-early' },
+  { r:8, c:2, label:'Lettuce', cls:'lettuce', phase:'apr-early' },
+  { r:8, c:3, label:'Lettuce', cls:'lettuce', phase:'apr-early' },
+  { r:8, c:4, label:'Lettuce', cls:'lettuce', phase:'apr-early' },
+  { r:9, c:1, label:'Lettuce', cls:'lettuce', phase:'apr-early' },
+  { r:9, c:2, label:'Lettuce', cls:'lettuce', phase:'apr-early' },
+  { r:9, c:3, label:'Lettuce', cls:'lettuce', phase:'apr-early' },
+  { r:9, c:4, label:'Lettuce', cls:'lettuce', phase:'apr-early' },
+  // Row 10-11: Potatoes
+  { r:10, c:1, label:'Potato Gold', cls:'potato', phase:'mar29' },
+  { r:10, c:2, label:'Potato Gold', cls:'potato', phase:'mar29' },
+  { r:10, c:3, label:'Potato Rose', cls:'potato', phase:'mar29' },
+  { r:10, c:4, label:'Potato Rose', cls:'potato', phase:'mar29' },
+  { r:11, c:1, label:'Potato Gold', cls:'potato', phase:'mar29' },
+  { r:11, c:2, label:'Potato Gold', cls:'potato', phase:'mar29' },
+  { r:11, c:3, label:'Potato Rose', cls:'potato', phase:'mar29' },
+  { r:11, c:4, label:'Potato Rose', cls:'potato', phase:'mar29' },
+  // Row 12
+  { r:12, c:1, label:'Potato Gold', cls:'potato', phase:'mar29' },
+  { r:12, c:2, label:'Potato Gold', cls:'potato', phase:'mar29' },
+  { r:12, c:3, label:'Potato Rose', cls:'potato', phase:'mar29' },
+  { r:12, c:4, label:'Zinnia',      cls:'zinnia', phase:'may-late' },
+  // Row 13
+  { r:13, c:1, label:'Nasturtium',    cls:'nasturtium', phase:'apr-late' },
+  { r:13, c:2, label:'Potato Nicola', cls:'potato',     phase:'mar29' },
+  { r:13, c:3, label:'Potato Nicola', cls:'potato',     phase:'mar29' },
+  { r:13, c:4, label:'Nasturtium',    cls:'nasturtium', phase:'apr-late' },
+  // Row 14
+  { r:14, c:1, label:'Kale',        cls:'kale',   phase:'apr-early' },
+  { r:14, c:2, label:'Potato Gold', cls:'potato', phase:'mar29' },
+  { r:14, c:3, label:'Potato Rose', cls:'potato', phase:'mar29' },
+  { r:14, c:4, label:'Potato Gold', cls:'potato', phase:'mar29' },
+  // Row 15
+  { r:15, c:1, label:'Kale',        cls:'kale',   phase:'apr-early' },
+  { r:15, c:2, label:'Potato Gold', cls:'potato', phase:'mar29' },
+  { r:15, c:3, label:'Potato Rose', cls:'potato', phase:'mar29' },
+  { r:15, c:4, label:'Potato Rose', cls:'potato', phase:'mar29' },
+  // Rows 16-20: Garlic zone — garlic is pre-season, B/C cols upgrade to garlic+lettuce at mar29
+  { r:16, c:1, label:'Garlic', cls:'garlic', phase:'pre' },
+  { r:16, c:2, label:'Garlic', cls:'garlic', phase:'pre', upgrade: { label:'Garlic+Lett', cls:'garlic-lettuce', phase:'mar29' } },
+  { r:16, c:3, label:'Garlic', cls:'garlic', phase:'pre', upgrade: { label:'Garlic+Lett', cls:'garlic-lettuce', phase:'mar29' } },
+  { r:16, c:4, label:'Garlic', cls:'garlic', phase:'pre' },
+  { r:17, c:1, label:'Garlic', cls:'garlic', phase:'pre' },
+  { r:17, c:2, label:'Garlic', cls:'garlic', phase:'pre', upgrade: { label:'Garlic+Lett', cls:'garlic-lettuce', phase:'mar29' } },
+  { r:17, c:3, label:'Garlic', cls:'garlic', phase:'pre', upgrade: { label:'Garlic+Lett', cls:'garlic-lettuce', phase:'mar29' } },
+  { r:17, c:4, label:'Garlic', cls:'garlic', phase:'pre' },
+  { r:18, c:1, label:'Garlic', cls:'garlic', phase:'pre' },
+  { r:18, c:2, label:'Garlic', cls:'garlic', phase:'pre', upgrade: { label:'Garlic+Lett', cls:'garlic-lettuce', phase:'mar29' } },
+  { r:18, c:3, label:'Garlic', cls:'garlic', phase:'pre', upgrade: { label:'Garlic+Lett', cls:'garlic-lettuce', phase:'mar29' } },
+  { r:18, c:4, label:'Garlic', cls:'garlic', phase:'pre' },
+  { r:19, c:1, label:'Garlic', cls:'garlic', phase:'pre' },
+  { r:19, c:2, label:'Garlic', cls:'garlic', phase:'pre', upgrade: { label:'Garlic+Lett', cls:'garlic-lettuce', phase:'mar29' } },
+  { r:19, c:3, label:'Garlic', cls:'garlic', phase:'pre', upgrade: { label:'Garlic+Lett', cls:'garlic-lettuce', phase:'mar29' } },
+  { r:19, c:4, label:'Garlic', cls:'garlic', phase:'pre' },
+  { r:20, c:1, label:'Garlic', cls:'garlic', phase:'pre' },
+  { r:20, c:2, label:'Garlic', cls:'garlic', phase:'pre', upgrade: { label:'Garlic+Lett', cls:'garlic-lettuce', phase:'mar29' } },
+  { r:20, c:3, label:'Garlic', cls:'garlic', phase:'pre', upgrade: { label:'Garlic+Lett', cls:'garlic-lettuce', phase:'mar29' } },
+  { r:20, c:4, label:'Garlic', cls:'garlic', phase:'pre' },
+];
+
+// --- Build grid ---
+const grid = document.getElementById('plotGrid');
+
+// Column headers
+const corner = document.createElement('div');
+corner.className = 'grid-label';
+corner.style.gridColumn = '1'; corner.style.gridRow = '1';
+grid.appendChild(corner);
+COL_LETTERS.forEach((l, i) => {
+  const h = document.createElement('div');
+  h.className = 'grid-label';
+  h.textContent = l;
+  h.style.gridColumn = (i + 2).toString(); h.style.gridRow = '1';
+  grid.appendChild(h);
+});
+
+// Row labels
+for (let r = 1; r <= ROWS; r++) {
+  const lbl = document.createElement('div');
+  lbl.className = 'grid-label row-label';
+  lbl.textContent = r;
+  lbl.style.gridColumn = '1';
+  lbl.style.gridRow = (r + 1).toString();
+  grid.appendChild(lbl);
+}
+
+// Data cells
+const cellEls = [];
+CELLS.forEach(cell => {
+  const el = document.createElement('div');
+  el.className = 'cell empty';
+  el.innerHTML = '<span>' + cell.label + '</span>';
+  el.style.gridColumn = (cell.c + 1) + ' / span ' + (cell.cs || 1);
+  el.style.gridRow = (cell.r + 1) + ' / span ' + (cell.rs || 1);
+  grid.appendChild(el);
+  cellEls.push({ el, data: cell });
+});
+
+// --- Phase logic ---
+const phaseIndex = id => PHASES.findIndex(p => p.id === id);
+const slider = document.getElementById('phaseSlider');
+const phaseLabel = document.getElementById('phaseLabel');
+const phaseDetailEl = document.getElementById('phaseDetail');
+const newPlantsEl = document.getElementById('newPlants');
+slider.max = PHASES.length - 1;
+
+function getActiveCrop(data, idx) {
+  // Check for replacement (pea→broccoli)
+  if (data.replace && phaseIndex(data.replace.phase) <= idx) {
+    return data.replace;
+  }
+  // Check for upgrade (garlic→garlic+lettuce)
+  if (data.upgrade && phaseIndex(data.upgrade.phase) <= idx) {
+    return data.upgrade;
+  }
+  return data;
+}
+
+function renderPhase(idx, animate) {
+  const phase = PHASES[idx];
+  phaseLabel.textContent = phase.label;
+  phaseDetailEl.textContent = phase.detail;
+  slider.value = idx;
+
+  const newCrops = new Set();
+  cellEls.forEach(({ el, data }) => {
+    const basePhaseIdx = phaseIndex(data.phase);
+    if (basePhaseIdx <= idx) {
+      const active = getActiveCrop(data, idx);
+      el.className = 'cell ' + active.cls;
+      el.querySelector('span').textContent = active.label;
+
+      // Determine if this cell is "new" at this phase
+      let isNew = false;
+      if (data.replace && phaseIndex(data.replace.phase) === idx) isNew = true;
+      else if (data.upgrade && phaseIndex(data.upgrade.phase) === idx) isNew = true;
+      else if (basePhaseIdx === idx) isNew = true;
+
+      if (animate && isNew) {
+        el.classList.add('new-plant');
+        newCrops.add(active.label);
+        setTimeout(() => el.classList.remove('new-plant'), 700);
+      }
+    } else {
+      el.className = 'cell empty';
+    }
+  });
+
+  if (newCrops.size > 0 && idx > 0) {
+    newPlantsEl.textContent = 'New: ' + Array.from(newCrops).join(', ');
+  } else if (idx === 0) {
+    newPlantsEl.textContent = 'Garlic established from fall 2025';
+  } else {
+    newPlantsEl.textContent = '';
+  }
+
+  updateLegend(idx);
+}
+
+function updateLegend(idx) {
+  const visible = new Map();
+  cellEls.forEach(({ data }) => {
+    const basePhaseIdx = phaseIndex(data.phase);
+    if (basePhaseIdx <= idx) {
+      const active = getActiveCrop(data, idx);
+      if (!visible.has(active.label)) visible.set(active.label, active.cls);
+    }
+  });
+  const container = document.getElementById('legend');
+  let html = '<h3>Crops Planted</h3><div class="legend-grid">';
+  visible.forEach((cls, name) => {
+    const style = cls === 'garlic-lettuce'
+      ? 'background:linear-gradient(135deg,#bdb76b 50%,#2ecc71 50%);'
+      : '';
+    html += '<div class="legend-item"><div class="legend-swatch ' + cls + '"' +
+      (style ? ' style="' + style + '"' : '') + '></div>' + name + '</div>';
+  });
+  html += '</div>';
+  container.innerHTML = html;
+}
+
+// --- Controls ---
+slider.addEventListener('input', () => renderPhase(+slider.value, false));
+document.getElementById('prevBtn').addEventListener('click', () => {
+  if (+slider.value > 0) renderPhase(+slider.value - 1, true);
+});
+document.getElementById('nextBtn').addEventListener('click', () => {
+  if (+slider.value < PHASES.length - 1) renderPhase(+slider.value + 1, true);
+});
+document.getElementById('resetBtn').addEventListener('click', () => renderPhase(0, false));
+
+let animating = false, animTimer = null;
+document.getElementById('animateBtn').addEventListener('click', function() {
+  if (animating) {
+    clearInterval(animTimer);
+    animating = false;
+    this.textContent = '▶ Animate';
+    return;
+  }
+  animating = true;
+  this.textContent = '⏸ Pause';
+  let step = 0;
+  renderPhase(0, false);
+  animTimer = setInterval(() => {
+    step++;
+    if (step >= PHASES.length) {
+      clearInterval(animTimer);
+      animating = false;
+      document.getElementById('animateBtn').textContent = '▶ Animate';
+      return;
+    }
+    renderPhase(step, true);
+  }, 1500);
+});
+
+// Init
+renderPhase(0, false);
+</script>
+</body>
+</html>

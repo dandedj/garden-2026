@@ -289,6 +289,8 @@
   <a href="garden-timeline-view.html" style="padding:6px 14px;border-radius:16px;background:#fff;border:1px solid #ccc;text-decoration:none;color:#555;font-size:13px;font-weight:500;">Timeline</a>
   <a href="garden-calendar.html" style="padding:6px 14px;border-radius:16px;background:#2d5a27;color:#fff;border:1px solid #2d5a27;text-decoration:none;font-size:13px;font-weight:500;">Calendar</a>
   <a href="garden-layout.html" style="padding:6px 14px;border-radius:16px;background:#fff;border:1px solid #ccc;text-decoration:none;color:#555;font-size:13px;font-weight:500;">Layout</a>
+  <a href="garden-layout-time-a.html" style="padding:6px 14px;border-radius:16px;background:#fff;border:1px solid #ccc;text-decoration:none;color:#555;font-size:13px;font-weight:500;">Plot A Time</a>
+  <a href="garden-layout-time-b.html" style="padding:6px 14px;border-radius:16px;background:#fff;border:1px solid #ccc;text-decoration:none;color:#555;font-size:13px;font-weight:500;">Plot B Time</a>
   <a href="garden-supplies.html" style="padding:6px 14px;border-radius:16px;background:#fff;border:1px solid #ccc;text-decoration:none;color:#555;font-size:13px;font-weight:500;">Supplies</a>
 </nav>
 
@@ -305,7 +307,9 @@
   <div class="legend-item"><div class="legend-dot" style="background:var(--clr-done)"></div> Completed</div>
 </div>
 
-<nav class="nav-tabs" id="navTabs">  <a href="garden-supplies.html" style="padding:6px 14px;border-radius:16px;background:#fff;border:1px solid #ccc;text-decoration:none;color:#555;font-size:13px;font-weight:500;">Supplies</a>
+<nav class="nav-tabs" id="navTabs">  <a href="garden-layout-time-a.html" style="padding:6px 14px;border-radius:16px;background:#fff;border:1px solid #ccc;text-decoration:none;color:#555;font-size:13px;font-weight:500;">Plot A Time</a>
+  <a href="garden-layout-time-b.html" style="padding:6px 14px;border-radius:16px;background:#fff;border:1px solid #ccc;text-decoration:none;color:#555;font-size:13px;font-weight:500;">Plot B Time</a>
+  <a href="garden-supplies.html" style="padding:6px 14px;border-radius:16px;background:#fff;border:1px solid #ccc;text-decoration:none;color:#555;font-size:13px;font-weight:500;">Supplies</a>
 </nav>
 
 <main id="panels"></main>
@@ -321,7 +325,7 @@
 </section>
 
 <footer>
-  Garden Calendar 2026 &middot; Updated March 2, 2026
+  Garden Calendar 2026 &middot; Updated March 30, 2026
 </footer>
 
 <script>
@@ -346,23 +350,23 @@ const MONTHS = [
   { id:'mar-early', label:'Early Mar', fullLabel:'Early\u2013Mid March (Mar 1\u201315)', soil:'42\u201348\u00b0F',
     summary:'First outdoor sowings! Cool-season crops go in as soon as soil is workable.',
     groups:[
+      { type:'done', label:'Completed',items:[
+        { title:'Onion plants \u2014 Patterson & Walla Walla', detail:'Planted Mar 29. 1\u2033 deep, 4\u20135\u2033 apart.', plot:'Plot A south' },
+        { title:'Potatoes \u2014 Canada Gold & Carla Rose (expanded)', detail:'Planted Mar 29. 4\u2033 deep, 12\u2033 apart. Expanded to ~6\u20138 sq ft (8\u201310 plants per variety).', plot:'Plot B east' },
+        { title:'Spinach \u2014 Space + Goliath seed tape', detail:'Planted Mar 29. \u00bd\u2033 deep, 2\u20134\u2033 apart. Soil 50\u00b0F.', plot:'Plot B north' },
+        { title:'Radishes \u2014 Pepito', detail:'Planted Mar 29. \u00bd\u2033 deep, 1\u20132\u2033 apart.', plot:'Plot A west' },
+        { title:'Lettuce \u2014 between garlic rows', detail:'Planted Mar 29. Interplanted between garlic rows. Garlic repels aphids. Harvest by late May.', plot:'Plot B south' },
+      ]},
       { type:'sow', label:'Direct Sow',items:[
         { title:'Peas \u2014 Sugar Snap', detail:'1\u2033 deep, 2\u20133\u2033 apart along trellis. Soil 45\u00b0F+.', plot:'Plot B north' },
-        { title:'Spinach \u2014 Space', detail:'\u00bd\u2033 deep, 2\u20134\u2033 apart. Soil 45\u00b0F+.', plot:'Plot B north' },
-        { title:'Radishes \u2014 Pepito', detail:'\u00bd\u2033 deep, 1\u20132\u2033 apart. Soil 40\u00b0F+.', plot:'Plot A west' },
         { title:'Lettuce \u2014 3 varieties', detail:'\u215b\u2033 deep, barely cover. Soil 40\u00b0F+. Won\u2019t germinate above 75\u00b0F.', plot:'Plot B center' },
-        { title:'Lettuce \u2014 between garlic rows', detail:'Interplant between garlic rows. Garlic repels aphids. Harvest by May\u2013June.', plot:'Plot B south' },
-      ]},
-      { type:'transplant', label:'Transplants & Sets',items:[
-        { title:'Onion plants arrive (~3/16)', detail:'Patterson & Walla Walla. Plant 1\u2033 deep, 4\u20135\u2033 apart as soon as they arrive.', plot:'Plot A south' },
-        { title:'Potatoes \u2014 Canada Gold & Carla Rose (expanded)', detail:'Cut seed potatoes 2 days before. 4\u2033 deep, 12\u2033 apart. Soil 45\u00b0F+. Expanded to ~6\u20138 sq ft (8\u201310 plants per variety).', plot:'Plot B east' },
       ]},
       { type:'maint', label:'Infrastructure',items:[
         { title:'Install pea trellis', detail:'Set up before peas reach 4\u20136\u2033. Netting or string for tendrils.', plot:'Plot B' },
       ]},
     ]
   },
-  { id:'mar-late', label:'Late Mar', fullLabel:'Late March (Mar 16\u201331)', soil:'48\u201352\u00b0F',
+  { id:'mar-late', label:'Late Mar', fullLabel:'Late March (Mar 16\u201331)', soil:'50\u201351\u00b0F (measured Mar 28)',
     summary:'Continue cool-season sowings as soil warms. Begin succession planting.',
     groups:[
       { type:'sow', label:'Direct Sow',items:[
@@ -371,9 +375,9 @@ const MONTHS = [
         { title:'Cilantro \u2014 Calypso (1st)', detail:'\u00bc\u2013\u00bd\u2033 deep, 6\u20138\u2033 apart. Soil 55\u00b0F+.', plot:'Plot A west-center' },
       ]},
       { type:'sow', label:'Succession Sowings',items:[
-        { title:'Spinach \u2014 2nd sowing', detail:'If 1st sowing is 2\u20133 weeks old.', plot:'Plot B' },
+        { title:'Spinach \u2014 2nd sowing (~Apr 12)', detail:'1st sowing Mar 29. Sow 2nd round ~2 weeks later.', plot:'Plot B' },
         { title:'Lettuce \u2014 2nd sowing', detail:'Stagger varieties for continuous harvest.', plot:'Plot B' },
-        { title:'Radishes \u2014 2nd sowing', detail:'Every 10\u201314 days through the season.', plot:'Plot A' },
+        { title:'Radishes \u2014 2nd sowing (~Apr 8\u201312)', detail:'1st sowing Mar 29. Every 10\u201314 days through the season.', plot:'Plot A' },
       ]},
       { type:'maint', label:'Fertilizing',items:[
         { title:'Feed cool-season crops', detail:'Side-dress spinach, lettuce, kale, peas with balanced organic fertilizer (5-5-5 or fish emulsion) once 2\u20133 true leaves.', plot:'' },
@@ -469,9 +473,9 @@ const MONTHS = [
     summary:'First harvests arrive! Succession planting continues. Prep for fall broccoli.',
     groups:[
       { type:'harvest', label:'Harvest Begins!',items:[
-        { title:'Radishes', detail:'First spring sowings ready (~21\u201330 days). Harvest when marble-sized.', plot:'' },
-        { title:'Lettuce', detail:'First heads ~55 days from sowing. Succession harvests continue.', plot:'' },
-        { title:'Spinach', detail:'~40\u201345 days from sowing. Pick outer leaves for continued harvest.', plot:'' },
+        { title:'Radishes', detail:'First sowing Mar 29. Ready ~21\u201330 days (late April). Harvest when marble-sized.', plot:'' },
+        { title:'Lettuce', detail:'First heads ~55 days from sowing. Garlic interplant (Mar 29) ready late May. Succession harvests continue.', plot:'' },
+        { title:'Spinach', detail:'First harvest early\u2013mid May (~40\u201345 days from Mar 29 sowing). Pick outer leaves for continued harvest.', plot:'' },
         { title:'Peas \u2014 Sugar Snap', detail:'~58\u201370 days from sowing. Harvest through June.', plot:'Plot B' },
         { title:'Kale \u2014 Red Russian', detail:'Baby leaves at 50 days, full at 60. Harvest all season.', plot:'Plot B' },
         { title:'Garlic scapes', detail:'Snip curly scapes mid-June. Use in cooking!', plot:'Plot B' },
@@ -506,7 +510,7 @@ const MONTHS = [
         { title:'Carrots \u2014 Yaya', detail:'Succession harvests July\u2013Oct.', plot:'Plot A' },
         { title:'Onions \u2014 Walla Walla', detail:'Harvest when tops flop. Cure in shade 1\u20132 weeks.', plot:'Plot A' },
         { title:'Garlic \u2014 full harvest', detail:'Dig when lower 3\u20134 leaves brown. Cure 2\u20134 weeks.', plot:'Plot B south' },
-        { title:'Potatoes \u2014 early check', detail:'Dig \u201cnew potatoes\u201d after flowering. Full harvest when foliage yellows.', plot:'Plot B' },
+        { title:'Potatoes \u2014 new potatoes (early\u2013mid June)', detail:'Planted Mar 29. Dig \u201cnew potatoes\u201d after flowering (~10\u201311 weeks). Full harvest late June when foliage yellows.', plot:'Plot B' },
         { title:'Tomatoes (first ripe)', detail:'First ripe tomatoes mid-July to early August.', plot:'Plot A' },
       ]},
       { type:'transplant', label:'Transplant',items:[
@@ -622,7 +626,7 @@ const GANTT = [
 ];
 
 const ganttMonths = ['Mar','Apr','May','Jun','Jul','Aug','Sep','Oct'];
-const currentMonthId = 'mar-early'; // March 2026
+const currentMonthId = 'mar-late'; // March 2026
 
 // Build navigation tabs
 const navEl = document.getElementById('navTabs');

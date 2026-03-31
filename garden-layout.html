@@ -26,7 +26,11 @@
     max-width: 360px;
     margin: 0 auto;
   }
-  .cell { display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 600; color: white; text-align: center; line-height: 1.2; padding: 2px; text-shadow: 0 1px 2px rgba(0,0,0,0.3); min-height: 44px; }
+  .cell { display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 600; color: white; text-align: center; line-height: 1.2; padding: 2px; text-shadow: 0 1px 2px rgba(0,0,0,0.3); min-height: 44px; position: relative; }
+  .cell[data-coord]::before { content: attr(data-coord); position: absolute; top: 1px; left: 2px; font-size: 7px; font-weight: 400; opacity: 0.55; text-shadow: none; line-height: 1; }
+  .grid-label { display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 600; color: #555; background: #f5f0e8; min-height: 20px; }
+  .grid-label.col-header { min-height: 20px; }
+  .grid-label.row-label { min-height: 44px; font-size: 9px; }
   .tomato-block { grid-column: span 2; grid-row: span 2; font-size: 10px; }
 
   /* Colors */
@@ -102,6 +106,8 @@
   <a href="garden-timeline-view.html" style="padding:6px 14px;border-radius:16px;background:#fff;border:1px solid #ccc;text-decoration:none;color:#555;font-size:13px;font-weight:500;">Timeline</a>
   <a href="garden-calendar.html" style="padding:6px 14px;border-radius:16px;background:#fff;border:1px solid #ccc;text-decoration:none;color:#555;font-size:13px;font-weight:500;">Calendar</a>
   <a href="garden-layout.html" style="padding:6px 14px;border-radius:16px;background:#2d5a27;color:#fff;border:1px solid #2d5a27;text-decoration:none;font-size:13px;font-weight:500;">Layout</a>
+  <a href="garden-layout-time-a.html" style="padding:6px 14px;border-radius:16px;background:#fff;border:1px solid #ccc;text-decoration:none;color:#555;font-size:13px;font-weight:500;">Plot A Time</a>
+  <a href="garden-layout-time-b.html" style="padding:6px 14px;border-radius:16px;background:#fff;border:1px solid #ccc;text-decoration:none;color:#555;font-size:13px;font-weight:500;">Plot B Time</a>
   <a href="garden-supplies.html" style="padding:6px 14px;border-radius:16px;background:#fff;border:1px solid #ccc;text-decoration:none;color:#555;font-size:13px;font-weight:500;">Supplies</a>
 </nav>
 
@@ -861,5 +867,108 @@
   </ul>
 </div>
 
+<script>
+(function() {
+  const COL_LETTERS = ['A','B','C','D'];
+  const COLS = 4;
+
+  function computePositions(grid) {
+    const cells = grid.querySelectorAll(':scope > .cell');
+    const occupied = new Set();
+    const key = (r,c) => r + ',' + c;
+    let curRow = 1, curCol = 1;
+
+    function advance() {
+      while (occupied.has(key(curRow, curCol))) {
+        curCol++;
+        if (curCol > COLS) { curCol = 1; curRow++; }
+      }
+    }
+
+    const positions = [];
+    cells.forEach(cell => {
+      advance();
+      const colSpan = cell.classList.contains('tomato-block') ? 2 : 1;
+      const rowSpan = cell.classList.contains('tomato-block') ? 2 : 1;
+
+      // Find a position where the span fits
+      while (true) {
+        if (curCol + colSpan - 1 <= COLS) {
+          let fits = true;
+          for (let r = curRow; r < curRow + rowSpan && fits; r++)
+            for (let c = curCol; c < curCol + colSpan && fits; c++)
+              if (occupied.has(key(r, c))) fits = false;
+          if (fits) {
+            for (let r = curRow; r < curRow + rowSpan; r++)
+              for (let c = curCol; c < curCol + colSpan; c++)
+                occupied.add(key(r, c));
+            positions.push({ cell, row: curRow, col: curCol, rowSpan, colSpan });
+            curCol += colSpan;
+            if (curCol > COLS) { curCol = 1; curRow++; }
+            break;
+          }
+        }
+        curCol++;
+        if (curCol > COLS) { curCol = 1; curRow++; }
+      }
+    });
+
+    const maxRow = Math.max(...positions.map(p => p.row + p.rowSpan - 1));
+    return { positions, totalRows: maxRow };
+  }
+
+  document.querySelectorAll('.bed-vert').forEach((grid, plotIdx) => {
+    const plotLetter = plotIdx === 0 ? 'A' : 'B';
+    const { positions, totalRows } = computePositions(grid);
+
+    // Expand grid: row-label col + 4 data cols; header row + data rows
+    grid.style.gridTemplateColumns = '24px repeat(4, 1fr)';
+    grid.style.maxWidth = '384px';
+
+    // Row 1 = column headers; data rows shift down by 1
+    const dataRowOffset = 2; // data starts at grid row 2
+
+    // Set explicit grid positions on each cell
+    positions.forEach(p => {
+      const coord = COL_LETTERS[p.col - 1] + p.row;
+      if (p.colSpan > 1 || p.rowSpan > 1) {
+        const endCoord = COL_LETTERS[p.col + p.colSpan - 2] + (p.row + p.rowSpan - 1);
+        p.cell.setAttribute('data-coord', coord + '-' + endCoord);
+      } else {
+        p.cell.setAttribute('data-coord', coord);
+      }
+      p.cell.style.gridColumn = (p.col + 1) + ' / span ' + p.colSpan;
+      p.cell.style.gridRow = (p.row + dataRowOffset - 1) + ' / span ' + p.rowSpan;
+    });
+
+    // Insert column header row (grid row 1)
+    // Top-left corner cell (empty)
+    const corner = document.createElement('div');
+    corner.className = 'grid-label col-header';
+    corner.style.gridColumn = '1';
+    corner.style.gridRow = '1';
+    grid.appendChild(corner);
+
+    COL_LETTERS.forEach((letter, i) => {
+      const hdr = document.createElement('div');
+      hdr.className = 'grid-label col-header';
+      hdr.textContent = letter;
+      hdr.style.gridColumn = (i + 2).toString();
+      hdr.style.gridRow = '1';
+      grid.appendChild(hdr);
+    });
+
+    // Insert row label cells (grid column 1, rows 2+)
+    for (let r = 1; r <= totalRows; r++) {
+      const label = document.createElement('div');
+      label.className = 'grid-label row-label';
+      label.textContent = r;
+      label.style.gridColumn = '1';
+      label.style.gridRow = (r + dataRowOffset - 1).toString();
+      grid.appendChild(label);
+    }
+  });
+})();
+</script>
 </body>
 </html>
