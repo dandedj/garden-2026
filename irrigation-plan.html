@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Irrigation Plan — Plot A — Irrigatia C18Q</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: #f5f0e8; color: #333; padding: 24px; }
+  h1 { font-size: 26px; color: #1a5276; margin-bottom: 4px; }
+  .subtitle { color: #666; font-size: 14px; margin-bottom: 24px; }
+  .section { max-width: 1100px; margin: 0 auto 32px; background: white; border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+  .section h2 { font-size: 20px; color: #1a5276; margin-bottom: 12px; }
+  .section h3 { font-size: 16px; color: #2c3e50; margin: 18px 0 8px; }
+
+  /* Recommendation cards */
+  .rec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+  .rec-card { border-radius: 10px; padding: 16px; }
+  .rec-card.drip { background: #eaf2f8; border: 2px solid #2980b9; }
+  .rec-card.seep { background: #eafaf1; border: 2px solid #27ae60; }
+  .rec-card h3 { margin: 0 0 8px; font-size: 16px; }
+  .rec-card.drip h3 { color: #2980b9; }
+  .rec-card.seep h3 { color: #27ae60; }
+  .rec-card ul { margin-left: 18px; font-size: 13px; line-height: 1.8; }
+  .rec-card .best-for { font-size: 12px; color: #555; font-style: italic; margin-top: 8px; }
+
+  /* Layout diagram */
+  .diagram-wrap { overflow-x: auto; margin: 16px 0; }
+  .bed-grid {
+    display: grid;
+    grid-template-columns: 40px repeat(4, 70px);
+    gap: 1px;
+    background: #8B6914;
+    border: 3px solid #8B6914;
+    border-radius: 8px;
+    overflow: hidden;
+    width: fit-content;
+    margin: 0 auto;
+  }
+  .bed-grid .cell {
+    display: flex; align-items: center; justify-content: center;
+    font-size: 9px; font-weight: 600; color: white; text-align: center;
+    line-height: 1.2; padding: 3px; min-height: 38px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3); position: relative;
+  }
+  .bed-grid .row-label {
+    background: #f5f0e8; color: #666; font-size: 9px; font-weight: 500;
+    display: flex; align-items: center; justify-content: center;
+    text-shadow: none; min-height: 38px;
+  }
+  .bed-grid .col-header {
+    background: #f5f0e8; color: #666; font-size: 9px; font-weight: 600;
+    text-shadow: none; min-height: 24px;
+  }
+
+  /* Plant colors */
+  .tomato { background: #c0392b; }
+  .cucumber { background: #27ae60; }
+  .bean { background: #16a085; }
+  .pepper { background: #e74c3c; }
+  .basil { background: #8e44ad; }
+  .onion { background: #d4a017; }
+  .carrot { background: #e67e22; }
+  .radish { background: #ec7063; }
+  .dill { background: #76b947; }
+  .cilantro { background: #45b39d; }
+  .parsley { background: #28b463; }
+  .sage { background: #7d8a6e; }
+  .rhubarb { background: #a93226; }
+  .marigold { background: #f39c12; }
+  .nasturtium { background: #d35400; }
+  .zinnia { background: #c2185b; }
+  .barrel { background: #34495e; font-size: 11px; }
+
+  /* Irrigation overlays */
+  .has-dripper::after {
+    content: '💧';
+    position: absolute; bottom: 1px; right: 2px;
+    font-size: 10px; text-shadow: none;
+  }
+  .has-seep-h::before {
+    content: '';
+    position: absolute; bottom: 3px; left: 4px; right: 4px; height: 3px;
+    background: repeating-linear-gradient(90deg, #2196F3 0px, #2196F3 4px, transparent 4px, transparent 7px);
+    border-radius: 2px;
+  }
+  .has-seep-v::before {
+    content: '';
+    position: absolute; top: 4px; bottom: 4px; left: 50%; width: 3px;
+    transform: translateX(-50%);
+    background: repeating-linear-gradient(180deg, #2196F3 0px, #2196F3 4px, transparent 4px, transparent 7px);
+    border-radius: 2px;
+  }
+  .has-tube::after {
+    content: '';
+    position: absolute; top: 50%; left: 0; right: 0; height: 2px;
+    background: #1a237e; transform: translateY(-50%);
+  }
+  .tube-marker {
+    position: absolute; top: 50%; left: 50%; width: 6px; height: 6px;
+    background: #1a237e; border-radius: 50%; transform: translate(-50%,-50%);
+    z-index: 2;
+  }
+
+  /* Legend */
+  .legend { display: flex; flex-wrap: wrap; gap: 16px; margin: 16px 0; font-size: 12px; }
+  .legend-item { display: flex; align-items: center; gap: 6px; }
+  .legend-swatch { width: 20px; height: 14px; border-radius: 3px; flex-shrink: 0; }
+
+  /* Parts list */
+  .parts-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 12px; }
+  .parts-table th { text-align: left; padding: 8px 12px; border-bottom: 2px solid #1a5276; color: #1a5276; }
+  .parts-table td { padding: 6px 12px; border-bottom: 1px solid #eee; }
+  .parts-table tr:last-child td { border-bottom: none; }
+
+  /* Capacity meter */
+  .capacity-bar { display: flex; align-items: center; gap: 12px; margin: 12px 0; }
+  .cap-track { flex: 1; height: 24px; background: #ecf0f1; border-radius: 12px; overflow: hidden; position: relative; }
+  .cap-fill { height: 100%; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; color: white; }
+  .cap-label { font-size: 13px; color: #555; white-space: nowrap; }
+
+  .note-box { background: #fef9e7; border: 1px solid #f9e79f; border-radius: 8px; padding: 12px 16px; font-size: 13px; color: #7d6608; margin: 12px 0; line-height: 1.6; }
+  .note-box strong { color: #5b4a06; }
+
+  .zone-badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 600; color: white; margin-right: 4px; }
+  .zone-a { background: #2980b9; }
+  .zone-b { background: #27ae60; }
+  .zone-c { background: #8e44ad; }
+
+  /* SVG diagram */
+  .svg-diagram { width: 100%; max-width: 900px; margin: 0 auto; display: block; }
+
+  .step-list { counter-reset: steps; list-style: none; margin: 12px 0 12px 0; }
+  .step-list li { counter-increment: steps; padding: 8px 0 8px 36px; font-size: 13px; line-height: 1.6; position: relative; border-bottom: 1px solid #f0f0f0; }
+  .step-list li::before { content: counter(steps); position: absolute; left: 0; top: 8px; width: 24px; height: 24px; background: #1a5276; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; }
+
+  @media (max-width: 700px) {
+    .rec-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div style="max-width: 1100px; margin: 0 auto;">
+<h1>Irrigation Plan — Plot A</h1>
+<p class="subtitle">Irrigatia C18Q · Rain barrel at east end (rows 19–20) · Full bed coverage · Issaquah, WA</p>
+</div>
+
+<!-- RECOMMENDATION -->
+<div class="section">
+  <h2>Drip vs Soaker Hose — Recommendation</h2>
+  <p style="font-size: 14px; line-height: 1.7; margin-bottom: 12px;">
+    For your setup, the answer is <strong>use both</strong>. The C18Q's 18 output points let you mix individual drippers for large plants with seep hose runs for continuous rows. Here's why each method suits different parts of your bed:
+  </p>
+
+  <div class="rec-grid">
+    <div class="rec-card drip">
+      <h3>Drippers — For Individual Large Plants</h3>
+      <ul>
+        <li>Delivers water directly to root zone — no foliar wetting</li>
+        <li>Prevents blight and fungal disease (critical for tomatoes in PNW's damp climate)</li>
+        <li>Precise control per plant — great for heavy feeders</li>
+        <li>Each dripper outputs ~1 liter/hour</li>
+      </ul>
+      <div class="best-for"><strong>Use for:</strong> Tomatoes (5), Hot Peppers (2), Basil (1)</div>
+    </div>
+    <div class="rec-card seep">
+      <h3>Seep Hose — For Continuous Rows</h3>
+      <ul>
+        <li>Emits water along its entire length — even coverage</li>
+        <li>Perfect for densely planted rows (carrots, onions, lettuce)</li>
+        <li>Less installation work than individual drippers</li>
+        <li>Connects via dripper fitting (counts as 1 output per run)</li>
+      </ul>
+      <div class="best-for"><strong>Use for:</strong> Carrot/onion/herb rows, Cucumber runs, Pole bean trellis</div>
+    </div>
+  </div>
+
+  <div class="note-box">
+    <strong>Why not flat hose?</strong> The Irrigatia flat hose (IRR-SOAK, 25m) is designed for single-run coverage of long beds. It would work, but seep hose gives you more control over which zones get water — important since your bed has mixed crops with different needs. With seep hose you can route each run precisely where the plants are, skipping rhubarb and flower areas that don't need irrigation.
+  </div>
+</div>
+
+<!-- CAPACITY CHECK -->
+<div class="section">
+  <h2>C18Q Capacity Check</h2>
+  <p style="font-size: 14px; line-height: 1.7; margin-bottom: 16px;">
+    The C18Q has <strong>18 output points</strong> (drippers or seep hose connections). Here's how we allocate them:
+  </p>
+
+  <table class="parts-table">
+    <thead>
+      <tr><th>Output #</th><th>Type</th><th>What It Waters</th><th>Zone</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>Dripper</td><td>Tomato 1</td><td><span class="zone-badge zone-a">East</span></td></tr>
+      <tr><td>2</td><td>Dripper</td><td>Tomato 2</td><td><span class="zone-badge zone-a">East</span></td></tr>
+      <tr><td>3</td><td>Dripper</td><td>Tomato 3</td><td><span class="zone-badge zone-a">East</span></td></tr>
+      <tr><td>4</td><td>Dripper</td><td>Tomato 4</td><td><span class="zone-badge zone-a">East</span></td></tr>
+      <tr><td>5</td><td>Dripper</td><td>Tomato 5</td><td><span class="zone-badge zone-a">East</span></td></tr>
+      <tr><td>6</td><td>Dripper</td><td>Hot Pepper 1</td><td><span class="zone-badge zone-a">East</span></td></tr>
+      <tr><td>7</td><td>Dripper</td><td>Hot Pepper 2</td><td><span class="zone-badge zone-a">East</span></td></tr>
+      <tr><td>8</td><td>Dripper</td><td>Basil</td><td><span class="zone-badge zone-a">East</span></td></tr>
+      <tr><td>9</td><td>Seep Hose</td><td>South row — Onions (rows 3–10, ~2.4m)</td><td><span class="zone-badge zone-b">Center</span></td></tr>
+      <tr><td>10</td><td>Seep Hose</td><td>Center row — Carrots + herbs (rows 3–10, ~2.4m)</td><td><span class="zone-badge zone-b">Center</span></td></tr>
+      <tr><td>11</td><td>Seep Hose</td><td>North row — Pole beans along trellis (rows 2–8, ~2.1m)</td><td><span class="zone-badge zone-b">Center</span></td></tr>
+      <tr><td>12</td><td>Seep Hose</td><td>South cucumber run (rows 11–19, ~2.7m)</td><td><span class="zone-badge zone-c">Cuke</span></td></tr>
+      <tr><td>13</td><td>Seep Hose</td><td>South-center run — cukes + peppers + basil (rows 11–19, ~2.7m)</td><td><span class="zone-badge zone-c">Cuke</span></td></tr>
+      <tr style="background: #f8f8f8;"><td>14–18</td><td>—</td><td><em>5 spare outputs (stoppers) — future use or extra drippers</em></td><td></td></tr>
+    </tbody>
+  </table>
+
+  <div style="margin-top: 16px;">
+    <div class="capacity-bar">
+      <span class="cap-label"><strong>Outputs used:</strong></span>
+      <div class="cap-track">
+        <div class="cap-fill" style="width: 72%; background: linear-gradient(90deg, #2980b9 62%, #27ae60 62%);">
+          13 / 18 used
+        </div>
+      </div>
+    </div>
+    <p style="font-size: 12px; color: #888; margin-top: 4px;">8 drippers + 5 seep hose connections = 13 outputs. 5 spare for adjustments.</p>
+  </div>
+
+  <div class="note-box">
+    <strong>Spare outputs:</strong> You have 5 unused output slots. Use these if you want to add drippers for marigolds near tomatoes, extend seep hose to radish areas, or add coverage to the sage/herb corner. Unused outputs get a <strong>stopper</strong> pushed in — the system won't work properly without a stopper or dripper in every tube end.
+  </div>
+</div>
+
+<!-- NETWORK DIAGRAM -->
+<div class="section">
+  <h2>Network Layout — Top-Down View</h2>
+  <p style="font-size: 14px; line-height: 1.7; margin-bottom: 8px;">
+    Plot A shown from above. East end (barrel) at right, west end (rhubarb) at left. 4 ft tall, 19.5 ft wide.
+  </p>
+
+  <svg class="svg-diagram" viewBox="0 0 900 340" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background / bed -->
+    <rect x="60" y="50" width="780" height="200" rx="6" fill="#e8dcc8" stroke="#8B6914" stroke-width="3"/>
+
+    <!-- Compass labels -->
+    <text x="60" y="40" font-size="10" fill="#888" text-anchor="middle">W</text>
+    <text x="840" y="40" font-size="10" fill="#888" text-anchor="middle">E</text>
+    <text x="30" y="80" font-size="9" fill="#888" text-anchor="middle">North</text>
+    <text x="30" y="90" font-size="9" fill="#888" text-anchor="middle">(trellis)</text>
+    <text x="30" y="225" font-size="9" fill="#888" text-anchor="middle">South</text>
+
+    <!-- Grid lines (4ft width divided into 4 lanes) -->
+    <g stroke="#d4c5a0" stroke-width="0.5" stroke-dasharray="2,2">
+      <line x1="60" y1="100" x2="840" y2="100"/>
+      <line x1="60" y1="150" x2="840" y2="150"/>
+      <line x1="60" y1="200" x2="840" y2="200"/>
+    </g>
+
+    <!-- Row numbers at top -->
+    <g font-size="8" fill="#aaa" text-anchor="middle">
+      <text x="80" y="45">1</text><text x="120" y="45">2</text><text x="160" y="45">3</text>
+      <text x="200" y="45">4</text><text x="240" y="45">5</text><text x="280" y="45">6</text>
+      <text x="320" y="45">7</text><text x="360" y="45">8</text><text x="400" y="45">9</text>
+      <text x="440" y="45">10</text><text x="480" y="45">11</text><text x="520" y="45">12</text>
+      <text x="560" y="45">13</text><text x="600" y="45">14</text><text x="640" y="45">15</text>
+      <text x="680" y="45">16</text><text x="720" y="45">17</text><text x="760" y="45">18</text>
+      <text x="800" y="45">19</text><text x="830" y="45">20</text>
+    </g>
+
+    <!-- ZONE BACKGROUNDS -->
+    <!-- Rhubarb zone (rows 1-2) — no irrigation -->
+    <rect x="60" y="50" width="80" height="200" fill="#f0e6d0" rx="4" opacity="0.5"/>
+    <text x="100" y="146" font-size="9" fill="#999" text-anchor="middle" font-style="italic">Rhubarb</text>
+    <text x="100" y="158" font-size="8" fill="#bbb" text-anchor="middle">(no water)</text>
+
+    <!-- BARREL (east end, beside the bed) -->
+    <rect x="790" y="130" width="48" height="80" rx="8" fill="#2c3e50" opacity="0.9"/>
+    <text x="814" y="160" font-size="9" fill="white" text-anchor="middle" font-weight="600">Rain</text>
+    <text x="814" y="172" font-size="9" fill="white" text-anchor="middle" font-weight="600">Barrel</text>
+    <text x="814" y="186" font-size="8" fill="#bdc3c7" text-anchor="middle">20L+</text>
+    <!-- Controller -->
+    <rect x="795" y="214" width="38" height="30" rx="4" fill="#1a5276"/>
+    <text x="814" y="228" font-size="7" fill="white" text-anchor="middle" font-weight="600">C18Q</text>
+    <text x="814" y="238" font-size="6" fill="#85c1e9" text-anchor="middle">Controller</text>
+
+    <!-- MAIN FEED TUBE (dark blue, from barrel west through center of bed) -->
+    <line x1="795" y1="151" x2="150" y2="151" stroke="#1a237e" stroke-width="3" stroke-linecap="round"/>
+    <text x="450" y="145" font-size="8" fill="#1a237e" text-anchor="middle" font-weight="600">Main Feed Tube</text>
+
+    <!-- TEE CONNECTORS on main tube (shown as circles) -->
+    <g fill="#1a237e">
+      <circle cx="750" cy="151" r="4"/><!-- tee for tomato zone drippers -->
+      <circle cx="700" cy="151" r="4"/>
+      <circle cx="620" cy="151" r="4"/>
+      <circle cx="540" cy="151" r="4"/>
+      <circle cx="440" cy="151" r="4"/><!-- tee for seep hose zone -->
+      <circle cx="350" cy="151" r="4"/>
+      <circle cx="250" cy="151" r="4"/>
+      <circle cx="170" cy="151" r="4"/>
+    </g>
+
+    <!-- TOMATO DRIPPERS — NORTH/TRELLIS side (TOP of diagram, y~55-110) -->
+    <!-- Tomatoes span rows 9–18 in cols C–D (north/trellis) -->
+    <g>
+      <!-- Tomato 5 — rows 9-10 -->
+      <rect x="380" y="55" width="60" height="55" rx="4" fill="#c0392b" opacity="0.25"/>
+      <text x="410" y="85" font-size="9" fill="#922b21" text-anchor="middle" font-weight="600">Tom 5</text>
+      <line x1="410" y1="110" x2="410" y2="151" stroke="#2980b9" stroke-width="1.5" stroke-dasharray="3,2"/>
+      <circle cx="410" cy="85" r="5" fill="#2980b9"/><text x="410" y="88" font-size="6" fill="white" text-anchor="middle">D</text>
+
+      <!-- Tomato 1 — rows 11-12 -->
+      <rect x="450" y="55" width="60" height="55" rx="4" fill="#c0392b" opacity="0.25"/>
+      <text x="480" y="85" font-size="9" fill="#922b21" text-anchor="middle" font-weight="600">Tom 1</text>
+      <line x1="480" y1="110" x2="480" y2="151" stroke="#2980b9" stroke-width="1.5" stroke-dasharray="3,2"/>
+      <circle cx="480" cy="85" r="5" fill="#2980b9"/><text x="480" y="88" font-size="6" fill="white" text-anchor="middle">D</text>
+
+      <!-- Tomato 2 — rows 13-14 -->
+      <rect x="520" y="55" width="60" height="55" rx="4" fill="#c0392b" opacity="0.25"/>
+      <text x="550" y="85" font-size="9" fill="#922b21" text-anchor="middle" font-weight="600">Tom 2</text>
+      <line x1="550" y1="110" x2="550" y2="151" stroke="#2980b9" stroke-width="1.5" stroke-dasharray="3,2"/>
+      <circle cx="550" cy="85" r="5" fill="#2980b9"/><text x="550" y="88" font-size="6" fill="white" text-anchor="middle">D</text>
+
+      <!-- Tomato 3 — rows 15-16 -->
+      <rect x="590" y="55" width="60" height="55" rx="4" fill="#c0392b" opacity="0.25"/>
+      <text x="620" y="85" font-size="9" fill="#922b21" text-anchor="middle" font-weight="600">Tom 3</text>
+      <line x1="620" y1="110" x2="620" y2="151" stroke="#2980b9" stroke-width="1.5" stroke-dasharray="3,2"/>
+      <circle cx="620" cy="85" r="5" fill="#2980b9"/><text x="620" y="88" font-size="6" fill="white" text-anchor="middle">D</text>
+
+      <!-- Tomato 4 — rows 17-18 (ends before barrel zone) -->
+      <rect x="660" y="55" width="60" height="55" rx="4" fill="#c0392b" opacity="0.25"/>
+      <text x="690" y="85" font-size="9" fill="#922b21" text-anchor="middle" font-weight="600">Tom 4</text>
+      <line x1="690" y1="110" x2="690" y2="151" stroke="#2980b9" stroke-width="1.5" stroke-dasharray="3,2"/>
+      <circle cx="690" cy="85" r="5" fill="#2980b9"/><text x="690" y="88" font-size="6" fill="white" text-anchor="middle">D</text>
+    </g>
+
+    <!-- PEPPER & BASIL DRIPPERS — south-center (BOTTOM half of diagram, y~210-220) -->
+    <g>
+      <!-- Pepper 1 — row 14 -->
+      <line x1="540" y1="220" x2="540" y2="151" stroke="#2980b9" stroke-width="1.5" stroke-dasharray="3,2"/>
+      <circle cx="540" cy="220" r="5" fill="#e74c3c"/><text x="540" y="223" font-size="5" fill="white" text-anchor="middle">P</text>
+
+      <!-- Pepper 2 — row 15 -->
+      <line x1="580" y1="220" x2="580" y2="151" stroke="#2980b9" stroke-width="1.5" stroke-dasharray="3,2"/>
+      <circle cx="580" cy="220" r="5" fill="#e74c3c"/><text x="580" y="223" font-size="5" fill="white" text-anchor="middle">P</text>
+
+      <!-- Basil — row 13 -->
+      <line x1="500" y1="220" x2="500" y2="151" stroke="#2980b9" stroke-width="1.5" stroke-dasharray="3,2"/>
+      <circle cx="500" cy="220" r="5" fill="#8e44ad"/><text x="500" y="223" font-size="5" fill="white" text-anchor="middle">B</text>
+    </g>
+
+    <!-- SEEP HOSE RUNS (green dashed lines) -->
+    <!-- Seep 1: South side — Onions (rows 3–10) -->
+    <line x1="160" y1="228" x2="410" y2="228" stroke="#27ae60" stroke-width="4" stroke-linecap="round" stroke-dasharray="6,3" opacity="0.8"/>
+    <text x="280" y="243" font-size="8" fill="#1e8449" text-anchor="middle">Seep: Onions (rows 3–10)</text>
+    <line x1="160" y1="228" x2="160" y2="151" stroke="#27ae60" stroke-width="1.5" stroke-dasharray="3,2"/>
+    <circle cx="160" cy="228" r="4" fill="#27ae60"/>
+
+    <!-- Seep 2: Center-south — Carrots + herbs (rows 3–10) -->
+    <line x1="170" y1="185" x2="410" y2="185" stroke="#27ae60" stroke-width="4" stroke-linecap="round" stroke-dasharray="6,3" opacity="0.8"/>
+    <text x="285" y="198" font-size="8" fill="#1e8449" text-anchor="middle">Seep: Carrots + Herbs (rows 3–10)</text>
+    <line x1="170" y1="185" x2="170" y2="151" stroke="#27ae60" stroke-width="1.5" stroke-dasharray="3,2"/>
+    <circle cx="170" cy="185" r="4" fill="#27ae60"/>
+
+    <!-- Seep 3: North — Pole beans along trellis (rows 2–8) -->
+    <line x1="120" y1="70" x2="380" y2="70" stroke="#27ae60" stroke-width="4" stroke-linecap="round" stroke-dasharray="6,3" opacity="0.8"/>
+    <text x="250" y="63" font-size="8" fill="#1e8449" text-anchor="middle">Seep: Pole Beans (rows 2–8)</text>
+    <line x1="250" y1="100" x2="250" y2="70" stroke="#27ae60" stroke-width="1.5" stroke-dasharray="3,2"/>
+    <circle cx="250" cy="70" r="4" fill="#27ae60"/>
+
+    <!-- Seep 4: South cucumber run (rows 11–19) -->
+    <line x1="430" y1="228" x2="770" y2="228" stroke="#27ae60" stroke-width="4" stroke-linecap="round" stroke-dasharray="6,3" opacity="0.6"/>
+    <text x="600" y="243" font-size="8" fill="#1e8449" text-anchor="middle">Seep: Cucumbers south (rows 11–19)</text>
+    <circle cx="430" cy="228" r="4" fill="#27ae60"/>
+
+    <!-- Seep 5: South-center run (rows 11–19) -->
+    <line x1="430" y1="200" x2="770" y2="200" stroke="#27ae60" stroke-width="4" stroke-linecap="round" stroke-dasharray="6,3" opacity="0.6"/>
+    <text x="600" y="213" font-size="8" fill="#1e8449" text-anchor="middle">Seep: Cukes + Peppers + Basil</text>
+    <circle cx="430" cy="200" r="4" fill="#27ae60"/>
+
+    <!-- Barrel zone label (rows 19-20, north/trellis side) -->
+    <rect x="750" y="55" width="80" height="60" rx="4" fill="#f0e6d0" stroke="#d4c5a0" stroke-dasharray="3,2"/>
+    <text x="790" y="75" font-size="8" fill="#999" text-anchor="middle" font-style="italic">Rows 19–20</text>
+    <text x="790" y="87" font-size="8" fill="#999" text-anchor="middle" font-style="italic">Flowers only</text>
+    <text x="790" y="99" font-size="7" fill="#bbb" text-anchor="middle">(barrel below)</text>
+
+    <!-- LEGEND -->
+    <g transform="translate(60, 275)">
+      <rect x="0" y="0" width="780" height="55" rx="6" fill="white" stroke="#ddd"/>
+      <text x="16" y="18" font-size="10" fill="#333" font-weight="600">Legend</text>
+
+      <circle cx="16" cy="36" r="5" fill="#2980b9"/>
+      <text cx="16" cy="36" x="28" y="39" font-size="9" fill="#555">D = Dripper (tomatoes, peppers, basil)</text>
+
+      <line x1="200" y1="36" x2="240" y2="36" stroke="#27ae60" stroke-width="4" stroke-dasharray="6,3"/>
+      <text x="248" y="39" font-size="9" fill="#555">Seep hose run</text>
+
+      <line x1="380" y1="36" x2="420" y2="36" stroke="#1a237e" stroke-width="3"/>
+      <text x="428" y="39" font-size="9" fill="#555">Main feed tube</text>
+
+      <line x1="540" y1="36" x2="570" y2="36" stroke="#2980b9" stroke-width="1.5" stroke-dasharray="3,2"/>
+      <text x="578" y="39" font-size="9" fill="#555">Branch tube to dripper</text>
+
+      <circle cx="710" cy="36" r="4" fill="#1a237e"/>
+      <text x="720" y="39" font-size="9" fill="#555">Tee connector</text>
+    </g>
+  </svg>
+</div>
+
+<!-- INSTALLATION PLAN -->
+<div class="section">
+  <h2>Installation Steps</h2>
+
+  <h3>Stage 1 — Set Up Barrel &amp; Controller</h3>
+  <ol class="step-list">
+    <li>Place rain barrel at the east end of Plot A (rows 19–20 area), at least 30cm higher than the bed surface. South-facing side preferred for controller mounting.</li>
+    <li>Mount the C18Q controller on the barrel or a nearby post/wall, south-facing for maximum solar exposure. Keep it above the barrel waterline.</li>
+    <li>Drill the 5.5mm hole in the barrel lid. Thread the inlet tube through, attach the filter at the end. If using the water level sensor, make a second 10mm hole.</li>
+    <li>Connect the water level sensor and filter using the cable ties provided. Middle sensor 2cm above filter, bottom sensor hanging below.</li>
+    <li>Cut the outlet tube to reach from the pump port back to the bed. This becomes the start of your main feed tube.</li>
+  </ol>
+
+  <h3>Stage 2 — Run the Main Feed Tube</h3>
+  <ol class="step-list">
+    <li>From the controller's water outlet, run the main 3.5mm tube westward along the center of Plot A (approximately 2ft from the south edge — splitting the bed).</li>
+    <li>Run the tube the full length of the bed, roughly 6m (~19.5ft) to the rhubarb end. The rhubarb doesn't need watering, so stop the tube around row 3.</li>
+    <li>Install tee connectors where you need branches — roughly at rows 3, 5, 7, 9, 10, 12, 14, 16 along the main tube.</li>
+    <li>At the western end of the main tube, insert a <strong>stopper</strong>.</li>
+  </ol>
+
+  <h3>Stage 3 — Install Tomato Drippers</h3>
+  <ol class="step-list">
+    <li>From tee connectors in the tomato zone (rows 9–18), run short branch tubes (20–40cm each) <strong>north</strong> to each tomato plant's root zone on the trellis side.</li>
+    <li>Push a dripper into the end of each branch tube. Place the dripper at the base of each tomato plant, on the soil surface.</li>
+    <li>Repeat for both hot peppers and the basil plant — 8 drippers total.</li>
+    <li>Use stakes to hold each dripper and tube in position.</li>
+  </ol>
+
+  <h3>Stage 4 — Install Seep Hose Runs</h3>
+  <ol class="step-list">
+    <li><strong>Onion row (south side, rows 3–10):</strong> Connect a ~2.4m length of seep hose via the dripper connector fitting. Run it along the south edge of the bed, through the onion row. Stopper at the far end.</li>
+    <li><strong>Carrot/herb row (center, rows 3–10):</strong> Connect a ~2.4m seep hose run through the center of the bed, weaving between the carrot and herb plantings.</li>
+    <li><strong>Pole bean trellis (north side, rows 2–8):</strong> Connect a ~2.1m seep hose run along the trellis side, watering the pole bean roots (tomatoes start at row 9).</li>
+    <li><strong>Cucumber south run (rows 11–19):</strong> Connect a ~2.7m seep hose run along the south edge, watering the cucumber row.</li>
+    <li><strong>South-center run (rows 11–19):</strong> Connect a ~2.7m seep hose run through the south-center, watering cucumbers, peppers, and basil.</li>
+    <li>Total seep hose needed: ~12.3m. One 12m IRR-SH12 kit gets you very close — you may need a few extra inches or can slightly shorten the runs.</li>
+  </ol>
+
+  <h3>Stage 5 — Stoppers &amp; Anti-Siphon</h3>
+  <ol class="step-list">
+    <li>Ensure every tube end has either a dripper, seep hose connection, or stopper. The system won't pressurize properly without this.</li>
+    <li>Install the <strong>anti-siphon device</strong> on the outlet tube between the pump and the first dripper/tee — your bed is likely lower than the barrel, so this prevents back-draining when the pump stops.</li>
+    <li>Push stoppers into the 5 unused output slots on the tube.</li>
+  </ol>
+
+  <h3>Stage 6 — Initialize &amp; Test</h3>
+  <ol class="step-list">
+    <li>Follow Irrigatia's battery discharge/initialization process (press button to set 1d, wait ~2.5 hours).</li>
+    <li>Once initialized, set to <strong>level 6</strong> as a starting point. The pump will run every 3 hours during daylight.</li>
+    <li>Check every dripper and seep hose run is flowing. Remove and re-insert any clogged drippers.</li>
+    <li>After 2–3 days, let the air purge from the seep hose — it takes a few watering cycles to fully saturate.</li>
+    <li>After a few days, adjust the level up (more water) or down based on soil moisture. Tomatoes and cucumbers are heavy drinkers in summer — you may end up at level 7–8 by July.</li>
+  </ol>
+</div>
+
+<!-- PARTS LIST -->
+<div class="section">
+  <h2>Parts &amp; Shopping List</h2>
+  <table class="parts-table">
+    <thead>
+      <tr><th>Item</th><th>Product Code</th><th>Qty</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Irrigatia C18Q Controller Kit</td><td>C18Q</td><td>1</td><td>Includes controller, solar panel, 36 drippers, 18 tees, 15m tube, stakes, filter, water level sensor</td></tr>
+      <tr><td>Seep Hose 12m</td><td>IRR-SH12</td><td>1</td><td>12m porous rubber hose, cut to 5 runs totaling ~12.3m. <strong>Not included in C18Q kit — buy separately.</strong> Irrigatia sells it as IRR-SH12. For Amazon alternatives, search for "4mm porous soaker hose" or "1/4 inch soaker hose for drip irrigation" — key specs: 4mm (5/32") inner diameter, porous/weeping rubber, sold by the meter or in 10–15m rolls. Brands like Maitri or S&amp;M make compatible options.</td></tr>
+      <tr><td>15m Tube Extension Kit</td><td>—</td><td>1</td><td>The included 15m tube should suffice for the main run + branches, but an extension gives headroom for routing</td></tr>
+      <tr><td>Rain Barrel (20L minimum)</td><td>—</td><td>1</td><td>Larger is better — a standard 50-gallon (~190L) barrel will need fewer refills. Keep lightproof to prevent algae.</td></tr>
+      <tr><td>Extra Stakes</td><td>—</td><td>~10</td><td>For holding drippers and tube in place on raised bed soil</td></tr>
+    </tbody>
+  </table>
+
+  <div class="note-box" style="margin-top: 16px;">
+    <strong>Mulch tip:</strong> Cover all seep hose runs with a layer of mulch (straw or wood chips). This protects the hose from UV degradation, reduces evaporation, and keeps soil moisture more even. The manual specifically recommends this for longer hose life.
+  </div>
+</div>
+
+<!-- SETTINGS REFERENCE -->
+<div class="section">
+  <h2>Recommended Settings for Issaquah, WA</h2>
+  <p style="font-size: 14px; line-height: 1.7; margin-bottom: 12px;">The C18Q is weather-responsive — more sun means more water, which is perfect for your PNW climate where hot dry summers coincide with peak plant demand.</p>
+
+  <table class="parts-table">
+    <thead><tr><th>Period</th><th>Set Point</th><th>Why</th></tr></thead>
+    <tbody>
+      <tr><td>May (transplant)</td><td>5–6</td><td>Plants establishing, moderate water needs</td></tr>
+      <tr><td>June</td><td>6–7</td><td>Growth phase, longer days, increasing heat</td></tr>
+      <tr><td>July–August</td><td>7–8</td><td>Peak heat and fruiting — tomatoes and cukes drink heavily</td></tr>
+      <tr><td>September</td><td>5–6</td><td>Cooling down, shorter days, less demand</td></tr>
+    </tbody>
+  </table>
+
+  <div class="note-box" style="margin-top: 12px;">
+    <strong>Internal switches:</strong> Leave all defaults except — if your barrel ever runs dry between refills, consider switching the beeper ON (switch 5) so the red LED alerts you. The water level sensor (switch 6, ON by default) will give you low-water warnings on the hand control module.
+  </div>
+</div>
+
+</body>
+</html>

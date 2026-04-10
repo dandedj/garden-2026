@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 620" font-family="Arial, sans-serif">
+  <!-- Background -->
+  <rect width="800" height="620" fill="#f5f0e8"/>
+
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#333">Buried Barrel — Single-Hole Manifold (Cross Section)</text>
+
+  <!-- Ground level -->
+  <rect x="0" y="200" width="800" height="8" fill="#8B6914" opacity="0.3"/>
+  <text x="30" y="196" font-size="12" fill="#8B6914" font-weight="bold">GROUND LEVEL</text>
+
+  <!-- Soil texture above barrel -->
+  <rect x="140" y="208" width="520" height="40" fill="#a07828" opacity="0.15" rx="4"/>
+  <text x="400" y="232" text-anchor="middle" font-size="11" fill="#8B6914" opacity="0.6">soil cover</text>
+
+  <!-- Barrel outline (on its side, cross-section = circle) -->
+  <ellipse cx="400" cy="380" rx="180" ry="160" fill="#dce8f5" stroke="#2266aa" stroke-width="3"/>
+  <ellipse cx="400" cy="380" rx="174" ry="154" fill="#c5ddf5" stroke="none"/>
+
+  <!-- Water level -->
+  <clipPath id="barrelClip">
+    <ellipse cx="400" cy="380" rx="174" ry="154"/>
+  </clipPath>
+  <rect x="200" y="340" width="400" height="220" fill="#4a90d9" opacity="0.3" clip-path="url(#barrelClip)"/>
+  <line x1="226" y1="340" x2="574" y2="340" stroke="#4a90d9" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <text x="590" y="345" font-size="11" fill="#4a90d9">water level</text>
+
+  <!-- Barrel label -->
+  <text x="400" y="480" text-anchor="middle" font-size="13" fill="#2266aa" opacity="0.6">55 gal barrel (on side)</text>
+
+  <!-- Single hole in top of barrel -->
+  <rect x="370" y="222" width="60" height="26" fill="#dce8f5" stroke="#2266aa" stroke-width="2"/>
+
+  <!-- Uniseal / gasket ring -->
+  <rect x="365" y="220" width="70" height="8" fill="#555" rx="2"/>
+  <rect x="365" y="246" width="70" height="8" fill="#555" rx="2"/>
+  <text x="450" y="241" font-size="9" fill="#555">uniseal or</text>
+  <text x="450" y="251" font-size="9" fill="#555">gasket ring</text>
+
+  <!-- Manifold cap (above barrel, at ground level) -->
+  <rect x="340" y="170" width="120" height="52" fill="#ff8844" stroke="#cc5500" stroke-width="2" rx="4"/>
+  <text x="400" y="193" text-anchor="middle" font-size="11" font-weight="bold" fill="white">3D PRINTED</text>
+  <text x="400" y="206" text-anchor="middle" font-size="10" fill="white">MANIFOLD CAP</text>
+
+  <!-- Port 1: Fill (garden hose) - left -->
+  <line x1="355" y1="178" x2="280" y2="140" stroke="#22aa44" stroke-width="3"/>
+  <circle cx="275" cy="137" r="8" fill="#22aa44" stroke="#188833" stroke-width="2"/>
+  <text x="275" y="125" text-anchor="middle" font-size="11" font-weight="bold" fill="#188833">FILL PORT</text>
+  <text x="275" y="112" text-anchor="middle" font-size="10" fill="#188833">3/4" garden hose</text>
+  <text x="275" y="100" text-anchor="middle" font-size="10" fill="#188833">thread adapter</text>
+
+  <!-- Port 2: Draw line - right -->
+  <line x1="445" y1="178" x2="540" y2="140" stroke="#cc3333" stroke-width="3"/>
+  <circle cx="545" cy="137" r="8" fill="#cc3333" stroke="#aa2222" stroke-width="2"/>
+  <text x="545" y="125" text-anchor="middle" font-size="11" font-weight="bold" fill="#aa2222">DRAW PORT</text>
+  <text x="545" y="112" text-anchor="middle" font-size="10" fill="#aa2222">1/2" to Irrigatia</text>
+
+  <!-- Draw line tube going down to bottom of barrel -->
+  <line x1="430" y1="248" x2="430" y2="520" stroke="#cc3333" stroke-width="2.5" stroke-dasharray="8,4"/>
+  <text x="442" y="510" font-size="9" fill="#cc3333">draw tube to bottom</text>
+
+  <!-- Port 3: Vent - center-right -->
+  <line x1="420" y1="170" x2="420" y2="130" stroke="#8855cc" stroke-width="3"/>
+  <path d="M 412 130 L 420 115 L 428 130" fill="none" stroke="#8855cc" stroke-width="2"/>
+  <text x="420" y="108" text-anchor="middle" font-size="11" font-weight="bold" fill="#6633aa">VENT</text>
+  <text x="420" y="96" text-anchor="middle" font-size="10" fill="#6633aa">screened opening</text>
+
+  <!-- Sight tube with float -->
+  <rect x="385" y="170" width="12" height="180" fill="#ddffdd" stroke="#22aa44" stroke-width="1.5" rx="2" opacity="0.7"/>
+  <rect x="385" y="248" width="12" height="100" fill="#4a90d9" opacity="0.3"/>
+
+  <!-- Float ball -->
+  <circle cx="391" cy="335" r="5" fill="#ff4444" stroke="#cc0000" stroke-width="1.5"/>
+  <text x="375" y="320" text-anchor="end" font-size="10" fill="#cc0000" font-weight="bold">float</text>
+  <line x1="378" y1="322" x2="386" y2="332" stroke="#cc0000" stroke-width="0.8"/>
+
+  <!-- Sight tube label -->
+  <text x="350" y="290" text-anchor="end" font-size="10" fill="#22aa44">sight tube</text>
+  <text x="350" y="302" text-anchor="end" font-size="10" fill="#22aa44">(clear)</text>
+  <line x1="353" y1="295" x2="384" y2="295" stroke="#22aa44" stroke-width="0.8"/>
+
+  <!-- Dimensions callout -->
+  <line x1="365" y1="565" x2="435" y2="565" stroke="#666" stroke-width="1"/>
+  <line x1="365" y1="558" x2="365" y2="572" stroke="#666" stroke-width="1"/>
+  <line x1="435" y1="558" x2="435" y2="572" stroke="#666" stroke-width="1"/>
+  <text x="400" y="580" text-anchor="middle" font-size="10" fill="#666">hole: ~3" diameter</text>
+
+  <!-- Notes -->
+  <rect x="20" y="545" width="280" height="65" fill="white" stroke="#ccc" stroke-width="1" rx="4"/>
+  <text x="30" y="562" font-size="11" font-weight="bold" fill="#333">Notes:</text>
+  <text x="30" y="577" font-size="10" fill="#555">• All ports through single 3" Uniseal</text>
+  <text x="30" y="591" font-size="10" fill="#555">• Cap sits at or just below ground level</text>
+  <text x="30" y="605" font-size="10" fill="#555">• Draw tube extends to barrel bottom</text>
+
+  <rect x="500" y="545" width="280" height="65" fill="white" stroke="#ccc" stroke-width="1" rx="4"/>
+  <text x="510" y="562" font-size="11" font-weight="bold" fill="#333">Manifold cap ports:</text>
+  <text x="510" y="577" font-size="10" fill="#22aa44">■ Fill — 3/4" female garden hose thread</text>
+  <text x="510" y="591" font-size="10" fill="#cc3333">■ Draw — 1/2" barb to Irrigatia tubing</text>
+  <text x="510" y="605" font-size="10" fill="#6633aa">■ Vent — screened, pointed down</text>
+</svg>
