@@ -10,13 +10,18 @@ This project contains both Markdown source files and HTML view files:
 - `garden-timeline.md` — Full month-by-month planting/harvest schedule
 
 ### HTML (viewable via GitHub Pages or browser)
+- `index.html` — Hub page linking to all other views
 - `garden-preferences.html` — HTML version of preferences
 - `garden-inventory.html` — HTML version of inventory
+- `garden-supplies.html` — Tools, trellises, amendments, and accessories
 - `garden-timeline-view.html` — HTML version of timeline with interactive checkboxes
 - `garden-calendar.html` — Monthly calendar view with color-coded activity cards and Gantt overview
 - `garden-layout.html` — Visual grid layout of both raised beds
+- `garden-layout-time-a.html` — Plot A layout over time (warm crops)
+- `garden-layout-time-b.html` — Plot B layout over time (cool crops)
+- `irrigation-plan.html` — Irrigatia C18Q drip plan for Plot A
 
-All HTML files share a consistent navigation bar linking to each other.
+All HTML files (except `index.html`, which is the hub) share a consistent navigation bar linking to each other.
 
 ## Important: Keeping HTML in Sync
 

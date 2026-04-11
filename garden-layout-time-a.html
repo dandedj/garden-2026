@@ -108,6 +108,7 @@
   <a href="garden-layout-time-a.html" class="active">Plot A Time</a>
   <a href="garden-layout-time-b.html">Plot B Time</a>
   <a href="garden-supplies.html">Supplies</a>
+  <a href="irrigation-plan.html">Irrigation</a>
 </nav>
 
 <div style="max-width: 500px; margin: 0 auto;">
@@ -135,7 +136,7 @@
   <div class="orientation"><span>⬅ South</span><span>North (trellis) ➡</span></div>
   <div class="dir-label">⬆ West (rhubarb end)</div>
   <div class="bed-grid" id="plotGrid"></div>
-  <div class="dir-label" style="margin-top:4px;">⬇ East (tomatoes + zinnias)</div>
+  <div class="dir-label" style="margin-top:4px;">⬇ East (flowers + barrel) 🛢️</div>
 </div>
 
 <div class="legend" id="legend"></div>
@@ -155,12 +156,14 @@ const COL_LETTERS = ['A','B','C','D'];
 const ROWS = 20;
 
 // Each cell: { r, c, rs?, cs?, label, cls, phase }
+// Col 1 = south side, Col 4 = north/trellis side.
+// Tomatoes occupy the north/trellis side (cols 3-4) as 2×2 blocks.
 const CELLS = [
   // Row 1
   { r:1, c:1, label:'Rhubarb',    cls:'rhubarb',    phase:'pre' },
   { r:1, c:2, label:'Rhubarb',    cls:'rhubarb',    phase:'pre' },
-  { r:1, c:3, label:'Nasturtium', cls:'nasturtium',  phase:'apr-late' },
-  { r:1, c:4, label:'Nasturtium', cls:'nasturtium',  phase:'apr-late' },
+  { r:1, c:3, label:'Nasturtium', cls:'nasturtium', phase:'apr-late' },
+  { r:1, c:4, label:'Nasturtium', cls:'nasturtium', phase:'apr-late' },
   // Row 2
   { r:2, c:1, label:'Rhubarb',    cls:'rhubarb',    phase:'pre' },
   { r:2, c:2, label:'Rhubarb',    cls:'rhubarb',    phase:'pre' },
@@ -196,46 +199,46 @@ const CELLS = [
   { r:8, c:2, label:'Carrot',     cls:'carrot',     phase:'apr-early' },
   { r:8, c:3, label:'Carrot',     cls:'carrot',     phase:'apr-early' },
   { r:8, c:4, label:'Pole Bean',  cls:'bean',       phase:'apr-late' },
-  // Row 9
-  { r:9, c:1, label:'Onion',      cls:'onion',      phase:'mar29' },
-  { r:9, c:2, label:'Carrot',     cls:'carrot',     phase:'apr-early' },
-  { r:9, c:3, label:'Dill',       cls:'dill',       phase:'apr-late' },
-  { r:9, c:4, label:'Pole Bean',  cls:'bean',       phase:'apr-late' },
-  // Row 10
-  { r:10, c:1, label:'Onion',       cls:'onion',    phase:'mar29' },
-  { r:10, c:2, label:'Carrot',      cls:'carrot',   phase:'apr-early' },
-  { r:10, c:3, label:'Dill',        cls:'dill',     phase:'apr-late' },
-  { r:10, c:4, label:'Cuke Pickle', cls:'cucumber', phase:'may-early' },
-  // Row 11-12: Tom 5
-  { r:11, c:1, rs:2, cs:2, label:'🍅 Tom 5', cls:'tomato', phase:'may-late' },
-  { r:11, c:3, label:'Radish',      cls:'radish',   phase:'mar29' },
-  { r:11, c:4, label:'Cuke Pickle', cls:'cucumber', phase:'may-early' },
-  { r:12, c:3, label:'Radish',      cls:'radish',   phase:'mar29' },
-  { r:12, c:4, label:'Cuke Pickle', cls:'cucumber', phase:'may-early' },
-  // Row 13-14: Tom 1
-  { r:13, c:1, rs:2, cs:2, label:'🍅 Tom 1', cls:'tomato', phase:'may-late' },
-  { r:13, c:3, label:'Basil',       cls:'basil',    phase:'may-late' },
-  { r:13, c:4, label:'Cuke Pickle', cls:'cucumber', phase:'may-early' },
-  { r:14, c:3, label:'Hot Pep',     cls:'pepper',   phase:'may-late' },
-  { r:14, c:4, label:'Cuke Pickle', cls:'cucumber', phase:'may-early' },
-  // Row 15-16: Tom 2
-  { r:15, c:1, rs:2, cs:2, label:'🍅 Tom 2', cls:'tomato', phase:'may-late' },
-  { r:15, c:3, label:'Hot Pep',     cls:'pepper',   phase:'may-late' },
-  { r:15, c:4, label:'Cuke Slice',  cls:'cucumber', phase:'may-early' },
-  { r:16, c:3, label:'Marigold',    cls:'marigold', phase:'may-late' },
-  { r:16, c:4, label:'Cuke Slice',  cls:'cucumber', phase:'may-early' },
-  // Row 17-18: Tom 3
-  { r:17, c:1, rs:2, cs:2, label:'🍅 Tom 3', cls:'tomato', phase:'may-late' },
-  { r:17, c:3, label:'Marigold',    cls:'marigold', phase:'may-late' },
-  { r:17, c:4, label:'Cuke Slice',  cls:'cucumber', phase:'may-early' },
-  { r:18, c:3, label:'Zinnia',      cls:'zinnia',   phase:'may-late' },
-  { r:18, c:4, label:'Cuke Slice',  cls:'cucumber', phase:'may-early' },
-  // Row 19-20: Tom 4
-  { r:19, c:1, rs:2, cs:2, label:'🍅 Tom 4', cls:'tomato', phase:'may-late' },
-  { r:19, c:3, label:'Zinnia',      cls:'zinnia',   phase:'may-late' },
-  { r:19, c:4, label:'Cuke Slice',  cls:'cucumber', phase:'may-early' },
-  { r:20, c:3, label:'Zinnia',      cls:'zinnia',   phase:'may-late' },
-  { r:20, c:4, label:'Nasturtium',  cls:'nasturtium', phase:'apr-late' },
+  // Row 9-10: Tom 5 on trellis side (cols 3-4)
+  { r:9,  c:1, label:'Onion',     cls:'onion',      phase:'mar29' },
+  { r:9,  c:2, label:'Carrot',    cls:'carrot',     phase:'apr-early' },
+  { r:9,  c:3, rs:2, cs:2, label:'🍅 Tom 5', cls:'tomato', phase:'may-late' },
+  { r:10, c:1, label:'Onion',     cls:'onion',      phase:'mar29' },
+  { r:10, c:2, label:'Dill',      cls:'dill',       phase:'apr-late' },
+  // Row 11-12: Tom 1 on trellis side
+  { r:11, c:1, label:'Cuke Pickle', cls:'cucumber', phase:'may-early' },
+  { r:11, c:2, label:'Radish',    cls:'radish',     phase:'mar29' },
+  { r:11, c:3, rs:2, cs:2, label:'🍅 Tom 1', cls:'tomato', phase:'may-late' },
+  { r:12, c:1, label:'Cuke Pickle', cls:'cucumber', phase:'may-early' },
+  { r:12, c:2, label:'Radish',    cls:'radish',     phase:'mar29' },
+  // Row 13-14: Tom 2 on trellis side
+  { r:13, c:1, label:'Cuke Pickle', cls:'cucumber', phase:'may-early' },
+  { r:13, c:2, label:'Basil',     cls:'basil',      phase:'may-late' },
+  { r:13, c:3, rs:2, cs:2, label:'🍅 Tom 2', cls:'tomato', phase:'may-late' },
+  { r:14, c:1, label:'Cuke Pickle', cls:'cucumber', phase:'may-early' },
+  { r:14, c:2, label:'Hot Pep',   cls:'pepper',     phase:'may-late' },
+  // Row 15-16: Tom 3 on trellis side
+  { r:15, c:1, label:'Cuke Slice', cls:'cucumber',  phase:'may-early' },
+  { r:15, c:2, label:'Hot Pep',   cls:'pepper',     phase:'may-late' },
+  { r:15, c:3, rs:2, cs:2, label:'🍅 Tom 3', cls:'tomato', phase:'may-late' },
+  { r:16, c:1, label:'Cuke Slice', cls:'cucumber',  phase:'may-early' },
+  { r:16, c:2, label:'Marigold',  cls:'marigold',   phase:'may-late' },
+  // Row 17-18: Tom 4 on trellis side
+  { r:17, c:1, label:'Cuke Slice', cls:'cucumber',  phase:'may-early' },
+  { r:17, c:2, label:'Marigold',  cls:'marigold',   phase:'may-late' },
+  { r:17, c:3, rs:2, cs:2, label:'🍅 Tom 4', cls:'tomato', phase:'may-late' },
+  { r:18, c:1, label:'Cuke Slice', cls:'cucumber',  phase:'may-early' },
+  { r:18, c:2, label:'Zinnia',    cls:'zinnia',     phase:'may-late' },
+  // Row 19 — barrel area, shallow-rooting flowers
+  { r:19, c:1, label:'Cuke Slice', cls:'cucumber',  phase:'may-early' },
+  { r:19, c:2, label:'Zinnia',    cls:'zinnia',     phase:'may-late' },
+  { r:19, c:3, label:'Marigold',  cls:'marigold',   phase:'may-late' },
+  { r:19, c:4, label:'Nasturtium',cls:'nasturtium', phase:'apr-late' },
+  // Row 20 — flowers near barrel
+  { r:20, c:1, label:'Nasturtium',cls:'nasturtium', phase:'apr-late' },
+  { r:20, c:2, label:'Zinnia',    cls:'zinnia',     phase:'may-late' },
+  { r:20, c:3, label:'Zinnia',    cls:'zinnia',     phase:'may-late' },
+  { r:20, c:4, label:'Nasturtium',cls:'nasturtium', phase:'apr-late' },
 ];
 
 // --- Build grid ---

@@ -292,6 +292,7 @@
   <a href="garden-layout-time-a.html" style="padding:6px 14px;border-radius:16px;background:#fff;border:1px solid #ccc;text-decoration:none;color:#555;font-size:13px;font-weight:500;">Plot A Time</a>
   <a href="garden-layout-time-b.html" style="padding:6px 14px;border-radius:16px;background:#fff;border:1px solid #ccc;text-decoration:none;color:#555;font-size:13px;font-weight:500;">Plot B Time</a>
   <a href="garden-supplies.html" style="padding:6px 14px;border-radius:16px;background:#fff;border:1px solid #ccc;text-decoration:none;color:#555;font-size:13px;font-weight:500;">Supplies</a>
+  <a href="irrigation-plan.html" style="padding:6px 14px;border-radius:16px;background:#fff;border:1px solid #ccc;text-decoration:none;color:#555;font-size:13px;font-weight:500;">Irrigation</a>
 </nav>
 
 <header>
@@ -307,10 +308,7 @@
   <div class="legend-item"><div class="legend-dot" style="background:var(--clr-done)"></div> Completed</div>
 </div>
 
-<nav class="nav-tabs" id="navTabs">  <a href="garden-layout-time-a.html" style="padding:6px 14px;border-radius:16px;background:#fff;border:1px solid #ccc;text-decoration:none;color:#555;font-size:13px;font-weight:500;">Plot A Time</a>
-  <a href="garden-layout-time-b.html" style="padding:6px 14px;border-radius:16px;background:#fff;border:1px solid #ccc;text-decoration:none;color:#555;font-size:13px;font-weight:500;">Plot B Time</a>
-  <a href="garden-supplies.html" style="padding:6px 14px;border-radius:16px;background:#fff;border:1px solid #ccc;text-decoration:none;color:#555;font-size:13px;font-weight:500;">Supplies</a>
-</nav>
+<nav class="nav-tabs" id="navTabs"></nav>
 
 <main id="panels"></main>
 
@@ -626,7 +624,7 @@ const GANTT = [
 ];
 
 const ganttMonths = ['Mar','Apr','May','Jun','Jul','Aug','Sep','Oct'];
-const currentMonthId = 'mar-late'; // March 2026
+const currentMonthId = 'apr-early'; // April 2026
 
 // Build navigation tabs
 const navEl = document.getElementById('navTabs');
