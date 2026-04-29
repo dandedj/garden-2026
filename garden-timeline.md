@@ -42,7 +42,7 @@ This is the master tracker for everything that's been planted. Use it to know **
 
 - [ ] **Hill potatoes (1st hilling)** — They're 3" tall; mound soil now leaving 3–4" of foliage exposed.
 - [ ] **Harden off cucumbers** — Set outside in shade 2–3 hrs/day for 5–7 days, then transplant May 2–3 along Plot A north trellis (12" spacing).
-- [ ] **Plant rows 7–9 Plot B (replaces extra lettuce)** — Bok choy, Asian greens (mizuna/tatsoi/mustard mix), and bunching green onions. See "Late April — Replacing Extra Lettuce" below.
+- [ ] **Plant rows 7–9 Plot B (replaces extra lettuce)** — Bok choy R1 (west half row 7), Asian greens (all of row 8), green onions Q1 (west 1 sq ft of row 9). Stagger bok choy R2 + onion Q2 for May 23. See "Late April — Replacing Extra Lettuce" below.
 - [ ] **Harvest first radishes** — Pepito sown Mar 29 should be marble-sized now.
 - [ ] **Plant pole beans (1st sowing)** — Direct sow Fortex & Seychelles when soil hits 60°F (~early May).
 - [ ] **Spinach 3rd sowing** (~Apr 29 — succession from Apr 15)
@@ -190,10 +190,25 @@ This is the master tracker for everything that's been planted. Use it to know **
 
 > **Plan change:** Rows 7–9 of Plot B (12 sq ft) were originally lettuce. Replacing with Asian greens + bunching onions for variety.
 
-- [ ] **Bok choy — Joi Choi or Mei Qing Choi** — Direct sow ¼" deep, thin to 6–8" apart. Cool-weather crop, ~45 days to harvest. Plant in **row 7** (4 cells across).
-- [ ] **Asian greens mix — mizuna, tatsoi, mustard** — Direct sow ¼" deep, thin to 4–6" apart. Cut-and-come-again. ~30–45 days. Plant in **row 8** (4 cells across).
-- [ ] **Green onions — Evergreen Hardy White (bunching)** — ✅ Already on hand from Gurney's order (Item #77034). Direct sow ¼–½" deep, ½–1" apart in clusters. ~60–70 days from seed; pickable at scallion size much earlier. Plant in **row 9** (4 cells across).
-- [ ] **Pick up seed** — Bok choy and mizuna/tatsoi mix (only — green onion seed already in inventory). Home Depot has both; Johnny's also stocks them.
+**Bok choy — split into 2 succession sowings (avoids harvest glut):**
+- [ ] **Bok choy round 1 (May 2–3)** — Sow west half of row 7 (~8 plants). Direct sow ¼" deep, 6–8" apart. ~45 days → harvest ~mid-June.
+- [ ] **Bok choy round 2 (~May 23)** — Sow east half of row 7 (~8 plants). Harvest ~early July.
+- [ ] **Bok choy fall round (~late Aug)** — Replant whole row 7 once spring rounds finish. Harvest Sep–Oct.
+
+**Asian greens mix — single sowing (cut-and-come-again means continuous harvest):**
+- [ ] **Asian greens — mizuna/tatsoi/mustard (May 2–3)** — Direct sow ¼" deep, thin to 4–6" apart, all of row 8 (~36 plants). Cut outer leaves at ~30 days; plants regrow several times. ~30–45 days.
+
+**Green onions — split into 4 quadrants for rolling harvest:**
+
+| Quadrant | When | Status |
+|---|---|---|
+| #1 (west end of row 9) | **May 2–3** | Sow now → ready as scallions ~late June |
+| #2 | **~May 23** (3 wks later) | Ready ~mid-July |
+| #3 | **~Jun 13** | Ready ~early August |
+| #4 (east end) | **~Aug 25** | Fall/winter harvest, overwinters into 2027 |
+
+- [ ] **Green onion quadrant 1 (May 2–3)** — Sow west 1 sq ft of row 9. ¼" deep, ½–1" apart in 2 short rows. Use Gurney's Evergreen White (Item #77034 — already on hand).
+- [ ] **Pick up seed** — Bok choy and mizuna/tatsoi mix only (green onion seed already in inventory). Home Depot, Squak Mountain Nursery, Sky Nursery, or Johnny's online.
 
 ### Succession Planting (upcoming)
 - [ ] **Spinach — 3rd sowing** (~Apr 30 — 2 wks after Apr 15)
