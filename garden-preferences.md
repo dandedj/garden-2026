@@ -41,8 +41,13 @@
 - Radishes
 
 **Brassicas & leafy greens:**
-- Lettuce (lots)
+- Lettuce (lots — but trimmed in 2026; rows 7–9 of Plot B reassigned)
 - Spinach
 - Kale (2 plants only)
 - Perpetual spinach / leaf beet (summer spinach substitute)
 - Broccoli (fall crop, post-pea succession in Plot B)
+- Bok choy (added 2026 — Plot B row 7)
+- Asian greens mix (mizuna / tatsoi / mustard — added 2026, Plot B row 8)
+
+**Alliums (added):**
+- Bunching green onions / scallions (Plot B row 9, year-round-ish)

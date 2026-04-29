@@ -82,6 +82,9 @@
   .nasturtium { background: #d35400; }
   .zinnia { background: #c2185b; }
   .broccoli { background: #2e7d32; }
+  .bokchoy { background: #6fb96b; }
+  .asiangreens { background: #4a8a4f; }
+  .scallion { background: #b8c447; color: #333; text-shadow: none; }
 
   .legend { max-width: 500px; margin: 20px auto 0; background: #fff; border-radius: 10px; padding: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
   .legend h3 { font-size: 14px; color: #2d5016; margin-bottom: 10px; }
@@ -141,8 +144,8 @@ const PHASES = [
   { id: 'pre',       label: 'Pre-season (Feb)',              detail: 'Garlic in ground from fall 2025' },
   { id: 'mar12',     label: 'March 12 — Peas Sown',         detail: 'Sugar snap peas on north trellis' },
   { id: 'mar29',     label: 'March 29 — Spring Planting',    detail: 'Spinach, potatoes, lettuce between garlic' },
-  { id: 'apr-early', label: 'Early April — Cool Crops',      detail: 'Main lettuce, kale sown (soil 55°F+)' },
-  { id: 'apr-late',  label: 'Late April — After Last Frost', detail: 'Nasturtiums planted as companions' },
+  { id: 'apr-early', label: 'Early April — Cool Crops',      detail: 'Main lettuce (rows 5–6 only), kale sown (soil 55°F+)' },
+  { id: 'apr-late',  label: 'Late April — After Last Frost', detail: 'Pea trellis up Apr 15. Pea round 2 (Apr 20). Spinach round 2. Bok choy / Asian greens / green onions in rows 7–9 (replacing extra lettuce). Nasturtiums.' },
   { id: 'may-early', label: 'Early May',                     detail: 'No new Plot B plantings this period' },
   { id: 'may-late',  label: 'Late May — Summer Crops',       detail: 'Zinnia added' },
   { id: 'jul',       label: 'Mid July — Succession',         detail: 'Peas pulled → broccoli transplanted; garlic harvested' },
@@ -182,18 +185,18 @@ const CELLS = [
   { r:6, c:2, label:'Lettuce', cls:'lettuce', phase:'apr-early' },
   { r:6, c:3, label:'Lettuce', cls:'lettuce', phase:'apr-early' },
   { r:6, c:4, label:'Lettuce', cls:'lettuce', phase:'apr-early' },
-  { r:7, c:1, label:'Lettuce', cls:'lettuce', phase:'apr-early' },
-  { r:7, c:2, label:'Lettuce', cls:'lettuce', phase:'apr-early' },
-  { r:7, c:3, label:'Lettuce', cls:'lettuce', phase:'apr-early' },
-  { r:7, c:4, label:'Lettuce', cls:'lettuce', phase:'apr-early' },
-  { r:8, c:1, label:'Lettuce', cls:'lettuce', phase:'apr-early' },
-  { r:8, c:2, label:'Lettuce', cls:'lettuce', phase:'apr-early' },
-  { r:8, c:3, label:'Lettuce', cls:'lettuce', phase:'apr-early' },
-  { r:8, c:4, label:'Lettuce', cls:'lettuce', phase:'apr-early' },
-  { r:9, c:1, label:'Lettuce', cls:'lettuce', phase:'apr-early' },
-  { r:9, c:2, label:'Lettuce', cls:'lettuce', phase:'apr-early' },
-  { r:9, c:3, label:'Lettuce', cls:'lettuce', phase:'apr-early' },
-  { r:9, c:4, label:'Lettuce', cls:'lettuce', phase:'apr-early' },
+  { r:7, c:1, label:'Bok Choy', cls:'bokchoy', phase:'apr-late' },
+  { r:7, c:2, label:'Bok Choy', cls:'bokchoy', phase:'apr-late' },
+  { r:7, c:3, label:'Bok Choy', cls:'bokchoy', phase:'apr-late' },
+  { r:7, c:4, label:'Bok Choy', cls:'bokchoy', phase:'apr-late' },
+  { r:8, c:1, label:'Asian Greens', cls:'asiangreens', phase:'apr-late' },
+  { r:8, c:2, label:'Asian Greens', cls:'asiangreens', phase:'apr-late' },
+  { r:8, c:3, label:'Asian Greens', cls:'asiangreens', phase:'apr-late' },
+  { r:8, c:4, label:'Asian Greens', cls:'asiangreens', phase:'apr-late' },
+  { r:9, c:1, label:'Green Onion', cls:'scallion', phase:'apr-late' },
+  { r:9, c:2, label:'Green Onion', cls:'scallion', phase:'apr-late' },
+  { r:9, c:3, label:'Green Onion', cls:'scallion', phase:'apr-late' },
+  { r:9, c:4, label:'Green Onion', cls:'scallion', phase:'apr-late' },
   // Row 10-11: Potatoes
   { r:10, c:1, label:'Potato Gold', cls:'potato', phase:'mar29' },
   { r:10, c:2, label:'Potato Gold', cls:'potato', phase:'mar29' },

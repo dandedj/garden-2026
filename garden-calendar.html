@@ -323,7 +323,7 @@
 </section>
 
 <footer>
-  Garden Calendar 2026 &middot; Updated March 30, 2026
+  Garden Calendar 2026 &middot; Updated April 28, 2026
 </footer>
 
 <script>
@@ -383,44 +383,47 @@ const MONTHS = [
     ]
   },
   { id:'apr-early', label:'Early Apr', fullLabel:'Early April (Apr 1\u201315)', soil:'50\u201355\u00b0F',
-    summary:'Transition period. Continue successions outdoors, start warm-season crops indoors.',
+    summary:'Transition period. Carrots round 1 went in ~Apr 7. Cucumbers started indoors.',
     groups:[
-      { type:'sow', label:'Succession Sowings',items:[
-        { title:'Carrots \u2014 2nd sowing', detail:'Every 3 weeks for continuous harvest.', plot:'Plot A' },
-        { title:'Cilantro \u2014 2nd sowing', detail:'Every 2\u20133 weeks to stay ahead of bolting.', plot:'Plot A' },
-        { title:'Radishes \u2014 3rd sowing', detail:'', plot:'Plot A' },
-        { title:'Lettuce \u2014 3rd sowing', detail:'', plot:'Plot B' },
-      ]},
-      { type:'sow', label:'Start Indoors',items:[
-        { title:'Cucumbers \u2014 Gershwin & Gateway', detail:'3\u20134 weeks before transplant (~May 1). Soil 70\u201385\u00b0F. Use heat mat.', plot:'Indoors' },
-        { title:'Dill (optional indoor start)', detail:'Or wait to direct sow after last frost. Soil 60\u201370\u00b0F.', plot:'Indoors' },
-        { title:'Nasturtiums \u2014 Alaska Mix', detail:'\u00bd\u20131\u2033 deep, 2\u20133 weeks before last frost. Darkness required.', plot:'Indoors' },
-        { title:'Zinnias \u2014 Benary\u2019s Giant', detail:'\u00bc\u2033 deep, 4\u20136 weeks before last frost. Soil 70\u201380\u00b0F.', plot:'Indoors' },
-      ]},
-      { type:'maint', label:'Infrastructure & Fertilizing',items:[
-        { title:'Install Plot A trellis', detail:'Full-length north-edge trellis for pole beans and cucumbers.', plot:'Plot A' },
-        { title:'Prepare tomato cages', detail:'6 sturdy cages (at least 5 ft tall) for mid-May planting.', plot:'' },
-        { title:'Feed peas \u2014 bone meal', detail:'Light phosphorus feed at flowering.', plot:'Plot B' },
-        { title:'Hill potatoes (1st hilling)', detail:'When stems are 6\u20138\u2033 tall, mound soil leaving 3\u20134\u2033 exposed.', plot:'Plot B' },
+      { type:'done', label:'\u2705 Completed',items:[
+        { title:'Carrots \u2014 Yaya (round 1, ~Apr 7)', detail:'\u00bc\u2033 deep, thin to 1\u20132\u2033. Sprouting Apr 28!', plot:'Plot A center' },
+        { title:'Cucumbers \u2014 Gershwin & Gateway (started indoors ~Apr 1)', detail:'2\u2033 tall with true leaves Apr 28. Transplant May 2\u20133.', plot:'Indoors' },
       ]},
     ]
   },
-  { id:'apr-late', label:'Late Apr', fullLabel:'Mid\u2013Late April (Apr 15\u201330) \u2014 LAST FROST ~Apr 15', soil:'55\u201360\u00b0F',
-    summary:'Last frost passes! Warm-season direct sowing begins.',
+  { id:'apr-late', label:'Late Apr', fullLabel:'Mid\u2013Late April (Apr 15\u201330) \u2014 LAST FROST ~Apr 15 \u2014 NOW', soil:'55\u201360\u00b0F',
+    summary:'NOW (Apr 28). Lots done; bok choy + Asian greens + green onions going into Plot B rows 7\u20139.',
     groups:[
-      { type:'sow', label:'After Last Frost \u2014 Direct Sow',items:[
-        { title:'Dill \u2014 Bouquet (1st)', detail:'\u00bc\u2033 deep, 6\u201312\u2033 apart. Soil 60\u00b0F+. In front of cucumber trellis.', plot:'Plot A center-north' },
-        { title:'Pole Beans \u2014 Fortex & Seychelles (1st)', detail:'1\u2033 deep, 4\u20136\u2033 apart along trellis. Soil 60\u00b0F+.', plot:'Plot A west' },
-        { title:'Nasturtiums \u2014 Alaska Mix', detail:'\u00bd\u20131\u2033 deep, or transplant starts. Soil 55\u201365\u00b0F.', plot:'Plot A & Plot B' },
+      { type:'done', label:'\u2705 Completed (Apr 15\u201326)',items:[
+        { title:'Pea trellis installed (~Apr 15)', detail:'Fiberglass/bamboo + netting. No metal near power line.', plot:'Plot B north' },
+        { title:'Sugar Snap Peas \u2014 round 2 (~Apr 20)', detail:'Climbing variety on the trellis.', plot:'Plot B north' },
+        { title:'Spinach \u2014 round 2 (~Apr 15)', detail:'2-week succession from Mar 29.', plot:'Plot B north-center' },
+        { title:'Lettuce \u2014 main sowing rows 5\u20136 (~Apr 15)', detail:'Salanova/Muir/Allstar. Rows 7\u20139 reassigned to Asian greens.', plot:'Plot B center' },
+        { title:'Dill \u2014 Bouquet 1st sowing (~Apr 15)', detail:'\u00bc\u2033 deep, 6\u201312\u2033 apart. Direct sow (skipped indoor start).', plot:'Plot A center-north' },
+        { title:'Cilantro \u2014 Calypso 1st sowing (~Apr 15)', detail:'\u00bc\u2013\u00bd\u2033 deep, 6\u20138\u2033 apart.', plot:'Plot A west-center' },
+        { title:'Carrots \u2014 round 2 (Apr 26)', detail:'3-week succession from round 1.', plot:'Plot A center' },
+        { title:'Zinnias \u2014 Benary\u2019s Giant (~Apr 25)', detail:'Direct sowed over rain barrel.', plot:'Plot A east' },
+        { title:'Nasturtiums \u2014 Alaska Mix (~Apr 25)', detail:'Direct sowed over rain barrel.', plot:'Plot A east' },
+        { title:'Fish emulsion side-dress (~Apr 25)', detail:'Most plants \u2014 greens, alliums, peas. Repeat ~May 22.', plot:'Both plots' },
       ]},
-      { type:'sow', label:'Succession Sowings',items:[
-        { title:'Spinach \u2014 3rd sowing', detail:'', plot:'Plot B' },
-        { title:'Lettuce \u2014 4th sowing', detail:'', plot:'Plot B' },
-        { title:'Radishes \u2014 4th sowing', detail:'', plot:'Plot A' },
-        { title:'Cilantro \u2014 3rd sowing', detail:'', plot:'Plot A' },
+      { type:'sow', label:'\ud83c\udd95 Replacing Extra Lettuce \u2014 Plot B Rows 7\u20139 (Apr 28\u2013May 5)',items:[
+        { title:'Bok Choy (Joi Choi or Mei Qing)', detail:'Row 7. \u00bc\u2033 deep, 6\u20138\u2033 apart. ~45 days. Bolts in heat \u2014 replant fall.', plot:'Plot B row 7' },
+        { title:'Asian Greens Mix (mizuna/tatsoi/mustard)', detail:'Row 8. \u00bc\u2033 deep, 4\u20136\u2033 apart. Cut-and-come-again. ~30\u201345 days.', plot:'Plot B row 8' },
+        { title:'Bunching Green Onions (Evergreen White)', detail:'Row 9. Already on hand from Gurney\u2019s. Sow thickly, \u00bd\u20131\u2033 apart.', plot:'Plot B row 9' },
       ]},
-      { type:'maint', label:'Fertilizing',items:[
-        { title:'Side-dress leafy greens', detail:'Fish emulsion or liquid kelp to lettuce, spinach, kale every 3\u20134 weeks.', plot:'' },
+      { type:'transplant', label:'Cucumber Transition (this weekend)',items:[
+        { title:'Harden off cucumbers (Apr 28\u2013May 1)', detail:'Outside in shade 2\u20133 hrs/day, increasing each day.', plot:'\u2014' },
+        { title:'Install Plot A trellis BEFORE transplant', detail:'Fiberglass stakes + nylon netting along north edge. \u26a0 No metal near power line.', plot:'Plot A north' },
+        { title:'Transplant cucumbers (May 2\u20133)', detail:'Gershwin (pickling) + Gateway (slicing). 12\u2033 apart.', plot:'Plot A trellis' },
+      ]},
+      { type:'maint', label:'Maintenance & Succession',items:[
+        { title:'Hill potatoes (1st)', detail:'3\u2033 tall Apr 28; hill once they hit 6\u20138\u2033 (~early May). Mound soil leaving 3\u20134\u2033 exposed.', plot:'Plot B east' },
+        { title:'Spinach \u2014 3rd sowing (~Apr 30)', detail:'2-week succession from Apr 15.', plot:'Plot B' },
+        { title:'Radishes \u2014 2nd sowing (~Apr 30)', detail:'10\u201314 days after planned schedule.', plot:'Plot A' },
+        { title:'Harvest first radishes', detail:'Pepito (Mar 29 sowing) should be marble-sized.', plot:'Plot A' },
+      ]},
+      { type:'sow', label:'After Last Frost \u2014 Coming Up',items:[
+        { title:'Pole Beans \u2014 Fortex & Seychelles (1st)', detail:'Direct sow when soil hits 60\u00b0F+ (likely ~May 5\u201310). 1\u2033 deep, 4\u20136\u2033 apart.', plot:'Plot A west' },
       ]},
     ]
   },
@@ -621,10 +624,13 @@ const GANTT = [
   ['Zinnias',               2, 2, 4, 7],
   ['Nasturtiums',           1, 1, 3, 7],
   ['Marigolds',             2, 2, 3, 7],
+  ['Bok Choy',              1, 1, 3, 3],
+  ['Asian Greens (mizuna/tatsoi)', 1, 5, 2, 7],
+  ['Green Onions (bunching)', 1, 1, 3, 7],
 ];
 
 const ganttMonths = ['Mar','Apr','May','Jun','Jul','Aug','Sep','Oct'];
-const currentMonthId = 'apr-early'; // April 2026
+const currentMonthId = 'apr-late'; // April 28, 2026
 
 // Build navigation tabs
 const navEl = document.getElementById('navTabs');

@@ -6,6 +6,51 @@ Last frost: ~April 15 · First fall frost: ~October 15 · Growing season: ~180 d
 
 ---
 
+## 📋 Planting Log & Care Schedule (as of Apr 28, 2026)
+
+This is the master tracker for everything that's been planted. Use it to know **when to fertilize next** and **when to start watching for harvest**.
+
+| Planted | Crop / Variety | Location | Round | Next Fertilize | First Harvest Window | Notes |
+|---|---|---|---|---|---|---|
+| Mar 12 | Sugar Snap Peas (climbing) | Plot B north, on trellis | 1 of 2 | Bone meal at flowering (~late Apr/early May) | **May 9–22** (~58–70 days) | First peas! Germinated and climbing. |
+| Mar 29 | Onions — Patterson + Walla Walla | Plot A south row | 1× | Balanced fert ~May 10 (6 wks after planting) | Walla Walla: late Jun · Patterson: mid-Jul | Storage + sweet onions |
+| Mar 29 | Potatoes — Canada Gold, Carla Rose, Nicola | Plot B east side | 1× | Hill #2 when stems reach ~12" (~mid-May) | New: early Jun · Full: late Jun–Aug | ✅ Sprouted, 3" tall as of Apr 28. **Hill #1 due now** — mound soil leaving 3–4" exposed. |
+| Mar 29 | Spinach — Space + Goliath tape | Plot B north-center | 1 of 4 | Fish emulsion every 3–4 wks (next ~May 18) | **~May 8–13** (~40–45 days) | ✅ 1st fish-emulsion side-dress done late Apr |
+| Mar 29 | Radishes — Pepito | Plot A west side | 1 of 5 | None needed | **~Apr 19–28** (~21–30 days) | Should be ready to pull NOW — check bulb size |
+| Mar 29 | Lettuce — garlic interplant | Plot B south (between garlic) | — | Fish emulsion every 3–4 wks (next ~May 18) | **Late May–Jun** (before garlic harvest) | Garlic repels aphids — natural companion |
+| ~Apr 7 | Carrots — Yaya | Plot A center | 1 of 5 | Light fish emulsion in 2–3 wks (~May 15) | **~Jun 1–6** (~55–60 days) | ✅ Just sprouting Apr 28 (3 wks after sowing) |
+| ~Apr 15 | Spinach — Space | Plot B north-center | 2 of 4 | Fish emulsion ~mid-May | **~May 25–30** | 2-week succession from Mar 29 |
+| ~Apr 15 | Lettuce — Salanova/Muir/Allstar | Plot B center, 2 rows on side | 1 of main | Fish emulsion ~mid-May | **~Jun 9** (~55 days) | Main spring sowing |
+| ~Apr 15 | Dill — Bouquet | Plot A center-north (near future cuke trellis) | 1 of 5 | None needed | **~Jun 1–10** (~45–55 days) | Pickling-ready alongside cucumbers |
+| ~Apr 15 | Cilantro — Calypso | Plot A west-center | 1 of 6 | None needed | **~Jun 4–9** (~50–55 days) | Bolts fast — succession every 2–3 wks |
+| ~Apr 15 | Pea trellis installed | Plot B north | — | — | — | Fiberglass/bamboo (no metal — power line) ✅ |
+| ~Apr 20 | Sugar Snap Peas | Plot B north, on trellis | 2 of 2 | Bone meal at flowering (~mid-Jun) | **~Jun 17–30** | Extends harvest into late June |
+| ~Apr 25 | Zinnias — Benary's Giant Mix | Plot A east (over rain barrel) | 1 of 1 | None needed | First bloom **late Jun** | Pollinator magnet |
+| ~Apr 25 | Nasturtiums — Alaska Mix | Plot A east (over rain barrel) | 1 of 1–2 | None needed | First bloom **early Jun** | Edible flowers + aphid trap |
+| ~Apr 25 | Fish emulsion side-dress | Most plants (greens, alliums, peas) | 1× | Repeat every 3–4 wks (next ~May 22) | — | ✅ Done late April |
+| Apr 26 | Carrots — Yaya | Plot A center | 2 of 5 | Light fish emulsion in 4–5 wks (~May 30) | **~Jun 20–26** | 3-week succession from round 1 |
+
+### 🌱 Started indoors (not yet transplanted)
+
+| Started | Crop | Status | Transplant Target | Notes |
+|---|---|---|---|---|
+| Mar 12 | Parsley — Giant of Italy | Indoor seedlings | **Now (Apr 28–May 5)** | Hardened off — move to Plot A west-center |
+| Mar 12 | Marigolds — Bonanza Deep Orange | Indoor seedlings | **Now (Apr 28–May 5)** | Plot A east edge by tomato zone |
+| Apr 1 (est) | Cucumbers — Gershwin & Gateway | Indoor, 2" tall, true leaves emerging | **This weekend (May 2–3)** | Harden off this week, then transplant to Plot A trellis |
+
+### 🔜 Up next (next 7–14 days)
+
+- [ ] **Hill potatoes (1st hilling)** — They're 3" tall; mound soil now leaving 3–4" of foliage exposed.
+- [ ] **Harden off cucumbers** — Set outside in shade 2–3 hrs/day for 5–7 days, then transplant May 2–3 along Plot A north trellis (12" spacing).
+- [ ] **Plant rows 7–9 Plot B (replaces extra lettuce)** — Bok choy, Asian greens (mizuna/tatsoi/mustard mix), and bunching green onions. See "Late April — Replacing Extra Lettuce" below.
+- [ ] **Harvest first radishes** — Pepito sown Mar 29 should be marble-sized now.
+- [ ] **Plant pole beans (1st sowing)** — Direct sow Fortex & Seychelles when soil hits 60°F (~early May).
+- [ ] **Spinach 3rd sowing** (~Apr 29 — succession from Apr 15)
+- [ ] **Lettuce 2nd sowing** (succession ~early May)
+- [ ] **Radishes 3rd sowing** (~May 5–8, 10–14 days after round 2)
+
+---
+
 ## Late February — Early March (Now!)
 
 ### Garden Prep
@@ -50,13 +95,13 @@ Last frost: ~April 15 · First fall frost: ~October 15 · Growing season: ~180 d
 - [ ] **Test & amend soil** — If you have time before leaving, test pH. Otherwise defer to Mar 16.
 
 ### Planting — Cool-Season Direct Sow
-- [x] **Peas — Sugar Snap (Mar 12)** — PLANTED TODAY. Direct sowed 1" deep, 2–3" apart along Plot B trellis (north end). Climbing variety on trellis.
-- [ ] **Peas — Sugar Ann (bush)** — Direct sow Mar 16+ when back. Bush type, no trellis needed. Plant adjacent to climbing peas at Plot B north end.
+- [x] **Peas — Sugar Snap (Mar 12)** — PLANTED. Direct sowed 1" deep, 2–3" apart along Plot B trellis (north end). Climbing variety on trellis. Round 2 planted Apr 20.
 - [x] **Spinach — Space + Gurney's Goliath seed tape (planted Mar 29)** — Direct sowed ½" deep, 2–4" apart, Plot B north end. Seed tape for Goliath.
 - [x] **Radishes — Pepito (planted Mar 29)** — Direct sowed ½" deep, 1–2" apart, Plot A west side.
-- [ ] **Lettuce — Salanova, Muir, Allstar** — Direct sow Mar 16+. Soil temp needed: 40°F+. Sow ⅛" deep, barely cover. Plot B center.
+- [x] **Lettuce — Salanova, Muir, Allstar (planted ~Apr 15)** — Direct sowed in Plot B center (2 rows on the east side, plus garlic interplant). Decided to skip rows 7–9 to make room for bok choy/Asian greens/green onions instead.
 - [x] **Lettuce — interplant between garlic rows (planted Mar 29)** — Direct sowed lettuce between the garlic rows, Plot B south end. Garlic repels aphids — a natural companion. Harvest by May–June before garlic matures.
-- [ ] **Beets — Ruby Queen** — Direct sow Mar 16+. Soil temp 50°F+. Sow ½" deep, thin to 3–4" apart. You have Gurney's 1 oz packet — enough for several succession sowings.
+- [ ] ~~**Peas — Sugar Ann (bush)**~~ — *Skipped this season — relying on two rounds of climbing Sugar Snap instead.*
+- [ ] ~~**Beets — Ruby Queen**~~ — *Deferred — rows 7–9 going to bok choy/Asian greens instead. Beets can fit a fall sowing in Aug if desired.*
 
 ### Planting — Transplants & Sets
 - [x] **Onion plants — Patterson & Walla Walla (planted Mar 29)** — Planted 1" deep, 4–5" apart. Plot A south row.
@@ -76,26 +121,25 @@ Last frost: ~April 15 · First fall frost: ~October 15 · Growing season: ~180 d
 ### First Week Back (Mar 16–22) — Priority Planting Blitz
 - [x] **Cut potatoes for callusing** — Done prior to planting Mar 29.
 - [x] **Plant onion starts** — Patterson & Walla Walla planted Mar 29, 1" deep, 4–5" apart. Plot A south row.
-- [ ] **Install Plot B pea trellis** — Get this up before sowing peas.
-- [ ] **Direct sow peas** — Sugar Snap (climbing, on trellis) + Sugar Ann (bush, no trellis).
+- [x] **Install Plot B pea trellis (~Apr 15)** — Fiberglass/bamboo on netting. ✅
+- [x] **Direct sow peas** — Sugar Snap round 1 Mar 12, round 2 Apr 20 (climbing trellis).
 - [x] **Direct sow spinach (Mar 29)** — Space + Goliath seed tape, Plot B north end.
-- [ ] **Direct sow lettuce** — Salanova, Muir, Allstar in Plot B center. *(Garlic interplant lettuce planted Mar 29.)*
+- [x] **Direct sow lettuce (~Apr 15)** — Salanova, Muir, Allstar in Plot B center (excluded rows 7–9 for bok choy/Asian greens).
 - [x] **Direct sow radishes (Mar 29)** — Pepito, Plot A west side.
-- [ ] **Direct sow beets** — Ruby Queen.
 - [x] **Plant potatoes (Mar 29)** — Canada Gold, Carla Rose & Nicola planted 4" deep, 12" apart, Plot B east.
 
 ### Late March (Mar 22–31) — Additional Cool-Season Sowing
-- [ ] **Carrots — Yaya** — Soil at 50°F as of Mar 28; needs 55°F+. Target early April (~Apr 5–10). Sow ¼" deep, thin to 1–2" apart. Plot A center.
-- [ ] **Kale — Red Russian (2 plants) + Winter Wonderland** — Soil at 50°F as of Mar 28; needs 55°F+. Target early April (~Apr 5–10). Direct sow 4–6 seeds, thin to best 2 plants, 18–24" apart. Plot B south-center.
-- [ ] **Cilantro — Calypso (1st sowing)** — Soil at 50°F as of Mar 28; needs 55°F+. Target early April (~Apr 5–10). Sow ¼–½" deep, 6–8" apart. Plot A west-center.
+- [x] **Carrots — Yaya (planted ~Apr 7)** — Direct sowed ¼" deep, thinning to 1–2" apart. Plot A center. *Just sprouting Apr 28.*
+- [ ] **Kale — Red Russian (2 plants) + Winter Wonderland** — Target ~early May. Direct sow 4–6 seeds, thin to best 2 plants, 18–24" apart. Plot B south-center.
+- [x] **Cilantro — Calypso 1st sowing (~Apr 15)** — Direct sowed ¼–½" deep, 6–8" apart. Plot A west-center.
 
 ### Succession Planting
-- [ ] **Spinach — 2nd sowing** (~Apr 12, 2 weeks after Mar 29 planting)
-- [ ] **Lettuce — 1st main sowing** (Salanova, Muir, Allstar in Plot B center — still needed)
-- [ ] **Radishes — 2nd sowing** (~Apr 8–12, 10–14 days after Mar 29 planting)
+- [x] **Spinach — 2nd sowing (~Apr 15)** — Done; succession from Mar 29.
+- [x] **Lettuce — 1st main sowing (~Apr 15)** — Done in Plot B center east side.
+- [ ] **Radishes — 2nd sowing** — Soon (~Apr 30) for continuous supply.
 
 ### Garden Prep
-- [ ] **Fertilize cool-season crops** — Side-dress spinach, lettuce, kale, and peas with balanced organic fertilizer (e.g., 5-5-5 or fish emulsion) once seedlings have 2–3 true leaves.
+- [x] **Fertilize cool-season crops (~Apr 25)** — Fish emulsion side-dress on spinach, lettuce, kale spot, peas, onions. ✅ Done. Repeat in 3–4 wks (~May 22).
 
 **Soil temp (late March):** 50–51°F (measured Mar 28)
 
@@ -104,24 +148,24 @@ Last frost: ~April 15 · First fall frost: ~October 15 · Growing season: ~180 d
 ## Early April (Apr 1–15)
 
 ### Planting — Transition Period
-- [ ] **Carrots — 2nd succession sowing** (every 3 weeks)
-- [ ] **Cilantro — 2nd sowing** (every 2–3 weeks to stay ahead of bolting)
-- [ ] **Radishes — 3rd sowing** (~Apr 19–22)
-- [ ] **Lettuce — 2nd sowing** (succession from 1st main sowing)
+- [x] **Carrots — 1st sowing (~Apr 7)** — Done. Sprouting as of Apr 28.
+- [x] **Cilantro — 1st sowing (~Apr 15)** — Done. (2nd sowing ~May 6.)
+- [ ] **Radishes — 2nd sowing** (~Apr 30, 10–14 days after planned schedule)
+- [x] **Lettuce — 1st main sowing (~Apr 15)** — Done.
 
 ### Indoor Starts (for later transplant)
-- [ ] **Start cucumbers indoors** — Sow Gershwin & Gateway 3–4 weeks before transplant date (~May 1). Soil temp needed: 70–85°F. Use heat mat.
-- [ ] **Start dill indoors** (optional) — Or wait to direct sow after last frost. Soil temp needed: 60–70°F.
-- [ ] **Start nasturtiums indoors** — Sow ½–1" deep in pots 2–3 weeks before last frost. Darkness required for germination; cover pots.
-- [ ] **Start zinnias indoors** — Sow ¼" deep 4–6 weeks before last frost. Soil temp needed: 70–80°F.
+- [x] **Started cucumbers indoors (~Apr 1)** — Gershwin & Gateway. As of Apr 28: 2" tall, true leaves emerging. **Transplant outdoors May 2–3.**
+- [x] **Direct sowed dill (~Apr 15)** — Skipped indoor start; direct sowed after last frost.
+- [x] **Direct sowed nasturtiums (~Apr 25)** — Over rain barrel, east end Plot A.
+- [x] **Direct sowed zinnias (~Apr 25)** — Over rain barrel, east end Plot A.
 
 ### Infrastructure
-- [ ] **Install Plot A trellis** — Set up the full-length north-edge trellis for pole beans and cucumbers. Nylon netting on **fiberglass stakes** (6–7 ft, every 4–5 ft). ⚠️ No metal near power line. Get it in place before transplanting.
+- [ ] **Install Plot A trellis** — Set up the full-length north-edge trellis for pole beans and cucumbers. Nylon netting on **fiberglass stakes** (6–7 ft, every 4–5 ft). ⚠️ No metal near power line. **Needed before this weekend's cucumber transplant.**
 - [ ] **Prepare tomato cages** — Have 6 sturdy **non-metal** cages (at least 5 ft tall) ready for mid-May planting. Use fiberglass, heavy-duty plastic, or bamboo teepee supports. ⚠️ No metal near power line.
 
 ### Fertilizing
-- [ ] **Feed peas** — Peas fix their own nitrogen but benefit from a light phosphorus feed (bone meal) at flowering.
-- [ ] **Hill potatoes (first hilling)** — When potato stems are 6–8" tall, mound soil around them leaving 3–4" of foliage exposed.
+- [ ] **Feed peas** — Peas fix their own nitrogen but benefit from a light phosphorus feed (bone meal) at flowering. Round 1 should flower late Apr/early May — watch for it.
+- [ ] **Hill potatoes (first hilling)** — Stems are 3" tall as of Apr 28; once they hit 6–8" (next ~7–10 days), mound soil leaving 3–4" of foliage exposed.
 
 **Soil temp (early April):** ~53–57°F (trending from 50–51°F on Mar 28)
 
@@ -130,18 +174,41 @@ Last frost: ~April 15 · First fall frost: ~October 15 · Growing season: ~180 d
 ## Mid–Late April (Apr 15–30) — LAST FROST ~Apr 15
 
 ### Planting — After Last Frost
-- [ ] **Dill — Bouquet (1st sowing)** — Direct sow after last frost. Soil temp needed: 60°F+. Sow ¼" deep, 6–12" apart directly in front of cucumber trellis area (Plot A center-north).
-- [ ] **Pole Beans — Fortex & Seychelles (1st sowing)** — Direct sow when soil hits 60°F+. Sow 1" deep, 4–6" apart along Plot A trellis (west end). May need to wait until late April if soil is still cool.
-- [ ] **Nasturtiums — Alaska Mix** — Direct sow ½–1" deep, or transplant indoor starts. Soil temp needed: 55–65°F. Place near beans (Plot A) and flanking kale (Plot B).
+- [x] **Dill — Bouquet 1st sowing (~Apr 15)** — Done. Plot A center-north, near future cucumber trellis.
+- [x] **Nasturtiums — Alaska Mix (~Apr 25)** — Direct sowed over rain barrel, east end Plot A.
+- [x] **Zinnias — Benary's Giant Mix (~Apr 25)** — Direct sowed east end Plot A near rain barrel.
+- [x] **Pea trellis installed (~Apr 15)** — Fiberglass/bamboo with netting. ✅
+- [x] **Sugar Snap Peas — 2nd sowing (~Apr 20)** — Round 2 on the same trellis.
+- [x] **Spinach — 2nd sowing (~Apr 15)** — Done.
+- [x] **Lettuce — 1st main sowing (~Apr 15)** — Done in Plot B center east side.
+- [x] **Carrots — 2nd sowing (Apr 26)** — Done. Plot A center.
+- [x] **Cilantro — 1st sowing (~Apr 15)** — Done.
+- [x] **Fish emulsion side-dress (~Apr 25)** — Applied to most plants. ✅
+- [ ] **Pole Beans — Fortex & Seychelles (1st sowing)** — Direct sow when soil hits 60°F+ (likely ~May 5–10). Sow 1" deep, 4–6" apart along Plot A trellis (west end).
 
-### Succession Planting
-- [ ] **Spinach — 3rd sowing** (~Apr 26)
-- [ ] **Lettuce — 3rd sowing**
-- [ ] **Radishes — 4th sowing** (~May 3–6)
-- [ ] **Cilantro — 3rd sowing**
+### Late April — Replacing Extra Lettuce (Apr 28–May 5) 🆕
+
+> **Plan change:** Rows 7–9 of Plot B (12 sq ft) were originally lettuce. Replacing with Asian greens + bunching onions for variety.
+
+- [ ] **Bok choy — Joi Choi or Mei Qing Choi** — Direct sow ¼" deep, thin to 6–8" apart. Cool-weather crop, ~45 days to harvest. Plant in **row 7** (4 cells across).
+- [ ] **Asian greens mix — mizuna, tatsoi, mustard** — Direct sow ¼" deep, thin to 4–6" apart. Cut-and-come-again. ~30–45 days. Plant in **row 8** (4 cells across).
+- [ ] **Green onions — Evergreen Hardy White (bunching)** — ✅ Already on hand from Gurney's order (Item #77034). Direct sow ¼–½" deep, ½–1" apart in clusters. ~60–70 days from seed; pickable at scallion size much earlier. Plant in **row 9** (4 cells across).
+- [ ] **Pick up seed** — Bok choy and mizuna/tatsoi mix (only — green onion seed already in inventory). Home Depot has both; Johnny's also stocks them.
+
+### Succession Planting (upcoming)
+- [ ] **Spinach — 3rd sowing** (~Apr 30 — 2 wks after Apr 15)
+- [ ] **Lettuce — 2nd succession** (~early May)
+- [ ] **Radishes — 2nd sowing** (~Apr 30) and **3rd sowing** (~May 12)
+- [ ] **Cilantro — 2nd sowing** (~May 6)
+
+### Cucumber Transition (this weekend)
+- [ ] **Harden off cucumbers (Apr 28–May 1)** — Set indoor cucumber starts outside in shade for 2–3 hrs/day, increasing each day. They have true leaves and are 2" tall.
+- [ ] **Install Plot A trellis BEFORE transplant** — Fiberglass stakes + nylon netting along north edge.
+- [ ] **Transplant cucumbers (May 2–3)** — Gershwin (pickling) and Gateway (slicing). 12" apart along Plot A trellis.
 
 ### Fertilizing
-- [ ] **Side-dress leafy greens** — Apply fish emulsion or liquid kelp to lettuce, spinach, and kale every 3–4 weeks through the season.
+- [x] **Side-dress leafy greens (~Apr 25)** — Fish emulsion applied. Repeat every 3–4 weeks (next ~May 22).
+- [ ] **Hill potatoes #1** — Stems are 3" Apr 28; hill once they reach 6–8" (~early May).
 
 **Soil temp (late April):** ~55–60°F
 
@@ -380,15 +447,17 @@ Last frost: ~April 15 · First fall frost: ~October 15 · Growing season: ~180 d
 
 | Crop | Frequency | Start | End | Total Sowings |
 |---|---|---|---|---|
-| Lettuce | Every 2–3 weeks | **Apr 1** (main); garlic interplant Mar 29 | Sep 1 | ~9–11 |
-| Spinach | Every 2–3 weeks | **Mar 29** | May 15, then Aug 15–Sep 15 | ~5–7 |
-| Beets | Every 2–3 weeks | **Mar 16** | Jul 1 | ~4–5 |
+| Lettuce | Every 2–3 weeks | Mar 29 (garlic interplant); Apr 15 (main) | Sep 1 | ~9–11 |
+| Spinach | Every 2–3 weeks | **Mar 29 ✅, Apr 15 ✅** | May 15, then Aug 15–Sep 15 | ~5–7 |
 | Perpetual Spinach | 1–2 sowings | Jun 1 | Jun 15 | 1–2 (produces all summer) |
-| Radishes | Every 10–14 days | **Mar 29** | May 15, then Aug 15–Oct 1 | ~9–11 |
-| Cilantro | Every 2–3 weeks | Mar 25 | Jul 15 | ~6–8 |
-| Dill | Every 2–3 weeks | Apr 15 | Jul 15 | ~4–5 |
-| Pole Beans | 2–3 sowings, 2–3 weeks apart | Apr 20 | Jun 15 | 2–3 |
-| Carrots | Every 3 weeks | Mar 25 | Aug 1 | ~5–6 |
+| Radishes | Every 10–14 days | **Mar 29 ✅** | May 15, then Aug 15–Oct 1 | ~9–11 |
+| Cilantro | Every 2–3 weeks | **Apr 15 ✅** | Jul 15 | ~6–8 |
+| Dill | Every 2–3 weeks | **Apr 15 ✅** | Jul 15 | ~4–5 |
+| Pole Beans | 2–3 sowings, 2–3 weeks apart | ~May 5 | Jun 15 | 2–3 |
+| Carrots | Every 3 weeks | **Apr 7 ✅, Apr 26 ✅** | Aug 1 | ~5–6 |
+| Bok choy | 1–2 sowings | **Apr 28–May 5** | early Jun (bolts in heat) | 1–2 |
+| Asian greens (mizuna/tatsoi) | Every 2–3 weeks | **Apr 28–May 5** | Jun 15 (resume Sep) | ~3–4 spring |
+| Green onions (bunching) | 1 sowing (continuous harvest) | **Apr 28–May 5** | — | 1 |
 
 ### Fertilizing Schedule Summary
 
@@ -424,6 +493,9 @@ Last frost: ~April 15 · First fall frost: ~October 15 · Growing season: ~180 d
 | Onions — Patterson | Mid-July | August | Stores through winter |
 | Garlic | Mid-July | Mid-July | Mid-July |
 | Lettuce (interplanted w/ garlic) | Late May | May–Jun | June (before garlic harvest) |
+| Bok choy | Early Jun | Jun | Jun (bolts in heat) |
+| Asian greens (mizuna/tatsoi) | Mid-May (baby) | Late May–Jun | Jul (or pull at bolt) |
+| Green onions (bunching) | Late Jun (scallion size) | Jul–Sep | Continuous |
 | Fall Lettuce (post-garlic zone) | Mid-Sep | Oct | October |
 | Fall Spinach (post-garlic zone) | Oct | Oct–Nov | November |
 | Fall Radishes (post-garlic zone) | Mid-Aug | Sep | September |
@@ -442,4 +514,4 @@ Last frost: ~April 15 · First fall frost: ~October 15 · Growing season: ~180 d
 
 ---
 
-*Last updated: March 30, 2026 — Potatoes, spinach, radishes, lettuce (garlic interplant), and onions planted Mar 29. Soil temp 50–51°F; carrots/kale/cilantro shifted to early April.*
+*Last updated: April 28, 2026 — Major refresh. Carrots round 1 (Apr 7) sprouting; round 2 (Apr 26) just in. Pea trellis up Apr 15, sugar snap round 2 sown Apr 20. Spinach round 2, lettuce main, dill, cilantro all in mid-April. Zinnias + nasturtiums sown over rain barrel ~Apr 25. Fish emulsion side-dress applied to most plants ~Apr 25. Potatoes sprouted, 3" tall — first hilling due. Cucumbers indoors, true leaves emerging — transplant May 2–3. Plot B rows 7–9 reassigned from extra lettuce to bok choy + Asian greens + bunching green onions.*

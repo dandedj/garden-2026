@@ -147,7 +147,7 @@ const PHASES = [
   { id: 'mar12',     label: 'March 12 — Peas Sown',         detail: 'Sugar snap peas on Plot B trellis (no Plot A changes)' },
   { id: 'mar29',     label: 'March 29 — Spring Planting',    detail: 'Onions, radishes planted' },
   { id: 'apr-early', label: 'Early April — Cool Crops',      detail: 'Carrots, cilantro sown (soil 55°F+)' },
-  { id: 'apr-late',  label: 'Late April — After Last Frost', detail: 'Pole beans, dill, nasturtiums' },
+  { id: 'apr-late',  label: 'Late April — After Last Frost', detail: 'Dill (~Apr 15) + nasturtiums & zinnias over rain barrel (~Apr 25). Pole beans coming in early May.' },
   { id: 'may-early', label: 'Early May — Warm Transplants',  detail: 'Cucumbers & parsley transplanted' },
   { id: 'may-late',  label: 'Late May — Summer Crops',       detail: 'Tomatoes, peppers, basil, sage, marigolds, zinnias' },
 ];
@@ -228,16 +228,16 @@ const CELLS = [
   { r:17, c:2, label:'Marigold',  cls:'marigold',   phase:'may-late' },
   { r:17, c:3, rs:2, cs:2, label:'🍅 Tom 4', cls:'tomato', phase:'may-late' },
   { r:18, c:1, label:'Cuke Slice', cls:'cucumber',  phase:'may-early' },
-  { r:18, c:2, label:'Zinnia',    cls:'zinnia',     phase:'may-late' },
+  { r:18, c:2, label:'Zinnia',    cls:'zinnia',     phase:'apr-late' },
   // Row 19 — barrel area, shallow-rooting flowers
   { r:19, c:1, label:'Cuke Slice', cls:'cucumber',  phase:'may-early' },
-  { r:19, c:2, label:'Zinnia',    cls:'zinnia',     phase:'may-late' },
+  { r:19, c:2, label:'Zinnia',    cls:'zinnia',     phase:'apr-late' },
   { r:19, c:3, label:'Marigold',  cls:'marigold',   phase:'may-late' },
   { r:19, c:4, label:'Nasturtium',cls:'nasturtium', phase:'apr-late' },
   // Row 20 — flowers near barrel
   { r:20, c:1, label:'Nasturtium',cls:'nasturtium', phase:'apr-late' },
-  { r:20, c:2, label:'Zinnia',    cls:'zinnia',     phase:'may-late' },
-  { r:20, c:3, label:'Zinnia',    cls:'zinnia',     phase:'may-late' },
+  { r:20, c:2, label:'Zinnia',    cls:'zinnia',     phase:'apr-late' },
+  { r:20, c:3, label:'Zinnia',    cls:'zinnia',     phase:'apr-late' },
   { r:20, c:4, label:'Nasturtium',cls:'nasturtium', phase:'apr-late' },
 ];
 

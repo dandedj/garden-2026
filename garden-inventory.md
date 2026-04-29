@@ -181,6 +181,24 @@
 | Days to maturity | ~45–55 days | ~50–55 days (leaf) | ~70–80 days |
 | Notes | Preferred dill for pickling; plant near cucumbers | Slowest-bolting variety; 3 weeks slower than Santo | Large dark green leaves; very productive |
 
+### Asian Greens & Bunching Onions (Added 2026)
+
+*Added Apr 28, 2026 — replacing extra lettuce in Plot B rows 7–9.*
+
+> ✅ **Bunching green onion seed already on hand** — Gurney's Item #77034 (Evergreen White), delivered Sep 2025. Just need to pick up bok choy + mizuna/tatsoi mix.
+
+| Detail | Bok Choy (Joi Choi or Mei Qing) | Asian Greens Mix (mizuna/tatsoi/mustard) | Bunching Green Onions (Evergreen White) |
+|---|---|---|---|
+| Source | Home Depot or Johnny's (TO BUY) | Home Depot or Johnny's (TO BUY) | Gurney's #77034 (already on hand) |
+| Type | Cool-season brassica | Cool-season cut-and-come-again greens | Perennial bunching scallion |
+| Direct sow | Spring (Mar–May) and fall (Aug–Sep) | Spring and fall; succession every 2–3 weeks | Spring; thin clumps as needed |
+| Seed depth | ¼ inch | ¼ inch | ¼–½ inch |
+| Spacing | 6–8 inches apart, rows 12 in | 4–6 inches apart, rows 6–12 in | ½–1 inch apart in clumps; thin & eat thinnings |
+| Germination temp | 50–75°F | 45–75°F | 50–75°F |
+| Days to germination | 5–10 days | 5–10 days | 7–14 days |
+| Days to maturity | ~45 days (full) / ~30 days (baby) | ~30–45 days | ~60–70 days (scallion size much earlier) |
+| Notes | Bolts in heat — bolt early sowings before summer; replant in fall. Watch for flea beetles | Cut-and-come-again — harvest outer leaves; plants regrow several times | Bunching/perennial type — won't form bulbs; clip green tops for scallions, leaves regrow |
+
 ### Companion Flowers (Seeds)
 
 | Detail | Marigold (buy locally) | Alaska Mix Nasturtium | Benary's Giant Mix Zinnia |
